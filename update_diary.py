@@ -18,7 +18,7 @@ def get_thai_date():
     return f"{now.day} {months[now.month-1]} {now.year}"
 
 def get_time_str():
-    return datetime.datetime.now().strftime("%H:%M")
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
 def main():
     if len(sys.argv) < 3:
