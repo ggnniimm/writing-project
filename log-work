@@ -1,0 +1,22 @@
+#!/bin/bash
+# Script to add manual entry to git_diary.md
+
+DIARY_FILE="git_diary.md"
+DATE_TIME=$(date "+%Y-%m-%d %H:%M")
+
+if [ -z "$1" ]; then
+    echo "Usage: ./log-work \"Action Title\" \"Details (optional)\""
+    exit 1
+fi
+
+TITLE="$1"
+DETAILS="$2"
+
+echo "" >> "$DIARY_FILE"
+echo "**[$DATE_TIME] 🛠 Manual Log: $TITLE**" >> "$DIARY_FILE"
+
+if [ -n "$DETAILS" ]; then
+    echo "    -   $DETAILS" >> "$DIARY_FILE"
+fi
+
+echo "✅ Saved to $DIARY_FILE"
