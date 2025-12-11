@@ -41,12 +41,12 @@
     *       -   📝 แก้ไข: articles/procurement_act_section_102.md
     *       -   📝 แก้ไข: git_diary.md
 *   **[2025-12-11 17:20] 📝**
-    Update Section 102: Add OAG Case Study and reorder sections
-    *       -   📝 แก้ไข: .DS_Store
+    Update: เพิ่มกรณีศึกษาและปรับลำดับหัวข้อในบทความมาตรา 102
+    *   **Add Case Study:** เพิ่มหัวข้อ "⚖️ กรณีศึกษา (Case Study)" โดยสรุปจากบันทึกสำนักงานอัยการสูงสุดที่ 211/2561 (เรื่องการขออนุญาตหน่วยงานภายนอกล่าช้า)
+    *   **Reorder:** ย้ายหัวข้อ "กรณีศึกษา" ไปอยู่ก่อนหน้า "แหล่งอ้างอิง" เพื่อการลำดับเนื้อหาที่ดีขึ้น
+    *   **Resources:** เพิ่มไฟล์อ้างอิง `references/date_extension.pdf`
     *       -   📝 แก้ไข: articles/procurement_act_section_102.md
-    *       -   📝 แก้ไข: git_diary.md
-    *       -   📝 แก้ไข: push-work
-    *       -   📝 แก้ไข: references/.DS_Store
+    *       -   ✨ สร้างใหม่: references/date_extension.pdf
 ### 🔧 System & Workflow (งานระบบและคำสั่ง)
 *   **[2025-12-11 09:50] ⚙️**
     Setup: Clone โปรเจกต์และจัดโครงสร้างโฟลเดอร์ `articles/`
@@ -77,6 +77,11 @@
 
 *   **[2025-12-11 15:13] 📝**
     Log: บันทึกเพิ่มเติมก่อน Push
+
+*   **[2025-12-11 17:18] ⚡**
+    Workflow: ปรับปรุงคำสั่ง ppp (push-work) ให้ Auto-Commit
+    *   แก้ไขสคริปต์ `push-work` ให้ทำการ `git add .` และ `git commit` ไฟล์ทั้งหมดให้อัตโนมัติก่อน Push (จากเดิมที่ Commit แค่ Diary) เพื่อความสะดวกรวดเร็ว
+    *       -   📝 แก้ไข: push-work
 
 **[2025-12-11 15:16] System: Reformat diary layout (message on new line)**
     -   📝 แก้ไข: update_diary.py
@@ -109,3 +114,5 @@
 **[2025-12-11 16:15] Log: บันทึกเพิ่มเติมก่อน Push**
     -   📝 แก้ไข: articles/procurement_act_section_102.md
     -   ✨ สร้างใหม่: references/.DS_Store
+
+

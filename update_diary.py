@@ -1,6 +1,8 @@
 import sys
 import datetime
 import os
+import subprocess
+import re
 
 DIARY_FILE = "git_diary.md"
 
@@ -10,17 +12,98 @@ def get_thai_date():
         "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
     ]
     now = datetime.datetime.now()
-    year = now.year + 543 if now.year < 2400 else now.year # Adjust only if it's Christ era
-    # Actually user seems to use 2025 in the file, let's match the file format
-    # File uses: ## 📅 11 ธันวาคม 2025
-    # So year is 2025 (CE). Let's stick to CE if the file uses CE.
-    # checking file... "11 ธันวาคม 2025" -> This is CE.
     return f"{now.day} {months[now.month-1]} {now.year}"
 
 def get_time_str():
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
 
+def run_git_diff():
+    try:
+        # Get status of staged files
+        result = subprocess.check_output(["git", "diff", "--cached", "--name-status"], encoding="utf-8")
+        return [line.split('\t') for line in result.strip().split('\n') if line.strip()]
+    except:
+        return []
+
+def analyze_markdown_changes(filepath):
+    try:
+        # Get diff content to see which lines changed
+        diff = subprocess.check_output(["git", "diff", "--cached", "-U0", filepath], encoding="utf-8")
+        
+        # Find changed line numbers (simplistic approach: just get the first one)
+        # @@ -20 +20,2 @@ -> We care about the '+' part
+        match = re.search(r'@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@', diff)
+        if not match:
+            return None
+        
+        changed_line_num = int(match.group(1))
+        
+        with open(filepath, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        # Search backwards from changed_line_num for the nearest Header
+        current_header = None
+        for i in range(min(changed_line_num - 1, len(lines) - 1), -1, -1):
+            line = lines[i].strip()
+            if line.startswith("#"):
+                current_header = line.lstrip("#").strip()
+                break
+        
+        return current_header
+    except:
+        return None
+
+def suggest_mode():
+    changes = run_git_diff()
+    if not changes:
+        print("system|Log: บันทึกเพิ่มเติมก่อน Push|No changes detected")
+        return
+
+    # Heuristic Analysis
+    category = "system"
+    messages = []
+    details = []
+
+    content_files = [f[1] for f in changes if f[1].endswith(".md") and "articles/" in f[1]]
+    
+    if content_files:
+        category = "content"
+        for f in content_files:
+            filename = os.path.basename(f)
+            header = analyze_markdown_changes(f)
+            if header:
+                messages.append(f"Update {filename}: {header}")
+                details.append(f"📝 แก้ไข: {filename} (Section: {header})")
+            else:
+                messages.append(f"Update {filename}")
+                details.append(f"📝 แก้ไข: {filename}")
+    
+    # Check for other files
+    other_files = [f[1] for f in changes if f[1] not in content_files]
+    if other_files:
+        if not messages: # Pure system update
+            messages.append("System Update: Config & Scripts")
+        
+        for f in other_files:
+            if f.endswith(".py") or f.endswith(".sh") or "push-work" in f:
+                details.append(f"🛠 แก้ไขระบบ: {os.path.basename(f)}")
+            else:
+                details.append(f"📄 แก้ไข: {os.path.basename(f)}")
+
+    # Construct Output
+    final_message = " | ".join(messages[:2]) # Take max 2 primary messages
+    if len(messages) > 2:
+        final_message += " and more..."
+        
+    final_details = "\\n".join(details)
+    
+    print(f"{category}|{final_message}|{final_details}")
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == "--suggest":
+        suggest_mode()
+        sys.exit(0)
+
     if len(sys.argv) < 3:
         print("Usage: python3 update_diary.py <category> <message> [details]")
         sys.exit(1)
@@ -36,18 +119,20 @@ def main():
     icon = ""
     if category_code == "content":
         cat_header = "### ✍️ Content & Research (งานเนื้อหาและค้นคว้า)"
-        icon = "📝" # Default icon, can be customized
+        icon = "📝"
     elif category_code == "system":
         cat_header = "### 🔧 System & Workflow (งานระบบและคำสั่ง)"
         icon = "🛠"
     else:
-        print(f"Unknown category: {category_code}")
-        sys.exit(1)
+        # Default or fallback
+        cat_header = "### 📌 General"
+        icon = "📌"
 
     entry_line = f"*   **[{get_time_str()}] {icon}**\n    {message}"
     if details:
-        # Indent details
-        entry_line += "\n" + "\n".join([f"    *   {line}" for line in details.split('\n') if line.strip()])
+        # Indent details. If details contain literal \n from shell, replace them
+        details_clean = details.replace("\\n", "\n")
+        entry_line += "\n" + "\n".join([f"    *   {line}" for line in details_clean.split('\n') if line.strip()])
 
     # Read file
     if not os.path.exists(DIARY_FILE):
@@ -57,7 +142,6 @@ def main():
             lines = f.readlines()
 
     # Logic to insert
-    # 1. Find Date Header
     date_found_idx = -1
     for i, line in enumerate(lines):
         if line.strip() == header_date:
@@ -65,57 +149,38 @@ def main():
             break
     
     if date_found_idx == -1:
-        # Create new date block at the end
         if lines and lines[-1].strip() != "":
             lines.append("\n")
         lines.append(f"{header_date}\n\n{cat_header}\n{entry_line}\n")
     else:
-        # Date found, look for Category Header under this date
-        # Search from date_found_idx onwards until next ## Header or End of file
         cat_found_idx = -1
         next_date_idx = len(lines)
         
         for i in range(date_found_idx + 1, len(lines)):
-            if lines[i].strip().startswith("## "): # Next date block
+            if lines[i].strip().startswith("## "):
                 next_date_idx = i
                 break
             if lines[i].strip() == cat_header.strip():
                 cat_found_idx = i
         
         if cat_found_idx != -1:
-            # Append inside existing category
-            # Find the end of this category (start of next cat or next date)
             insert_pos = next_date_idx
             for i in range(cat_found_idx + 1, next_date_idx):
-                if lines[i].strip().startswith("### "): # Next category
+                if lines[i].strip().startswith("### "):
                     insert_pos = i
                     break
-            
-            # Use insert_pos
             lines.insert(insert_pos, f"{entry_line}\n")
             
         else:
-            # Category not found under this date, Insert it.
-            # Determine where to insert: After the last category of this date?
-            # Or just after the Date header if no cats exist?
-            
-            # Simple logic: Insert before next date or at end of existing content for this date
             insert_pos = next_date_idx
-            # If there is another category, we might want to order them? 
-            # Content First, System Second.
             if category_code == "content":
-                 # Insert right after date header + 1 (blank line)
                  insert_pos = date_found_idx + 2
                  if insert_pos >= len(lines):
                      lines.append("\n")
                      insert_pos = len(lines)
-            else:
-                 # System goes to the end of the day block
-                 pass # insert_pos is already next_date_idx
             
             lines.insert(insert_pos, f"\n{cat_header}\n{entry_line}\n")
 
-    # Write back
     with open(DIARY_FILE, "w", encoding="utf-8") as f:
         f.writelines(lines)
     

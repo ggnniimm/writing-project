@@ -1,36 +1,42 @@
 #!/bin/bash
 DIARY_FILE="git_diary.md"
 
-while true; do
-    echo "📢 มีบันทึกเพิ่มเติมก่อน Push มั้ยครับ? (จำเป็นต้องระบุ)"
-    read -r MANUAL_LOG
+# 1. Stage all changes first
+git add .
 
-    if [ -n "$MANUAL_LOG" ]; then
-        echo "🤔 งานนี้อยู่ในหมวดไหนครับ?"
-        echo "   1) ✍️  Content & Research (งานเนื้อหา/ค้นคว้า)"
-        echo "   2) 🔧 System & Workflow (งานระบบ/ตั้งค่า)"
-        read -p "เลือก (1/2): " CAT_CHOICE
+# 2. Get Smart Suggestion
+SUGGESTION=$(python3 update_diary.py --suggest)
+# Suggestion format: category|message|details (newline separated)
+IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
 
-        CATEGORY="system"
-        if [ "$CAT_CHOICE" == "1" ]; then
-            CATEGORY="content"
-        fi
-        
-        # Calculate changed files details
-        CHANGED_FILES=$(git diff --name-status HEAD | sed 's/^M[[:space:]]*/    -   📝 แก้ไข: /;s/^A[[:space:]]*/    -   ✨ สร้างใหม่: /;s/^D[[:space:]]*/    -   🗑️ ลบ: /')
+echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
+echo "---------------------------------------------------"
+echo "📂 หมวดงาน: $AUTO_CAT"
+echo "📝 ข้อความ: $AUTO_MSG"
+echo "---------------------------------------------------"
+echo "💡 กด [Enter] เพื่อใช้ข้อความนี้ หรือพิมพ์ใหม่เพื่อแก้ไข"
+read -p "👉 Your Log: " USER_LOG
 
-        # Call Python script
-        python3 update_diary.py "$CATEGORY" "$MANUAL_LOG" "$CHANGED_FILES"
+if [ -z "$USER_LOG" ]; then
+    MANUAL_LOG="$AUTO_MSG"
+    CATEGORY="$AUTO_CAT"
+    DETAILS="$AUTO_DETAILS"
+else
+    MANUAL_LOG="$USER_LOG"
+    # If user types manual log, we ask for category just to be safe, or default to auto?
+    # Let's keep it simple: If manual, assume user wants full control OR just use auto category.
+    # To be safe, let's use the Auto Category unless user wants to change (too complex for now).
+    # We'll use Auto Category for simplicity.
+    CATEGORY="$AUTO_CAT"
+    DETAILS="$AUTO_DETAILS" # Keep details even if message changes
+fi
 
-        # Commit ALL files automatically
-        git add .
-        git commit -m "$MANUAL_LOG"
-        echo "✅ บันทึกลง Diary และ Commit (รวมไฟล์งาน) เรียบร้อย"
-        break
-    else
-        echo "❌ จำเป็นต้องใส่บันทึกครับ! ห้ามเว้นว่าง"
-    fi
-done
+# Call Python script to write to diary
+python3 update_diary.py "$CATEGORY" "$MANUAL_LOG" "$DETAILS"
+
+# Commit
+git commit -m "$MANUAL_LOG"
+echo "✅ บันทึกลง Diary และ Commit (รวมไฟล์งาน) เรียบร้อย"
 
 # 3. ส่งงานขึ้น GitHub
 echo "🚀 กำลังส่งงานขึ้น GitHub..."
