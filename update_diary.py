@@ -44,7 +44,7 @@ def main():
         print(f"Unknown category: {category_code}")
         sys.exit(1)
 
-    entry_line = f"*   **[{get_time_str()}] {icon} {message}**"
+    entry_line = f"*   **[{get_time_str()}] {icon}**\n    {message}"
     if details:
         # Indent details
         entry_line += "\n" + "\n".join([f"    *   {line}" for line in details.split('\n') if line.strip()])
