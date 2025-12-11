@@ -34,10 +34,6 @@
 **Message:** Config: Start tracking git_diary.md on GitHub
 ---
 
-### 🚀 Push: 2025-12-11 11:54:24
-Start pushing to remote...
----
-
 ### 📝 Commit: 2025-12-11 12:02:37
 **Message:** เพิ่มข้อความในmyfirst
 ---
@@ -48,22 +44,17 @@ Start pushing to remote...
 **[2025-12-11 12:16] Tools: Add log-work script and merge diary history**
     -   ✨ Created: log-work
 
-**[2025-12-11 12:16] 🚀 Pushing to GitHub...**
-
 **[2025-12-11 12:18] Tools: เปลี่ยนภาษาเป็นไทย**
     -   📝 แก้ไข: log-work
 
-**[2025-12-11 12:18] 🚀 กำลังส่งงานขึ้น GitHub...**
-
 **[2025-12-11 12:19] Log: อัปเดตบันทึกการทำงานล่าสุด**
-
-**[2025-12-11 12:19] 🚀 กำลังส่งงานขึ้น GitHub...**
 
 **[2025-12-11 12:35] Create: บทความเรื่องการแก้ไขสัญญา (มาตรา 97)**
     -   ✨ สร้างใหม่: articles/procurement_act_section_97.md
 
-**[2025-12-11 12:36] 🚀 กำลังส่งงานขึ้น GitHub...**
-
 **[2025-12-11 12:39] Log: บันทึกการ Push งานล่าสุดลง Diary**
 
-**[2025-12-11 12:39] 🚀 กำลังส่งงานขึ้น GitHub...**
+**[2025-12-11 12:40] Log: Sync Diary ล่าสุด**
+
+**[2025-12-11 12:43] Tools: เพิ่มสคริปต์ push-work สำหรับบันทึกก่อนส่งงาน**
+    -   ✨ สร้างใหม่: push-work
