@@ -30,8 +30,7 @@ def analyze_markdown_changes(filepath):
         # Get diff content to see which lines changed
         diff = subprocess.check_output(["git", "diff", "--cached", "-U0", filepath], encoding="utf-8")
         
-        # Find changed line numbers (simplistic approach: just get the first one)
-        # @@ -20 +20,2 @@ -> We care about the '+' part
+        # Determine changed line number (first match)
         match = re.search(r'@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@', diff)
         if not match:
             return None
@@ -41,15 +40,31 @@ def analyze_markdown_changes(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             lines = f.readlines()
         
-        # Search backwards from changed_line_num for the nearest Header
+        # 1. Find Header (Context)
         current_header = None
         for i in range(min(changed_line_num - 1, len(lines) - 1), -1, -1):
             line = lines[i].strip()
             if line.startswith("#"):
                 current_header = line.lstrip("#").strip()
                 break
+
+        # 2. Extract Added Content (Summary)
+        # Look for lines starting with '+' in diff, exclude '+++' header and empty lines
+        added_lines = []
+        for line in diff.split('\n'):
+            if line.startswith('+') and not line.startswith('+++') and len(line) > 2:
+                clean_line = line[1:].strip().replace('*', '').replace('-', '').strip()
+                if clean_line:
+                    added_lines.append(clean_line)
         
-        return current_header
+        # Summarize content (take first 2 meaningful lines)
+        content_summary = ""
+        if added_lines:
+            content_summary = " (Items: " + ", ".join(added_lines[:2]) + ")"
+        
+        if current_header:
+            return f"{current_header}{content_summary}"
+        return f"General Update{content_summary}"
     except:
         return None
 
