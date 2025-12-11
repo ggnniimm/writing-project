@@ -149,3 +149,12 @@
 *   **[2025-12-11 21:04] 🛠**
     Task Tracking: Create todo.md
     *   🔥 เพิ่มระบบติดตามงาน (todo.md) เพื่อช่วยให้การทำงานข้ามเครื่องราบรื่น (Seamless Workflow)
+
+## 📅 11 ธันวาคม 2025
+
+### 🔧 System & Workflow (งานระบบและคำสั่ง)
+*   **[2025-12-11 21:14] 🛠**
+    System Update: Config & Scripts
+    *   📄 แก้ไข: git_diary.md
+    *   📄 แก้ไข: date_extension.pdf
+    *   🛠 แก้ไขระบบ: update_diary.py
