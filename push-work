@@ -22,10 +22,10 @@ while true; do
         # Call Python script
         python3 update_diary.py "$CATEGORY" "$MANUAL_LOG" "$CHANGED_FILES"
 
-        # Commit only the diary file automatically
-        git add "$DIARY_FILE"
-        git commit -m "Log: บันทึกเพิ่มเติมก่อน Push"
-        echo "✅ บันทึกลง Diary และ Commit เรียบร้อย"
+        # Commit ALL files automatically
+        git add .
+        git commit -m "$MANUAL_LOG"
+        echo "✅ บันทึกลง Diary และ Commit (รวมไฟล์งาน) เรียบร้อย"
         break
     else
         echo "❌ จำเป็นต้องใส่บันทึกครับ! ห้ามเว้นว่าง"
