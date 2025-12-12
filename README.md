@@ -10,6 +10,8 @@ We use a specific format for `git_diary.md`.
 - **Log:** Use `### 📝 บันทึกการปฏิบัติงาน (Operations Log)` for detailed entries.
 - **Style:** "Captain's Log" - Tell a story about *why* changes were made, not just *what* changed.
 - **Automation:** Use `ppp` (push-work) to generate entries. **Do not manually edit the diary unless necessary.**
+- **Naming Convention:**
+    - Always use **"คำวินิจฉัย อสส. ที่ [เลขที่]/[ปี]"** when referring to Office of the Attorney General rulings. (e.g., *คำวินิจฉัย อสส. ที่ 133/2561*)
 
 ### 2. ⚡ Workflow Commands
 The user interacts with this repo primarily through **custom scripts**.

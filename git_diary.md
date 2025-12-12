@@ -20,6 +20,12 @@
     *   📝 แก้ไข: `push-work`
     *   📝 แก้ไข: `update_diary.py`
 
+*   **[09:06] 🔧 Enforce Thai Language Policy for AI Diary**
+    ปรับปรุงระบบและเอกสารข้อแนะนำ (README) เพื่อกำหนดให้ AI ต้องเขียน Diary เป็นภาษาไทยเท่านั้น พร้อมทั้งอัปเดตสคริปต์ให้สร้างข้อความอัตโนมัติเป็นภาษาไทยทั้งหมด
+📄 แก้ไข: README.md
+📄 แก้ไข: git_diary.md
+🛠 แก้ไขระบบ: update_diary.py
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -198,3 +204,7 @@
     *   📄 แก้ไข: git_diary.md
     *   📄 แก้ไข: date_extension.pdf
     *   🛠 แก้ไขระบบ: update_diary.py
+
+**[2025-12-12 09:06] Enforce Thai Language Policy for AI Diary**
+    -   📝 แก้ไข: README.md
+    -   📝 แก้ไข: update_diary.py
