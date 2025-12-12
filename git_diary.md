@@ -91,6 +91,14 @@
 📄 แก้ไข: procurement_act_section_97.html
 📄 แก้ไข: git_diary.md
 
+*   **[15:28] 📝 Update Section 102 (Case Study 5): ปรับสำนวนให้เน้นหลักการ (Principle First)**
+    - ตัดคำขึ้นต้น "จาก คำวินิจฉัย..." ออก
+📝 แก้ไข: procurement_act_section_102.md (ส่วน: ⚖️ เกร็ดกฎหมายชั้นสูง (Advanced Legal Tip) (Items: กรณีศึกษาที่ 5: "จบแล้วจบเลย? ขยายเวลาไม่ได้ แต่ของดค่าปรับได้" (Limitation of Remedies), มีหลักการสำคัญที่แยกความแตกต่างระหว่าง "การขยายเวลา" กับ "การงดค่าปรับ" ไว้อย่างชัดเจนในเคสที่งานจบแล้ว <sup>[9]</sup> ดังนี้:))
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+📄 แก้ไข: git_diary.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -314,6 +322,12 @@
     -   📝 แก้ไข: articles/procurement_act_section_102.md
 
 **[2025-12-12 15:19] Update Section 102: เพิ่มกรณีศึกษาที่ 4 (คืนค่าปรับย้อนหลัง)**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+
+**[2025-12-12 15:28] Update Section 102 (Case Study 5): ปรับสำนวนให้เน้นหลักการ (Principle First)**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
