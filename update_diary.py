@@ -114,10 +114,106 @@ def suggest_mode():
     
     print(f"{category}|{final_message}|{final_details}")
 
+def summary_mode():
+    print("\n📝 **Daily Retrospective (สรุปภาพรวมประจำวัน)**")
+    print("กรุณาตอบคำถามสั้นๆ (กด Enter เพื่อข้ามหัวข้อที่ไม่ต้องการระบุ)\n")
+
+    accomplished = input("1. ✅ สิ่งที่ทำสำเร็จ (Accomplished): ").strip()
+    pending = input("2. 🗓️ สิ่งที่ยังค้างอยู่/แผนต่อไป (Pending): ").strip()
+    went_well = input("3. 🌟 สิ่งที่ทำได้ดี (What Went Well): ").strip()
+    not_well = input("4. 🚧 สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well): ").strip()
+    improvements = input("5. 🔧 สิ่งที่ควรปรับปรุง (Improvements): ").strip()
+
+    # Generate Summary Markdown
+    summary_md = ""
+    
+    summary_md += f"**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**\n\n"
+    
+    if accomplished:
+        summary_md += f"### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅\n*   {accomplished}\n\n"
+    
+    if pending:
+        summary_md += f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   {pending}\n\n"
+    
+    if went_well:
+        summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n*   {went_well}\n\n"
+        
+    if not_well:
+        summary_md += f"### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧\n*   {not_well}\n\n"
+        
+    if improvements:
+        summary_md += f"### 5. สิ่งที่ควรต้องแก้ไข (Improvements) 🔧\n*   {improvements}\n\n"
+        
+    if not summary_md.strip().replace("**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**", "").strip():
+         print("❌ ไม่มีการกรอกข้อมูลสรุป ยกเลิกการอัปเดตสรุปประจำวัน")
+         return
+
+    # Update Diary File
+    if not os.path.exists(DIARY_FILE):
+        print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
+        return
+
+    with open(DIARY_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    today_date = get_thai_date()
+    header_date = f"## 📅 {today_date}"
+    
+    # Logic to replace summary
+    # Find Date Header
+    date_idx = -1
+    for i, line in enumerate(lines):
+        if line.strip() == header_date:
+            date_idx = i
+            break
+    
+    if date_idx == -1:
+        # Create new date section (should be unusual for end of day, but handle it)
+         if lines and lines[-1].strip() != "":
+            lines.append("\n")
+         lines.append(f"{header_date}\n")
+         lines.append(f"{summary_md}")
+         lines.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n") # Add log header if new
+         print("⚠️ สร้างหัวข้อวันที่ใหม่ (ปกติควรมีอยู่แล้วจากการทำงานระหว่างวัน)")
+    else:
+        # Date exists. Look for the "Summary" section to replace.
+        # It usually starts after date header and ends before "### 📝 บันทึกการปฏิบัติงาน"
+        
+        start_replace = date_idx + 1
+        end_replace = start_replace
+        
+        # Heuristic: Find where the operations log starts
+        log_header_marker = "### 📝 บันทึกการปฏิบัติงาน"
+        
+        for i in range(start_replace, len(lines)):
+            if lines[i].strip().startswith(log_header_marker):
+                end_replace = i
+                break
+            # Safety break if we hit next date
+            if lines[i].strip().startswith("## 📅"):
+                 end_replace = i
+                 break
+        
+        # Replace the range [start_replace:end_replace] with new summary
+        # But allow keeping lines that are NOT the old summary boilerplate if impactful?
+        # For simplicity and robustness, we overwrite the "Summary Block".
+        
+        # Construct the new specific block
+        lines[start_replace:end_replace] = [s + "\n" for s in summary_md.split('\n')]
+
+    with open(DIARY_FILE, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+        
+    print("✅ อัปเดตสรุปภาพรวมประจำวันเรียบร้อย")
+
 def main():
-    if len(sys.argv) > 1 and sys.argv[1] == "--suggest":
-        suggest_mode()
-        sys.exit(0)
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "--suggest":
+            suggest_mode()
+            sys.exit(0)
+        elif sys.argv[1] == "--summary":
+            summary_mode()
+            sys.exit(0)
 
     if len(sys.argv) < 3:
         print("Usage: python3 update_diary.py <category> <message> [details]")

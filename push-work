@@ -9,30 +9,45 @@ SUGGESTION=$(python3 update_diary.py --suggest)
 # Suggestion format: category|message|details (newline separated)
 IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
 
-echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
-echo "---------------------------------------------------"
-echo "📂 หมวดงาน: $AUTO_CAT"
-echo "📝 ข้อความ: $AUTO_MSG"
-echo "---------------------------------------------------"
-echo "💡 กด [Enter] เพื่อใช้ข้อความนี้ หรือพิมพ์ใหม่เพื่อแก้ไข"
-read -p "👉 Your Log: " USER_LOG
-
-if [ -z "$USER_LOG" ]; then
-    MANUAL_LOG="$AUTO_MSG"
-    CATEGORY="$AUTO_CAT"
-    DETAILS="$AUTO_DETAILS"
+# Check if arguments are provided (Non-Interactive Mode)
+if [ "$#" -gt 0 ]; then
+    MANUAL_LOG="$1"
+    CATEGORY="content"  # Default category for auto-push
+    DETAILS=""
+    
+    echo "🤖 Auto-Push Mode Activated"
+    echo "📝 Message: $MANUAL_LOG"
 else
-    MANUAL_LOG="$USER_LOG"
-    CATEGORY="$AUTO_CAT"
-    DETAILS="$AUTO_DETAILS"
+    # Interactive Mode
+    echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
+    echo "---------------------------------------------------"
+    echo "📂 หมวดงาน: $AUTO_CAT"
+    echo "📝 ข้อความ: $AUTO_MSG"
+    echo "---------------------------------------------------"
+    echo "💡 กด [Enter] เพื่อใช้ข้อความนี้ หรือพิมพ์ใหม่เพื่อแก้ไข"
+    read -p "👉 Your Log: " USER_LOG
 fi
 
-echo "💬 เพิ่มรายละเอียด/เรื่องราว (Optional) - กด [Enter] เพื่อข้าม"
-read -p "👉 Story: " USER_STORY
+if [ -z "$MANUAL_LOG" ]; then
+    if [ -z "$USER_LOG" ]; then
+        MANUAL_LOG="$AUTO_MSG"
+        CATEGORY="$AUTO_CAT"
+        DETAILS="$AUTO_DETAILS"
+    else
+        MANUAL_LOG="$USER_LOG"
+        CATEGORY="$AUTO_CAT"
+        DETAILS="$AUTO_DETAILS"
+    fi
+fi
 
-if [ ! -z "$USER_STORY" ]; then
-    # Combine User Story with Auto File Details
-    DETAILS="$USER_STORY\n$DETAILS"
+if [ "$#" -eq 0 ]; then
+    echo "💬 เพิ่มรายละเอียด/เรื่องราว (Optional) - กด [Enter] เพื่อข้าม"
+    read -p "👉 Story: " USER_STORY
+    
+    if [ ! -z "$USER_STORY" ]; then
+        # Combine User Story with Auto File Details
+        DETAILS="$USER_STORY\n$DETAILS"
+    fi
 fi
 
 # 0. Generate HTML

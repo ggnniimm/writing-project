@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# 1. Interactive Summary
+python3 update_diary.py --summary
+
+# Check exit code (in case user cancelled)
+if [ $? -ne 0 ]; then
+    echo "❌ ยกเลิกกระบวนการ (Cancelled)"
+    exit 1
+fi
+
+# 2. Auto-Push
+echo ""
+echo "🚀 กำลังบันทึกและส่งงานประจำวัน..."
+./push-work "📝 Daily Wrap-up: สรุปงานประจำวันเรียบร้อย"
