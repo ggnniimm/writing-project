@@ -99,6 +99,14 @@
 📄 แก้ไข: procurement_act_section_97.html
 📄 แก้ไข: git_diary.md
 
+*   **[15:30] 📝 Correct Section 102 (Case Study 5): แก้ไขข้อเท็จจริงตามคำวินิจฉัย**
+    - เปลี่ยน "ผู้รับจ้างขอขยายเวลา" เป็น "ผู้รับจ้างของดค่าปรับ (ขอคืนเงิน)"
+📝 แก้ไข: procurement_act_section_102.md (ส่วน: ⚖️ เกร็ดกฎหมายชั้นสูง (Advanced Legal Tip) (Items: ประเด็น: ผู้รับจ้างร้องขอให้ "งดหรือลดค่าปรับ" (ขอคืนเงินค่าปรับ) เนื่องจากเห็นว่าค่าปรับที่กำหนดในสัญญาขัดกับ TOR, 1.  การแก้ไขสัญญาเพื่อขยายเวลา: "ทำไม่ได้" เพราะสัญญาสิ้นสุดความผูกพันไปแล้ว ไม่มีระยะเวลาเหลือให้ขยายอีก (แม้หน่วยงานจะอยากแก้สัญญาเพื่อให้สอดคล้องกับ TOR ก็ตาม)))
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+📄 แก้ไข: git_diary.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -328,6 +336,12 @@
     -   📝 แก้ไข: articles/procurement_act_section_102.md
 
 **[2025-12-12 15:28] Update Section 102 (Case Study 5): ปรับสำนวนให้เน้นหลักการ (Principle First)**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+
+**[2025-12-12 15:30] Correct Section 102 (Case Study 5): แก้ไขข้อเท็จจริงตามคำวินิจฉัย**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
