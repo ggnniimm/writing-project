@@ -67,6 +67,14 @@
 📄 แก้ไข: git_diary.md
 🛠 แก้ไขระบบ: push-work
 
+*   **[14:29] 🔧 Update HTML Generator: เพิ่มเครดิตผู้จัดทำ (Footer) และ Timestamp ในไฟล์ HTML**
+    - ระบุชื่อผู้จัดทำ: "นายมิ่งศักดิ์ แสงวิไลพร"
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+🛠 แก้ไขระบบ: generate_html.py
+📄 แก้ไข: git_diary.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -276,3 +284,9 @@
     -   ✨ สร้างใหม่: articles/html/procurement_act_section_97.html
     -   ✨ สร้างใหม่: generate_html.py
     -   📝 แก้ไข: push-work
+
+**[2025-12-12 14:29] Update HTML Generator: เพิ่มเครดิตผู้จัดทำ (Footer) และ Timestamp ในไฟล์ HTML**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: generate_html.py
