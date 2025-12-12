@@ -107,6 +107,16 @@
 📄 แก้ไข: procurement_act_section_97.html
 📄 แก้ไข: git_diary.md
 
+*   **[15:38] 📝 Correction: แก้ไขชื่อหน่วยงานอ้างอิงเป็น อสส. 84/2563**
+    - เปลี่ยนจาก กวจ. เป็น อสส. ในบทความ, เอกสารอ้างอิง, และแผนงาน
+📝 แก้ไข: procurement_act_section_102.md (ส่วน: 📚 แหล่งอ้างอิงและข้อมูลเพิ่มเติม (References) (Items: 9.  [9] คำวินิจฉัย อสส. ที่ 84/2563: เรื่อง ระยะเวลาแก้ไขสัญญา การคิดค่าปรับตามสัญญา และการงดหรือลดค่าปรับ (กรณีสัญญาจบแล้วขยายเวลาไม่ได้ แต่พิจารณางดค่าปรับได้)))
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+📄 แก้ไข: git_diary.md
+📄 แก้ไข: ref_kwj_11924_2564.md
+📄 แก้ไข: ref_oag_84_2563.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -346,3 +356,11 @@
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
     -   📝 แก้ไข: articles/procurement_act_section_102.md
+
+**[2025-12-12 15:38] Correction: แก้ไขชื่อหน่วยงานอ้างอิงเป็น อสส. 84/2563**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+    -   ✨ สร้างใหม่: references/ref_kwj_11924_2564.md
+    -   ✨ สร้างใหม่: references/ref_oag_84_2563.md

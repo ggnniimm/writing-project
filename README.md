@@ -56,3 +56,7 @@ To set up this workflow on a new macOS machine:
 *   `references/`: PDFs and source materials.
 *   `git_diary.md`: The main work log (Hybrid Narrative).
 *   `update_diary.py`: The brain behind the auto-diary.
+### 3. 📂 Reference Protocol
+*   **Rule:** Every time a new document, file, or image is provided for content analysis, a corresponding Markdown file must be created in the `references/` directory.
+*   **Content:** The file should contain the original content (transcribed or excerpted) without modification, followed by any analysis if applicable.
+*   **Naming:** Use descriptive names, e.g., `ref_[source]_[number]_[year].md`.
