@@ -35,7 +35,12 @@ if [ ! -z "$USER_STORY" ]; then
     DETAILS="$USER_STORY\n$DETAILS"
 fi
 
-# Call Python script to write to diary
+# 0. Generate HTML
+echo "🎨 Generating Premium HTML Documents..."
+python3 generate_html.py
+
+# 1. Update Diary
+echo "🤖 Updating AI Diary..."
 python3 update_diary.py "$CATEGORY" "$MANUAL_LOG" "$DETAILS"
 
 # Commit
