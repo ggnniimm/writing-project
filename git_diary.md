@@ -117,6 +117,16 @@
 📄 แก้ไข: ref_kwj_11924_2564.md
 📄 แก้ไข: ref_oag_84_2563.md
 
+*   **[15:51] 🔧 System Update: กำหนดมาตรฐานการอ้างอิง (Reference Protocol)**
+    - เพิ่มกฎใน README: ทุกเอกสารใหม่ต้องสร้างไฟล์ Markdown ใน folder references/
+📄 แก้ไข: README.md
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+📄 แก้ไข: git_diary.md
+📄 แก้ไข: ref_kwj_19265_2568.md
+📄 แก้ไข: ref_kwj_337000_2567.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -364,3 +374,11 @@
     -   📝 แก้ไข: articles/procurement_act_section_102.md
     -   ✨ สร้างใหม่: references/ref_kwj_11924_2564.md
     -   ✨ สร้างใหม่: references/ref_oag_84_2563.md
+
+**[2025-12-12 15:51] System Update: กำหนดมาตรฐานการอ้างอิง (Reference Protocol)**
+    -   📝 แก้ไข: README.md
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   ✨ สร้างใหม่: references/ref_kwj_19265_2568.md
+    -   ✨ สร้างใหม่: references/ref_kwj_337000_2567.md
