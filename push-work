@@ -23,12 +23,16 @@ if [ -z "$USER_LOG" ]; then
     DETAILS="$AUTO_DETAILS"
 else
     MANUAL_LOG="$USER_LOG"
-    # If user types manual log, we ask for category just to be safe, or default to auto?
-    # Let's keep it simple: If manual, assume user wants full control OR just use auto category.
-    # To be safe, let's use the Auto Category unless user wants to change (too complex for now).
-    # We'll use Auto Category for simplicity.
     CATEGORY="$AUTO_CAT"
-    DETAILS="$AUTO_DETAILS" # Keep details even if message changes
+    DETAILS="$AUTO_DETAILS"
+fi
+
+echo "💬 เพิ่มรายละเอียด/เรื่องราว (Optional) - กด [Enter] เพื่อข้าม"
+read -p "👉 Story: " USER_STORY
+
+if [ ! -z "$USER_STORY" ]; then
+    # Combine User Story with Auto File Details
+    DETAILS="$USER_STORY\n$DETAILS"
 fi
 
 # Call Python script to write to diary

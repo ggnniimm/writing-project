@@ -128,26 +128,43 @@ def main():
     details = sys.argv[3] if len(sys.argv) > 3 else ""
 
     today_date = get_thai_date()
+    # Format: ## 📅 12 ธันวาคม 2025
     header_date = f"## 📅 {today_date}"
     
-    cat_header = ""
-    icon = ""
+    # New Standard Header for Logs
+    log_header = "### 📝 Operations Log"
+    
+    # Icon mapping
+    icon = "📌"
     if category_code == "content":
-        cat_header = "### ✍️ Content & Research (งานเนื้อหาและค้นคว้า)"
         icon = "📝"
     elif category_code == "system":
-        cat_header = "### 🔧 System & Workflow (งานระบบและคำสั่ง)"
-        icon = "🛠"
-    else:
-        # Default or fallback
-        cat_header = "### 📌 General"
-        icon = "📌"
-
-    entry_line = f"*   **[{get_time_str()}] {icon}**\n    {message}"
+        icon = "🔧"
+    
+    # Narrative Entry Format
+    # *   **[HH:MM] 🔧 Task Name**
+    #     [Narrative...]
+    #     *   *Files:* ...
+    
+    time_str = get_time_str().split(" ")[1] # Get HH:MM
+    entry_header = f"*   **[{time_str}] {icon} {message}**"
+    
+    entry_body = []
     if details:
-        # Indent details. If details contain literal \n from shell, replace them
         details_clean = details.replace("\\n", "\n")
-        entry_line += "\n" + "\n".join([f"    *   {line}" for line in details_clean.split('\n') if line.strip()])
+        # Add narrative text directly
+        entry_body.append(f"    {details_clean}")
+    
+    # Auto-detect files if not explicitly mentioned (Simple heuristic)
+    try:
+        files = [line.split('\t')[1] for line in run_git_diff() if len(line.split('\t')) > 1]
+        if files:
+            file_list = ", ".join([f"`{os.path.basename(f)}`" for f in files])
+            entry_body.append(f"    *   *Files:* {file_list}")
+    except:
+        pass
+
+    full_entry = f"{entry_header}\n" + "\n".join(entry_body) + "\n"
 
     # Read file
     if not os.path.exists(DIARY_FILE):
@@ -157,6 +174,7 @@ def main():
             lines = f.readlines()
 
     # Logic to insert
+    # 1. Find Date Header
     date_found_idx = -1
     for i, line in enumerate(lines):
         if line.strip() == header_date:
@@ -164,42 +182,57 @@ def main():
             break
     
     if date_found_idx == -1:
+        # Create new date section with Summary placeholder
         if lines and lines[-1].strip() != "":
             lines.append("\n")
-        lines.append(f"{header_date}\n\n{cat_header}\n{entry_line}\n")
+        lines.append(f"{header_date}\n")
+        lines.append(f"**🤖 Daily Summary:**\n(Pending Summary...)\n\n")
+        lines.append(f"{log_header}\n")
+        lines.append(full_entry)
+        lines.append("\n### ⏭️ Next Steps\n- [ ] ...\n")
     else:
-        cat_found_idx = -1
-        next_date_idx = len(lines)
+        # Date exists, find Log Header
+        log_found_idx = -1
+        next_section_idx = len(lines)
         
         for i in range(date_found_idx + 1, len(lines)):
-            if lines[i].strip().startswith("## "):
-                next_date_idx = i
+            if lines[i].strip().startswith("## "): # Next date
+                next_section_idx = i
                 break
-            if lines[i].strip() == cat_header.strip():
-                cat_found_idx = i
-        
-        if cat_found_idx != -1:
-            insert_pos = next_date_idx
-            for i in range(cat_found_idx + 1, next_date_idx):
-                if lines[i].strip().startswith("### "):
-                    insert_pos = i
-                    break
-            lines.insert(insert_pos, f"{entry_line}\n")
+            if lines[i].strip() == log_header:
+                log_found_idx = i
+            # If we find "Next Steps" or other h3
+            if lines[i].strip().startswith("### ⏭️"):
+                next_section_idx = i
+                break
+                
+        if log_found_idx != -1:
+            # Append to existing log section (before the next section)
+            # Find the end of this log section
+            insert_pos = next_section_idx
+            # Backtrack empty lines
+            while insert_pos > log_found_idx and lines[insert_pos-1].strip() == "":
+                insert_pos -= 1
             
+            lines.insert(insert_pos, f"{full_entry}")
+            # Ensure spacing
+            if lines[insert_pos-1].strip() != "":
+               lines.insert(insert_pos, "\n")
+               
         else:
-            insert_pos = next_date_idx
-            if category_code == "content":
-                 insert_pos = date_found_idx + 2
-                 if insert_pos >= len(lines):
-                     lines.append("\n")
-                     insert_pos = len(lines)
+            # Date exists but no Log header (weird, but create it)
+            # Insert after Summary (assuming summary is right after date)
+            insert_pos = date_found_idx + 1
+            # Skip summary lines
+            while insert_pos < len(lines) and not lines[insert_pos].strip().startswith("###"):
+                 insert_pos += 1
             
-            lines.insert(insert_pos, f"\n{cat_header}\n{entry_line}\n")
+            lines.insert(insert_pos, f"\n{log_header}\n{full_entry}\n")
 
     with open(DIARY_FILE, "w", encoding="utf-8") as f:
         f.writelines(lines)
     
-    print(f"✅ บันทึก '{message}' ลงในหมวด '{category_code}' เรียบร้อย")
+    print(f"✅ บันทึก '{message}' เรียบร้อย")
 
 if __name__ == "__main__":
     main()
