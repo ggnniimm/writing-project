@@ -83,6 +83,14 @@
 📄 แก้ไข: procurement_act_section_97.html
 📄 แก้ไข: git_diary.md
 
+*   **[15:19] 📝 Update Section 102: เพิ่มกรณีศึกษาที่ 4 (คืนค่าปรับย้อนหลัง)**
+    - เพิ่มแนววินิจฉัยเรื่องการคืนค่าปรับหลังตรวจรับงาน
+📝 แก้ไข: procurement_act_section_102.md (ส่วน: ⚖️ เกร็ดกฎหมายชั้นสูง (Advanced Legal Tip) (Items: กรณีศึกษาที่ 4: "ตรวจรับไปแล้ว ขอคืนค่าปรับย้อนหลังได้หรือไม่?" (Refund after Acceptance), แนววินิจฉัยจาก หนังสือคณะกรรมการวินิจฉัยปัญหาการจัดซื้อจัดจ้างฯ (กวจ.) <sup>[8]</sup> เป็นกรณีศึกษาที่สำคัญมากสำหรับผู้รับจ้างที่ "ยอมให้หักค่าปรับไปแล้ว"))
+📄 แก้ไข: my_first_article.html
+📄 แก้ไข: procurement_act_section_102.html
+📄 แก้ไข: procurement_act_section_97.html
+📄 แก้ไข: git_diary.md
+
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] อัปเดตข้อมูลใน `procurement_act_section_102.md` (รอข้อมูลเพิ่มเติม)
 - [ ] เริ่มค้นคว้าข้อมูลสำหรับ มาตรา 97
@@ -300,6 +308,12 @@
     -   📝 แก้ไข: generate_html.py
 
 **[2025-12-12 14:42] Refine Section 102: ปรับปรุงรูปแบบการอ้างอิงและเนื้อหา (Final Polish)**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+
+**[2025-12-12 15:19] Update Section 102: เพิ่มกรณีศึกษาที่ 4 (คืนค่าปรับย้อนหลัง)**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
