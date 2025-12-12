@@ -5,8 +5,9 @@ If you are an AI assistant opening this project for the first time, please follo
 
 ### 1. 📝 Diary Format (Hybrid Narrative)
 We use a specific format for `git_diary.md`.
+- **Language:** **THAI ONLY (ภาษาไทยเท่านั้น)**. All summaries, logs, and narrative descriptions must be written in Thai.
 - **Header:** `## 📅 YYYY-MM-DD` followed by a **summary** of the day.
-- **Log:** Use `### 📝 Operations Log` for detailed entries.
+- **Log:** Use `### 📝 บันทึกการปฏิบัติงาน (Operations Log)` for detailed entries.
 - **Style:** "Captain's Log" - Tell a story about *why* changes were made, not just *what* changed.
 - **Automation:** Use `ppp` (push-work) to generate entries. **Do not manually edit the diary unless necessary.**
 

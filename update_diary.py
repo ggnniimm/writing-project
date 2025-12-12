@@ -64,7 +64,7 @@ def analyze_markdown_changes(filepath):
         
         if current_header:
             return f"{current_header}{content_summary}"
-        return f"General Update{content_summary}"
+        return f"อัปเดตทั่วไป{content_summary}"
     except:
         return None
 
@@ -87,17 +87,17 @@ def suggest_mode():
             filename = os.path.basename(f)
             header = analyze_markdown_changes(f)
             if header:
-                messages.append(f"Update {filename}: {header}")
-                details.append(f"📝 แก้ไข: {filename} (Section: {header})")
+                messages.append(f"แก้ไข {filename}: {header}")
+                details.append(f"📝 แก้ไข: {filename} (ส่วน: {header})")
             else:
-                messages.append(f"Update {filename}")
+                messages.append(f"แก้ไข {filename}")
                 details.append(f"📝 แก้ไข: {filename}")
     
     # Check for other files
     other_files = [f[1] for f in changes if f[1] not in content_files]
     if other_files:
         if not messages: # Pure system update
-            messages.append("System Update: Config & Scripts")
+            messages.append("ปรับปรุงระบบ: Config & Scripts")
         
         for f in other_files:
             if f.endswith(".py") or f.endswith(".sh") or "push-work" in f:
@@ -132,7 +132,7 @@ def main():
     header_date = f"## 📅 {today_date}"
     
     # New Standard Header for Logs
-    log_header = "### 📝 Operations Log"
+    log_header = "### 📝 บันทึกการปฏิบัติงาน (Operations Log)"
     
     # Icon mapping
     icon = "📌"
@@ -186,10 +186,10 @@ def main():
         if lines and lines[-1].strip() != "":
             lines.append("\n")
         lines.append(f"{header_date}\n")
-        lines.append(f"**🤖 Daily Summary:**\n(Pending Summary...)\n\n")
+        lines.append(f"**🤖 สรุปภาพรวมประจำวัน:**\n(รอสรุป...)\n\n")
         lines.append(f"{log_header}\n")
         lines.append(full_entry)
-        lines.append("\n### ⏭️ Next Steps\n- [ ] ...\n")
+        lines.append("\n### ⏭️ ก้าวต่อไป (Next Steps)\n- [ ] ...\n")
     else:
         # Date exists, find Log Header
         log_found_idx = -1
