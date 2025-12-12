@@ -154,7 +154,7 @@ HTML_TEMPLATE = """
         {content}
         
         <div class="footer">
-            <p>เอกสารฉบับนี้จัดทำขึ้นด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: {timestamp}</p>
+            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: {timestamp}</p>
         </div>
     </div>
 </body>
