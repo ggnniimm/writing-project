@@ -327,13 +327,26 @@ def main():
     
     if date_found_idx == -1:
         # Create new date section
-        if lines and lines[-1].strip() != "":
-            lines.append("\n")
-        lines.append(f"{header_date}\n")
-        lines.append(f"**🤖 สรุปภาพรวมประจำวัน:**\n(รอสรุป...)\n\n")
-        lines.append(f"{log_header}\n")
-        lines.append(full_entry)
-        lines.append("\n### ⏭️ ก้าวต่อไป (Next Steps)\n- [ ] ...\n")
+        new_section = []
+        new_section.append(f"\n{header_date}\n")
+        new_section.append(f"**🤖 สรุปภาพรวมประจำวัน:**\n(รอสรุป...)\n\n")
+        new_section.append(f"{log_header}\n")
+        new_section.append(full_entry)
+        new_section.append("\n### ⏭️ ก้าวต่อไป (Next Steps)\n- [ ] ...\n")
+        new_section.append("---")
+        
+        # Insert after the main header (usually line 0 or 1)
+        # Find the first line starting with '# ' and sub-header if any
+        insert_idx = 0
+        for i, line in enumerate(lines):
+            if line.startswith("# "):
+                 insert_idx = i + 1
+                 # Maybe allow for some spacing
+                 if insert_idx < len(lines) and lines[insert_idx].strip() == "":
+                     insert_idx += 1
+                 break
+        
+        lines[insert_idx:insert_idx] = new_section
     else:
         # Date exists, find Log Header
         log_found_idx = -1

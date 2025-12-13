@@ -491,6 +491,8 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[13:25] 📝 Update Diary Format: Reverse Order & Richer Context**
+
 *   **[13:20] 📝 Update Section 102 Deep Dive & Fix HTML Generator**
 
 *   **[13:22] 📝 Update Section 97 with Advanced Tips & Cases**
