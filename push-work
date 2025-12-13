@@ -41,8 +41,8 @@ if [ -z "$MANUAL_LOG" ]; then
 fi
 
 if [ "$#" -eq 0 ]; then
-    echo "💬 เพิ่มรายละเอียด/เรื่องราว (Optional) - กด [Enter] เพื่อข้าม"
-    read -p "👉 Story: " USER_STORY
+    echo "💬 เพิ่มบริบทของงาน (Context) - ทำไม? อย่างไร? (สำคัญมาก!) - กด [Enter] เพื่อข้าม"
+    read -p "👉 Context: " USER_STORY
     
     if [ ! -z "$USER_STORY" ]; then
         # Combine User Story with Auto File Details

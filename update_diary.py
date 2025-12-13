@@ -269,7 +269,7 @@ def main():
     
     # Narrative Entry Format
     # *   **[HH:MM] 🔧 Task Name**
-    #     [Narrative...]
+    #     > "Narrative..."
     #     *   *Files:* ...
     
     time_str = get_time_str().split(" ")[1] # Get HH:MM
@@ -278,15 +278,33 @@ def main():
     entry_body = []
     if details:
         details_clean = details.replace("\\n", "\n")
-        # Add narrative text directly
-        entry_body.append(f"    {details_clean}")
+        # Add narrative text with quote style for emphasis (Context)
+        # Check if it looks like a file list or narrative
+        lines_detail = details_clean.splitlines()
+        narrative = []
+        file_info = []
+        
+        for line in lines_detail:
+            if line.strip().startswith("📝 แก้ไข:") or line.strip().startswith("🛠") or line.strip().startswith("✨") or line.strip().startswith("📄"):
+                 file_info.append(line)
+            else:
+                 narrative.append(line)
+        
+        if narrative:
+            entry_body.append("    > " + "\n    > ".join(narrative))
+            entry_body.append("") # Spacer
+            
+        if file_info:
+             entry_body.extend([f"    {l}" for l in file_info])
     
     # Auto-detect files if not explicitly mentioned (Simple heuristic)
     try:
         files = [line.split('\t')[1] for line in run_git_diff() if len(line.split('\t')) > 1]
         if files:
             file_list = ", ".join([f"`{os.path.basename(f)}`" for f in files])
-            entry_body.append(f"    *   *Files:* {file_list}")
+            # Avoid duplicate file listing if possible, but keep specific changes
+            if not any("Files:" in d for d in details.split("\\n")):
+                 entry_body.append(f"    *   *Files:* {file_list}")
     except:
         pass
 
@@ -308,7 +326,7 @@ def main():
             break
     
     if date_found_idx == -1:
-        # Create new date section with Summary placeholder
+        # Create new date section
         if lines and lines[-1].strip() != "":
             lines.append("\n")
         lines.append(f"{header_date}\n")
@@ -319,37 +337,22 @@ def main():
     else:
         # Date exists, find Log Header
         log_found_idx = -1
-        next_section_idx = len(lines)
         
         for i in range(date_found_idx + 1, len(lines)):
-            if lines[i].strip().startswith("## "): # Next date
-                next_section_idx = i
-                break
             if lines[i].strip() == log_header:
                 log_found_idx = i
-            # If we find "Next Steps" or other h3
-            if lines[i].strip().startswith("### ⏭️"):
-                next_section_idx = i
+                break
+            if lines[i].strip().startswith("## "): # Next date safety check
                 break
                 
         if log_found_idx != -1:
-            # Append to existing log section (before the next section)
-            # Find the end of this log section
-            insert_pos = next_section_idx
-            # Backtrack empty lines
-            while insert_pos > log_found_idx and lines[insert_pos-1].strip() == "":
-                insert_pos -= 1
-            
+            # Insert AT THE TOP of the log section (LIFO)
+            insert_pos = log_found_idx + 1
             lines.insert(insert_pos, f"{full_entry}")
-            # Ensure spacing
-            if lines[insert_pos-1].strip() != "":
-               lines.insert(insert_pos, "\n")
                
         else:
-            # Date exists but no Log header (weird, but create it)
-            # Insert after Summary (assuming summary is right after date)
+            # Date exists but no Log header (weird), Insert after Summary
             insert_pos = date_found_idx + 1
-            # Skip summary lines
             while insert_pos < len(lines) and not lines[insert_pos].strip().startswith("###"):
                  insert_pos += 1
             

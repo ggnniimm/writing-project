@@ -493,6 +493,9 @@
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
 *   **[13:20] 📝 Update Section 102 Deep Dive & Fix HTML Generator**
 
+*   **[13:22] 📝 Update Section 97 with Advanced Tips & Cases**
+
+
 
 ### ⏭️ ก้าวต่อไป (Next Steps)
 - [ ] ...
