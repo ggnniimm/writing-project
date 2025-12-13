@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:32] 📝 Update Section 102: Correct Legal Definition (Time Extension vs Amendment)**
+    > Corrected the legal definition in 'Unlock Nuance' based on user feedback. Clarified that 'Time Extension' is technically a 'Grace Period for Debt Performance' (Civil Law concept) exercised under Section 102, which is distinct from 'Contract Amendment' under Section 97. Note: The previous sync failed because I hesitated to auto-run; proceeding now with the corrected content.
+
 *   **[14:27] 📝 Update Section 102: Refactor Best Practices for Dispute Prevention**
     > Reframed the 'Action Plan' section to be inclusive of all parties (Employer, Committee, Contractor). The new content focuses on 'Dispute Prevention' by emphasizing mutual responsibilities: prompt notification, site inspection duties, strict adherence to timelines, and evidence-based fairness. This shifts the tone from 'instructional' to 'collaborative governance'.
 
