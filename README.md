@@ -15,9 +15,10 @@ We use a specific format for `git_diary.md`.
 ### 2. ⚡ Workflow Commands
 The user interacts with this repo primarily through **custom scripts**.
 *   **`./push-work` (Alias: `ppp`):** The main command.
+    *   **Usage:** `./push-work "Message" "Context (Why & How)"`
     *   Stages all files.
     *   Analyzes changes using `update_diary.py`.
-    *   **Asks the user for a "Story" (Narrative).**
+    *   **Context is MANDATORY:** If running manually, always provide the 2nd argument. If running interactively, fill in the prompt.
     *   Updates `git_diary.md` automatically.
     *   Commits and Pushes to GitHub.
 

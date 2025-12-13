@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:20] 📝 System Upgrade: Enforce Rich Diary Protocol**
+    > Modified push-work script to accept context as a second argument and updated README to mandate its usage. This ensures every diary entry henceforth will contain a rich narrative (Why & How).
+
 *   **[14:19] 📝 Fix Diary: Restore rich narrative context to recent entries**
 
 *   **[14:15] 📝 Update Section 102: Add Citation [11] for Waiver of Rights**

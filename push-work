@@ -12,11 +12,19 @@ IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
 # Check if arguments are provided (Non-Interactive Mode)
 if [ "$#" -gt 0 ]; then
     MANUAL_LOG="$1"
+    if [ "$#" -gt 1 ]; then
+        USER_STORY="$2"
+    else
+        USER_STORY=""
+    fi
     CATEGORY="content"  # Default category for auto-push
     DETAILS=""
     
     echo "🤖 Auto-Push Mode Activated"
     echo "📝 Message: $MANUAL_LOG"
+    if [ ! -z "$USER_STORY" ]; then
+        echo "📖 Context: $USER_STORY"
+    fi
 else
     # Interactive Mode
     echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
@@ -43,11 +51,11 @@ fi
 if [ "$#" -eq 0 ]; then
     echo "💬 เพิ่มบริบทของงาน (Context) - ทำไม? อย่างไร? (สำคัญมาก!) - กด [Enter] เพื่อข้าม"
     read -p "👉 Context: " USER_STORY
-    
-    if [ ! -z "$USER_STORY" ]; then
-        # Combine User Story with Auto File Details
-        DETAILS="$USER_STORY\n$DETAILS"
-    fi
+fi
+
+if [ ! -z "$USER_STORY" ]; then
+    # Combine User Story with Auto File Details
+    DETAILS="$USER_STORY\n$DETAILS"
 fi
 
 # 0. Generate HTML
