@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:27] 📝 Update Section 102: Refactor Best Practices for Dispute Prevention**
+    > Reframed the 'Action Plan' section to be inclusive of all parties (Employer, Committee, Contractor). The new content focuses on 'Dispute Prevention' by emphasizing mutual responsibilities: prompt notification, site inspection duties, strict adherence to timelines, and evidence-based fairness. This shifts the tone from 'instructional' to 'collaborative governance'.
+
 *   **[14:20] 📝 System Upgrade: Enforce Rich Diary Protocol**
     > Modified push-work script to accept context as a second argument and updated README to mandate its usage. This ensures every diary entry henceforth will contain a rich narrative (Why & How).
 
