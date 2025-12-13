@@ -1,0 +1,25 @@
+#!/bin/bash
+
+echo "🚀 Starting Day... (คำสั่ง bbb)"
+echo "---------------------------------------------------"
+
+# 1. Pull latest changes
+echo "📥 Git Pulling..."
+git pull
+
+echo "---------------------------------------------------"
+# 2. Read README (Highlights)
+echo "📚 Project Guidelines (README)"
+# Show only the AI Agent Guidelines and Workflow Commands sections (approx lines 1-25)
+head -n 25 README.md
+echo "..."
+echo "(Read full README.md if needed)"
+
+echo "---------------------------------------------------"
+# 3. Read Latest Diary Entry
+echo "📅 Latest Diary Entry (สรุปงานล่าสุด)"
+python3 update_diary.py --read-latest
+
+echo "---------------------------------------------------"
+echo "💡 Ready to start! Use 'ppp' to sync your work."
+echo "✅ Job Init Complete."

@@ -206,6 +206,33 @@ def summary_mode():
         
     print("✅ อัปเดตสรุปภาพรวมประจำวันเรียบร้อย")
 
+def read_latest_mode():
+    if not os.path.exists(DIARY_FILE):
+        print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
+        return
+
+    with open(DIARY_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    found_first_date = False
+    printed_lines = []
+    
+    for line in lines:
+        if line.strip().startswith("## 📅"):
+            if found_first_date:
+                # Found the *second* date, stop
+                break
+            found_first_date = True
+        
+        if found_first_date:
+            printed_lines.append(line)
+            
+    if not printed_lines:
+        print("ยังไม่มีบันทึกประจำวัน")
+    else:
+        print("".join(printed_lines).strip())
+
+
 def main():
     if len(sys.argv) > 1:
         if sys.argv[1] == "--suggest":
@@ -213,6 +240,9 @@ def main():
             sys.exit(0)
         elif sys.argv[1] == "--summary":
             summary_mode()
+            sys.exit(0)
+        elif sys.argv[1] == "--read-latest":
+            read_latest_mode()
             sys.exit(0)
 
     if len(sys.argv) < 3:
