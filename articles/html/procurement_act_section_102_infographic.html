@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographic Script: Procurement Act Section 102</title>
+    <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -146,38 +146,254 @@
 </head>
 <body>
     <div class="container">
-        <h1>Infographic Script: Procurement Act Section 102</h1>
-<p><strong>Theme: 3 Steps to Save Your Contract (วิธีรอดค่าปรับใน 3 ขั้นตอน)</strong></p>
-<hr />
-<h2>Panel 1: Headline</h2>
-<p><strong>"งานช้า ไม่ใช่ความผิดเรา... ทำไงดี?"</strong>
-<em>Visual:</em> รูปคนงานเกาหัวยืนมองไซต์งานที่มีปัญหาน้ำท่วม หรือประตูปิดล็อก</p>
-<hr />
-<h2>Panel 2: The Cause (เช็คสาเหตุ)</h2>
-<p><strong>เช็คก่อน! เข้าเกณฑ์ไหม?</strong>
-*   🏛 <strong>ความผิดรัฐ:</strong> ส่งพื้นที่ช้า / สั่งหยุดงาน / แบบผิด
-*   ⛈ <strong>เหตุสุดวิสัย:</strong> ภัยพิบัติ / โรคระบาด / สงคราม (ฝนตกธรรมดาไม่นับ!)</p>
-<hr />
-<h2>Panel 3: The Golden Rule (กฎเหล็ก)</h2>
-<p><strong>⏰ "15 วัน" เปลี่ยนชีวิต</strong>
-*   ต้องแจ้งเหตุ <strong>ภายใน 15 วัน</strong> หลังเหตุจบ
-*   ‼️ <em>Warning:</em> ช้ากว่านี้ = อดสิทธิ์ทันที (ศาลสั่งแล้ว!)</p>
-<hr />
-<h2>Panel 4: The Process (3 Steps ง่ายๆ)</h2>
-<ol>
-<li>📄 <strong>แจ้งทันที:</strong> เกิดเหตุปุ๊บ ส่งหนังสือแจ้งสงวนสิทธิ์ปั๊บ</li>
-<li>📸 <strong>เก็บหลักฐาน:</strong> รูปถ่าย + ลายเซ็นคนคุมงาน</li>
-<li>✍️ <strong>ยื่นคำร้อง:</strong> ทำเรื่องขอ "ขยายเวลา" หรือ "งดค่าปรับ" ก่อนครบ 15 วัน</li>
-</ol>
-<hr />
-<h2>Panel 5: Key Takeaway (สรุป)</h2>
-<p><strong>"รัฐผิด รัฐต้องรับผิดชอบ... แต่เราต้องรักษาสิทธิ์ตัวเอง"</strong>
-<em>Visual:</em> รูปจับมือกันระหว่างผู้รับจ้างกับเจ้าหน้าที่รัฐ + เครื่องหมายถูกสีเขียว</p>
-<hr />
-<p><em>Reference: มาตรา 102 พ.ร.บ. จัดซื้อจัดจ้างฯ 2560</em></p>
+        <style>
+  /* Custom Infographic Styles */
+  .infographic-wrapper {
+    font-family: 'Sarabun', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f4f6f9;
+    padding: 40px;
+    border-radius: 20px;
+    color: #333;
+  }
+
+  .hero-section {
+    background: linear-gradient(135deg, #ff6b6b, #ee5253);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 25px rgba(238, 82, 83, 0.4);
+  }
+
+  .hero-icon {
+    font-size: 5em;
+    display: block;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .hero-title {
+    font-size: 2.8em;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2em;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+
+  .content-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 8px solid #54a0ff;
+    transition: transform 0.2s;
+  }
+
+  .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .card-number {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 45px;
+    height: 45px;
+    background: #54a0ff;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(84, 160, 255, 0.4);
+  }
+
+  .card-title {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-icon {
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .list-item {
+    background: #eef2f7;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .check-icon {
+    color: #1dd1a1;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .cross-icon {
+    color: #ff6b6b;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 1.2em;
+  }
+
+  .warning-box {
+    background: #fff3cd;
+    border: 2px dashed #ff9f43;
+    color: #856404;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    border-left: 4px solid #c8d6e5;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 25px;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: -42px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    background: #ff9f43;
+    border: 4px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #ff9f43;
+  }
+
+  .final-cta {
+    background: #222f3e;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 40px;
+  }
+
+  .cta-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #1dd1a1;
+  }
+</style>
+
+<div class="infographic-wrapper">
+
+  <!-- Header -->
+  <div class="hero-section">
+    <span class="hero-icon">🛑🚧</span>
+    <h1 class="hero-title">งานช้า... ไม่ใช่ความผิดเรา?</h1>
+    <div class="hero-subtitle">คู่มือเอาตัวรอดจากค่าปรับ (มาตรา 102)</div>
+  </div>
+
+  <!-- Step 1: Check Cause -->
+  <div class="content-card" style="border-left-color: #5f27cd;">
+    <div class="card-number" style="background: #5f27cd;">1</div>
+    <div class="card-title"><span class="card-icon">🔍</span> เช็คก่อน! เข้าเกณฑ์ไหม?</div>
+
+    <div class="list-item">
+      <span class="check-icon">✓</span> 
+      <div><strong>ความผิดรัฐ:</strong> ส่งพื้นที่ช้า / แบบผิด / สั่งหยุดงาน</div>
+    </div>
+    <div class="list-item">
+      <span class="check-icon">✓</span>
+      <div><strong>เหตุสุดวิสัย:</strong> ภัยพิบัติ / โรคระบาด / สงคราม</div>
+    </div>
+
+    <div class="warning-box">
+      ⚠️ เตือนแล้วนะ: "ฝนตกตามฤดูกาล" อ้างไม่ได้! (โดนปรับแน่นอน)
+    </div>
+  </div>
+
+  <!-- Step 2: The Golden Rule -->
+  <div class="content-card" style="border-left-color: #ff9f43;">
+    <div class="card-number" style="background: #ff9f43;">2</div>
+    <div class="card-title"><span class="card-icon">⏰</span> กฎเหล็ก 15 วัน</div>
+
+    <p style="font-size: 1.2em; text-align: center;">เมื่อเหตุจบลง... นาฬิกาเริ่มเดินทันที!</p>
+    <div style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <div style="text-align: center;">
+            <div style="font-size: 3em;">✅</div>
+            <div><strong>แจ้งใน 15 วัน</strong><br>รอด! มีสิทธิ์คุย</div>
+        </div>
+        <div style="text-align: center; opacity: 0.5;">
+            <div style="font-size: 3em;">❌</div>
+            <div><strong>เกิน 15 วัน</strong><br>จบ! หมดสิทธิ์ทันที</div>
+        </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Action Plan -->
+  <div class="content-card" style="border-left-color: #1dd1a1;">
+    <div class="card-number" style="background: #1dd1a1;">3</div>
+    <div class="card-title"><span class="card-icon">🚀</span> 3 Step ต้องทำทันที</div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>1. สารบรรณ (Day 1):</strong> เกิดเหตุปุ๊บ ทำหนังสือ "แจ้งสงวนสิทธิ์" ส่งทันที
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>2. หน้างาน (Daily):</strong> ถ่ายรูป + ให้คนคุมงานเซ็นรับทราบทุกวัน
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <strong>3. ยื่นเรื่อง (Final):</strong> เหตุจบปุ๊บ ทำหนังสือขอ "ขยายเวลา" ภายใน 15 วัน
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="final-cta">
+    <div class="cta-title">"รัฐผิด รัฐต้องรับผิดชอบ"</div>
+    <p>แต่เรา... ต้องรักษาสิทธิ์ตัวเองให้เป๊ะ!</p>
+    <div style="margin-top: 20px; font-size: 0.9em; opacity: 0.7;">อ้างอิง: พ.ร.บ. จัดซื้อจัดจ้างฯ มาตรา 102</div>
+  </div>
+
+</div>
+
+<!-- Note for Markdown rendering fallback -->
+<div style="display: none;">
+(เนื้อหานี้ถูกออกแบบให้แสดงผลเป็น Infographic หากท่านเห็นข้อความนี้ แสดงว่าระบบไม่รองรับ HTML/CSS กรุณาเปิดไฟล์ .html)
+</div>
         
         <div class="footer">
-            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: 13/12/2025 20:09</p>
+            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: 13/12/2025 20:13</p>
         </div>
     </div>
 </body>
