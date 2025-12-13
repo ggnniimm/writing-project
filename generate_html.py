@@ -186,8 +186,6 @@ def generate_html():
         html_filename = filename.replace('.md', '.html')
         output_path = os.path.join(output_dir, html_filename)
         
-        print(f"Converting: {filename} -> {html_filename}")
-        
         # Read Markdown
         with open(md_file, 'r', encoding='utf-8') as f:
             text = f.read()
@@ -203,16 +201,37 @@ def generate_html():
         # Convert to HTML
         html_content = markdown.markdown(text, extensions=['tables', 'fenced_code'])
         
-        # Fill Template
-        final_html = HTML_TEMPLATE.format(
-            title=title,
-            content=html_content,
-            timestamp=datetime.now().strftime("%d/%m/%Y %H:%M")
-        )
+        # Determine if we need to write (Smart Update)
+        # 1. Generate new content WITHOUT timestamp (for comparison)
+        content_template = HTML_TEMPLATE.split('<div class="footer">')[0]
+        new_body = content_template.format(title=title, content=html_content, timestamp="")
         
-        # Write HTML
-        with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(final_html)
+        should_write = True
+        if os.path.exists(output_path):
+            with open(output_path, 'r', encoding='utf-8') as f:
+                old_full_html = f.read()
+            
+            # Extract body from old file (everything before footer)
+            if '<div class="footer">' in old_full_html:
+                old_body = old_full_html.split('<div class="footer">')[0]
+                
+                # Normalize (strip warnings, newlines might differ)
+                if old_body.strip() == new_body.strip():
+                    should_write = False
+                    print(f"Skipping (No Change): {html_filename}")
+
+        if should_write:
+            print(f"Converting: {filename} -> {html_filename}")
+            # Fill Template with CURRENT Time
+            final_html = HTML_TEMPLATE.format(
+                title=title,
+                content=html_content,
+                timestamp=datetime.now().strftime("%d/%m/%Y %H:%M")
+            )
+            
+            # Write HTML
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(final_html)
             
     print("✅ HTML generation complete!")
 

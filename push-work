@@ -58,6 +58,9 @@ python3 generate_html.py
 echo "🤖 Updating AI Diary..."
 python3 update_diary.py "$CATEGORY" "$MANUAL_LOG" "$DETAILS"
 
+# 2. Stage EVERYTHING again (to capture generated artifacts)
+git add .
+
 # Commit
 git commit -m "$MANUAL_LOG"
 echo "✅ บันทึกลง Diary และ Commit (รวมไฟล์งาน) เรียบร้อย"
