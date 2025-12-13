@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:39] 📝 Reorder References: Sequential 1-12**
+    > Renumbered citations to ensure strict sequential order (1-12) throughout the article, matching the reference list.
+
 *   **[15:32] 📝 Final Polish: Official Formal Tone**
     > Rewrote Article 102 to adopt a strictly formal, academic tone suitable for legal reference. Replaced colloquial terms ('Pro Tip', 'Trap') with professional terminology ('Observation', 'Caution'). Restored correct document structure with clear logical flow: Principles -> Extensions/Waivers (Flowchart/Table) -> Legal Analysis -> Case Studies -> References.
 
