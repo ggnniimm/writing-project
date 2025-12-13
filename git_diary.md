@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:41] 📝 Update: Remove Flowchart**
+    > Removed Decision Flowchart as requested by user to reduce visual clutter and confusion. Renumbered the comparison table section accordingly.
+
 *   **[15:39] 📝 Reorder References: Sequential 1-12**
     > Renumbered citations to ensure strict sequential order (1-12) throughout the article, matching the reference list.
 
