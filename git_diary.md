@@ -5,6 +5,9 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:56] 📝 Fix formatting error in Section 102 (Line 157)**
+    > Restored Case Study 5 content that was accidentally truncated/merged with the 'Unlock Nuance' header. Added proper spacing and separators to ensure readability.
+
 *   **[14:47] 📝 Update Section 102: Integrate Comptroller General Insights (Voice of the Regulator)**
     > Analyzed the provided transcript from a Comptroller General Department official. Updated the 'Unlock Nuance' section to reflect two critical operational rules: 1) The 'Before/After Expiry' rule for choosing between 'Extension' vs 'Fine Waiver' terminology. 2) The distinction that pure time extensions (without scope change) can be executed via Unilateral Order (Administrative Act) attached to the contract, avoiding the need for a formal Bilateral Amendment.
 
