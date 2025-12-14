@@ -8,6 +8,9 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:06] 🔧 🔧 เพิ่มการวิเคราะห์และแนะนำ Development Log โดยใช้ Gemini AI**
+    > อัปเดตสคริปต์ `update_diary.py` ให้เชื่อมต่อกับ Gemini API (ผ่าน `GEMINI_API_KEY` ในไฟล์ `.env`) เพื่อวิเคราะห์ `git diff --cached` และสร้างข้อความบันทึกในรูปแบบที่กำหนด หากการสร้างโดย AI ล้มเหลว จะใช้ Heuristic แบบเดิมเป็นกลไกสำรอง
+
 *   **[15:59] 📝 Fix: Corrected Ruling 78/2562 source to OAG**
     > Moved file to correct folder and updated article citation
 

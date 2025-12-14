@@ -3,6 +3,22 @@ import datetime
 import os
 import subprocess
 import re
+import google.generativeai as genai
+
+# Load API Key from .env manually to avoid extra dependencies
+def load_env():
+    env_path = os.path.join(os.path.dirname(__file__), ".env")
+    if os.path.exists(env_path):
+        with open(env_path, "r") as f:
+            for line in f:
+                if line.strip() and not line.startswith("#"):
+                    key, value = line.strip().split("=", 1)
+                    os.environ[key] = value
+
+load_env()
+API_KEY = os.getenv("GEMINI_API_KEY")
+if API_KEY:
+    genai.configure(api_key=API_KEY)
 
 DIARY_FILE = "git_diary.md"
 
@@ -68,13 +84,64 @@ def analyze_markdown_changes(filepath):
     except:
         return None
 
+
+def generate_ai_log(diff_text):
+    if not API_KEY:
+        return None, None, None
+    
+    try:
+        model = genai.GenerativeModel('models/gemini-flash-latest')
+        prompt = f"""
+        Analyze this 'git diff' summary and generate a development log in THAI (ภาษาไทย).
+        
+        Input Diff Summary:
+        {diff_text[:5000]}  # Limit context size
+        
+        Requirements:
+        1. **Main Message:** A concise, single-line summary of WHAT was done. (Start with an emoji like 📝, 🔧, ✨).
+        2. **Details:** A short paragraph clarifying WHY this change was made or providing context.
+        3. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
+        4. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
+           - CATEGORY must be 'content' (for markdown/docs) or 'system' (for code/scripts).
+           
+        Example Output:
+        content|📝 เพิ่มกรณีศึกษาเรื่องการแก้ไขสัญญา|เพิ่ม Case Study ที่ 5 เกี่ยวกับความผิดพลาดเล็กน้อย เพื่อให้ครอบคลุมตามหนังสือเวียนล่าสุด
+        """
+        
+        response = model.generate_content(prompt)
+        text = response.text.strip()
+        
+        # Parse text
+        parts = text.split('|')
+        if len(parts) >= 3:
+            return parts[0], parts[1], parts[2]
+        return "system", text, "" # Fallback
+    except Exception as e:
+        return None, None, None
+
 def suggest_mode():
     changes = run_git_diff()
     if not changes:
         print("system|Log: บันทึกเพิ่มเติมก่อน Push|No changes detected")
         return
 
-    # Heuristic Analysis
+    # Use 'git diff --cached' to get actual content for AI
+    try:
+        full_diff = subprocess.check_output(["git", "diff", "--cached"], encoding="utf-8")
+    except:
+        full_diff = ""
+
+    # Try AI Generation first
+    ai_cat, ai_msg, ai_details = generate_ai_log(full_diff)
+    
+    if ai_cat and ai_msg:
+        # Success AI
+        # Clean newlines in details for passing to bash
+        ai_details_clean = ai_details.replace('\n', ' ').strip()
+        print(f"{ai_cat}|{ai_msg}|{ai_details_clean}")
+        return
+
+    # Fallback to Heuristic Analysis (Old Logic)
     category = "system"
     messages = []
     details = []
