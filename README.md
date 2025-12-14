@@ -11,6 +11,7 @@ We use a specific format for `git_diary.md`.
 - **Automation:** Use `ppp` (push-work) to generate entries. **Do not manually edit the diary unless necessary.**
 - **Naming Convention:**
     - Always use **"คำวินิจฉัย อสส. ที่ [เลขที่]/[ปี]"** when referring to Office of the Attorney General rulings. (e.g., *คำวินิจฉัย อสส. ที่ 133/2561*)
+    - **Strict Thai Policy:** All diary entries, commit messages, and contexts MUST be written in **Thai (ภาษาไทย)**. English is allowed only for technical terms or code references.
     - **Daily Retrospective:** DO NOT fill in the summary section (Accomplished, Pending, etc.) manually during the day. This section is reserved for the end-of-day process triggered by `nnn`. Leave it empty or `(รอสรุป...)`.
 
 ### 2. ⚡ Workflow Commands
