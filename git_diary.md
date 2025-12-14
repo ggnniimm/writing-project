@@ -8,6 +8,12 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:52] 📝 Auto-Integration: Added Case Study 7 (Ruling 78/2562)**
+    > Added new case study on conflicting documents vs true intent
+
+    📝 แก้ไข: procurement_act_section_97.md (ส่วน: 7. กรณีเอกสารสัญญาขัดแย้งกัน: เจตนาที่แท้จริง (Conflicting Documents) <sup>[7]</sup> (Items: #### 7. กรณีเอกสารสัญญาขัดแย้งกัน: เจตนาที่แท้จริง (Conflicting Documents) <sup>[7]</sup>, ข้อเท็จจริง: สัญญาหลักระบุให้ "ติดตั้งเครื่องปรับอากาศ" แต่ในแบบรูปรายการและ BOQ (เอกสารแนบท้าย) ไม่ได้ระบุไว้ และผู้รับจ้างก็ไม่ได้เสนอราคามา))
+    📄 แก้ไข: git_diary.md
+    📄 แก้ไข: ruling_78_2562_contract_amendment_true_intent.md
 *   **[15:49] 🔧 System Upgrade: Auto-Integration Protocol**
     > Updated Gemini script and README for automated article updates
 
@@ -24,6 +30,11 @@
     📄 แก้ไข: git_diary.md
     📄 แก้ไข: \340\270\255\340\270\263\340\270\231\340\270\262\340\270\210\340\270\255\340\270\231\340\270\270\340\270\241\340\270\261\340\270\225\340\270\264\340\271\203\340\270\231\340\270\201\340\270\262\340\270\243\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262.pdf"
     📄 แก้ไข: section_97_contract_amendment_approval_authority_circular.md
+*   **[16:05] 📝 Auto-Integration: Ruling 78/2562 (Conflicting Intent)**
+    > **ระบบทำงานอัตโนมัติ:** อ่านไฟล์ CleanShot... แล้วพบว่าเป็นคำวินิจฉัยที่ 78/2562 เรื่องสัญญาขัดแย้งกับเจตนา (ของจริงไม่มีแอร์ แต่สัญญาเขียนว่ามี)
+    > **ดำเนินการ:** แทรกข้อมูลเข้าสู่ `procurement_act_section_97.md` เป็น *Case Study 7* ทันทีตามนโยบาย
+    > *   *Concept:* True Intent > Wording.
+
 *   **[15:58] 🔧 อัปเกรดระบบ Workflow: Auto-Integration Policy**
     > **พัฒนาตามคำสั่ง:** เพื่อความรวดเร็วสูงสุด ผมได้ปรับปรุงกระบวนการดังนี้:
     > 1.  **Smart Draft:** สั่งให้ AI ร่าง "เนื้อหาพร้อมวาง" (Ready-to-use Draft) และระบุตำแหน่งที่จะแทรกทันทีที่วิเคราะห์เสร็จ
