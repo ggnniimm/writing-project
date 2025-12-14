@@ -8,6 +8,17 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:58] 🔧 Implemented gemini_pdf_to_md.py and eee command for PDF extraction**
+    > Added large file support via Gemini File API and auto-retry logic.
+
+    📄 แก้ไข: .DS_Store
+    📄 แก้ไข: .gitignore
+    📄 แก้ไข: eee
+    🛠 แก้ไขระบบ: extract_pdf.py
+    🛠 แก้ไขระบบ: gemini_pdf_to_md.py
+    📄 แก้ไข: .DS_Store
+    📄 แก้ไข: procurement_ruling_contract_modification_saonanondaeng.md
+    📄 แก้ไข: supreme_administrative_court_judgment_yala_hi_mast_contract_dispute.md
 *   **[14:18] 🔧 Ad-hoc: Create Reference for Contract Typos**
     > Knowledge Base: สร้างไฟล์ ref_contract_typo_correction.md เพื่อรอข้อมูล (ไฟล์ต้นฉบับเป็น Scan PDF อ่านไม่ออก)
 
