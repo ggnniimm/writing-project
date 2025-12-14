@@ -8,6 +8,12 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:57] 🔧 Fix: Re-extract verbatim content for Ruling 78/2562**
+    > Updated gemini_pdf_to_md.py for strict OCR & re-processed file
+
+    🛠 แก้ไขระบบ: gemini_pdf_to_md.py
+    📄 แก้ไข: git_diary.md
+    📄 แก้ไข: ruling_78_2562_contract_amendment_true_intent.md
 *   **[15:52] 📝 Auto-Integration: Added Case Study 7 (Ruling 78/2562)**
     > Added new case study on conflicting documents vs true intent
 
@@ -30,6 +36,11 @@
     📄 แก้ไข: git_diary.md
     📄 แก้ไข: \340\270\255\340\270\263\340\270\231\340\270\262\340\270\210\340\270\255\340\270\231\340\270\270\340\270\241\340\270\261\340\270\225\340\270\264\340\271\203\340\270\231\340\270\201\340\270\262\340\270\243\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262.pdf"
     📄 แก้ไข: section_97_contract_amendment_approval_authority_circular.md
+*   **[16:10] 🔧 Quality Control: Re-Extraction (Verbatim Mode)**
+    > **แก้ไขตามคำสั่ง:** ผู้ใช้ต้องการให้ไฟล์ต้นฉบับ (Reference) เป็น ""ข้อความดิบที่ถอดมาจริงๆ"" ไม่ใช่สรุป (Summary)
+    > *   **Action:** ปรับ Prompt ของ `gemini_pdf_to_md.py` ให้โหมดการถอดความเข้มงวดขึ้น (Verbatim Only) และสั่งรันซ้ำไฟล์ `CleanShot 2568...`
+    > *   **Result:** ได้ไฟล์ `adjudication_78_2562...` ที่เนื้อหาครบถ้วนทุกตัวอักษร ส่วน Analysis แยกไปอยู่ท้ายไฟล์ชัดเจน
+
 *   **[16:05] 📝 Auto-Integration: Ruling 78/2562 (Conflicting Intent)**
     > **ระบบทำงานอัตโนมัติ:** อ่านไฟล์ CleanShot... แล้วพบว่าเป็นคำวินิจฉัยที่ 78/2562 เรื่องสัญญาขัดแย้งกับเจตนา (ของจริงไม่มีแอร์ แต่สัญญาเขียนว่ามี)
     > **ดำเนินการ:** แทรกข้อมูลเข้าสู่ `procurement_act_section_97.md` เป็น *Case Study 7* ทันทีตามนโยบาย

@@ -57,7 +57,11 @@ def extract_and_name_with_gemini(filepath):
 
     prompt_text = """
     You are a professional document digitization assistant. 
-    Task 1: Extract ALL text from this document verbatim. Do not summarize. Preserve the original Thai language wording exactly. Convert the layout to clean Markdown (headers, lists, tables).
+    Task 1: Transcribe ALL text from this document VERBATIM. 
+            - This is a legal document. Do NOT summarize. Do NOT omit any sections. 
+            - If the document is an image/scan, perform character-by-character OCR. 
+            - Preserve the original Thai language wording exactly. 
+            - Convert the layout to clean Markdown (headers, lists, tables).
     Task 2: Generate a concise, descriptive English filename for this document based on its content. The filename should use snake_case and end with '.md'.
     Task 3: Analyze and Draft (Legal Expert Role).
             - Identify relevance to "Section 97" or "Section 102".
