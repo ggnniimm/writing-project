@@ -7,7 +7,7 @@ If you are an AI assistant opening this project for the first time, please follo
 We use a specific format for `git_diary.md`.
 - **Header:** `## 📅 YYYY-MM-DD` followed by a **summary** of the day.
 - **Log:** Use `### 📝 บันทึกการปฏิบัติงาน (Operations Log)` for detailed entries.
-- **Style:** "Captain's Log" - Tell a story about *why* changes were made, not just *what* changed.
+- **Style:** "Captain's Log" - Tell a story about what you are **Doing**, what you are **Thinking**, or what you were **Ordered** to do. Focus on the *why* and *how*.
 - **Automation:** Use `ppp` (push-work) to generate entries. **Do not manually edit the diary unless necessary.**
 - **Naming Convention:**
     - Always use **"คำวินิจฉัย อสส. ที่ [เลขที่]/[ปี]"** when referring to Office of the Attorney General rulings. (e.g., *คำวินิจฉัย อสส. ที่ 133/2561*)
