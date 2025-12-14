@@ -7,22 +7,36 @@ import google.generativeai as genai
 from google.api_core import exceptions
 
 def extract_and_name_with_gemini(filepath):
-    # 1. Get API Key
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
+    # 1. Get ALL API Keys
+    api_keys = []
+    
+    # Check environment variables first
+    for key, value in os.environ.items():
+        if key.startswith("GEMINI_API_KEY") and value:
+             api_keys.append(value)
+    
+    # If not found in env vars, check .env file
+    if not api_keys:
         env_path = os.path.join(os.path.dirname(__file__), ".env")
         if os.path.exists(env_path):
             with open(env_path, "r") as f:
                 for line in f:
-                    if line.strip().startswith("GEMINI_API_KEY="):
-                        api_key = line.strip().split("=", 1)[1].strip().strip('"').strip("'")
-                        break
+                    line = line.strip()
+                    if line.startswith("GEMINI_API_KEY") and "=" in line:
+                        k_val = line.split("=", 1)[1].strip().strip('"').strip("'")
+                        if k_val:
+                            api_keys.append(k_val)
     
-    if not api_key:
-        print("❌ Error: GEMINI_API_KEY not found.")
+    # Deduplicate
+    api_keys = list(set(api_keys))
+
+    if not api_keys:
+        print("❌ Error: GEMINI_API_KEY not found (checked env vars and .env).")
         sys.exit(1)
 
-    genai.configure(api_key=api_key)
+    print(f"🔑 Loaded {len(api_keys)} API Key(s).")
+    current_key_index = 0
+    genai.configure(api_key=api_keys[current_key_index])
 
     if not os.path.exists(filepath):
         print(f"❌ Error: File not found: {filepath}")
@@ -80,11 +94,11 @@ def extract_and_name_with_gemini(filepath):
     """
 
     retry_delay = 5
-    max_retries = 5 # Increased retries for large tasks
+    max_retries = 15 # Increased retries for large tasks
 
     for attempt in range(max_retries):
         try:
-            print(f"🤖 Generating content (Attempt {attempt+1}/{max_retries})...")
+            print(f"🤖 Generating content (Attempt {attempt+1}/{max_retries})... using Key #{current_key_index + 1}")
             response = model.generate_content(
                 [prompt_text, sample_file],
                 generation_config={"response_mime_type": "application/json"}
@@ -123,9 +137,28 @@ def extract_and_name_with_gemini(filepath):
                 # Retry if JSON is bad? Usually better to fail or try again.
             
         except exceptions.ResourceExhausted:
-            print(f"⏳ Rate limit hit. Waiting {retry_delay}s...")
-            time.sleep(retry_delay)
-            retry_delay *= 2
+            print(f"⏳ Rate limit hit on Key #{current_key_index + 1}.")
+            
+            # Switch Key Strategy
+            if len(api_keys) > 1:
+                current_key_index = (current_key_index + 1) % len(api_keys)
+                print(f"🔄 Switching to Key #{current_key_index + 1}...")
+                genai.configure(api_key=api_keys[current_key_index])
+                
+                # Even when switching, wait a bit to avoid rapid-fire failures if both are limited
+                # Increase delay if we are cycling through keys rapidly
+                wait_time = max(retry_delay, 5) 
+                print(f"⏳ Waiting {wait_time}s to let quotas cool down...")
+                time.sleep(wait_time)
+                
+                # Increase retry delay for next time, in case we just hit it again
+                retry_delay = min(retry_delay * 1.5, 60) # Cap at 60s
+            else:
+                # No backup key, must wait
+                print(f"⏳ No backup key. Waiting {retry_delay}s...")
+                time.sleep(retry_delay)
+                retry_delay *= 2
+                
         except Exception as e:
             print(f"❌ Generation Error: {e}")
             # If it's a 500 error, maybe retry.

@@ -5,20 +5,27 @@ import subprocess
 import re
 import google.generativeai as genai
 
-# Load API Key from .env manually to avoid extra dependencies
+# Load API Keys from .env manually to avoid extra dependencies
 def load_env():
+    api_keys = []
     env_path = os.path.join(os.path.dirname(__file__), ".env")
     if os.path.exists(env_path):
         with open(env_path, "r") as f:
             for line in f:
                 if line.strip() and not line.startswith("#"):
-                    key, value = line.strip().split("=", 1)
-                    os.environ[key] = value
+                    if "=" in line:
+                        key, value = line.strip().split("=", 1)
+                        # Robust quoting handling: strip " and '
+                        value = value.strip().strip("'").strip('"')
+                        if key.startswith("GEMINI_API_KEY") and value:
+                             api_keys.append(value)
+    # Deduplicate while preserving order
+    return list(dict.fromkeys(api_keys))
 
-load_env()
-API_KEY = os.getenv("GEMINI_API_KEY")
-if API_KEY:
-    genai.configure(api_key=API_KEY)
+API_KEYS = load_env()
+# Default to first key if available, logic will switch if needed
+if API_KEYS:
+    genai.configure(api_key=API_KEYS[0])
 
 DIARY_FILE = "git_diary.md"
 
@@ -86,42 +93,58 @@ def analyze_markdown_changes(filepath):
 
 
 def generate_ai_log(diff_text):
-    if not API_KEY:
+    if not API_KEYS:
         return None, None, None
     
-    try:
-        model = genai.GenerativeModel('models/gemini-flash-latest')
-        prompt = f"""
-        Analyze this 'git diff' summary and generate a development log in THAI (ภาษาไทย).
-        
-        Input Diff Summary:
-        {diff_text[:5000]}  # Limit context size
-        
-        Requirements:
-        1. **Role:** You are the AI Developer writing your own "Captain's Log". Use "ผม" (I).
-        2. **Main Message:** A concise, single-line summary of WHAT you did. (Start with emoji).
-        3. **Details:** A narrative paragraph explaining your thought process. specificially:
-           - **Ordered:** What did the user ask? (e.g. "ได้รับคำสั่งให้...")
-           - **Thinking:** Why did you decide to do it this way? (e.g. "ผมคิดว่า..." or "เพื่อแก้ปัญหา...")
-           - **Doing:** What exactly did you change? (e.g. "ผมจึงได้ปรับปรุง...")
-        4. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
-        5. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
-           - CATEGORY must be 'content' (for markdown/docs) or 'system' (for code/scripts).
-           
-        Example Output:
-        content|📝 ปรับปรุงกรณีศึกษาที่ 11|ได้รับคำสั่งให้ตัดเรื่องค่าปรับออก ผมจึงลบส่วนนั้นทิ้งและเน้นเฉพาะเรื่องการแก้ไขสัญญาตามช่วงเวลา เพื่อให้บทความกระชับและตรงประเด็นตามที่ user ต้องการครับ
-        """
-        
-        response = model.generate_content(prompt)
-        text = response.text.strip()
-        
-        # Parse text
-        parts = text.split('|')
-        if len(parts) >= 3:
-            return parts[0], parts[1], parts[2]
-        return "system", text, "" # Fallback
-    except Exception as e:
-        return None, None, None
+
+    current_key_index = 0
+    max_retries = len(API_KEYS) * 2 # Try each key twice if needed
+    
+    for attempt in range(max_retries):
+        try:
+            # Configure current key
+            genai.configure(api_key=API_KEYS[current_key_index])
+            model = genai.GenerativeModel('models/gemini-flash-latest')
+            
+            prompt = f"""
+            Analyze this 'git diff' summary and generate a development log in THAI (ภาษาไทย).
+            
+            Input Diff Summary:
+            {diff_text[:5000]}  # Limit context size
+            
+            Requirements:
+            1. **Role:** You are the AI Developer writing your own "Captain's Log". Use "ผม" (I).
+            2. **Main Message:** A concise, single-line summary of WHAT you did. (Start with emoji).
+            3. **Details:** A narrative paragraph explaining your thought process. specificially:
+               - **Ordered:** What did the user ask? (e.g. "ได้รับคำสั่งให้...")
+               - **Thinking:** Why did you decide to do it this way? (e.g. "ผมคิดว่า..." or "เพื่อแก้ปัญหา...")
+               - **Doing:** What exactly did you change? (e.g. "ผมจึงได้ปรับปรุง...")
+            4. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
+            5. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
+               - CATEGORY must be 'content' (for markdown/docs) or 'system' (for code/scripts).
+               
+            Example Output:
+            content|📝 ปรับปรุงกรณีศึกษาที่ 11|ได้รับคำสั่งให้ตัดเรื่องค่าปรับออก ผมจึงลบส่วนนั้นทิ้งและเน้นเฉพาะเรื่องการแก้ไขสัญญาตามช่วงเวลา เพื่อให้บทความกระชับและตรงประเด็นตามที่ user ต้องการครับ
+            """
+            
+            response = model.generate_content(prompt)
+            text = response.text.strip()
+            
+            # Parse text
+            parts = text.split('|')
+            if len(parts) >= 3:
+                return parts[0], parts[1], parts[2]
+            return "system", text, "" # Fallback
+            
+        except Exception as e:
+            # Check for Rate Limit (429) or Resource Exhausted
+            if "429" in str(e) or "ResourceExhausted" in str(type(e).__name__):
+                if len(API_KEYS) > 1:
+                    current_key_index = (current_key_index + 1) % len(API_KEYS)
+                    continue # Retry with next key
+            return None, None, None
+            
+    return None, None, None
 
 def suggest_mode():
     changes = run_git_diff()
