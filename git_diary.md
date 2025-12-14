@@ -20,9 +20,21 @@
 *   Script `draft_writer.py` ยังต้องปรับปรุงเรื่อง Error Handling ให้ละเอียดขึ้นอีกนิด.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-*   **[11:01] 📝 Config: Set 'Daily Retrospective' policy (nnn only)**
+*   **[11:03] 🔧 Fix Diary: Restore missing context & Update script**
+    > Manual Fix: กู้คืนรายละเอียดใน Diary ที่หายไป และปรับปรุง push-work script ให้เก็บ auto details เสมอ
+
+    📄 แก้ไข: git_diary.md
+    🛠 แก้ไขระบบ: push-work
+*   **[11:01] � Config: Set 'Daily Retrospective' policy (nnn only)**
+    > **Policy Update:** ปรับปรุงกฎระเบียบตามคำสั่งผู้ใช้งาน
+    > กำหนดให้การทำ Daily Retrospective (สรุป Accomplished/Pending) ทำเฉพาะตอนจบวันผ่านคำสั่ง `nnn` เท่านั้น เพื่อความเป็นระเบียบและไม่รบกวน workflow ระหว่างวัน
+    *   *Files:* `README.md`, `task.md`
 
 *   **[10:59] 📝 Restore Content & Add Ref MDs (Deep Pipe & CDG Audio)**
+    > **Knowledge Base & Recovery:** ปฏิบัติภารกิจคู่ขนาน
+    > 1.  **Recovery:** กู้คืนส่วน "ผู้ที่มีส่วนเกี่ยวข้อง" ในมาตรา 102 ที่หายไปจากการแก้ไขครั้งก่อน
+    > 2.  **References:** สร้างไฟล์ Markdown อ้างอิงใหม่ 2 รายการ (`Deep Pipe` & `CDG Audio`) ตามคำขอด่วน เพื่อใช้เป็นฐานข้อมูลหลักในการเขียนบทความ
+    *   *Files:* `articles/procurement_act_section_102.md`, `git_diary.md`, `references/ref_cgd_audio_summary.md`, `references/ref_sac_672_2557.md`
 
 *   **[10:57] 📝 Ad-hoc: Create Reference MD for CDG Audio**
     > **Knowledge Base:** สรุปไฟล์เสียงกรมบัญชีกลาง `ref_cgd_audio_summary.md`

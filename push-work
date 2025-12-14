@@ -17,8 +17,8 @@ if [ "$#" -gt 0 ]; then
     else
         USER_STORY=""
     fi
-    CATEGORY="content"  # Default category for auto-push
-    DETAILS=""
+    CATEGORY="$AUTO_CAT"
+    DETAILS="$AUTO_DETAILS"
     
     echo "🤖 เริ่มระบบ Auto-Push (โหมดอัตโนมัติ)"
     echo "📝 ข้อความบันทึก: $MANUAL_LOG"
