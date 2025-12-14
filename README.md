@@ -23,6 +23,21 @@ The user interacts with this repo primarily through **custom scripts**.
     *   Updates `git_diary.md` automatically.
     *   Commits and Pushes to GitHub.
 
+*   **`./bbb` (Begin Day):**
+    *   **Usage:** `./bbb`
+    *   **Purpose:** Start of day routine.
+    *   Pulls latest code (`git pull`).
+    *   Displays project guidelines.
+    *   **Initializes Diary:** Creates a new daily entry with *only* "Pending / Planned" items.
+    *   Shows the latest diary summary.
+
+*   **`./nnn` (End Day):**
+    *   **Usage:** `./nnn`
+    *   **Purpose:** End of day routine.
+    *   Triggers the "Daily Retrospective" interview (Accomplished, Well, Not Well).
+    *   Updates the diary summary.
+    *   Auto-pushes work.
+
 ---
 
 ## 💻 Setup for New Machine (Human Only)

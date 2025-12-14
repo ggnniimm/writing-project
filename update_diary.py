@@ -230,7 +230,50 @@ def read_latest_mode():
     if not printed_lines:
         print("ยังไม่มีบันทึกประจำวัน")
     else:
+    if not printed_lines:
+        print("ยังไม่มีบันทึกประจำวัน")
+    else:
         print("".join(printed_lines).strip())
+
+def start_day_mode():
+    if not os.path.exists(DIARY_FILE):
+        print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
+        return
+
+    with open(DIARY_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    today_date = get_thai_date()
+    header_date = f"## 📅 {today_date}"
+    
+    # Check if date already exists
+    date_exists = any(line.strip() == header_date for line in lines)
+    if date_exists:
+        print("⚠️ วันนี้มีการเริ่มงานไปแล้ว (Date entry already exists)")
+        return
+
+    # Create new section with ONLY "Pending"
+    new_section = []
+    new_section.append(f"\n{header_date}\n")
+    new_section.append(f"**🤖 Start of Day:**\n\n")
+    new_section.append(f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   [ ] \n\n")
+    new_section.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n")
+    
+    # Insert at top (after main header)
+    insert_idx = 0
+    for i, line in enumerate(lines):
+        if line.startswith("# "): # Main title
+             insert_idx = i + 1
+             if insert_idx < len(lines) and lines[insert_idx].strip() == "":
+                 insert_idx += 1
+             break
+    
+    lines[insert_idx:insert_idx] = new_section
+    
+    with open(DIARY_FILE, "w", encoding="utf-8") as f:
+        f.writelines(lines)
+    
+    print(f"✅ เริ่มต้นวันใหม่เรียบร้อย ({today_date})")
 
 
 def main():
@@ -243,6 +286,9 @@ def main():
             sys.exit(0)
         elif sys.argv[1] == "--read-latest":
             read_latest_mode()
+            sys.exit(0)
+        elif sys.argv[1] == "--start-day":
+            start_day_mode()
             sys.exit(0)
 
     if len(sys.argv) < 3:

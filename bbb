@@ -16,8 +16,8 @@ echo "..."
 echo "(Read full README.md if needed)"
 
 echo "---------------------------------------------------"
-# 3. Read Latest Diary Entry
-echo "📅 Latest Diary Entry (สรุปงานล่าสุด)"
+echo "📅 Initializing Diary for Today..."
+python3 update_diary.py --start-day
 python3 update_diary.py --read-latest
 
 echo "---------------------------------------------------"
