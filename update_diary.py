@@ -114,51 +114,67 @@ def suggest_mode():
     
     print(f"{category}|{final_message}|{final_details}")
 
+        print("".join(printed_lines).strip())
+
+def auto_summarize_log(lines, header_date):
+    # Heuristic: Scan lines after header_date for log entries
+    # Log entry pattern: *   **[HH:MM] 🔧 Task Name**
+    
+    accomplished_items = []
+    
+    date_found = False
+    for line in lines:
+        if line.strip() == header_date:
+            date_found = True
+            continue
+        
+        if date_found:
+            if line.strip().startswith("## "): # Next date
+                break
+            
+            # Regex for log header
+            match = re.search(r'\*\s+\*\*\[\d{2}:\d{2}\]\s+(?:.*?)\s+(.*?)\*\*', line)
+            if match:
+                task_name = match.group(1).strip()
+                # Clean up "Task Name"
+                accomplished_items.append(task_name)
+    
+    # Unique items, preserve order (Python 3.7+ dict is insertion ordered)
+    unique_items = list(dict.fromkeys(accomplished_items))
+    return unique_items
+
 def summary_mode():
-    print("\n📝 **Daily Retrospective (สรุปภาพรวมประจำวัน)**")
-    print("กรุณาตอบคำถามสั้นๆ (กด Enter เพื่อข้ามหัวข้อที่ไม่ต้องการระบุ)\n")
-
-    accomplished = input("1. ✅ สิ่งที่ทำสำเร็จ (Accomplished): ").strip()
-    pending = input("2. 🗓️ สิ่งที่ยังค้างอยู่/แผนต่อไป (Pending): ").strip()
-    went_well = input("3. 🌟 สิ่งที่ทำได้ดี (What Went Well): ").strip()
-    not_well = input("4. 🚧 สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well): ").strip()
-    improvements = input("5. 🔧 สิ่งที่ควรปรับปรุง (Improvements): ").strip()
-
-    # Generate Summary Markdown
-    summary_md = ""
+    print("\n🤖 **Daily Retrospective (Auto-Generated)**")
     
-    summary_md += f"**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**\n\n"
+    today_date = get_thai_date()
+    header_date = f"## 📅 {today_date}"
     
-    if accomplished:
-        summary_md += f"### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅\n*   {accomplished}\n\n"
-    
-    if pending:
-        summary_md += f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   {pending}\n\n"
-    
-    if went_well:
-        summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n*   {went_well}\n\n"
-        
-    if not_well:
-        summary_md += f"### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧\n*   {not_well}\n\n"
-        
-    if improvements:
-        summary_md += f"### 5. สิ่งที่ควรต้องแก้ไข (Improvements) 🔧\n*   {improvements}\n\n"
-        
-    if not summary_md.strip().replace("**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**", "").strip():
-         print("❌ ไม่มีการกรอกข้อมูลสรุป ยกเลิกการอัปเดตสรุปประจำวัน")
-         return
-
-    # Update Diary File
     if not os.path.exists(DIARY_FILE):
         print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
         return
 
     with open(DIARY_FILE, "r", encoding="utf-8") as f:
         lines = f.readlines()
-
-    today_date = get_thai_date()
-    header_date = f"## 📅 {today_date}"
+        
+    # Auto-Extract Accomplished
+    accomplished_list = auto_summarize_log(lines, header_date)
     
+    summary_md = ""
+    summary_md += f"**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**\n\n"
+    
+    if accomplished_list:
+        summary_md += f"### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅\n"
+        for item in accomplished_list:
+            summary_md += f"*   {item}\n"
+        summary_md += "\n"
+    else:
+        summary_md += f"### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅\n*   (No logs recorded)\n\n"
+        
+    # Keep Pending and others Empty or Standard
+    summary_md += f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   (See task.md)\n\n"
+    # Skip Qualitative sections (Went Well / Not Well) as per user request ("As AI sees fit" -> Keep it objective)
+
+    # Update Diary File
     # Logic to replace summary
     # Find Date Header
     date_idx = -1
@@ -168,43 +184,33 @@ def summary_mode():
             break
     
     if date_idx == -1:
-        # Create new date section (should be unusual for end of day, but handle it)
-         if lines and lines[-1].strip() != "":
-            lines.append("\n")
-         lines.append(f"{header_date}\n")
-         lines.append(f"{summary_md}")
-         lines.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n") # Add log header if new
-         print("⚠️ สร้างหัวข้อวันที่ใหม่ (ปกติควรมีอยู่แล้วจากการทำงานระหว่างวัน)")
+         # No date entry? Then we can't summarize logs effectively if they don't exist under this date
+         # But maybe logs were just added? 
+         # For safety, if no date header, we can't replace summary.
+         print("❌ ไม่พบหัวข้อวันที่ (No date section found). Please run 'ppp' first.")
+         return
     else:
         # Date exists. Look for the "Summary" section to replace.
-        # It usually starts after date header and ends before "### 📝 บันทึกการปฏิบัติงาน"
-        
         start_replace = date_idx + 1
         end_replace = start_replace
         
-        # Heuristic: Find where the operations log starts
         log_header_marker = "### 📝 บันทึกการปฏิบัติงาน"
         
         for i in range(start_replace, len(lines)):
             if lines[i].strip().startswith(log_header_marker):
                 end_replace = i
                 break
-            # Safety break if we hit next date
             if lines[i].strip().startswith("## 📅"):
                  end_replace = i
                  break
         
-        # Replace the range [start_replace:end_replace] with new summary
-        # But allow keeping lines that are NOT the old summary boilerplate if impactful?
-        # For simplicity and robustness, we overwrite the "Summary Block".
-        
-        # Construct the new specific block
+        # Replace
         lines[start_replace:end_replace] = [s + "\n" for s in summary_md.split('\n')]
 
     with open(DIARY_FILE, "w", encoding="utf-8") as f:
         f.writelines(lines)
         
-    print("✅ อัปเดตสรุปภาพรวมประจำวันเรียบร้อย")
+    print("✅ สรุปงานประจำวันอัตโนมัติเรียบร้อย")
 
 def read_latest_mode():
     if not os.path.exists(DIARY_FILE):

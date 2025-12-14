@@ -34,8 +34,8 @@ The user interacts with this repo primarily through **custom scripts**.
 *   **`./nnn` (End Day):**
     *   **Usage:** `./nnn`
     *   **Purpose:** End of day routine.
-    *   Triggers the "Daily Retrospective" interview (Accomplished, Well, Not Well).
-    *   Updates the diary summary.
+    *   **Auto-Summary:** automatically generates "Accomplished" list from the day's operations logs.
+    *   Updates the diary summary (no survey).
     *   Auto-pushes work.
 
 ---
