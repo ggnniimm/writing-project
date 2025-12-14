@@ -64,6 +64,7 @@ def extract_and_name_with_gemini(filepath):
             - Convert the layout to clean Markdown (headers, lists, tables).
     Task 2: Generate a concise, descriptive English filename for this document based on its content. The filename should use snake_case and end with '.md'.
     Task 3: Analyze and Draft (Legal Expert Role).
+            - **Identify Issuing Authority:** Explicitly state if this is from the "Comptroller General's Committee (กวจ.)" or "Office of the Attorney General (อสส.)" or "Administrative Court (ศาลปกครอง)".
             - Identify relevance to "Section 97" or "Section 102".
             - If relevant:
                 1. **Summary:** Briefly summarize the legal principle (Thai).

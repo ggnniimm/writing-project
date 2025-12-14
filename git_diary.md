@@ -8,6 +8,13 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:59] 📝 Fix: Corrected Ruling 78/2562 source to OAG**
+    > Moved file to correct folder and updated article citation
+
+    📝 แก้ไข: procurement_act_section_97.md (ส่วน: 📚 แหล่งอ้างอิงและข้อมูลเพิ่มเติม (References) (Items: [7] คำวินิจฉัยสำนักงานอัยการสูงสุด (อสส.) ที่ 78/2562: เรื่อง การแก้ไขเปลี่ยนแปลงสัญญาเพื่อให้ตรงตามเจตนาของคู่สัญญา (กรณีเอกสารแนบท้ายขัดแย้งกับสัญญา)))
+    🛠 แก้ไขระบบ: gemini_pdf_to_md.py
+    📄 แก้ไข: git_diary.md
+    📄 แก้ไข: adjudication_78_2562_contract_amendment_true_intent.md
 *   **[15:57] 🔧 Fix: Re-extract verbatim content for Ruling 78/2562**
     > Updated gemini_pdf_to_md.py for strict OCR & re-processed file
 
@@ -36,6 +43,11 @@
     📄 แก้ไข: git_diary.md
     📄 แก้ไข: \340\270\255\340\270\263\340\270\231\340\270\262\340\270\210\340\270\255\340\270\231\340\270\270\340\270\241\340\270\261\340\270\225\340\270\264\340\271\203\340\270\231\340\270\201\340\270\262\340\270\243\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262.pdf"
     📄 แก้ไข: section_97_contract_amendment_approval_authority_circular.md
+*   **[16:20] 🔧 Quality Control: Correcting Authority Source (OAG vs GWJ)**
+    > **แก้ไขข้อมูล:** ผู้ใช้แจ้งว่า Ruling 78/2562 เป็นของ "อัยการสูงสุด (อสส.)" ไม่ใช่ กวจ.
+    > *   **Action:** ย้ายไฟล์ไปที่ `references/rulings_attorney_general/` และแก้ Citation ในบทความให้ถูกต้อง
+    > *   **System Upgrade:** เพิ่มคำสั่งใน `gemini_pdf_to_md.py` ให้ AI ระบุ "หน่วยงานเจ้าของเรื่อง" (Issuing Authority) ทุกครั้ง เพื่อป้องกันความผิดพลาดในอนาคต
+
 *   **[16:10] 🔧 Quality Control: Re-Extraction (Verbatim Mode)**
     > **แก้ไขตามคำสั่ง:** ผู้ใช้ต้องการให้ไฟล์ต้นฉบับ (Reference) เป็น ""ข้อความดิบที่ถอดมาจริงๆ"" ไม่ใช่สรุป (Summary)
     > *   **Action:** ปรับ Prompt ของ `gemini_pdf_to_md.py` ให้โหมดการถอดความเข้มงวดขึ้น (Verbatim Only) และสั่งรันซ้ำไฟล์ `CleanShot 2568...`
