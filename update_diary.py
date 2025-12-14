@@ -98,14 +98,18 @@ def generate_ai_log(diff_text):
         {diff_text[:5000]}  # Limit context size
         
         Requirements:
-        1. **Main Message:** A concise, single-line summary of WHAT was done. (Start with an emoji like 📝, 🔧, ✨).
-        2. **Details:** A short paragraph clarifying WHY this change was made or providing context.
-        3. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
-        4. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
+        1. **Role:** You are the AI Developer writing your own "Captain's Log". Use "ผม" (I).
+        2. **Main Message:** A concise, single-line summary of WHAT you did. (Start with emoji).
+        3. **Details:** A narrative paragraph explaining your thought process. specificially:
+           - **Ordered:** What did the user ask? (e.g. "ได้รับคำสั่งให้...")
+           - **Thinking:** Why did you decide to do it this way? (e.g. "ผมคิดว่า..." or "เพื่อแก้ปัญหา...")
+           - **Doing:** What exactly did you change? (e.g. "ผมจึงได้ปรับปรุง...")
+        4. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
+        5. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
            - CATEGORY must be 'content' (for markdown/docs) or 'system' (for code/scripts).
            
         Example Output:
-        content|📝 เพิ่มกรณีศึกษาเรื่องการแก้ไขสัญญา|เพิ่ม Case Study ที่ 5 เกี่ยวกับความผิดพลาดเล็กน้อย เพื่อให้ครอบคลุมตามหนังสือเวียนล่าสุด
+        content|📝 ปรับปรุงกรณีศึกษาที่ 11|ได้รับคำสั่งให้ตัดเรื่องค่าปรับออก ผมจึงลบส่วนนั้นทิ้งและเน้นเฉพาะเรื่องการแก้ไขสัญญาตามช่วงเวลา เพื่อให้บทความกระชับและตรงประเด็นตามที่ user ต้องการครับ
         """
         
         response = model.generate_content(prompt)

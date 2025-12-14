@@ -8,6 +8,8 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[19:25] 🔧 ปรับปรุงระบบ: Config & Scripts**
+    🛠 แก้ไขระบบ: update_diary.py
 *   **[19:23] 🔧 ปรับปรุงระบบ: Config & Scripts**
     📄 แก้ไข: README.md
     🛠 แก้ไขระบบ: push-work
