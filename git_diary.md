@@ -20,6 +20,8 @@
 *   Script `draft_writer.py` ยังต้องปรับปรุงเรื่อง Error Handling ให้ละเอียดขึ้นอีกนิด.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[11:01] 📝 Config: Set 'Daily Retrospective' policy (nnn only)**
+
 *   **[10:59] 📝 Restore Content & Add Ref MDs (Deep Pipe & CDG Audio)**
 
 *   **[10:57] 📝 Ad-hoc: Create Reference MD for CDG Audio**
