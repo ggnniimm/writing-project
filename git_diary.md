@@ -8,6 +8,36 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:31] 📝 Updated Article 97 with new case studies (Di Municipality & Saonanondaeng) and reorganized references**
+    > Added Case Studies 5 & 6, converted Thai numerals to Arabic, and organized references into subfolders (Court, Committee, OAG).
+
+    📝 แก้ไข: procurement_act_section_97.md (ส่วน: กลุ่ม D: ความผิดพลาดทางธุรการ (Clerical Errors) (Items: ### กลุ่ม D: ความผิดพลาดทางธุรการ (Clerical Errors), #### 5. การแก้ไขสัญญาก่อนตรวจรับงวดสุดท้าย (Contract Amendment Authority) <sup>[4]</sup>))
+    📄 แก้ไข: CDGaudio.txt
+    📄 แก้ไข: ref_cgd_audio_summary.md
+    📄 แก้ไข: voice_605210.aac
+    📄 แก้ไข: 001_cgd_37000_300967.pdf
+    📄 แก้ไข: didNotNotifyIn15Day.pdf
+    📄 แก้ไข: fine_waiver_delayed_site_delivery.pdf
+    📄 แก้ไข: force_majeure_red_case_aor_452_2557.pdf
+    📄 แก้ไข: notifyIn15Day.pdf
+    📄 แก้ไข: \340\270\201\340\270\262\340\270\243\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262 \340\271\200\340\270\231\340\270\267\340\271\210\340\270\255\340\270\207\340\270\210\340\270\262\340\270\201\340\270\236\340\270\264\340\270\241\340\270\236\340\271\214\340\270\234\340\270\264\340\270\224.pdf"
+    📄 แก้ไข: \340\270\224\340\270\261\340\270\231\340\270\227\340\271\210\340\270\255\340\270\245\340\270\266\340\270\201\340\270\201\340\270\247\340\271\210\340\270\262\340\271\201\340\270\232\340\270\232 \340\270\250\340\270\262\340\270\245\340\271\203\340\270\253\340\271\211\340\270\204\340\271\210\340\270\262\340\270\207\340\270\262\340\270\231\340\271\200\340\270\236\340\270\264\340\271\210\340\270\241.pdf.txt"
+    📄 แก้ไข: \340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262 \340\270\201\340\271\210\340\270\255\340\270\231\340\270\225\340\270\243\340\270\247\340\270\210\340\270\243\340\270\261\340\270\232\340\270\207\340\270\262\340\270\231\340\270\207\340\270\247\340\270\224\340\270\252\340\270\270\340\270\224\340\270\227\340\271\211\340\270\262\340\270\242.pdf"
+    📄 แก้ไข: ref_oag_105_2563.md
+    📄 แก้ไข: ref_oag_84_2563.md
+    📄 แก้ไข: contract_amendment_authority_procurement_act_2560.md
+    📄 แก้ไข: notifyIn15Day.md
+    📄 แก้ไข: procurement_dispute_waiver_extension_di_municipality.md
+    📄 แก้ไข: procurement_ruling_contract_modification_saonanondaeng.md
+    📄 แก้ไข: ref_contract_typo_correction.md
+    📄 แก้ไข: ref_gwj_5529_2565.md
+    📄 แก้ไข: ref_kwj_11924_2564.md
+    📄 แก้ไข: ref_kwj_19265_2568.md
+    📄 แก้ไข: ref_kwj_337000_2567.md
+    📄 แก้ไข: ref_sac_1766_2559.md
+    📄 แก้ไข: ref_sac_452_2557.md
+    📄 แก้ไข: ref_sac_672_2557.md
+    📄 แก้ไข: supreme_administrative_court_judgment_yala_hi_mast_contract_dispute.md
 *   **[14:58] 🔧 Implemented gemini_pdf_to_md.py and eee command for PDF extraction**
     > Added large file support via Gemini File API and auto-retry logic.
 
