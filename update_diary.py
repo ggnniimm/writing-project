@@ -114,7 +114,7 @@ def suggest_mode():
     
     print(f"{category}|{final_message}|{final_details}")
 
-        print("".join(printed_lines).strip())
+
 
 def auto_summarize_log(lines, header_date):
     # Heuristic: Scan lines after header_date for log entries

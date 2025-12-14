@@ -8,6 +8,10 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[11:12] 🔧 Config: Set 'End of Day' policy (nnn)**
+    > Workflow Update: ปรับคำสั่ง nnn ให้สร้างสรุปประจำวัน (Accomplished) จาก Log โดยอัตโนมัติ ไม่ต้องกรอกแบบสอบถามอีกต่อไป
+
+    🛠 แก้ไขระบบ: update_diary.py
 *   **[11:08] 🔧 Config: Set 'Start of Day' policy (bbb)**
     > Workflow Update: ปรับปรุงคำสั่ง bbb ให้เริ่มวันด้วยการสร้างหัวข้อ 'Pending' เท่านั้น และแก้ไข Diary ของวันนี้ให้เป็นไปตามกฎใหม่ตามคำสั่ง
 
