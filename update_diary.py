@@ -230,9 +230,6 @@ def read_latest_mode():
     if not printed_lines:
         print("ยังไม่มีบันทึกประจำวัน")
     else:
-    if not printed_lines:
-        print("ยังไม่มีบันทึกประจำวัน")
-    else:
         print("".join(printed_lines).strip())
 
 def start_day_mode():

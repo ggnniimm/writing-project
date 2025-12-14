@@ -8,6 +8,10 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[11:08] 🔧 Config: Set 'Start of Day' policy (bbb)**
+    > Workflow Update: ปรับปรุงคำสั่ง bbb ให้เริ่มวันด้วยการสร้างหัวข้อ 'Pending' เท่านั้น และแก้ไข Diary ของวันนี้ให้เป็นไปตามกฎใหม่ตามคำสั่ง
+
+    🛠 แก้ไขระบบ: update_diary.py
 *   **[11:05] 🔧 Fix: Log maintenance for task.md**
     > Documentation: อัปเดต task.md เพื่อบันทึกการซ่อมแซมระบบ Diary และ script ppp ให้เป็นปัจจุบัน
     > No changes detected
