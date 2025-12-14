@@ -172,7 +172,12 @@ def summary_mode():
         
     # Keep Pending and others Empty or Standard
     summary_md += f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   (See task.md)\n\n"
-    # Skip Qualitative sections (Went Well / Not Well) as per user request ("As AI sees fit" -> Keep it objective)
+    
+    # 3. Went Well (Auto-Generated)
+    summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n*   System Stability & Automated Git Sync\n\n"
+    
+    # 4. Not Well (Auto-Generated)
+    summary_md += f"### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧\n*   -\n\n"
 
     # Update Diary File
     # Logic to replace summary

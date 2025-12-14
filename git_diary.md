@@ -8,6 +8,10 @@
 *   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[11:14] 🔧 Config: Restore 'Went Well/Not Well' in Auto Summary**
+    > Requirement Update: นำหัวข้อ Went Well และ Not Well กลับเข้ามาในระบบ Auto-Retrospective ตามคำสั่ง โดยให้ระบบใส่ข้อมูลเบื้องต้นให้เอง
+
+    🛠 แก้ไขระบบ: update_diary.py
 *   **[11:12] 🔧 Config: Set 'End of Day' policy (nnn)**
     > Workflow Update: ปรับคำสั่ง nnn ให้สร้างสรุปประจำวัน (Accomplished) จาก Log โดยอัตโนมัติ ไม่ต้องกรอกแบบสอบถามอีกต่อไป
 
