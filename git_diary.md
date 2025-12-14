@@ -1,5 +1,44 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
+## 📅 14 ธันวาคม 2025
+**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
+
+### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   **Content Restoration:** กู้คืนเนื้อหาที่หายไปในบทความมาตรา 102 (Roles & Responsibilities).
+*   **Knowledge Base Expansion:** สร้างไฟล์ Markdown อ้างอิงใหม่ 2 ไฟล์ (Deep Pipe Jacking & CDG Audio).
+*   **Tooling:** ปรับปรุง `draft_writer.py` ให้รองรับ Interactive input, แก้ไข SSL issue, และเปลี่ยน Model เป็น `gemini-flash-latest`.
+*   **Standardization:** สร้าง Spec ไฟล์ `standards/section_102_spec.md` เพื่อคุมคุณภาพบทความ AI.
+
+### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️
+*   [ ] พัฒนา Spec สำหรับมาตราอื่นๆ (เช่น ม.97).
+*   [ ] ทดสอบการ generate บทความด้วย Spec ใหม่เพิ่มเติม.
+
+### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟
+*   การใช้ `spec-driven` ช่วยให้ AI generate เนื้อหาได้แม่นยำขึ้นมาก โดยเฉพาะคำศัพท์เฉพาะทาง.
+
+### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
+*   Script `draft_writer.py` ยังต้องปรับปรุงเรื่อง Error Handling ให้ละเอียดขึ้นอีกนิด.
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[10:59] 📝 Restore Content & Add Ref MDs (Deep Pipe & CDG Audio)**
+
+*   **[10:57] 📝 Ad-hoc: Create Reference MD for CDG Audio**
+    > **Knowledge Base:** สรุปไฟล์เสียงกรมบัญชีกลาง `ref_cgd_audio_summary.md`
+    > แยกประเด็นสำคัญเรื่อง "ขยาย vs งด/ลด" และ "แก้ไขสัญญา vs แนบท้าย" ไว้ชัดเจนมนุษย์เข้าใจง่าย
+
+*   **[10:50] 📝 Ad-hoc: Create Reference MD for Deep Pipe Jacking Case**
+    > **Knowledge Base:** สร้างไฟล์ `ref_sac_672_2557.md` สรุปคำพิพากษาเรื่องงานดันท่อ
+    > ยืนยันหลักการว่า "แบบผิดเกิน 50% = งานเพิ่ม" ผู้ว่าจ้างต้องจ่าย
+
+*   **[10:45] 📝 Spec-Driven Dev: Enforce Standards for Section 102**
+    > **Quality Control:** สร้างไฟล์ `standards/section_102_spec.md` เพื่อกำหนดกฎเหล็ก (Golden Rules)
+    > และปรับปรุง `draft_writer.py` ให้รองรับการอ่าน Spec นี้ไปใช้ในการ Generate บทความ
+    > ผลลัพธ์: บทความที่ Generate ออกมามีความถูกต้องแม่นยำเรื่องคำศัพท์เทคนิคมากขึ้น
+
+*   **[03:50] 📝 Repair Content: Section 102 Missing Headers**
+    > **Bug Fix:** ตรวจพบว่าหัวข้อ "ผู้ที่มีส่วนเกี่ยวข้อง" และ "ผู้ควบคุมงาน" หายไป
+    > จึงทำการกู้คืนเนื้อหา (Restore) กลับเข้ามาให้สมบูรณ์ โดยอิงจากไฟล์ Backup เดิม
+
 ## 📅 13 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
