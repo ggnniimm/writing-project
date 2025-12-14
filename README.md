@@ -24,6 +24,14 @@ The user interacts with this repo primarily through **custom scripts**.
     *   Updates `git_diary.md` automatically.
     *   Commits and Pushes to GitHub.
 
+*   **`./eee` (Extract & Auto-Integrate):**
+    *   **Usage:** `./eee references/raw_pdfs/filename.pdf`
+    *   **Workflow:** 
+        1.  Extracts text and saves to `references/`.
+        2.  **Auto-Analysis:** AI Drafts a summary and content block.
+        3.  **Auto-Integration (Agent Rule):** The Agent MUST immediately review the "Draft Content" and insert it into the relevant Article (e.g., Section 97/102) *without* waiting for user confirmation.
+    *   Then, sync work with `ppp`.
+
 *   **`./bbb` (Begin Day):**
     *   **Usage:** `./bbb`
     *   **Purpose:** Start of day routine.

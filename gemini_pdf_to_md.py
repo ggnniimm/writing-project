@@ -59,15 +59,18 @@ def extract_and_name_with_gemini(filepath):
     You are a professional document digitization assistant. 
     Task 1: Extract ALL text from this document verbatim. Do not summarize. Preserve the original Thai language wording exactly. Convert the layout to clean Markdown (headers, lists, tables).
     Task 2: Generate a concise, descriptive English filename for this document based on its content. The filename should use snake_case and end with '.md'.
-    Task 3: Analyze this document as a legal expert. 
-            - Identify if it relates to "Section 97 (Contract Amendment)" or "Section 102 (Fine Waiver/Time Extension)".
-            - If relevant, create a specific section at the end called "## 🤖 AI Analysis" and summarize the key legal principle or "Case Study" in Thai.
-            - If not relevant, state "Not directly relevant to Section 97/102".
+    Task 3: Analyze and Draft (Legal Expert Role).
+            - Identify relevance to "Section 97" or "Section 102".
+            - If relevant:
+                1. **Summary:** Briefly summarize the legal principle (Thai).
+                2. **Draft Content:** Write a high-quality Markdown block (Thai) ready to be pasted into the article. Use key legal terms, bullet points, and citation placeholders.
+                3. **Placement:** Suggest exactly where in the article this should go (e.g., "New Case Study", "Under General Principles").
+            - Append this to the generated file under a header "## 🤖 AI Draft & Analysis".
     
     Output Format: Return only a valid JSON object with the following structure:
     {
         "filename": "generated_filename.md",
-        "content": "# Full Document Content in Markdown...\n\n## 🤖 AI Analysis\n(Analysis here)"
+        "content": "# Full Document Content...\n\n## 🤖 AI Draft & Analysis\n(Content here)"
     }
     """
 
