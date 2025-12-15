@@ -9,6 +9,86 @@
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
 *   **[14:35] 📝 Add Ep.4 Article (Lump Sum vs Unit Price) and Gemini Usage Guide**
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+
+**[2025-12-15 08:09] Merge remote-tracking branch 'origin/main'**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+
+**[2025-12-15 09:34] Feature: Section 97 Deep Dive & Style Guide**
+    -   📝 แก้ไข: .DS_Store
+    -   📝 แก้ไข: README.md
+    -   ✨ สร้างใหม่: articles/html/ep01_verbal_orders.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_legal_structure.html
+    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_principles.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep01_verbal_orders.md
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+    -   📝 แก้ไข: articles/procurement_act_section_97.md
+    -   ✨ สร้างใหม่: articles/procurement_act_section_97_legal_structure.md
+    -   ✨ สร้างใหม่: articles/procurement_act_section_97_principles.md
+    -   📝 แก้ไข: eee
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   📝 แก้ไข: generate_html.py
+    -   📝 แก้ไข: references/.DS_Store
+    -   ✨ สร้างใหม่: references/raw_pdfs/CleanShot 2568-12-15 at 08.21.50@2x.pdf
+    -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_222_2563.md
+
+**[2025-12-15 10:36] Correction: แก้ไขประเภทโครงการใน EP.2 (Deep Pipe Jacking)**
+    -   📝 แก้ไข: articles/html/ep02_deep_pipe_jacking.html
+    -   📝 แก้ไข: articles/learning_from_judgments/ep02_deep_pipe_jacking.md
+
+**[2025-12-15 10:49] New Article: Learning from Judgments EP.3 (Liability for Damages)**
+    -   ✨ สร้างใหม่: articles/html/ep03_liability_for_damages.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep03_liability_for_damages.md
+
+**[2025-12-15 10:54] Convert SAC 672/2557 raw text to Markdown**
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_672_2557_full.md
+
+**[2025-12-15 10:58] Create ref_sac_16_2547_full.md (Pending content)**
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_16_2547_full.md
+    -   ✨ สร้างใหม่: list_models.py
+    -   ✨ สร้างใหม่: "references/raw_pdfs/\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\207\340\270\262\340\270\231 \340\270\234\340\270\271\340\271\211\340\270\243\340\270\261\340\270\232\340\270\210\340\271\211\340\270\262\340\270\207\340\270\241\340\270\265\340\270\240\340\270\262\340\270\243\340\270\260\340\270\231\340\271\211\340\270\255\340\270\242\340\270\245\340\270\207.pdf"
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_148_2554_full.md
+    -   📝 แก้ไข: references/rulings_court/ref_sac_16_2547_full.md
+    -   ✨ สร้างใหม่: test_api_minimal.py
+    -   ✨ สร้างใหม่: test_rest_api.py
+    -   ✨ สร้างใหม่: test_sdk_minimal.py
+
+**[2025-12-15 14:26] 🔧 Optimize: Gemini Prompt for Token Efficiency**
+    > **User Request:** "อยากให้ประหยัด token ช่วยปรับ prompt ให้ที"
+    > **Action:** ผมตรวจสอบ Prompt เดิมที่ยาวเหยียด (มี Role, Rules เยอะ) แล้วทำการตัดทอนเหลือแค่ Core Instruction ("Extract verbatim")
+    > **Result:** ลดขนาด Prompt ได้กว่า 50% ต่อครั้ง ช่วยประหยัดโควตาและทำให้ AI โฟกัสงาน OCR ได้ดีขึ้น
+    *   📝 แก้ไข: gemini_pdf_to_md.py
+
+**[2025-12-15 14:15] 🐞 Fix: API Rate Limiting & Key Switching Logic**
+    > **Problem:** เจอ Error `429 ResourceExhausted` ถี่มากจน Script หยุดทำงานกลางคัน
+    > **Analysis:** พบว่าโควตาของ API Key ตัวเดียวไม่พอสำหรับไฟล์ขนาดใหญ่
+    > **Action:** ผมเขียน Logic ใหม่ให้ Script รองรับ `api_keys` แบบ List และทำระบบ "Auto-Switch" เปลี่ยน Key ทันทีที่เจอ Error 429
+    > **Result:** Script สามารถ Run ต่อเนื่องได้จนจบโดยไม่ต้องคนมากด Resume
+    *   📝 แก้ไข: gemini_pdf_to_md.py
+    *   ✨ สร้างใหม่: test_rest_api.py
+
+**[2025-12-15 13:50] 📚 Documentation: Create Gemini Usage Guide**
+    > **User Request:** "ขอ Guide ไว้ดูหน่อย กันลืม"
+    > **Action:** ผมรวบรวมปัญหาทั้งหมดที่เจอวันนี้ (404 Model Not Found, 429 Rate Limit, SDK Hang) และวิธีแก้ที่ผมทำไป เขียนสรุปเป็นไฟล์ Markdown แยกไว้ในโฟลเดอร์ docs/
+    > **Result:** ได้ไฟล์ `gemini_usage_guide.md` เป็นคู่มือฉบับพกพาสำหรับทีม
+    *   ✨ สร้างใหม่: docs/gemini_usage_guide.md
+
+**[2025-12-15 13:30] 🔧 Feature: Enable Response Streaming for Large PDFs**
+    > **Problem:** Script ค้าง (Hang) นานผิดปกติเมื่อสั่ง Generate กับไฟล์ PDF ใหญ่ๆ ไม่มี Error แต่ไม่ตอบสนอง
+    > **Hypothesis:** คาดว่าเป็นที่ HTTP Timeout หรือ SDK Buffer รอ response ก้อนใหญ่เกินไป
+    > **Action:** ผมแก้ Code มาใช้ `stream=True` เพื่อบังคับให้รับข้อมูลทีละ Chunk แทนที่จะรอทั้งหมด
+    > **Result:** แก้ปัญหาค้างได้หายขาด เห็น Progress การทำงานชัดเจนขึ้น
+    *   📝 แก้ไข: gemini_pdf_to_md.py
+
+**[2025-12-15 13:00] 🧩 Research: Investigate Gemini Model Availability**
+    > **Problem:** รัน Script แล้วเจอ Error `404 Not Found` ทั้งที่ใช้ชื่อโมเดลถูกต้อง
+    > **Action:** ผมสร้าง Script ลับ `list_models.py` เพื่อยิงเช็ค Server ตรงๆ ว่า Key นี้มองเห็นโมเดลไหนบ้าง
+    > **Result:** พบว่า Key นี้ใช้ `gemini-1.5-pro` ไม่ได้ (ติด Permission) แต่ใช้ `gemini-2.5-flash` ได้ จึงปรับ Code ให้ใช้รุ่น Flash แทน
+    *   ✨ สร้างใหม่: list_models.py
     > ผมได้ดำเนินการเพิ่มเนื้อหาบทความใหม่ในชุด "เรียนรู้จากคำพิพากษา" เพื่อเผยแพร่ตอนที่ 4 ซึ่งเป็นประเด็นเรื่องสัญญาจ้างเหมารวม (Lump Sum Contract) กับการหักเงินค่าจ้างของรัฐในกรณีที่ปริมาณงานจริงน้อยกว่าที่ประเมินไว้ ผมได้สร้างไฟล์ HTML ใหม่ชื่อ `ep04_lump_sum_vs_unit_price.html` พร้อมทั้งจัดรูปแบบการแสดงผลและ CSS สำหรับการอ่าน (A4 layout) ให้สวยงามและเป็นระเบียบ ผลลัพธ์คือบทความ Ep.4 พร้อมสำหรับการเผยแพร่สู่สาธารณะ เพื่อเป็นแหล่งข้อมูลด้านกฎหมายสัญญาของรัฐที่ชัดเจนยิ่งขึ้นครับ.
 
 *   **[10:58] 📝 Update diary for SAC 16/2547**
@@ -1028,45 +1108,3 @@
 **[2025-12-15 08:07] Merge remote-tracking branch 'origin/main'**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
-
-**[2025-12-15 08:09] Merge remote-tracking branch 'origin/main'**
-    -   📝 แก้ไข: articles/html/my_first_article.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
-
-**[2025-12-15 09:34] Feature: Section 97 Deep Dive & Style Guide**
-    -   📝 แก้ไข: .DS_Store
-    -   📝 แก้ไข: README.md
-    -   ✨ สร้างใหม่: articles/html/ep01_verbal_orders.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
-    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_legal_structure.html
-    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_principles.html
-    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep01_verbal_orders.md
-    -   📝 แก้ไข: articles/procurement_act_section_102.md
-    -   📝 แก้ไข: articles/procurement_act_section_97.md
-    -   ✨ สร้างใหม่: articles/procurement_act_section_97_legal_structure.md
-    -   ✨ สร้างใหม่: articles/procurement_act_section_97_principles.md
-    -   📝 แก้ไข: eee
-    -   📝 แก้ไข: gemini_pdf_to_md.py
-    -   📝 แก้ไข: generate_html.py
-    -   📝 แก้ไข: references/.DS_Store
-    -   ✨ สร้างใหม่: references/raw_pdfs/CleanShot 2568-12-15 at 08.21.50@2x.pdf
-    -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_222_2563.md
-
-**[2025-12-15 10:36] Correction: แก้ไขประเภทโครงการใน EP.2 (Deep Pipe Jacking)**
-    -   📝 แก้ไข: articles/html/ep02_deep_pipe_jacking.html
-    -   📝 แก้ไข: articles/learning_from_judgments/ep02_deep_pipe_jacking.md
-
-**[2025-12-15 10:49] New Article: Learning from Judgments EP.3 (Liability for Damages)**
-    -   ✨ สร้างใหม่: articles/html/ep03_liability_for_damages.html
-    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep03_liability_for_damages.md
-
-**[2025-12-15 10:54] Convert SAC 672/2557 raw text to Markdown**
-    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_672_2557_full.md
-
-**[2025-12-15 10:58] Create ref_sac_16_2547_full.md (Pending content)**
-    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_16_2547_full.md
-
-**[2025-12-15 10:58] Update diary for SAC 16/2547**

@@ -6,7 +6,7 @@ import os
 
 # Check environment variables first
 api_keys = []
-target_key = "AIzaSyA6B76kpY0wHUxreOJAQljI-7tvhWDjIu0"
+target_key = os.environ.get("GEMINI_API_KEY")
 api_keys.append(target_key)
 
 if api_keys:

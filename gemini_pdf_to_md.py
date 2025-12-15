@@ -41,7 +41,7 @@ def extract_and_name_with_gemini(filepath):
     print(f"🔑 Loaded {len(api_keys)} API Key(s).")
     
     # Target the specific new key provided by user
-    target_key = "AIzaSyA6B76kpY0wHUxreOJAQljI-7tvhWDjIu0"
+    # target_key = os.environ.get("GEMINI_API_KEY") # Use Env Var
     found_key_index = -1
     for i, k in enumerate(api_keys):
         if k.strip() == target_key:
