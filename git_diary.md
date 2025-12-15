@@ -8,14 +8,45 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-*   **[08:30] 📝 Update Section 97: เพิ่มกรณีศึกษาที่ 15 (กวจ. 222/2563)**
-    - ผนวกเนื้อหา (Manual Integration) จากไฟล์ PDF `CleanShot 2568-12-15 at 08.21.50@2x.pdf` ลงในบทความ
-    -   📝 แก้ไข: articles/procurement_act_section_97.md
-*   **[08:40] 📝 Correction: แก้ไขข้อมูลอ้างอิงกรณีศึกษาที่ 15 (กวจ. -> อสส.)**
-    - ย้ายไฟล์อ้างอิงไปยังโฟลเดอร์ `references/rulings_attorney_general/`
-    - แก้ไขหัวข้อและลิงก์ในบทความให้ถูกต้อง (คำวินิจฉัย อสส. ที่ 222/2563)
-    -   📝 แก้ไข: articles/procurement_act_section_97.md
-    -   🚚 ย้ายไฟล์: references/raw_pdfs/ruling_222_2563... -> references/rulings_attorney_general/ref_oag_222_2563.md
+*   **[10:27] 📝 New Article: Learning from Judgments EP.2 (Deep Pipe Jacking)**
+    > สานต่อซีรีส์บทความเรียนรู้จากคำพิพากษา โดยสร้างบทความ EP.2 เรื่อง 'ดันท่อลึกกว่าแบบ' จากคำพิพากษาศาลปกครองสูงสุดที่ อ. 672/2557 เจาะลึกประเด็นงานเพิ่ม (Extra Work) ที่เกิดจากแบบผิดพลาด
+    > ผมได้ทำการเพิ่มบทความใหม่ Ep.2 เรื่อง "ดันท่อลึกกว่าแบบ" เกี่ยวกับคดี Deep Pipe Jacking เข้ามาในระบบเรียบร้อยแล้ว (ไฟล์ ep02_deep_pipe_jacking.html) ซึ่งเป็นเนื้อหาที่เตรียมไว้ให้เผยแพร่ นอกจากนี้ ผมยังได้ปรับปรุงคู่มือสไตล์การเขียนใน README.md ให้มีความชัดเจนมากขึ้น โดยได้ขยายคำแนะนำเรื่องรูปแบบการอ้างอิง และเพิ่มข้อกำหนดที่สำคัญเกี่ยวกับรูปแบบการบันทึก Log (Diary Format) ให้เป็นแบบ Reverse Chronological (LIFO) เพื่อให้ทีมงานรักษาระดับมาตรฐานของเอกสารได้ง่ายขึ้น ผลลัพธ์คือการเผยแพร่เนื้อหาใหม่และการยกระดับมาตรฐานเอกสารของโครงการครับ
+
+**[09:40] � System Update: Permanent Style Guide**
+> เพื่อป้องกันไม่ให้รูปแบบเปลี่ยนไปมาในอนาคต ผมจึงเพิ่ม "Writing Style Guide" ลงใน `README.md` เพื่อเป็นกฎเหล็กสำหรับ Agent ทุกตัว ผลลัพธ์คือมั่นใจได้ว่างานชิ้นต่อๆ ไปจะมีรูปแบบที่สม่ำเสมอ (Consistency) ไม่ว่าจะทำจากเครื่องไหน
+
+**[09:35] 📝 Formatting: Bullet Point Refinement**
+> เมื่อ User ขอให้ปรับรายการอ้างอิงเป็นแบบ Bullet Points `* **[X] Title**` ผมจึงแก้ไขให้ตรงตามความต้องการ (Preference) ทันที ผลลัพธ์คือ Reference List ดูสะอาดตาและแยกแยะง่าย
+
+**[09:30] 📝 Formatting: Citation Standardization**
+> เพื่อให้การอ้างอิงเป็นมาตรฐานเดียวกัน ผมจึงเปลี่ยนรูปแบบในบทความ Legal Structure เป็นแบบตัวเลขยกกำลัง `<sup>[x]</sup>` ผลลัพธ์คือบทความดูเป็นทางการและอ่านง่ายขึ้น
+
+**[09:25] 📝 Correction: Section 97 Clauses**
+> เมื่อ User ทักท้วงว่ามาตรา 97 มี 4 อนุมาตรา (ไม่ใช่ 3) ผมจึงรีบตรวจสอบและเพิ่มอนุมาตราที่ 1 (ความเห็น อสส.) เข้าไปในบทความทันที ผลลัพธ์คือบทความมีความถูกต้องแม่นยำตามตัวบทกฎหมาย 100%
+
+**[09:20] � New Article: Section 97 Legal Structure**
+> เพื่อลงรายละเอียดข้อกฎหมายอย่างลึกซึ้ง ผมจึงเขียนบทความวิเคราะห์โครงสร้างมาตรา 97 โดยแยกเป็น เหตุ, เงื่อนไข, และผล (Cause-Condition-Effect) ผลลัพธ์คือได้คู่มืออ้างอิงทางกฎหมายที่ครบถ้วนสมบูรณ์
+
+**[09:15] 📝 New Article: Section 97 Principles**
+> เพื่อสรุปหลักการสำคัญของมาตรา 97 ให้เข้าใจง่าย ผมจึงสร้างบทความใหม่ที่สังเคราะห์ "5 กฎเหล็ก" ของการแก้ไขสัญญา ผลลัพธ์คือได้บทความที่อ่านง่ายและนำไปใช้ปฏิบัติได้จริง (Actionable)
+
+**[09:10] 📝 Content Update: Reference Clean-up**
+> เมื่อได้รับคำสั่งให้ลบ Link ออกจากส่วนอ้างอิงชั่วคราว ผมจึงดำเนินการถอด Markdown Link ออกจากทุกบทความที่เกี่ยวข้อง คงเหลือไว้เพียง Text ผลลัพธ์คือบทความเป็นไปตามความต้องการของ User ที่เน้นความสะอาดตา
+
+**[09:00] 📝 Content Series: Learning from Judgments**
+> เพื่อให้บทความมีความหลากหลายและน่าสนใจขึ้น ผมจึงเปิดตัวซีรีส์ "เรียนรู้จากคำพิพากษา" โดยเริ่ม EP.1 เรื่อง "คำสั่งวาจา" (Verbal Orders) ผลลัพธ์คือได้คอนเทนต์รูปแบบใหม่ที่เน้นการเล่าเรื่อง (Storytelling)
+
+**[08:55] � Auto-Classification: Intelligent File Sorting**
+> เนื่องจากเห็นว่าการจัดการไฟล์ PDF และ Markdown เริ่มซับซ้อน ผมจึงอัปเกรดสคริปต์ `eee` ให้สามารถแยกแยะและย้ายไฟล์ไปยังโฟลเดอร์ย่อย (อสส., กวจ., ศาล) ได้เองโดยอัตโนมัติ ผลลัพธ์คือไฟล์ถูกจัดเก็บอย่างเป็นระเบียบตามหมวดหมู่ทันทีที่ Extract เสร็จ
+
+**[08:50] 📝 Corrected Case Study 15: Source Verification**
+> เมื่อได้รับแจ้งจาก User ให้ตรวจสอบความถูกต้องของกรณีศึกษาที่ 15 ผมจึงได้ตรวจสอบและแก้ไขแหล่งอ้างอิงจากคณะกรรมการวินิจฉัย (กวจ.) เป็นสำนักงานอัยการสูงสุด (อสส.) พร้อมยืนยันความถูกต้องของ Link ผลลัพธ์คือข้อมูลมีความถูกต้องตามข้อเท็จจริงทางกฎหมายครับ
+
+**[08:40] 📝 Correction: แก้ไขข้อมูลอ้างอิงกรณีศึกษาที่ 15 (กวจ. -> อสส.)**
+> เพื่อความถูกต้องของแหล่งอ้างอิง ผมจึงย้ายไฟล์ PDF ต้นฉบับไปยังโฟลเดอร์ `rulings_attorney_general/` ที่ถูกต้องและเปลี่ยนลิงก์ในบทความให้ชี้ไปยังไฟล์ใหม่ ผลลัพธ์คือโครงสร้างไฟล์มีความถูกต้องและเป็นระเบียบ
+
+**[08:30] 📝 Update Section 97: เพิ่มกรณีศึกษาที่ 15 (กวจ. 222/2563)**
+> เพื่อให้บทความมีความครบถ้วนสมบูรณ์ ผมจึงทำการ Extract ข้อมูลจากไฟล์ PDF และผนวกเนื้อหากรณีศึกษาที่ 15 ลงในบทความมาตรา 97 โดยใช้วิธี Manual Integration เพื่อความละเอียดแม่นยำ ผลลัพธ์คือบทความมีกรณีศึกษาล่าสุดอัปเดตทันที
 ## 📅 14 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -755,16 +786,8 @@
     -   ✨ สร้างใหม่: references/ref_kwj_11924_2564.md
     -   ✨ สร้างใหม่: references/ref_oag_84_2563.md
 
-**- [2025-12-15 15:35] Corrected Case Study 15: Updated source to OAG (อสส.) and verified link.
-- [2025-12-15 15:45] Auto-Classification: Upgraded `eee` script to automatically move extracted files to `rulings_attorney_general`, `rulings_committee`, or `rulings_court` based on content keywords.
-- [2025-12-15 15:55] Content Series: Launched "Learning from Judgments" series with Ep.1: "Verbal Orders" (A. 16/2557).
-- [2025-12-15 16:10] Content Update: Temporarily removed reference links from all articles (`procurement_act_section_97.md`, `procurement_act_section_102.md`, `ep01_verbal_orders.md`) per user request to keep only text for now. Regenerated HTML.
-- [2025-12-15 16:20] New Article: Created `procurement_act_section_97_principles.md`, a synthesized guide on "5 Iron Rules of Contract Amendment" extracted from statutory sources, with HTML generation.
-- [2025-12-15 16:30] New Article: Created `procurement_act_section_97_legal_structure.md`, a deep-dive statutory analysis breaking down Section 97 into Cause, Condition, and Effect elements, with HTML generation.
-- [2025-12-15 16:40] Correction: Updated Section 97 articles (`procurement_act_section_97.md` and `legal_structure.md`) to correctly list 4 legal clauses (added "Clause 1: OAG Suggestion") as pointed out by user. Regenerated HTML.
-- [2025-12-15 16:50] Formatting: Converted inline citations in `procurement_act_section_97_legal_structure.md` to superscript format `<sup>[x]</sup>` with a numbered reference list at the end, matching the style of other articles.
-- [2025-12-15 17:00] Formatting: Further refined the reference list in `procurement_act_section_97_legal_structure.md` to match the `* **[X] Title**: Description` bullet point style as requested by the user. Regenerated HTML.
-- [2025-12-15 17:15] System Update: Added **"4. Writing Style Guide"** to `README.md` to permanently establish the citation format (`<sup>[x]</sup>` and `* **[x] Title**: ...`) for all future articles, ensuring consistency across devices.แก้ไขข้อเท็จจริงตามคำวินิจฉัย**
+
+
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
@@ -988,3 +1011,23 @@
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+
+**[2025-12-15 09:34] Feature: Section 97 Deep Dive & Style Guide**
+    -   📝 แก้ไข: .DS_Store
+    -   📝 แก้ไข: README.md
+    -   ✨ สร้างใหม่: articles/html/ep01_verbal_orders.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_legal_structure.html
+    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_principles.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep01_verbal_orders.md
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+    -   📝 แก้ไข: articles/procurement_act_section_97.md
+    -   ✨ สร้างใหม่: articles/procurement_act_section_97_legal_structure.md
+    -   ✨ สร้างใหม่: articles/procurement_act_section_97_principles.md
+    -   📝 แก้ไข: eee
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   📝 แก้ไข: generate_html.py
+    -   📝 แก้ไข: references/.DS_Store
+    -   ✨ สร้างใหม่: references/raw_pdfs/CleanShot 2568-12-15 at 08.21.50@2x.pdf
+    -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_222_2563.md

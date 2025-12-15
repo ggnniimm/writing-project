@@ -86,10 +86,18 @@ To set up this workflow on a new macOS machine:
 *   **Content:** The file should contain the original content (transcribed or excerpted) without modification, followed by any analysis if applicable.
 *   **Naming:** Use descriptive names, e.g., `ref_[source]_[number]_[year].md`.
 
-### 4. 📖 Writing Style Guide
-To ensure consistency across the project, all articles must follow this citation format:
-*   **Inline Citation:** Use superscripts with brackets, e.g., `...ข้อความที่อ้างอิง <sup>[1]</sup>`
-*   **Reference List (Bibliography):** Place at the end of the file under `## 📚 อ้างอิง` or `## References`.
+### 4. Writing Style Guide
+
+#### 4.1 Citation Format
+*   **Inline:** Use superscript brackets, e.g., `Statement<sup>[1]</sup>`.
+*   **Reference List:** Use bullet points with bold titles:
+    *   `* **[1] Title**: Description...`
     *   **Format:** Bullet point + Bold bracketed number + Title + Description.
     *   **Template:** `* **[1] Title/Source**: Short description of the content.`
     *   **Example:** `* **[1] คำพิพากษาศาลปกครองสูงสุดที่ อ. 1766/2559**: เรื่อง การไม่แจ้งเหตุแห่งความล่าช้า...`
+
+#### 4.2 Diary Format (Log)
+*   **Order:** strictly **Reverse Chronological (LIFO)**. Newest entry MUST be at the top of the list for the current day.
+    *   Top: `[09:40] Latest Task`
+    *   Bottom: `[08:30] First Task`
+*   **Style:** Narrative (Situation -> Action -> Result).

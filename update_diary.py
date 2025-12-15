@@ -114,17 +114,17 @@ def generate_ai_log(diff_text):
             
             Requirements:
             1. **Role:** You are the AI Developer writing your own "Captain's Log". Use "ผม" (I).
-            2. **Main Message:** A concise, single-line summary of WHAT you did. (Start with emoji).
-            3. **Details:** A narrative paragraph explaining your thought process. specificially:
-               - **Ordered:** What did the user ask? (e.g. "ได้รับคำสั่งให้...")
-               - **Thinking:** Why did you decide to do it this way? (e.g. "ผมคิดว่า..." or "เพื่อแก้ปัญหา...")
-               - **Doing:** What exactly did you change? (e.g. "ผมจึงได้ปรับปรุง...")
+            2. **Main Message:** A concise title of the event/action. (Start with emoji).
+            3. **Details:** A chronological narrative paragraph covering:
+               - **Event (Situation):** What happened? What did you encounter? (e.g. "ได้รับแจ้งว่า...", "เจอ error ว่า...")
+               - **Action:** How did you handle it? (e.g. "ผมจึงตรวจสอบ...", "ผมได้แก้ไขโดย...")
+               - **Result:** What was the outcome? (e.g. "ผลลัพธ์คือ...", "ทำให้ระบบสามารถ...")
             4. **Language:** STRICTLY THAI (English allowed only for technical terms/vars).
             5. **Format:** Output ONLY specific string format: "CATEGORY|MAIN_MESSAGE|DETAILS_TEXT"
                - CATEGORY must be 'content' (for markdown/docs) or 'system' (for code/scripts).
                
             Example Output:
-            content|📝 ปรับปรุงกรณีศึกษาที่ 11|ได้รับคำสั่งให้ตัดเรื่องค่าปรับออก ผมจึงลบส่วนนั้นทิ้งและเน้นเฉพาะเรื่องการแก้ไขสัญญาตามช่วงเวลา เพื่อให้บทความกระชับและตรงประเด็นตามที่ user ต้องการครับ
+            content|📝 ปรับปรุงบทความตาม User Feedback|เมื่อได้รับแจ้งจาก User ว่าตารางเปรียบเทียบดูยาก ผมจึงได้แก้ไข CSS ให้มีความกว้างมากขึ้นและเพิ่มสีพื้นหลังสลับบรรทัด ผลลัพธ์คือตารางอ่านง่ายขึ้นมากและ User พอใจครับ
             """
             
             response = model.generate_content(prompt)
