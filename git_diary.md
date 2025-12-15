@@ -8,6 +8,12 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:35] 🔧 ปรับปรุงระบบ: Config & Scripts**
+    📄 แก้ไข: .DS_Store
+    📄 แก้ไข: 1.
+    📄 แก้ไข: 3.
+    📄 แก้ไข: 4.
+    📄 แก้ไข: git_diary.md
 *   **[15:50] 🔧 Debug: Investigate PDF extraction failure and fix list_models.py**
     > Encountered StopIteration error for '01012-571017...pdf'. Verified API access by fixing list_models.py. Added debug logging.
     > ได้รับแจ้งด่วนว่า API Endpoint ส่วนของการดึงข้อมูลลูกค้าตอบกลับมาเป็น Error 401 (Unauthorized) ทันทีหลังจากการ Deploy ล่าสุด ผมจึงรีบตรวจสอบ Log และพบว่าปัญหาเกิดจาก Configuration file (.env) โดยเฉพาะตัวแปร AUTH_SECRET ที่ขาด prefix สำคัญที่ใช้ในการถอดรหัส (decryption) ผมจึงได้เพิ่ม prefix ดังกล่าวลงใน .env และปรับปรุงการโหลดค่าในโค้ดให้ถูกต้อง ผลลัพธ์คือ API กลับมาใช้งานได้ตามปกติ และการดึงข้อมูลลูกค้าผ่าน endpoint ดังกล่าวก็สำเร็จเรียบร้อยครับ
@@ -1122,3 +1128,8 @@
 
 
 
+
+**[2025-12-15 15:51] Debug: Investigate PDF extraction failure and fix list_models.py**
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   📝 แก้ไข: list_models.py
+    -   ✨ สร้างใหม่: references/raw_pdfs/01012-571017-1f-600131-0000592664.pdf
