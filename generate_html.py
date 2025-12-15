@@ -172,8 +172,8 @@ def generate_html():
         os.makedirs(output_dir)
         print(f"Created directory: {output_dir}")
 
-    # Find all MD files
-    md_files = glob.glob(os.path.join(input_dir, "*.md"))
+    # Find all MD files (recursive)
+    md_files = glob.glob(os.path.join(input_dir, "**", "*.md"), recursive=True)
     
     if not md_files:
         print("No markdown files found to convert.")

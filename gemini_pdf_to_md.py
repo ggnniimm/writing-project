@@ -5,8 +5,12 @@ import json
 import time
 import google.generativeai as genai
 from google.api_core import exceptions
+from dotenv import load_dotenv
 
 def extract_and_name_with_gemini(filepath):
+    # 0. Load .env
+    load_dotenv()
+
     # 1. Get ALL API Keys
     api_keys = []
     
@@ -122,7 +126,37 @@ def extract_and_name_with_gemini(filepath):
                     f.write(md_content)
                 
                 print(f"✅ Success! Extracted to: {output_path}")
+
+                # 5. Auto-Classification & Move
+                target_subfolder = "references/raw_pdfs" # Default fallback
                 
+                # Simple keyword heuristics for Thai legal documents
+                content_sample = md_content[:2000] # Check first 2000 chars
+                if "อัยการสูงสุด" in content_sample or "อสส" in content_sample or "OAG" in content_sample:
+                    target_subfolder = "references/rulings_attorney_general"
+                elif "คณะกรรมการวินิจฉัย" in content_sample or "กวจ" in content_sample or "กรมบัญชีกลาง" in content_sample:
+                    target_subfolder = "references/rulings_committee"
+                elif "ศาลปกครอง" in content_sample or "คำพิพากษา" in content_sample:
+                    target_subfolder = "references/rulings_court"
+                
+                # Construct final path
+                # Assuming script is running from project root or references are relative to script
+                project_root = os.path.dirname(os.path.abspath(__file__))
+                final_dir = os.path.join(project_root, target_subfolder)
+                
+                if not os.path.exists(final_dir):
+                    print(f"⚠️ Target folder {target_subfolder} does not exist. Creating...")
+                    os.makedirs(final_dir, exist_ok=True)
+                
+                final_path = os.path.join(final_dir, md_filename)
+                
+                # Move the file
+                try:
+                    os.rename(output_path, final_path)
+                    print(f"🚚 Auto-Classified & Moved to: {target_subfolder}/{md_filename}")
+                except Exception as move_err:
+                     print(f"⚠️ Could not move file: {move_err}")
+
                 # Cleanup (Optional but good practice)
                 try:
                     sample_file.delete()

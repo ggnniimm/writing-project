@@ -1,5 +1,21 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
+
+## 📅 15 ธันวาคม 2025
+**🤖 Start of Day:**
+
+### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️
+*   [ ] 
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[08:30] 📝 Update Section 97: เพิ่มกรณีศึกษาที่ 15 (กวจ. 222/2563)**
+    - ผนวกเนื้อหา (Manual Integration) จากไฟล์ PDF `CleanShot 2568-12-15 at 08.21.50@2x.pdf` ลงในบทความ
+    -   📝 แก้ไข: articles/procurement_act_section_97.md
+*   **[08:40] 📝 Correction: แก้ไขข้อมูลอ้างอิงกรณีศึกษาที่ 15 (กวจ. -> อสส.)**
+    - ย้ายไฟล์อ้างอิงไปยังโฟลเดอร์ `references/rulings_attorney_general/`
+    - แก้ไขหัวข้อและลิงก์ในบทความให้ถูกต้อง (คำวินิจฉัย อสส. ที่ 222/2563)
+    -   📝 แก้ไข: articles/procurement_act_section_97.md
+    -   🚚 ย้ายไฟล์: references/raw_pdfs/ruling_222_2563... -> references/rulings_attorney_general/ref_oag_222_2563.md
 ## 📅 14 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -739,6 +755,21 @@
     -   ✨ สร้างใหม่: references/ref_kwj_11924_2564.md
     -   ✨ สร้างใหม่: references/ref_oag_84_2563.md
 
+**- [2025-12-15 15:35] Corrected Case Study 15: Updated source to OAG (อสส.) and verified link.
+- [2025-12-15 15:45] Auto-Classification: Upgraded `eee` script to automatically move extracted files to `rulings_attorney_general`, `rulings_committee`, or `rulings_court` based on content keywords.
+- [2025-12-15 15:55] Content Series: Launched "Learning from Judgments" series with Ep.1: "Verbal Orders" (A. 16/2557).
+- [2025-12-15 16:10] Content Update: Temporarily removed reference links from all articles (`procurement_act_section_97.md`, `procurement_act_section_102.md`, `ep01_verbal_orders.md`) per user request to keep only text for now. Regenerated HTML.
+- [2025-12-15 16:20] New Article: Created `procurement_act_section_97_principles.md`, a synthesized guide on "5 Iron Rules of Contract Amendment" extracted from statutory sources, with HTML generation.
+- [2025-12-15 16:30] New Article: Created `procurement_act_section_97_legal_structure.md`, a deep-dive statutory analysis breaking down Section 97 into Cause, Condition, and Effect elements, with HTML generation.
+- [2025-12-15 16:40] Correction: Updated Section 97 articles (`procurement_act_section_97.md` and `legal_structure.md`) to correctly list 4 legal clauses (added "Clause 1: OAG Suggestion") as pointed out by user. Regenerated HTML.
+- [2025-12-15 16:50] Formatting: Converted inline citations in `procurement_act_section_97_legal_structure.md` to superscript format `<sup>[x]</sup>` with a numbered reference list at the end, matching the style of other articles.
+- [2025-12-15 17:00] Formatting: Further refined the reference list in `procurement_act_section_97_legal_structure.md` to match the `* **[X] Title**: Description` bullet point style as requested by the user. Regenerated HTML.
+- [2025-12-15 17:15] System Update: Added **"4. Writing Style Guide"** to `README.md` to permanently establish the citation format (`<sup>[x]</sup>` and `* **[x] Title**: ...`) for all future articles, ensuring consistency across devices.แก้ไขข้อเท็จจริงตามคำวินิจฉัย**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    -   📝 แก้ไข: articles/procurement_act_section_102.md
+
 **[2025-12-12 15:30] Correct Section 102 (Case Study 5): แก้ไขข้อเท็จจริงตามคำวินิจฉัย**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
@@ -949,6 +980,11 @@
 
 
 **[2025-12-15 08:07] Merge remote-tracking branch 'origin/main'**
+    -   📝 แก้ไข: articles/html/my_first_article.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+
+**[2025-12-15 08:09] Merge remote-tracking branch 'origin/main'**
     -   📝 แก้ไข: articles/html/my_first_article.html
     -   📝 แก้ไข: articles/html/procurement_act_section_102.html
     -   📝 แก้ไข: articles/html/procurement_act_section_97.html

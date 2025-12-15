@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 "$(dirname "$0")/gemini_pdf_to_md.py" "$1"
+"$(dirname "$0")/.venv/bin/python3" "$(dirname "$0")/gemini_pdf_to_md.py" "$1"

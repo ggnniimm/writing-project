@@ -85,3 +85,11 @@ To set up this workflow on a new macOS machine:
 *   **Rule:** Every time a new document, file, or image is provided for content analysis, a corresponding Markdown file must be created in the `references/` directory.
 *   **Content:** The file should contain the original content (transcribed or excerpted) without modification, followed by any analysis if applicable.
 *   **Naming:** Use descriptive names, e.g., `ref_[source]_[number]_[year].md`.
+
+### 4. 📖 Writing Style Guide
+To ensure consistency across the project, all articles must follow this citation format:
+*   **Inline Citation:** Use superscripts with brackets, e.g., `...ข้อความที่อ้างอิง <sup>[1]</sup>`
+*   **Reference List (Bibliography):** Place at the end of the file under `## 📚 อ้างอิง` or `## References`.
+    *   **Format:** Bullet point + Bold bracketed number + Title + Description.
+    *   **Template:** `* **[1] Title/Source**: Short description of the content.`
+    *   **Example:** `* **[1] คำพิพากษาศาลปกครองสูงสุดที่ อ. 1766/2559**: เรื่อง การไม่แจ้งเหตุแห่งความล่าช้า...`
