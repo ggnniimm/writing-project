@@ -6,6 +6,71 @@ import traceback
 import google.generativeai as genai
 from google.api_core import exceptions
 from dotenv import load_dotenv
+import re
+
+def normalize_thai_digits(text):
+    """Converts Thai digits to Arabic digits."""
+    thai_digits = "๐๑๒๓๔๕๖๗๘๙"
+    arabic_digits = "0123456789"
+    trans = str.maketrans(thai_digits, arabic_digits)
+    return text.translate(trans)
+
+def determine_filename_and_path(content):
+    """
+    Analyzes content to determine the filename and target folder 
+    based on document type and regex extraction of IDs.
+    """
+    content_sample = content[:5000] # Analyze first 5000 chars
+    normalized_sample = normalize_thai_digits(content_sample)
+    
+    # 1. Supreme Administrative Court (ศาลปกครอง)
+    if "ศาลปกครอง" in content_sample:
+        # Pattern: คดีหมายเลขแดงที่ อ. 2050/2559 or similar
+        # Regex: Look for "คดีหมายเลขแดงที่" then capture Number/Year
+        match = re.search(r"คดีหมายเลขแดงที่\s*[^\d]*(\d+)/(\d+)", normalized_sample)
+        if match:
+             red_no = match.group(1)
+             year = match.group(2)
+             return f"ref_sac_{red_no}_{year}_full.md", "references/rulings_court"
+        return "ref_sac_unknown.md", "references/rulings_court"
+
+    # 2. Attorney General (OAG / อสส.)
+    if "อัยการสูงสุด" in content_sample or "อสส" in content_sample:
+        # Pattern: คำวินิจฉัยที่ 205/2561
+        match = re.search(r"(?:คำวินิจฉัยที่|ที่)\s*(\d+)/(\d+)", normalized_sample)
+        if match:
+            no = match.group(1)
+            year = match.group(2)
+            return f"ref_oag_{no}_{year}.md", "references/rulings_attorney_general"
+        return "ref_oag_unknown.md", "references/rulings_attorney_general"
+
+    # 3. Committee (GWJ / กวจ.)
+    if "คณะกรรมการวินิจฉัย" in content_sample or "กวจ" in content_sample or "กรมบัญชีกลาง" in content_sample or "ก.ว.จ." in content_sample:
+        # Pattern: ว 123 (Circular)
+        match_wo = re.search(r"[/\s]ว\s*(\d+)", normalized_sample)
+        if match_wo:
+             # Try to find year nearby? For now, just Vo number is often unique enough or append placeholder
+             return f"ref_gwj_vo{match_wo.group(1)}.md", "references/rulings_committee"
+        
+        # Pattern: ที่ กค (กวจ) 0405.2/12345 ... วันที่ ... 2565
+        # Extract Number after slash
+        match_no = re.search(r"ที่\s*[^/]+/(\d+)", normalized_sample)
+        # Extract Year (looking for 4 digits starting with 25xx)
+        match_year = re.search(r"(\d{4})", normalized_sample) # First 4 digit usually header or date
+        
+        # Try to find specific "Dated ... B.E. 25xx" pattern if possible, but simplest is first 25xx
+        match_year_25xx = re.search(r"(25\d{2})", normalized_sample)
+
+        if match_no and match_year_25xx:
+             return f"ref_gwj_{match_no.group(1)}_{match_year_25xx.group(1)}.md", "references/rulings_committee"
+        
+        if match_no:
+             return f"ref_gwj_{match_no.group(1)}.md", "references/rulings_committee"
+             
+        return "ref_gwj_unknown.md", "references/rulings_committee"
+
+    # Fallback
+    return "suggested_name.md", "references/raw_pdfs"
 
 def extract_and_name_with_gemini(filepath):
     # 0. Load .env
@@ -138,20 +203,11 @@ def extract_and_name_with_gemini(filepath):
                 
                 print(f"✅ Success! Extracted to: {output_path}")
 
-                # 5. Auto-Classification & Move
-                target_subfolder = "references/raw_pdfs" # Default fallback
                 
-                # Simple keyword heuristics for Thai legal documents
-                content_sample = md_content[:2000] # Check first 2000 chars
-                if "อัยการสูงสุด" in content_sample or "อสส" in content_sample or "OAG" in content_sample:
-                    target_subfolder = "references/rulings_attorney_general"
-                elif "คณะกรรมการวินิจฉัย" in content_sample or "กวจ" in content_sample or "กรมบัญชีกลาง" in content_sample:
-                    target_subfolder = "references/rulings_committee"
-                elif "ศาลปกครอง" in content_sample or "คำพิพากษา" in content_sample:
-                    target_subfolder = "references/rulings_court"
+                # 5. Agentic Auto-Renaming & Classification
+                final_filename, target_subfolder = determine_filename_and_path(md_content)
                 
                 # Construct final path
-                # Assuming script is running from project root or references are relative to script
                 project_root = os.path.dirname(os.path.abspath(__file__))
                 final_dir = os.path.join(project_root, target_subfolder)
                 
@@ -159,12 +215,12 @@ def extract_and_name_with_gemini(filepath):
                     print(f"⚠️ Target folder {target_subfolder} does not exist. Creating...")
                     os.makedirs(final_dir, exist_ok=True)
                 
-                final_path = os.path.join(final_dir, md_filename)
+                final_path = os.path.join(final_dir, final_filename)
                 
                 # Move the file
                 try:
                     os.rename(output_path, final_path)
-                    print(f"🚚 Auto-Classified & Moved to: {target_subfolder}/{md_filename}")
+                    print(f"🚚 Auto-Classified & Moved to: {target_subfolder}/{final_filename}")
                 except Exception as move_err:
                      print(f"⚠️ Could not move file: {move_err}")
 

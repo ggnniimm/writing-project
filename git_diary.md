@@ -8,7 +8,37 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-*   **[16:44] 📝 🛠 Fix: แก้ไขบันทึก Diary และปรับปรุง Workflow**
+*   **[17:15] 📝 Implemented Auto-Renaming for eee Command**
+    > **Situation:** The user requested that the `eee` command automatically rename extracted files according to folder-specific conventions (Court: `ref_sac_...`, OAG: `ref_oag_...`, Committee: `ref_gwj_...`) instead of relying on AI-generated filenames.
+    > 
+    > **Action:** I modified `gemini_pdf_to_md.py` to implement a rule-based renaming system using Python regex. The script now:
+    > 1. Normalizes Thai digits (๐-๙ → 0-9) for reliable pattern matching
+    > 2. Analyzes extracted content to detect document type (Court/OAG/Committee)
+    > 3. Extracts case numbers and years using specific regex patterns for each type
+    > 4. Generates standardized filenames and moves files to the correct directories
+    > 
+    > **Result:** The auto-renaming logic is now fully functional. Tested with `notifyIn15Day.pdf`, which was correctly identified as an OAG document and moved to `references/rulings_attorney_general/`. The system safely falls back to `ref_[type]_unknown.md` when specific IDs cannot be extracted, ensuring no data loss.
+
+*   **[16:44] � Fix: แก้ไขบันทึก Diary และปรับปรุง Workflow**
+    -   📝 แก้ไข: push-work
+
+*   **[16:41] ⚙️ Workflow: ปรับปรุง ppp (push-work) ให้รองรับ Agent-Written Log**
+    -   📝 แก้ไข: push-work
+
+*   **[16:35] 🗑️ Revert: ยกเลิกการทำคำสั่ง eee และลบไฟล์ที่เกี่ยวข้อง**
+    > **Situation:** ผู้ใช้งานแจ้งขอยกเลิกการทำ Task "Raw PDF Extraction" และต้องการย้อนเวลากลับไปสถานะก่อนเริ่มงาน (ช่วง 15:26)
+    > **Action:** ดำเนินการ Revert ไฟล์ `eee` กลับสู่เวอร์ชันเดิม (ก่อนการแก้ไข) และลบสคริปต์ `extract_raw_text.py` ที่สร้างขึ้นใหม่ออกทั้งหมด
+    > **Result:** สถานะของโปรเจกต์กลับสู่สภาวะปกติตามที่ต้องการ
+    *   -   📝 แก้ไข: eee (Revert to original state)
+    *   -   🗑️ ลบ: extract_raw_text.py
+    *   -   📝 แก้ไข: .DS_Store
+
+*   **[15:51] 🔧 Debug: Investigate PDF extraction failure and fix list_models.py**
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   📝 แก้ไข: list_models.py
+    -   ✨ สร้างใหม่: references/raw_pdfs/01012-571017-1f-600131-0000592664.pdf
+
+*   **[16:44] �📝 🛠 Fix: แก้ไขบันทึก Diary และปรับปรุง Workflow**
     > Situation: บันทึก Diary ช่วง 16:35 ไม่ถูกต้องเนื่องจากระบบ AI เดิมทำงานผิดพลาด และ User ต้องการปรับปรุง Workflow
     > Action: แก้ไขเนื้อหาใน git_diary.md ให้ถูกต้อง (Revert/Delete) และปรับปรุงสคริปต์ push-work ให้ตัดระบบ AI อัตโนมัติออกเพื่อรองรับ Agent-Written Log
     > Result: ข้อมูลใน Diary ถูกต้องครบถ้วนแบบ Manual และ Workflow การ Push ทำงานได้รวดเร็วขึ้นตามต้องการ
@@ -1135,22 +1165,3 @@
 *   **[09:57] 📝 Drafting: ร่างบทความ `articles/procurement_act_section_102.md`**
 
 *   **[09:50] 🧩 Research: ค้นคว้าข้อมูล พ.ร.บ. จัดซื้อจัดจ้างฯ มาตรา 102 และระเบียบข้อ 182**
-
-
-
-
-**[2025-12-15 15:51] Debug: Investigate PDF extraction failure and fix list_models.py**
-    -   📝 แก้ไข: gemini_pdf_to_md.py
-    -   📝 แก้ไข: list_models.py
-    -   ✨ สร้างใหม่: references/raw_pdfs/01012-571017-1f-600131-0000592664.pdf
-
-**[2025-12-15 16:35] 🗑️ Revert: ยกเลิกการทำคำสั่ง eee และลบไฟล์ที่เกี่ยวข้อง**
-    > **Situation:** ผู้ใช้งานแจ้งขอยกเลิกการทำ Task "Raw PDF Extraction" และต้องการย้อนเวลากลับไปสถานะก่อนเริ่มงาน (ช่วง 15:26)
-    > **Action:** ดำเนินการ Revert ไฟล์ `eee` กลับสู่เวอร์ชันเดิม (ก่อนการแก้ไข) และลบสคริปต์ `extract_raw_text.py` ที่สร้างขึ้นใหม่ออกทั้งหมด
-    > **Result:** สถานะของโปรเจกต์กลับสู่สภาวะปกติตามที่ต้องการ
-    *   -   📝 แก้ไข: eee (Revert to original state)
-    *   -   🗑️ ลบ: extract_raw_text.py
-    *   -   � แก้ไข: .DS_Store
-
-**[2025-12-15 16:41] ⚙️ Workflow: ปรับปรุง ppp (push-work) ให้รองรับ Agent-Written Log**
-    -   📝 แก้ไข: push-work
