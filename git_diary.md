@@ -8,6 +8,9 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[20:29] 📝 Add EP.06 (Lump Sum Comparison) and EP.07 (Site Handover Delay)**
+    > Created two new learning articles. EP.06 compares Lump Sum cases (EP.04 vs EP.05). EP.07 covers site handover delays due to obstruction (Judgment 74/2548), sourced from the newly processed PDF.
+
 *   **[17:15] 📝 Implemented Auto-Renaming for eee Command**
     > **Situation:** The user requested that the `eee` command automatically rename extracted files according to folder-specific conventions (Court: `ref_sac_...`, OAG: `ref_oag_...`, Committee: `ref_gwj_...`) instead of relying on AI-generated filenames.
     > 

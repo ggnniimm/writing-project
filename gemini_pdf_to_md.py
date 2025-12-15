@@ -105,8 +105,8 @@ def extract_and_name_with_gemini(filepath):
 
     print(f"🔑 Loaded {len(api_keys)} API Key(s).")
     
-    # User-requested Key #4
-    current_key_index = 3
+    # User-requested Key (Default to 0)
+    current_key_index = 0
 
     print(f"🔑 DEBUG: Active Key Mask: ...{api_keys[current_key_index][-5:]}")
     genai.configure(api_key=api_keys[current_key_index])
