@@ -8,19 +8,24 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-*   **[20:29] 📝 Add EP.06 (Lump Sum Comparison) and EP.07 (Site Handover Delay)**
-    > Created two new learning articles. EP.06 compares Lump Sum cases (EP.04 vs EP.05). EP.07 covers site handover delays due to obstruction (Judgment 74/2548), sourced from the newly processed PDF.
+*   **[20:34] 📝 แปลบันทึกการทำงานล่าสุดเป็นภาษาไทย**
+    > ปรับปรุงรายการบันทึกช่วง 20:29 และ 17:15 ให้เป็นภาษาไทยและใช้รูปแบบ Narrative ตามมาตรฐานที่ผู้ใช้กำหนด (Request: 15.26/15.50 style) เพื่อความเป็นระเบียบและอ่านง่าย
 
-*   **[17:15] 📝 Implemented Auto-Renaming for eee Command**
-    > **Situation:** The user requested that the `eee` command automatically rename extracted files according to folder-specific conventions (Court: `ref_sac_...`, OAG: `ref_oag_...`, Committee: `ref_gwj_...`) instead of relying on AI-generated filenames.
-    > 
-    > **Action:** I modified `gemini_pdf_to_md.py` to implement a rule-based renaming system using Python regex. The script now:
-    > 1. Normalizes Thai digits (๐-๙ → 0-9) for reliable pattern matching
-    > 2. Analyzes extracted content to detect document type (Court/OAG/Committee)
-    > 3. Extracts case numbers and years using specific regex patterns for each type
-    > 4. Generates standardized filenames and moves files to the correct directories
-    > 
-    > **Result:** The auto-renaming logic is now fully functional. Tested with `notifyIn15Day.pdf`, which was correctly identified as an OAG document and moved to `references/rulings_attorney_general/`. The system safely falls back to `ref_[type]_unknown.md` when specific IDs cannot be extracted, ensuring no data loss.
+*   **[20:29] 📝 สร้างบทความ EP.06 (เปรียบเทียบ Lump Sum) และ EP.07 (ส่งมอบพื้นที่ล่าช้า)**
+    > **Goal:** เพิ่มเนื้อหาบทเรียนจากคำพิพากษาตามแผนงาน
+    > **Action:** ผมได้ดำเนินการเขียนบทความใหม่ 2 เรื่อง:
+    > 1. **EP.06:** เปรียบเทียบสัญญา Lump Sum ระหว่าง EP.04 และ EP.05 เพื่อชี้ให้เห็นจุดแตกต่างของ "เจตนา" ในการหักลดเงิน
+    > 2. **EP.07:** สรุปประเด็นจากคำพิพากษาที่ 74/2548 เรื่องการส่งมอบพื้นที่ล่าช้าเนื่องจากติดสาธารณูปโภคเดิม ซึ่งเป็นข้อมูลที่ Extract มาจาก PDF ล่าสุด
+    > **Result:** ได้บทความคุณภาพสูง 2 เรื่องที่พร้อมเผยแพร่ครับ
+
+*   **[17:15] 📝 พัฒนาระบบตั้งชื่อไฟล์อัตโนมัติสำหรับคำสั่ง eee**
+    > **Situation:** ผู้ใช้ต้องการให้คำสั่ง `eee` ตั้งชื่อไฟล์ที่ Extract ออกมาตามมาตรฐานของแต่ละหมวดหมู่ (เช่น ศาล: `ref_sac_...`, อสส.: `ref_oag_...`) แทนการใช้ชื่อที่ AI ตั้งให้
+    > **Action:** ผมได้แก้ไขสคริปต์ `gemini_pdf_to_md.py` เพื่อเพิ่มระบบการตั้งชื่อไฟล์ตามกฎ (Rule-based) โดยใช้ Regex ซึ่งมีขั้นตอนดังนี้:
+    > 1. แปลงเลขไทยเป็นอารบิกเพื่อให้การจับคู่แพทเทิร์นแม่นยำ
+    > 2. วิเคราะห์เนื้อหาเพื่อระบุประเภทเอกสาร (ศาล/อสส./กวจ.)
+    > 3. ดึงเลขที่คำสั่งและปี พ.ศ. ด้วย Regex เฉพาะของแต่ละประเภท
+    > 4. สร้างชื่อไฟล์มาตรฐานและย้ายไปยังโฟลเดอร์ที่ถูกต้อง
+    > **Result:** ระบบตั้งชื่ออัตโนมัติทำงานได้สมบูรณ์ ทดสอบแล้วกับไฟล์ `notifyIn15Day.pdf` ซึ่งถูกระบุว่าเป็นเอกสาร อสส. และย้ายเข้าโฟลเดอร์ได้อย่างถูกต้อง พร้อมมีระบบ Fallback กรณีหาเลขที่ไม่ได้ครับ
 
 *   **[16:44] � Fix: แก้ไขบันทึก Diary และปรับปรุง Workflow**
     -   📝 แก้ไข: push-work
