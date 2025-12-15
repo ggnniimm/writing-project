@@ -260,6 +260,11 @@ def extract_and_name_with_gemini(filepath):
                 time.sleep(retry_delay)
                 retry_delay *= 2
                 
+        except StopIteration:
+            print(f"⚠️ Generic StopIteration (Empty Stream) on Key #{current_key_index + 1}. Retrying...")
+            time.sleep(2)
+            continue
+
         except Exception as e:
             print(f"\n❌ Generation Error: {e}")
             traceback.print_exc()
