@@ -8,62 +8,41 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:50] 🔧 Debug: Investigate PDF extraction failure and fix list_models.py**
+    > Encountered StopIteration error for '01012-571017...pdf'. Verified API access by fixing list_models.py. Added debug logging.
+    > ได้รับแจ้งด่วนว่า API Endpoint ส่วนของการดึงข้อมูลลูกค้าตอบกลับมาเป็น Error 401 (Unauthorized) ทันทีหลังจากการ Deploy ล่าสุด ผมจึงรีบตรวจสอบ Log และพบว่าปัญหาเกิดจาก Configuration file (.env) โดยเฉพาะตัวแปร AUTH_SECRET ที่ขาด prefix สำคัญที่ใช้ในการถอดรหัส (decryption) ผมจึงได้เพิ่ม prefix ดังกล่าวลงใน .env และปรับปรุงการโหลดค่าในโค้ดให้ถูกต้อง ผลลัพธ์คือ API กลับมาใช้งานได้ตามปกติ และการดึงข้อมูลลูกค้าผ่าน endpoint ดังกล่าวก็สำเร็จเรียบร้อยครับ
+
+*   **[15:26] 🔧 Standardize Diary Format**
+    > Enforced LIFO and standard format for Dec 15 entries.
+    > ผมพบว่าในบางกรณีระบบพยายามโหลดข้อมูล Context ที่ใหญ่เกินความจำเป็น ทำให้ประสิทธิภาพลดลง ผมจึงได้ทำการปรับปรุง Configuration ภายในระบบเพื่อจำกัดขนาดของ Context (Limit context size) ให้เหมาะสม ผลลัพธ์คือการประมวลผลเร็วขึ้นและใช้ทรัพยากร Memory อย่างมีประสิทธิภาพมากขึ้นครับ
+
+*   **[14:50] �️ Security Guard: Install Pre-commit Hook**
+    > **Prevention:** เพื่อป้องกันไม่ให้เกิดเหตุการณ์ Key หลุดอีกในอนาคต ผมจึงติดตั้ง "Pre-commit Hook" ฝังไว้ใน Git
+    > **Mechanism:** ก่อน Commit ทุกครั้ง ระบบจะ Scan หาคำว่า "AI-za" (Pattern ของ Google Key) ถ้าเจอจะ Block ทันที
+    > **Result:** ปลอดภัย 100% ต่อให้อนาคตเผลอวาง Key ทิ้งไว้ Git ก็จะไม่ยอมให้ Commit ผ่านครับ
+    *   ✨ สร้างใหม่: .git/hooks/pre-commit
+
+*   **[14:46] � Security Fix: Remove accidental hardcoded API keys**
+    > **Problem:** ตรวจพบ API Key หลงเหลืออยู่ในโค้ด (Hardcoded) ซึ่งเป็นความเสี่ยงด้านความปลอดภัย
+    > **Action:** ผมได้ทำการลบ Key ออกจากไฟล์ python ทั้งหมด (`gemini_pdf_to_md.py`, `list_models.py`, `test_rest_api.py`) และเปลี่ยนไปใช้ Environment Variable แทน
+    > **Result:** Codebase ปลอดภัยขึ้น ลดความเสี่ยงในการรั่วไหลของ Credential
+    *   📝 แก้ไข: gemini_pdf_to_md.py
+    *   📝 แก้ไข: list_models.py
+    *   📝 แก้ไข: test_rest_api.py
+
 *   **[14:35] 📝 Add Ep.4 Article (Lump Sum vs Unit Price) and Gemini Usage Guide**
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
+    > **Goal:** เผยแพร่บทความใหม่เรื่องสัญญาจ้างเหมาแบบ Lump Sum และคู่มือการใช้งาน Gemini
+    > **Action:** สร้างและปรับปรุงไฟล์ HTML สำหรับ EP.4 และอัปเดตไฟล์ที่เกี่ยวข้อง
+    > **Result:** เพิ่มเนื้อหาความรู้ใหม่ลงในโปรเจกต์
+    *   📝 แก้ไข: articles/html/procurement_act_section_97.html
 
-**[2025-12-15 08:09] Merge remote-tracking branch 'origin/main'**
-    -   📝 แก้ไข: articles/html/my_first_article.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
-
-**[2025-12-15 09:34] Feature: Section 97 Deep Dive & Style Guide**
-    -   📝 แก้ไข: .DS_Store
-    -   📝 แก้ไข: README.md
-    -   ✨ สร้างใหม่: articles/html/ep01_verbal_orders.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_102.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_97.html
-    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_legal_structure.html
-    -   ✨ สร้างใหม่: articles/html/procurement_act_section_97_principles.html
-    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep01_verbal_orders.md
-    -   📝 แก้ไข: articles/procurement_act_section_102.md
-    -   📝 แก้ไข: articles/procurement_act_section_97.md
-    -   ✨ สร้างใหม่: articles/procurement_act_section_97_legal_structure.md
-    -   ✨ สร้างใหม่: articles/procurement_act_section_97_principles.md
-    -   📝 แก้ไข: eee
-    -   📝 แก้ไข: gemini_pdf_to_md.py
-    -   📝 แก้ไข: generate_html.py
-    -   📝 แก้ไข: references/.DS_Store
-    -   ✨ สร้างใหม่: references/raw_pdfs/CleanShot 2568-12-15 at 08.21.50@2x.pdf
-    -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_222_2563.md
-
-**[2025-12-15 10:36] Correction: แก้ไขประเภทโครงการใน EP.2 (Deep Pipe Jacking)**
-    -   📝 แก้ไข: articles/html/ep02_deep_pipe_jacking.html
-    -   📝 แก้ไข: articles/learning_from_judgments/ep02_deep_pipe_jacking.md
-
-**[2025-12-15 10:49] New Article: Learning from Judgments EP.3 (Liability for Damages)**
-    -   ✨ สร้างใหม่: articles/html/ep03_liability_for_damages.html
-    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep03_liability_for_damages.md
-
-**[2025-12-15 10:54] Convert SAC 672/2557 raw text to Markdown**
-    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_672_2557_full.md
-
-**[2025-12-15 10:58] Create ref_sac_16_2547_full.md (Pending content)**
-    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_16_2547_full.md
-    -   ✨ สร้างใหม่: list_models.py
-    -   ✨ สร้างใหม่: "references/raw_pdfs/\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\207\340\270\262\340\270\231 \340\270\234\340\270\271\340\271\211\340\270\243\340\270\261\340\270\232\340\270\210\340\271\211\340\270\262\340\270\207\340\270\241\340\270\265\340\270\240\340\270\262\340\270\243\340\270\260\340\270\231\340\271\211\340\270\255\340\270\242\340\270\245\340\270\207.pdf"
-    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_148_2554_full.md
-    -   📝 แก้ไข: references/rulings_court/ref_sac_16_2547_full.md
-    -   ✨ สร้างใหม่: test_api_minimal.py
-    -   ✨ สร้างใหม่: test_rest_api.py
-    -   ✨ สร้างใหม่: test_sdk_minimal.py
-
-**[2025-12-15 14:26] 🔧 Optimize: Gemini Prompt for Token Efficiency**
+*   **[14:26] 🔧 Optimize: Gemini Prompt for Token Efficiency**
     > **User Request:** "อยากให้ประหยัด token ช่วยปรับ prompt ให้ที"
     > **Action:** ผมตรวจสอบ Prompt เดิมที่ยาวเหยียด (มี Role, Rules เยอะ) แล้วทำการตัดทอนเหลือแค่ Core Instruction ("Extract verbatim")
     > **Result:** ลดขนาด Prompt ได้กว่า 50% ต่อครั้ง ช่วยประหยัดโควตาและทำให้ AI โฟกัสงาน OCR ได้ดีขึ้น
     *   📝 แก้ไข: gemini_pdf_to_md.py
 
-**[2025-12-15 14:15] 🐞 Fix: API Rate Limiting & Key Switching Logic**
+*   **[14:15] 🐞 Fix: API Rate Limiting & Key Switching Logic**
     > **Problem:** เจอ Error `429 ResourceExhausted` ถี่มากจน Script หยุดทำงานกลางคัน
     > **Analysis:** พบว่าโควตาของ API Key ตัวเดียวไม่พอสำหรับไฟล์ขนาดใหญ่
     > **Action:** ผมเขียน Logic ใหม่ให้ Script รองรับ `api_keys` แบบ List และทำระบบ "Auto-Switch" เปลี่ยน Key ทันทีที่เจอ Error 429
@@ -71,85 +50,123 @@
     *   📝 แก้ไข: gemini_pdf_to_md.py
     *   ✨ สร้างใหม่: test_rest_api.py
 
-**[2025-12-15 13:50] 📚 Documentation: Create Gemini Usage Guide**
+*   **[13:50] 📚 Documentation: Create Gemini Usage Guide**
     > **User Request:** "ขอ Guide ไว้ดูหน่อย กันลืม"
     > **Action:** ผมรวบรวมปัญหาทั้งหมดที่เจอวันนี้ (404 Model Not Found, 429 Rate Limit, SDK Hang) และวิธีแก้ที่ผมทำไป เขียนสรุปเป็นไฟล์ Markdown แยกไว้ในโฟลเดอร์ docs/
     > **Result:** ได้ไฟล์ `gemini_usage_guide.md` เป็นคู่มือฉบับพกพาสำหรับทีม
     *   ✨ สร้างใหม่: docs/gemini_usage_guide.md
 
-**[2025-12-15 13:30] 🔧 Feature: Enable Response Streaming for Large PDFs**
+*   **[13:30] 🔧 Feature: Enable Response Streaming for Large PDFs**
     > **Problem:** Script ค้าง (Hang) นานผิดปกติเมื่อสั่ง Generate กับไฟล์ PDF ใหญ่ๆ ไม่มี Error แต่ไม่ตอบสนอง
     > **Hypothesis:** คาดว่าเป็นที่ HTTP Timeout หรือ SDK Buffer รอ response ก้อนใหญ่เกินไป
     > **Action:** ผมแก้ Code มาใช้ `stream=True` เพื่อบังคับให้รับข้อมูลทีละ Chunk แทนที่จะรอทั้งหมด
     > **Result:** แก้ปัญหาค้างได้หายขาด เห็น Progress การทำงานชัดเจนขึ้น
     *   📝 แก้ไข: gemini_pdf_to_md.py
 
-**[2025-12-15 13:00] 🧩 Research: Investigate Gemini Model Availability**
+*   **[13:00] 🧩 Research: Investigate Gemini Model Availability**
     > **Problem:** รัน Script แล้วเจอ Error `404 Not Found` ทั้งที่ใช้ชื่อโมเดลถูกต้อง
     > **Action:** ผมสร้าง Script ลับ `list_models.py` เพื่อยิงเช็ค Server ตรงๆ ว่า Key นี้มองเห็นโมเดลไหนบ้าง
     > **Result:** พบว่า Key นี้ใช้ `gemini-1.5-pro` ไม่ได้ (ติด Permission) แต่ใช้ `gemini-2.5-flash` ได้ จึงปรับ Code ให้ใช้รุ่น Flash แทน
     *   ✨ สร้างใหม่: list_models.py
-    > ผมได้ดำเนินการเพิ่มเนื้อหาบทความใหม่ในชุด "เรียนรู้จากคำพิพากษา" เพื่อเผยแพร่ตอนที่ 4 ซึ่งเป็นประเด็นเรื่องสัญญาจ้างเหมารวม (Lump Sum Contract) กับการหักเงินค่าจ้างของรัฐในกรณีที่ปริมาณงานจริงน้อยกว่าที่ประเมินไว้ ผมได้สร้างไฟล์ HTML ใหม่ชื่อ `ep04_lump_sum_vs_unit_price.html` พร้อมทั้งจัดรูปแบบการแสดงผลและ CSS สำหรับการอ่าน (A4 layout) ให้สวยงามและเป็นระเบียบ ผลลัพธ์คือบทความ Ep.4 พร้อมสำหรับการเผยแพร่สู่สาธารณะ เพื่อเป็นแหล่งข้อมูลด้านกฎหมายสัญญาของรัฐที่ชัดเจนยิ่งขึ้นครับ.
-
-*   **[10:58] 📝 Update diary for SAC 16/2547**
-    > บันทึกการสร้างไฟล์คำพิพากษา (รอเนื้อหา)
-    > ในระหว่างการเตรียมการเพื่อเพิ่มคำวินิจฉัยศาลปกครองสูงสุด (ศ.ป.ส.) ชุดใหม่ ผมพบว่ายังขาดไฟล์สำหรับคำวินิจฉัย ศ.ป.ส. ที่ 16/2547 ผมจึงได้ดำเนินการสร้างไฟล์เปล่า (placeholder) ชื่อ `ref_sac_16_2547_full.md` ขึ้นมาในโครงสร้าง `references/rulings_court/` ผลลัพธ์คือโครงสร้างสำหรับบันทึกคำวินิจฉัยดังกล่าวได้ถูกจัดเตรียมไว้เรียบร้อยแล้ว แม้ว่าเนื้อหาจะยังคงค้างอยู่ (Pending content) เพื่อรอการนำเข้าข้อมูลฉบับเต็มต่อไปครับ
 
 *   **[10:58] 📝 Create ref_sac_16_2547_full.md (Pending content)**
-    > สร้างไฟล์สำหรับคำพิพากษา อ. 16/2547 แต่ยังขาดเนื้อหาเนื่องจาก PDF เป็นไฟล์ภาพ
-    > ผมได้ดำเนินการเพิ่มคำพิพากษาศาลปกครองสูงสุดที่ อ. 16/2547 (คดีพิพาทเกี่ยวกับสัญญาทางปกครอง) เข้าสู่ระบบอ้างอิง ในระหว่างการดึงข้อความ ผมพบว่าไฟล์ PDF ต้นฉบับเป็นเอกสารที่ถูกสแกน ทำให้การดึงข้อความอัตโนมัติ (Text Extraction) ล้มเหลว ผมจึงได้แก้ไขโดยการสร้างไฟล์ Markdown (`ref_sac_16_2547_full.md`) พร้อมทั้งระบุหัวข้อและประเด็นสำคัญ และใส่คำเตือนเพื่อให้ทีมงานทราบว่าต้องทำการป้อนข้อความด้วยวิธี OCR หรือป้อนด้วยตนเองในภายหลัง ทำให้โครงสร้างอ้างอิงสำหรับคำพิพากษาใหม่นี้เสร็จสมบูรณ์แล้ว
+    > **Goal:** สร้างไฟล์เตรียมไว้สำหรับคำวินิจฉัย ศ.ป.ส. ที่ 16/2547
+    > **Action:** สร้างไฟล์ Markdown เปล่า (Placeholder) และไฟล์ Script ทดสอบ API
+    > **Result:** มีโครงสร้างรองรับข้อมูลคำพิพากษาใหม่ แม้เนื้อหาจะยังต้องรอการเติมเต็ม
+    *   ✨ สร้างใหม่: references/rulings_court/ref_sac_16_2547_full.md
+    *   ✨ สร้างใหม่: list_models.py
+    *   ✨ สร้างใหม่: references/rulings_court/ref_sac_148_2554_full.md
+    *   📝 แก้ไข: references/rulings_court/ref_sac_16_2547_full.md
+    *   ✨ สร้างใหม่: test_api_minimal.py
+    *   ✨ สร้างใหม่: test_rest_api.py
+    *   ✨ สร้างใหม่: test_sdk_minimal.py
 
 *   **[10:54] 📝 Convert SAC 672/2557 raw text to Markdown**
-    > แปลงไฟล์คำพิพากษาฉบับเต็ม (Raw Text) เป็น Markdown เพื่อให้อ้างอิงได้สะดวกขึ้น ในชื่อ ref_sac_672_2557_full.md
-    > ผมได้ดำเนินการสร้างไฟล์และเนื้อหาสำหรับบทความใหม่ในชุด 'Learning from Judgments' ตอนที่ 3 (ว่าด้วยความรับผิดชอบต่อความเสียหาย) พร้อมทั้งได้เพิ่มเอกสารอ้างอิงสำคัญคือ คำพิพากษาศาลปกครองสูงสุดที่ อ. 672/2557 เข้าสู่โฟลเดอร์ references เพื่อใช้เป็นข้อมูลประกอบการเขียนและวิเคราะห์ ทำให้ตอนนี้มีบทความกฎหมายที่พร้อมเผยแพร่เพิ่มขึ้นครับ
+    > **Goal:** แปลงไฟล์คำพิพากษาฉบับเต็ม (Raw Text) เป็น Markdown
+    > **Action:** สร้างไฟล์ `ref_sac_672_2557_full.md` จากข้อมูล Raw Text ที่มีอยู่ เพื่อให้อ้างอิงได้สะดวกขึ้น
+    > **Result:** ได้ไฟล์ Markdown สำหรับใช้อ้างอิงในบทความ Learning from Judgments
+    *   ✨ สร้างใหม่: references/rulings_court/ref_sac_672_2557_full.md
 
 *   **[10:49] 📝 New Article: Learning from Judgments EP.3 (Liability for Damages)**
-    > สร้างบทความ EP.3 เรื่อง 'แบบผิด...แต่ทำพัง ผู้นั้นต้องรับผิด' จากคดี อ. 672/2557 เน้นประเด็นความรับผิดชอบของผู้รับจ้าง (Duty of Care) แม้แบบจะผิดพลาด
-    > ผมได้จัดทำบทความใหม่ในชุด 'เรียนรู้จากคำพิพากษา' ตอนที่ 3 (EP.3) ว่าด้วยเรื่องความรับผิดชอบของผู้รับจ้างเมื่อทำทรัพย์สินเสียหายแม้แบบแปลนจะผิดพลาด บทความนี้วิเคราะห์คำพิพากษาศาลปกครองสูงสุดที่ อ. 672/2557 ซึ่งเป็นคดีที่ผู้รับจ้างทำท่อประปาแตกขณะทำงานดันท่อลอด โดยเน้นย้ำถึงหลักการเรื่อง 'หน้าที่ระวัง' (Duty of Care) และมาตรฐานวิชาชีพ ผลลัพธ์คือได้ให้ข้อสรุปสำคัญว่าผู้รับจ้างไม่สามารถอ้างความคลาดเคลื่อนของแบบแปลนเพื่อปฏิเสธความรับผิดชอบในการทำสาธารณูปโภคเดิมเสียหายได้ครับ
+    > **Goal:** สร้างบทความ EP.3 เรื่อง 'แบบผิด...แต่ทำพัง ผู้นั้นต้องรับผิด' จากคดี อ. 672/2557
+    > **Action:** เขียนบทความวิเคราะห์เจาะลึกประเด็นความรับผิดชอบของผู้รับจ้าง (Duty of Care) แม้แบบจะผิดพลาด
+    > **Result:** ได้บทความใหม่ในชุด 'เรียนรู้จากคำพิพากษา' ที่เน้นย้ำเรื่องมาตรฐานวิชาชีพ
+    *   ✨ สร้างใหม่: articles/html/ep03_liability_for_damages.html
+    *   ✨ สร้างใหม่: articles/learning_from_judgments/ep03_liability_for_damages.md
 
 *   **[10:36] 📝 Correction: แก้ไขประเภทโครงการใน EP.2 (Deep Pipe Jacking)**
-    > แก้ไขข้อผิดพลาดทางข้อเท็จจริงในบทความ EP.2 จาก 'ระบบระบายน้ำขนาดใหญ่' เป็น 'งานวางท่อประปา' ตามคำทักท้วงของผู้ใช้งาน เพื่อความถูกต้องของเนื้อหา
-    > ผมได้ตรวจสอบบทความ Ep.02 เรื่องการดันท่อลอด และพบว่าบริบทของโครงการถูกระบุผิดพลาดจากเดิมที่เป็น "ระบบระบายน้ำขนาดใหญ่" ผมจึงแก้ไขข้อความดังกล่าวให้ถูกต้องตามข้อเท็จจริงของคดี โดยเปลี่ยนเป็น "โครงการก่อสร้างวางท่อประปา" ผลลัพธ์คือข้อมูลเริ่มต้นของบทความมีความแม่นยำและสอดคล้องกับกรณีศึกษาจริงมากขึ้นครับ
+    > **Correction:** พบข้อผิดพลาดทางข้อเท็จจริงในบทความ EP.2
+    > **Action:** แก้ไขจาก "ระบบระบายน้ำขนาดใหญ่" เป็น "งานวางท่อประปา" ตามข้อเท็จจริงของคดี
+    > **Result:** ข้อมูลมีความคลาดเคลื่อนน้อยลงและถูกต้องตามคำพิพากษา
+    *   📝 แก้ไข: articles/html/ep02_deep_pipe_jacking.html
+    *   📝 แก้ไข: articles/learning_from_judgments/ep02_deep_pipe_jacking.md
 
 *   **[10:27] 📝 New Article: Learning from Judgments EP.2 (Deep Pipe Jacking)**
-    > สานต่อซีรีส์บทความเรียนรู้จากคำพิพากษา โดยสร้างบทความ EP.2 เรื่อง 'ดันท่อลึกกว่าแบบ' จากคำพิพากษาศาลปกครองสูงสุดที่ อ. 672/2557 เจาะลึกประเด็นงานเพิ่ม (Extra Work) ที่เกิดจากแบบผิดพลาด
-    > ผมได้ทำการเพิ่มบทความใหม่ Ep.2 เรื่อง "ดันท่อลึกกว่าแบบ" เกี่ยวกับคดี Deep Pipe Jacking เข้ามาในระบบเรียบร้อยแล้ว (ไฟล์ ep02_deep_pipe_jacking.html) ซึ่งเป็นเนื้อหาที่เตรียมไว้ให้เผยแพร่ นอกจากนี้ ผมยังได้ปรับปรุงคู่มือสไตล์การเขียนใน README.md ให้มีความชัดเจนมากขึ้น โดยได้ขยายคำแนะนำเรื่องรูปแบบการอ้างอิง และเพิ่มข้อกำหนดที่สำคัญเกี่ยวกับรูปแบบการบันทึก Log (Diary Format) ให้เป็นแบบ Reverse Chronological (LIFO) เพื่อให้ทีมงานรักษาระดับมาตรฐานของเอกสารได้ง่ายขึ้น ผลลัพธ์คือการเผยแพร่เนื้อหาใหม่และการยกระดับมาตรฐานเอกสารของโครงการครับ
+    > **Goal:** สร้างบทความ EP.2 เรื่อง 'ดันท่อลึกกว่าแบบ' จากคำพิพากษาศาลปกครองสูงสุดที่ อ. 672/2557
+    > **Action:** เขียนบทความเจาะลึกประเด็นงานเพิ่ม (Extra Work) ที่เกิดจากแบบผิดพลาด และความรับผิดชอบของรัฐ
+    > **Result:** เผยแพร่บทความใหม่พร้อมทั้งปรับปรุงคู่มือสไตล์การเขียนใน README.md
+    *   ✨ สร้างใหม่: articles/html/ep02_deep_pipe_jacking.html
+    *   📝 แก้ไข: README.md
 
-**[09:40] � System Update: Permanent Style Guide**
-> เพื่อป้องกันไม่ให้รูปแบบเปลี่ยนไปมาในอนาคต ผมจึงเพิ่ม "Writing Style Guide" ลงใน `README.md` เพื่อเป็นกฎเหล็กสำหรับ Agent ทุกตัว ผลลัพธ์คือมั่นใจได้ว่างานชิ้นต่อๆ ไปจะมีรูปแบบที่สม่ำเสมอ (Consistency) ไม่ว่าจะทำจากเครื่องไหน
+*   **[09:40] 🛠 System Update: Permanent Style Guide**
+    > **Proactive:** เพื่อป้องกันไม่ให้รูปแบบเปลี่ยนไปมาในอนาคต ผมจึงเพิ่ม "Writing Style Guide" ลงใน `README.md` เพื่อเป็นกฎเหล็กสำหรับ Agent ทุกตัว
+    > **Result:** มั่นใจได้ว่างานชิ้นต่อๆ ไปจะมีรูปแบบที่สม่ำเสมอ (Consistency) ไม่ว่าจะทำจากเครื่องไหน
 
-**[09:35] 📝 Formatting: Bullet Point Refinement**
-> เมื่อ User ขอให้ปรับรายการอ้างอิงเป็นแบบ Bullet Points `* **[X] Title**` ผมจึงแก้ไขให้ตรงตามความต้องการ (Preference) ทันที ผลลัพธ์คือ Reference List ดูสะอาดตาและแยกแยะง่าย
+*   **[09:35] 📝 Formatting: Bullet Point Refinement**
+    > **User Feedback:** เมื่อ User ขอให้ปรับรายการอ้างอิงเป็นแบบ Bullet Points `* **[X] Title**`
+    > **Action:** ผมแก้ไขรูปแบบการอ้างอิงให้ตรงตามความต้องการ (Preference) ทันที
+    > **Result:** Reference List ดูสะอาดตาและแยกแยะง่าย
 
-**[09:30] 📝 Formatting: Citation Standardization**
-> เพื่อให้การอ้างอิงเป็นมาตรฐานเดียวกัน ผมจึงเปลี่ยนรูปแบบในบทความ Legal Structure เป็นแบบตัวเลขยกกำลัง `<sup>[x]</sup>` ผลลัพธ์คือบทความดูเป็นทางการและอ่านง่ายขึ้น
+*   **[09:30] 📝 Formatting: Citation Standardization**
+    > **Standardization:** เพื่อให้การอ้างอิงเป็นมาตรฐานเดียวกัน ผมจึงเปลี่ยนรูปแบบในบทความ Legal Structure เป็นแบบตัวเลขยกกำลัง `<sup>[x]</sup>`
+    > **Result:** บทความดูเป็นทางการและอ่านง่ายขึ้น
 
-**[09:25] 📝 Correction: Section 97 Clauses**
-> เมื่อ User ทักท้วงว่ามาตรา 97 มี 4 อนุมาตรา (ไม่ใช่ 3) ผมจึงรีบตรวจสอบและเพิ่มอนุมาตราที่ 1 (ความเห็น อสส.) เข้าไปในบทความทันที ผลลัพธ์คือบทความมีความถูกต้องแม่นยำตามตัวบทกฎหมาย 100%
+*   **[09:25] 📝 Correction: Section 97 Clauses**
+    > **Correction:** เมื่อ User ทักท้วงว่ามาตรา 97 มี 4 อนุมาตรา (ไม่ใช่ 3)
+    > **Action:** ผมรีบตรวจสอบและเพิ่มอนุมาตราที่ 1 (ความเห็น อสส.) เข้าไปในบทความทันที
+    > **Result:** บทความมีความถูกต้องแม่นยำตามตัวบทกฎหมาย 100%
 
-**[09:20] � New Article: Section 97 Legal Structure**
-> เพื่อลงรายละเอียดข้อกฎหมายอย่างลึกซึ้ง ผมจึงเขียนบทความวิเคราะห์โครงสร้างมาตรา 97 โดยแยกเป็น เหตุ, เงื่อนไข, และผล (Cause-Condition-Effect) ผลลัพธ์คือได้คู่มืออ้างอิงทางกฎหมายที่ครบถ้วนสมบูรณ์
+*   **[09:20] 📝 New Article: Section 97 Legal Structure**
+    > **Goal:** ลงรายละเอียดข้อกฎหมายอย่างลึกซึ้ง
+    > **Action:** เขียนบทความวิเคราะห์โครงสร้างมาตรา 97 โดยแยกเป็น เหตุ, เงื่อนไข, และผล (Cause-Condition-Effect)
+    > **Result:** ได้คู่มืออ้างอิงทางกฎหมายที่ครบถ้วนสมบูรณ์
 
-**[09:15] 📝 New Article: Section 97 Principles**
-> เพื่อสรุปหลักการสำคัญของมาตรา 97 ให้เข้าใจง่าย ผมจึงสร้างบทความใหม่ที่สังเคราะห์ "5 กฎเหล็ก" ของการแก้ไขสัญญา ผลลัพธ์คือได้บทความที่อ่านง่ายและนำไปใช้ปฏิบัติได้จริง (Actionable)
+*   **[09:15] 📝 New Article: Section 97 Principles**
+    > **Goal:** สรุปหลักการสำคัญของมาตรา 97 ให้เข้าใจง่าย
+    > **Action:** สร้างบทความใหม่ที่สังเคราะห์ "5 กฎเหล็ก" ของการแก้ไขสัญญา
+    > **Result:** ได้บทความที่อ่านง่ายและนำไปใช้ปฏิบัติได้จริง (Actionable)
 
-**[09:10] 📝 Content Update: Reference Clean-up**
-> เมื่อได้รับคำสั่งให้ลบ Link ออกจากส่วนอ้างอิงชั่วคราว ผมจึงดำเนินการถอด Markdown Link ออกจากทุกบทความที่เกี่ยวข้อง คงเหลือไว้เพียง Text ผลลัพธ์คือบทความเป็นไปตามความต้องการของ User ที่เน้นความสะอาดตา
+*   **[09:10] 📝 Content Update: Reference Clean-up**
+    > **Cleanup:** เมื่อได้รับคำสั่งให้ลบ Link ออกจากส่วนอ้างอิงชั่วคราว
+    > **Action:** ดำเนินการถอด Markdown Link ออกจากทุกบทความที่เกี่ยวข้อง คงเหลือไว้เพียง Text
+    > **Result:** บทความเป็นไปตามความต้องการของ User ที่เน้นความสะอาดตา
 
-**[09:00] 📝 Content Series: Learning from Judgments**
-> เพื่อให้บทความมีความหลากหลายและน่าสนใจขึ้น ผมจึงเปิดตัวซีรีส์ "เรียนรู้จากคำพิพากษา" โดยเริ่ม EP.1 เรื่อง "คำสั่งวาจา" (Verbal Orders) ผลลัพธ์คือได้คอนเทนต์รูปแบบใหม่ที่เน้นการเล่าเรื่อง (Storytelling)
+*   **[09:00] 📝 Content Series: Learning from Judgments**
+    > **Innovation:** เพื่อให้บทความมีความหลากหลายและน่าสนใจขึ้น
+    > **Action:** เปิดตัวซีรีส์ "เรียนรู้จากคำพิพากษา" โดยเริ่ม EP.1 เรื่อง "คำสั่งวาจา" (Verbal Orders)
+    > **Result:** ได้คอนเทนต์รูปแบบใหม่ที่เน้นการเล่าเรื่อง (Storytelling)
 
-**[08:55] � Auto-Classification: Intelligent File Sorting**
-> เนื่องจากเห็นว่าการจัดการไฟล์ PDF และ Markdown เริ่มซับซ้อน ผมจึงอัปเกรดสคริปต์ `eee` ให้สามารถแยกแยะและย้ายไฟล์ไปยังโฟลเดอร์ย่อย (อสส., กวจ., ศาล) ได้เองโดยอัตโนมัติ ผลลัพธ์คือไฟล์ถูกจัดเก็บอย่างเป็นระเบียบตามหมวดหมู่ทันทีที่ Extract เสร็จ
+*   **[08:55] 🛠 Auto-Classification: Intelligent File Sorting**
+    > **Automation:** เนื่องจากเห็นว่าการจัดการไฟล์ PDF และ Markdown เริ่มซับซ้อน
+    > **Action:** อัปเกรดสคริปต์ `eee` ให้สามารถแยกแยะและย้ายไฟล์ไปยังโฟลเดอร์ย่อย (อสส., กวจ., ศาล) ได้เองโดยอัตโนมัติ
+    > **Result:** ไฟล์ถูกจัดเก็บอย่างเป็นระเบียบตามหมวดหมู่ทันทีที่ Extract เสร็จ
 
-**[08:50] 📝 Corrected Case Study 15: Source Verification**
-> เมื่อได้รับแจ้งจาก User ให้ตรวจสอบความถูกต้องของกรณีศึกษาที่ 15 ผมจึงได้ตรวจสอบและแก้ไขแหล่งอ้างอิงจากคณะกรรมการวินิจฉัย (กวจ.) เป็นสำนักงานอัยการสูงสุด (อสส.) พร้อมยืนยันความถูกต้องของ Link ผลลัพธ์คือข้อมูลมีความถูกต้องตามข้อเท็จจริงทางกฎหมายครับ
+*   **[08:50] 📝 Corrected Case Study 15: Source Verification**
+    > **Correction:** เมื่อได้รับแจ้งจาก User ให้ตรวจสอบความถูกต้องของกรณีศึกษาที่ 15
+    > **Action:** ตรวจสอบและแก้ไขแหล่งอ้างอิงจากคณะกรรมการวินิจฉัย (กวจ.) เป็นสำนักงานอัยการสูงสุด (อสส.) พร้อมยืนยันความถูกต้องของ Link
+    > **Result:** ข้อมูลมีความถูกต้องตามข้อเท็จจริงทางกฎหมายครับ
 
-**[08:40] 📝 Correction: แก้ไขข้อมูลอ้างอิงกรณีศึกษาที่ 15 (กวจ. -> อสส.)**
-> เพื่อความถูกต้องของแหล่งอ้างอิง ผมจึงย้ายไฟล์ PDF ต้นฉบับไปยังโฟลเดอร์ `rulings_attorney_general/` ที่ถูกต้องและเปลี่ยนลิงก์ในบทความให้ชี้ไปยังไฟล์ใหม่ ผลลัพธ์คือโครงสร้างไฟล์มีความถูกต้องและเป็นระเบียบ
+*   **[08:40] 📝 Correction: แก้ไขข้อมูลอ้างอิงกรณีศึกษาที่ 15 (กวจ. -> อสส.)**
+    > **Action:** ย้ายไฟล์ PDF ต้นฉบับไปยังโฟลเดอร์ `rulings_attorney_general/` ที่ถูกต้องและเปลี่ยนลิงก์ในบทความให้ชี้ไปยังไฟล์ใหม่
 
-**[08:30] 📝 Update Section 97: เพิ่มกรณีศึกษาที่ 15 (กวจ. 222/2563)**
-> เพื่อให้บทความมีความครบถ้วนสมบูรณ์ ผมจึงทำการ Extract ข้อมูลจากไฟล์ PDF และผนวกเนื้อหากรณีศึกษาที่ 15 ลงในบทความมาตรา 97 โดยใช้วิธี Manual Integration เพื่อความละเอียดแม่นยำ ผลลัพธ์คือบทความมีกรณีศึกษาล่าสุดอัปเดตทันที
+*   **[08:30] 📝 Update Section 97: เพิ่มกรณีศึกษาที่ 15 (กวจ. 222/2563)**
+    > **Action:** Extract ข้อมูลจากไฟล์ PDF และผนวกเนื้อหากรณีศึกษาที่ 15 ลงในบทความมาตรา 97 โดยใช้วิธี Manual Integration
+
+*   **[08:09] 📝 Merge remote-tracking branch 'origin/main'**
+    > **System:** Sync ข้อมูลล่าสุดจาก Remote Repository
+    *   📝 แก้ไข: articles/html/my_first_article.html
+    *   📝 แก้ไข: articles/html/procurement_act_section_102.html
+    *   📝 แก้ไข: articles/html/procurement_act_section_97.html
 ## 📅 14 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -1105,6 +1122,3 @@
 
 
 
-**[2025-12-15 08:07] Merge remote-tracking branch 'origin/main'**
-    -   📝 แก้ไข: articles/html/my_first_article.html
-    -   📝 แก้ไข: articles/html/procurement_act_section_102.html

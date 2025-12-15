@@ -1,8 +1,8 @@
-
 import os
 import sys
 import json
 import time
+import traceback
 import google.generativeai as genai
 from google.api_core import exceptions
 from dotenv import load_dotenv
@@ -40,22 +40,8 @@ def extract_and_name_with_gemini(filepath):
 
     print(f"🔑 Loaded {len(api_keys)} API Key(s).")
     
-    # Target the specific new key provided by user
-    # target_key = os.environ.get("GEMINI_API_KEY") # Use Env Var
-    found_key_index = -1
-    for i, k in enumerate(api_keys):
-        if k.strip() == target_key:
-            found_key_index = i
-            break
-            
-    if found_key_index != -1:
-        current_key_index = found_key_index
-        print(f"🔑 Found specific USER key at index {current_key_index}")
-    else:
-        # If not in list (e.g. env not reloaded), just use it directly
-        print(f"⚠️ Specific key not found in loaded list. Using directly.")
-        api_keys.append(target_key)
-        current_key_index = len(api_keys) - 1
+    # User-requested Key #4
+    current_key_index = 3
 
     print(f"🔑 DEBUG: Active Key Mask: ...{api_keys[current_key_index][-5:]}")
     genai.configure(api_key=api_keys[current_key_index])
@@ -105,6 +91,7 @@ def extract_and_name_with_gemini(filepath):
         try:
             print(f"🤖 Generating content (Attempt {attempt+1}/{max_retries})... using Key #{current_key_index + 1}")
             # Use stream=True to detect if it's starting to work
+            print("📡 Sending request to Gemini API (Stream mode)...")
             response_stream = model.generate_content(
                 [prompt_text, inline_data],
                 generation_config={"response_mime_type": "application/json"},
@@ -218,7 +205,8 @@ def extract_and_name_with_gemini(filepath):
                 retry_delay *= 2
                 
         except Exception as e:
-            print(f"❌ Generation Error: {e}")
+            print(f"\n❌ Generation Error: {e}")
+            traceback.print_exc()
             # If it's a 500 error, maybe retry.
             if "500" in str(e) or "503" in str(e):
                  time.sleep(5)
