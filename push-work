@@ -4,14 +4,15 @@ DIARY_FILE="git_diary.md"
 # 1. Stage all changes first
 git add .
 
-# 2. Get Smart Suggestion
-SUGGESTION=$(python3 update_diary.py --suggest)
-# Suggestion format: category|message|details (newline separated)
-IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
+# 1. Stage all changes first
+git add .
 
-# Check argument mode
+# Check if arguments are provided
 if [ "$1" == "--auto" ]; then
-    # 🤖 Auto Mode: Use AI Suggestion directly
+    # 🤖 Auto Mode: Fetch Suggestion
+    SUGGESTION=$(python3 update_diary.py --suggest)
+    IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
+    
     MANUAL_LOG="$AUTO_MSG"
     CATEGORY="$AUTO_CAT"
     DETAILS="$AUTO_DETAILS"
@@ -27,8 +28,9 @@ elif [ "$#" -gt 0 ]; then
     else
         USER_STORY=""
     fi
-    CATEGORY="$AUTO_CAT"
-    DETAILS="$AUTO_DETAILS"
+    # Default category for manual
+    CATEGORY="content"
+    DETAILS=""
     
     echo "🤖 เริ่มระบบ Auto-Push (โหมดอัตโนมัติ)"
     echo "📝 ข้อความบันทึก: $MANUAL_LOG"
@@ -38,6 +40,10 @@ elif [ "$#" -gt 0 ]; then
 else
     # 👤 Interactive Mode
     echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
+    # Only fetch suggestion here if we want to show it
+    SUGGESTION=$(python3 update_diary.py --suggest)
+    IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
+    
     echo "---------------------------------------------------"
     echo "📂 หมวดงาน: $AUTO_CAT"
     echo "📝 ข้อความแนะนำ: $AUTO_MSG"
