@@ -39,28 +39,21 @@ elif [ "$#" -gt 0 ]; then
     fi
 else
     # 👤 Interactive Mode
-    echo "🤖 ระบบวิเคราะห์การทำงานของคุณ..."
-    # Only fetch suggestion here if we want to show it
-    SUGGESTION=$(python3 update_diary.py --suggest)
-    IFS='|' read -r AUTO_CAT AUTO_MSG AUTO_DETAILS <<< "$SUGGESTION"
-    
     echo "---------------------------------------------------"
-    echo "📂 หมวดงาน: $AUTO_CAT"
-    echo "📝 ข้อความแนะนำ: $AUTO_MSG"
+    echo "📝 กรุณาระบุบันทึกงาน (Logs):"
     echo "---------------------------------------------------"
-    echo "💡 กด [Enter] เพื่อใช้ข้อความนี้ หรือพิมพ์ใหม่เพื่อแก้ไข"
     read -p "👉 บันทึกของคุณ (ภาษาไทย): " USER_LOG
 fi
 
 if [ -z "$MANUAL_LOG" ]; then
     if [ -z "$USER_LOG" ]; then
-        MANUAL_LOG="$AUTO_MSG"
-        CATEGORY="$AUTO_CAT"
-        DETAILS="$AUTO_DETAILS"
+        echo "❌ ต้องระบุข้อความบันทึก (Log Message)"
+        exit 1
     else
         MANUAL_LOG="$USER_LOG"
-        CATEGORY="$AUTO_CAT"
-        DETAILS="$AUTO_DETAILS"
+        # Default category
+        CATEGORY="content"
+        DETAILS=""
     fi
 fi
 

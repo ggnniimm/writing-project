@@ -8,6 +8,11 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:44] 📝 🛠 Fix: แก้ไขบันทึก Diary และปรับปรุง Workflow**
+    > Situation: บันทึก Diary ช่วง 16:35 ไม่ถูกต้องเนื่องจากระบบ AI เดิมทำงานผิดพลาด และ User ต้องการปรับปรุง Workflow
+    > Action: แก้ไขเนื้อหาใน git_diary.md ให้ถูกต้อง (Revert/Delete) และปรับปรุงสคริปต์ push-work ให้ตัดระบบ AI อัตโนมัติออกเพื่อรองรับ Agent-Written Log
+    > Result: ข้อมูลใน Diary ถูกต้องครบถ้วนแบบ Manual และ Workflow การ Push ทำงานได้รวดเร็วขึ้นตามต้องการ
+
 *   **[16:41] 📝 ⚙️ Workflow: ปรับปรุง ppp (push-work) ให้รองรับ Agent-Written Log**
     > Situation: ผู้ใช้งานต้องการให้ Agent เขียนบันทึกงานเองแทนการใช้ AI อัตโนมัติที่ให้ข้อมูลไม่ครบถ้วน
     > Action: แก้ไขสคริปต์ push-work ให้ข้ามขั้นตอนการเรียก AI Suggestion หากเป็นการรันผ่าน Argument (Agent Mode) ช่วยลดเวลาและประหยัด Quota API
@@ -1146,3 +1151,6 @@
     *   -   📝 แก้ไข: eee (Revert to original state)
     *   -   🗑️ ลบ: extract_raw_text.py
     *   -   � แก้ไข: .DS_Store
+
+**[2025-12-15 16:41] ⚙️ Workflow: ปรับปรุง ppp (push-work) ให้รองรับ Agent-Written Log**
+    -   📝 แก้ไข: push-work
