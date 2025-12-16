@@ -8,6 +8,9 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[08:20] 📝 Manual Sync**
+    > User executed ppp command to sync changes.
+
 *   **[08:19] 📝 Documented Best Practice & Backed up Script**
     > Created docs/best_practices/pdf_extraction_gemini_file_api.md and backed up gemini_pdf_to_md.py for future reference.
 
@@ -1251,3 +1254,11 @@
 
 **[2025-12-16 08:08] Implemented Gemini File API**
     -   📝 แก้ไข: gemini_pdf_to_md.py
+
+**[2025-12-16 08:19] Documented Best Practice & Backed up Script**
+    -   📝 แก้ไข: .DS_Store
+    -   ✨ สร้างใหม่: backups/scripts/gemini_pdf_to_md_20251216_file_api.py
+    -   ✨ สร้างใหม่: docs/best_practices/pdf_extraction_gemini_file_api.md
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   📝 แก้ไข: references/.DS_Store
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_1966_2559_full.md
