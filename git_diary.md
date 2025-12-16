@@ -8,6 +8,9 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[08:19] 📝 Documented Best Practice & Backed up Script**
+    > Created docs/best_practices/pdf_extraction_gemini_file_api.md and backed up gemini_pdf_to_md.py for future reference.
+
 *   **[08:08] 📝 Implemented Gemini File API**
     > Replaced PDF extraction logic with Gemini File API for better large file support and context retention.
 
@@ -1245,3 +1248,6 @@
     -   📝 แก้ไข: gemini_pdf_to_md.py
     -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_unknown.md
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_2050_2559_full.md.bak
+
+**[2025-12-16 08:08] Implemented Gemini File API**
+    -   📝 แก้ไข: gemini_pdf_to_md.py
