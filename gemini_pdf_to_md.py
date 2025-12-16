@@ -84,8 +84,8 @@ def extract_and_name_with_gemini(filepath):
         if key.startswith("GEMINI_API_KEY") and value:
              api_keys.append(value)
     
-    # If not found in env vars, check .env file
-    if not api_keys:
+    # Always check .env file as well to gather more keys
+    if True:
         env_path = os.path.join(os.path.dirname(__file__), ".env")
         if os.path.exists(env_path):
             with open(env_path, "r") as f:
@@ -160,7 +160,7 @@ def extract_and_name_with_gemini(filepath):
             # --- STEP 3: GENERATE ---
             print("🧠 Generating content...")
             
-            model = genai.GenerativeModel('models/gemini-flash-latest') # Updated based on available models list
+            model = genai.GenerativeModel('models/gemini-2.5-flash')
             
             prompt_text = """
             You are an expert OCR engine.
@@ -276,7 +276,7 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
     current_key_index = start_key_index
     genai.configure(api_key=api_keys[current_key_index])
     
-    model = genai.GenerativeModel('models/gemini-flash-latest')
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
     
     # Prompt is slightly different for chunks vs full doc
     if is_chunk:

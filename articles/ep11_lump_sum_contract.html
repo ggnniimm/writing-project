@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เรียนรู้จากคำพิพากษา EP.11</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d; /* กรมท่าเข้ม */
+            --secondary: #2b6cb0; /* น้ำเงินสว่าง */
+            --success: #2f855a; /* เขียว */
+            --warning: #c05621; /* ส้มแดง */
+            --bg: #f7fafc;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg);
+            color: #2d3748;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        /* Header Design */
+        header {
+            text-align: center;
+            padding-bottom: 30px;
+            border-bottom: 3px solid var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .ep-badge {
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        h2 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        /* Timeline Design for Facts */
+        .timeline {
+            position: relative;
+            margin: 20px 0 20px 20px;
+            border-left: 3px solid #e2e8f0;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -39px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--secondary);
+        }
+
+        .timeline-item.alert::before {
+            background: var(--warning);
+            box-shadow: 0 0 0 2px var(--warning);
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* Judgment Cards */
+        .judgment-box {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #f0fff4; /* เขียวอ่อน */
+            border-left: 5px solid var(--success);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            color: var(--success);
+            margin: 0 0 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Quote Box */
+        .highlight-quote {
+            font-size: 1.2em;
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            padding: 30px;
+            background: #ebf8ff;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px dashed var(--secondary);
+        }
+
+        /* Takeaway Section */
+        .takeaway {
+            background: #2d3748;
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 50px;
+        }
+        
+        .takeaway h2 {
+            color: #fbd38d; /* ทองอ่อน */
+            border-bottom: 1px solid #4a5568;
+            padding-bottom: 15px;
+        }
+
+        .takeaway ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .takeaway li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .takeaway li::before {
+            content: '💡';
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="ep-badge">EP.11 เรียนรู้จากคำพิพากษา</span>
+        <h1>สั่งงานเพิ่ม รับของแล้ว แต่ไม่จ่ายเงิน<br>อ้าง "สัญญาเหมาจ่าย"<br>ศาลบอก <span style="color:var(--warning); text-decoration: underline;">"ฟังไม่ขึ้น!"</span></h1>
+        <p style="color: #718096; font-size: 0.9em;">บทเรียนจากคำพิพากษาศาลปกครองสูงสุดที่ อ. 1256/2558</p>
+    </header>
+
+    <p>เคยไหมครับ? ทำงานแทบตาย แก้แบบตามสั่งจนเสร็จ แต่พอวางบิลกลับโดนปฏิเสธด้วยประโยคคลาสสิก <strong>"สัญญาเป็นแบบเหมาจ่าย (Lump Sum) จ่ายเพิ่มไม่ได้"</strong> ใน EP นี้เรามาดูคดีตัวอย่างที่ผู้รับเหมาชนะคดีด้วยหลักกฎหมายเรื่อง <strong>"การรับประโยชน์"</strong> ครับ</p>
+
+    <h2><i class="fas fa-hard-hat"></i> เหตุการณ์จริง: เมื่อเจอหินแข็ง</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="timeline-title">1. แบบเดิม vs หน้างานจริง</span>
+            แบบกำหนดให้ใช้เสาเข็มตอก (Pile) แต่หน้างานจริงขุดไปเจอ "ชั้นหินแข็งมาก" ตอกไม่ได้
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-title">2. อนุมัติแก้แบบ</span>
+            คณะกรรมการตรวจการจ้างอนุมัติให้เปลี่ยนเป็น "ฐานรากแผ่ (Spread Footing)" วางบนชั้นหินแทน
+        </div>
+        <div class="timeline-item">
+            <span class="timeline-title">3. ส่งมอบงานเรียบร้อย</span>
+            ผู้รับจ้างทำงานตามแบบใหม่จนเสร็จสมบูรณ์ และหน่วยงานรับมอบงานไปแล้ว
+        </div>
+        <div class="timeline-item alert">
+            <span class="timeline-title">4. ปัญหาเกิด: เบี้ยวจ่าย!</span>
+            กรมฯ <strong>ปฏิเสธจ่ายเงินส่วนเพิ่ม</strong> โดยอ้างว่า "เป็นสัญญาเหมาจ่าย (Lump Sum)" และ "สตง. ทักท้วงว่าผิดระเบียบ"
+        </div>
+    </div>
+
+    <h2><i class="fas fa-gavel"></i> ศาลปกครองสูงสุดตัดสิน: "ต้องจ่าย!"</h2>
+    <p>ศาลวินิจฉัยให้ผู้ว่าจ้างต้องจ่ายเงินเพิ่ม ด้วยเหตุผลที่เฉียบขาด 3 ข้อ:</p>
+    
+    <div class="judgment-box">
+        <div class="card">
+            <h3><i class="fas fa-check-circle"></i> 1. ไม่ใช่ความผิดพลาดในการคำนวณ</h3>
+            ข้อสัญญาเรื่อง "ห้ามเรียกร้องเพิ่ม" ใช้กับกรณีผู้รับจ้างคำนวณผิดเอง แต่กรณีนี้คือ <strong>"การปฏิบัติตามคำสั่งแก้ไขแบบ"</strong> เพื่อแก้ปัญหาหน้างาน จึงไม่ใช่ความผิดของผู้รับจ้าง
+        </div>
+        
+        <div class="card">
+            <h3><i class="fas fa-check-circle"></i> 2. หลวง "รับประโยชน์" แล้ว (Unjust Enrichment)</h3>
+            ไม้ตายสำคัญ! เมื่อผู้ว่าจ้างสั่งให้ทำ และรับมอบงานไปใช้ประโยชน์แล้ว จะมาอ้างระเบียบเพื่อไม่จ่ายเงินไม่ได้ ถือเป็นการใช้สิทธิโดย <strong>"ไม่สุจริต"</strong> และเป็น <strong>"ลาภมิควรได้"</strong>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-check-circle"></i> 3. ความเห็นภายใน ไม่ผูกพันคนนอก</h3>
+            การอ้างว่า "กรมบัญชีกลาง/สตง. บอกว่าเบิกไม่ได้" เป็นเรื่องภายในฝ่ายบริหาร ไม่มีผลลบล้างสัญญาหรือความยุติธรรมที่ต้องชดใช้ให้ผู้ทำงาน
+        </div>
+    </div>
+
+    <div class="highlight-quote">
+        "เมื่อจำเลยได้รับมอบงานและใช้ประโยชน์...<br>ย่อมต้องชดใช้ราคาค่างานที่เพิ่มขึ้น"
+    </div>
+
+    <div class="takeaway">
+        <h2>💡 บทสรุปและข้อคิด (Key Takeaways)</h2>
+        <ul>
+            <li><strong>Lump Sum ไม่ใช่หลุมดำ:</strong> สัญญาเหมาจ่ายครอบคลุมงานเดิม แต่ถ้ามี "คำสั่งงานเพิ่ม/แก้แบบ" ท่านมีสิทธิเบิกเพิ่มได้</li>
+            <li><strong>แยกให้ออก:</strong> ถ้าท่านถอดแบบผิดเอง = เข้าเนื้อ ❌ / แต่ถ้าหลวงเปลี่ยนแบบ = งานเพิ่ม ✅</li>
+            <li><strong>รับของ = รับหนี้:</strong> ถ้ารัฐรับมอบงานไปใช้ประโยชน์แล้ว ข้ออ้างเรื่องระเบียบเบิกจ่ายภายใน ฟังไม่ขึ้นในศาล</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px; color: #aaa; font-size: 0.8em;">
+        เอกสารฉบับนี้จัดทำขึ้นโดยระบบ AI Assistant | อ้างอิง: คำพิพากษาศาลปกครองสูงสุดที่ อ. 1256/2558
+    </div>
+</div>
+
+</body>
+</html>
