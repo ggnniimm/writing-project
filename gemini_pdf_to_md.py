@@ -117,101 +117,123 @@ def extract_and_name_with_gemini(filepath):
 
     import pypdf
     
-    # 2. Check File Size & Strategy
+    # 2. Check File Size & Strategy -> Switch to File API for ALL files (cleaner context)
     file_size_mb = os.path.getsize(filepath) / (1024 * 1024)
     print(f"📦 File size: {file_size_mb:.2f} MB")
-
-    # Strategy: 
-    # < 5 MB: Inline (Fast)
-    # > 5 MB: Split & Chunk (Stable)
     
     final_combined_markdown = ""
+
+    # Reuse the retry logic but adapted for File API
+    # We need to iterate keys at this level because File Upload + Generation are linked to the key.
     
-    if file_size_mb < 5.0:
-        # --- STRATEGY A: Small File (Inline) ---
-        print("⚡ Using Strategy: Small File (Inline)")
-        with open(filepath, "rb") as f:
-            file_data = f.read()
-
-        mime_type = "application/pdf"
-        inline_data = {"mime_type": mime_type, "data": file_data}
+    success = False
+    
+    for i in range(len(api_keys)):
+        # Calculate index with offset based on start (rotation)
+        key_index = (current_key_index + i) % len(api_keys)
+        api_key = api_keys[key_index]
         
-        final_combined_markdown = generate_content_with_retry(api_keys, 0, inline_data, is_chunk=False)
-
-    else:
-        # --- STRATEGY B: Large File (Split & Chunk) ---
-        print("✂️ Using Strategy: Split & Chunk (pypdf)")
-        print("   (This avoids timeouts and 'File too large' errors)")
+        print(f"🔑 Attempting with Key #{key_index + 1} (Mask: ...{api_key[-5:]})")
+        genai.configure(api_key=api_key)
         
         try:
-            reader = pypdf.PdfReader(filepath)
-            total_pages = len(reader.pages)
-            chunk_size = 10  # Process 10 pages at a time
-            print(f"📚 Total Pages: {total_pages}. Chunk size: {chunk_size} pages.")
+            # --- STEP 1: UPLOAD ---
+            print("🚀 Uploading to Gemini File API...")
+            if file_size_mb > 10:
+                print("   (This is a large file, upload might take a moment...)")
+                
+            uploaded_file = genai.upload_file(filepath, mime_type="application/pdf")
+            print(f"   Uploaded: {uploaded_file.display_name} ({uploaded_file.uri})")
             
-            chunks_text = []
-            
-            for i in range(0, total_pages, chunk_size):
-                chunk_start = i
-                chunk_end = min(i + chunk_size, total_pages)
-                print(f"\n� Processing Chunk {i//chunk_size + 1}/{((total_pages-1)//chunk_size) + 1} (Pages {chunk_start+1}-{chunk_end})...")
-                
-                # Create Temp Chunk PDF
-                writer = pypdf.PdfWriter()
-                for page_num in range(chunk_start, chunk_end):
-                    writer.add_page(reader.pages[page_num])
-                
-                temp_chunk_path = f"temp_chunk_{i}.pdf"
-                with open(temp_chunk_path, "wb") as f_out:
-                    writer.write(f_out)
-                
-                # Read Temp PDF as Inline Data
-                with open(temp_chunk_path, "rb") as f_in:
-                    chunk_data = f_in.read()
-                
-                # Cleanup Temp PDF immediately
-                try:
-                    os.remove(temp_chunk_path)
-                except:
-                    pass
-
-                inline_data = {"mime_type": "application/pdf", "data": chunk_data}
-                
-                # Generate for this chunk
-                # Pass current_key_index reference if possible, but for simplicity let retry handle rotation
-                # Ideally we want to persist key rotation across chunks
-                chunk_md = generate_content_with_retry(api_keys, 0, inline_data, is_chunk=True)
-                
-                if chunk_md:
-                    chunks_text.append(chunk_md)
-                else:
-                    print(f"⚠️ Warning: Chunk {chunk_start+1}-{chunk_end} returned empty text.")
-
-                # Small cooldown between chunks
-                print("💤 Cooling down (2s)...")
+            # --- STEP 2: WAIT FOR PROCESSING ---
+            # Some files require processing (pdf usually quick, but video/large files need wait)
+            while uploaded_file.state.name == "PROCESSING":
+                print("   ⏳ Processing file on server...", end="\r")
                 time.sleep(2)
-            
-            # Combine all chunks
-            print("\n🔗 Combining chunks...")
-            final_combined_markdown = "\n\n".join(chunks_text)
+                uploaded_file = genai.get_file(uploaded_file.name)
+                
+            if uploaded_file.state.name == "FAILED":
+                raise Exception("File processing failed on Google Server.")
+                
+            print(f"   ✅ File Ready: {uploaded_file.state.name}")
 
+            # --- STEP 3: GENERATE ---
+            print("🧠 Generating content...")
+            
+            model = genai.GenerativeModel('models/gemini-1.5-flash') # Or 2.0-flash-exp if available, sticking to stable
+            
+            prompt_text = """
+            You are an expert OCR engine.
+            Convert this entire PDF document into Markdown.
+            
+            Rules:
+            1. Extract ALL text verbatim. No summarization.
+            2. Preserve the structure (headers, tables, lists) as best as possible.
+            3. Do NOT wrap the result in JSON or code blocks (like ```markdown). Just return raw markdown text.
+            4. If there are tables, format them as Markdown tables.
+            5. Ignore headers/footers that are just page numbers, but keep document headers.
+            """
+
+            # Use stream=True for responsiveness
+            response = model.generate_content(
+                [prompt_text, uploaded_file],
+                stream=True
+            )
+            
+            full_text = ""
+            for chunk in response:
+                if chunk.text:
+                    full_text += chunk.text
+                    print(".", end="", flush=True) # Progress indicator
+            
+            print("\n✅ Generation Complete.")
+            
+            final_combined_markdown = full_text.strip()
+            
+            # Cleanup Markdown wrappers if any
+            if final_combined_markdown.startswith("```"):
+                lines = final_combined_markdown.splitlines()
+                if lines[0].startswith("```"): lines = lines[1:]
+                if lines and lines[-1].strip() == "```": lines = lines[:-1]
+                final_combined_markdown = "\n".join(lines)
+            
+            # --- STEP 4: CLEANUP FILE ---
+            try:
+                uploaded_file.delete()
+                print("🗑️  Remote file deleted.")
+            except:
+                pass
+
+            success = True
+            break # Exit key loop on success
+            
         except Exception as e:
-            print(f"❌ Error during PDF splitting/processing: {e}")
-            traceback.print_exc()
-            return
+            print(f"\n❌ Catch Error on Key #{key_index + 1}: {e}")
+            
+            # Error Handling Pattern from original code
+            err_str = str(e)
+            if "429" in err_str or "ResourceExhausted" in err_str:
+                print("   ⏳ Quota exceeded. Switching key...")
+                time.sleep(2)
+                continue # Try next key
+            elif "401" in err_str or "API_KEY" in err_str:
+                print("   ⛔ Invalid Key. Switching...")
+                continue
+            else:
+                # Other errors (network, 500), maybe wait a bit then try next key or just fail?
+                # For robustness, try next key if available
+                print("   ⚠️ Unknown error. Trying next key just in case...")
+                time.sleep(5)
+                continue
+
+    if not success:
+        print("❌ All API keys failed or max retries reached.")
+        return
 
     # --- SAVE RESULT ---
     if not final_combined_markdown:
         print("❌ Error: No content extracted.")
         return
-
-    # Try to parse filename from the FIRST chunk or the whole text if small
-    # For large split files, 'final_combined_markdown' is just raw text combined.
-    # We need to be careful: calculate filename from the first part usually.
-    
-    # Heuristic: If we used chunks, `final_combined_markdown` is likely just text, not JSON.
-    # If we used inline (Strategy A), `generate_content_with_retry` might return JSON string or text?
-    # Let's standardize `generate_content_with_retry` to return CLEAN MARKDOWN TEXT.
 
     # Identify output filename
     # We'll use the Agentic determine_filename_and_path on the CONTENT.
@@ -245,7 +267,6 @@ def extract_and_name_with_gemini(filepath):
         print(f"🚚 Auto-Classified & Moved to: {target_subfolder}/{final_filename}")
     except Exception as move_err:
             print(f"⚠️ Could not move file: {move_err}")
-
 
 def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk=False):
     """

@@ -1,6 +1,17 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 16 ธันวาคม 2025
+**🤖 Start of Day:**
+
+### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️
+*   [ ] 
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[08:08] 📝 Implemented Gemini File API**
+    > Replaced PDF extraction logic with Gemini File API for better large file support and context retention.
+
+
 ## 📅 15 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -1229,3 +1240,8 @@
 *   **[09:57] 📝 Drafting: ร่างบทความ `articles/procurement_act_section_102.md`**
 
 *   **[09:50] 🧩 Research: ค้นคว้าข้อมูล พ.ร.บ. จัดซื้อจัดจ้างฯ มาตรา 102 และระเบียบข้อ 182**
+
+**[2025-12-15 17:15] Implemented Auto-Renaming for eee Command**
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   ✨ สร้างใหม่: references/rulings_attorney_general/ref_oag_unknown.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_2050_2559_full.md.bak
