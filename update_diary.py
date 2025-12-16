@@ -144,7 +144,62 @@ def generate_ai_log(diff_text):
                     continue # Retry with next key
             return None, None, None
             
+            return None, None, None
+            
     return None, None, None
+
+def rewrite_log_entry(message, details):
+    """
+    Uses AI to rewrite the log entry into the standard Thai 'Captain's Log' format.
+    Ensures consistency regardless of input language (English/Thai).
+    """
+    if not API_KEYS:
+        return message, details # Fallback
+
+    current_key_index = 0
+    max_retries = len(API_KEYS) * 2
+    
+    for attempt in range(max_retries):
+        try:
+            genai.configure(api_key=API_KEYS[current_key_index])
+            model = genai.GenerativeModel('models/gemini-flash-latest')
+            
+            prompt = f"""
+            You are the "Chief Officer" of this coding project. 
+            Rewrite the following git log entry into a Formal Thai "Captain's Log" style.
+
+            Input Message: "{message}"
+            Input Details/Context: "{details}"
+            
+            Rules:
+            1. **Language:** STRICTLY THAI (ภาษาไทย). Use English only for specific technical terms (e.g., API, PDF, Markdown).
+            2. **Style:** Professional, Narrative, First-person ("ผม").
+            3. **Structure:** 
+               - **Title:** Concise summary in Thai.
+               - **Details:** A short paragraph explaining "Situation -> Action -> Result".
+            4. **Output Format:** Just return the string "TITLE|DETAILS". 
+               (Separator is pipe symbol). Do not use Markdown notation for the output wrapper.
+            
+            Example Input: "Implemented Gemini File API", "Replaced PDF extraction logic..."
+            Example Output: ติดตั้งระบบ Gemini File API|ผมได้ดำเนินการเปลี่ยนระบบการดึงข้อมูล PDF มาใช้ Gemini File API แทนการแบ่งหน้าแบบเดิม เพื่อแก้ปัญหาข้อจำกัดขนาดไฟล์และช่วยให้ AI เข้าใจบริบทของเอกสารทั้งฉบับได้ดีขึ้น ส่งผลให้การทำงานเสถียรและแม่นยำขึ้นครับ
+            """
+            
+            response = model.generate_content(prompt)
+            text = response.text.strip()
+            
+            if "|" in text:
+                parts = text.split("|", 1)
+                return parts[0].strip(), parts[1].strip()
+            else:
+                return text, details # Fallback if format wrong
+                
+        except Exception as e:
+            if len(API_KEYS) > 1:
+                current_key_index = (current_key_index + 1) % len(API_KEYS)
+                continue
+            return message, details 
+
+    return message, details
 
 def suggest_mode():
     changes = run_git_diff()
@@ -398,8 +453,13 @@ def main():
         sys.exit(1)
 
     category_code = sys.argv[1] # 'content' or 'system'
-    message = sys.argv[2]
-    details = sys.argv[3] if len(sys.argv) > 3 else ""
+    raw_message = sys.argv[2]
+    raw_details = sys.argv[3] if len(sys.argv) > 3 else ""
+
+    # --- NEW: Standardize Input via AI ---
+    # Always rewrite to ensure Thai language and narrative style
+    print("🤖 AI กำลังเรียบเรียงภาษาให้เป็นมาตรฐาน (Standardizing Log)...")
+    message, details = rewrite_log_entry(raw_message, raw_details)
 
     today_date = get_thai_date()
     # Format: ## 📅 12 ธันวาคม 2025
