@@ -2,3 +2,6 @@ github_key
 github_key.pub
 
 .env
+
+.DS_Store
+**/.DS_Store
