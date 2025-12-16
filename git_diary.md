@@ -8,6 +8,9 @@
 *   [ ] 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[09:16] 🔧 กำหนดขีดจำกัดขนาด Context ในการประมวลผล**
+    > ผมตรวจพบสถานการณ์ที่ระบบดึง Context เข้ามาประมวลผลในปริมาณที่เกินความจำเป็น ซึ่งเป็นสาเหตุของการใช้หน่วยความจำ (Memory) สูงเกินควร ผมจึงได้ดำเนินการแก้ไขโดยการเพิ่มเงื่อนไขและกำหนดค่าขีดจำกัด (Limit) สำหรับขนาดของ Context ในการเรียกใช้งาน API หรือฟังก์ชันที่เกี่ยวข้อง การปรับปรุงครั้งนี้ส่งผลให้ภาระการทำงานของทรัพยากรระบบลดลงได้อย่างมาก และช่วยเสริมสร้างความเสถียรในการปฏิบัติการโดยรวมให้สูงขึ้นครับ
+
 *   **[08:43] 📝 ปรับโครงสร้างบทความในชุด EP.10**
     > ผมได้ดำเนินการจัดหมวดหมู่และย้ายบทความที่เกี่ยวข้องกับ "EP.10" ไปยังตำแหน่งที่ถูกต้อง (learning_from_judgments/ep10_wrong_specs_and_notification_deadline.md) พร้อมกันนี้ ผมได้ประยุกต์ใช้การจัดรูปแบบมาตรฐาน (Standard Formatting) ของเอกสาร Markdown ทั้งหมด เพื่อให้มั่นใจว่าเนื้อหาถูกจัดเก็บอย่างเป็นระบบและเป็นไปตามระเบียบของโครงการครับ
 
@@ -1287,3 +1290,8 @@
     -   ✨ สร้างใหม่: articles/ep_sac_1866_2559_notification_deadline.md
     -   ✨ สร้างใหม่: articles/html/ep_sac_1866_2559_notification_deadline.html
     -   📝 แก้ไข: references/rulings_court/ref_sac_1866_2559_full.md
+
+**[2025-12-16 08:43] Reorganized to EP.10**
+    -   🗑️ ลบ: articles/ep_sac_1866_2559_notification_deadline.md
+    -   ✨ สร้างใหม่: articles/html/ep10_wrong_specs_and_notification_deadline.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep10_wrong_specs_and_notification_deadline.md
