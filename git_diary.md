@@ -18,6 +18,9 @@
     *   [ ] 🧹 **Cleanup:** จัดระเบียบไฟล์ใน `references/` ให้เป็นหมวดหมู่ (Court vs OAG vs Committee)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[13:56] 📝 จัดทำร่างเอกสารว่าด้วยความรับผิดร่วม (SAC 351/2556)**
+    > ผมได้รับมอบหมายให้ดำเนินการจัดทำร่างบทความเพื่ออธิบายและวิเคราะห์แนวทางปฏิบัติภายใต้ข้อกำหนด SAC 351/2556 (เรื่องความรับผิดร่วมกัน) ซึ่งผมได้ดำเนินการรวบรวมข้อมูลและจัดทำเอกสารดังกล่าวเสร็จสมบูรณ์เรียบร้อยแล้ว เพื่อเตรียมนำเสนอและเผยแพร่ในลำดับถัดไปครับ
+
 *   **[13:26] 📝 จัดทำร่างบทความวิเคราะห์คดีปกครองสูงสุด เรื่อง หน้าที่กรรมการตรวจรับพัสดุ**
     > ผมได้รับมอบหมายให้ดำเนินการจัดทำร่างบทความชุดบทเรียนจากคำวินิจฉัย (EP 17) ตามการโต้ตอบกับผู้ใช้เพื่อเผยแพร่ความรู้ทางกฎหมาย โดยเนื้อหาหลักได้อ้างอิงจากคำพิพากษาศาลปกครองสูงสุดที่ อ. 72/2564 ในประเด็นเรื่องหน้าที่ของกรรมการตรวจรับพัสดุ การดำเนินการดังกล่าวเสร็จสมบูรณ์แล้ว และพร้อมส่งมอบเพื่อตรวจสอบและพิจารณาขั้นถัดไปครับ
 
@@ -1409,3 +1412,33 @@
 
 **[2025-12-17 10:49] System: Improved daily initialization script (bbb)**
     -   📝 แก้ไข: update_diary.py
+
+**[2025-12-17 13:26] ร่างบทความเรียนรู้จากคำวินิจฉัย EP17 จากคำพิพากษาศาลปกครองสูงสุดที่ อ. 72/2564 เรื่องหน้าที่กรรมการตรวจรับพัสดุ**
+    -   ✨ สร้างใหม่: __pycache__/gemini_pdf_to_md.cpython-313.pyc
+    -   ✨ สร้างใหม่: articles/html/ep16_sac_o_104_2563_material_change.html
+    -   ✨ สร้างใหม่: articles/html/ep17_sac_o_72_2564_inspection_duty.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep16_sac_o_104_2563_material_change.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep17_sac_o_72_2564_inspection_duty.md
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_104_2563.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_72_2564.pdf
+    -   🗑️ ลบ: references/rulings_court/ref_sac_1866_2559_full.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_104_2563.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_1256_2558.md	references/rulings_court/ref_sac_o_1256_2558.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_148_2554_full.md	references/rulings_court/ref_sac_o_148_2554.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_16_2547_full.md	references/rulings_court/ref_sac_o_16_2557.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_1966_2559_full.md	references/rulings_court/ref_sac_o_1866_2559.md
+    -   🔧 การกระทำ: 100	references/rulings_court/supreme_administrative_court_judgment_yala_hi_mast_contract_dispute.md	references/rulings_court/ref_sac_o_1966_2559.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_2050_2559_full.md	references/rulings_court/ref_sac_o_2050_2559.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_2120_2559_full.md	references/rulings_court/ref_sac_o_2120_2559.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_233_2553_full.md	references/rulings_court/ref_sac_o_2333_2553.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_413_2555_full.md	references/rulings_court/ref_sac_o_413_2555.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_452_2557_full.md	references/rulings_court/ref_sac_o_452_2557.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_480_2557_full.md	references/rulings_court/ref_sac_o_480_2557.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_672_2557_full.md	references/rulings_court/ref_sac_o_672_2557.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_72_2564.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_79_2548_full.md	references/rulings_court/ref_sac_o_79_2548.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_836_2563_full.md	references/rulings_court/ref_sac_o_836_2563.md
+    -   ✨ สร้างใหม่: rename_sac_files.py
+    -   ✨ สร้างใหม่: sac_rename_scan.py
+    -   ✨ สร้างใหม่: test_sac_naming.py
