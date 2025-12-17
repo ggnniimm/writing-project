@@ -5,7 +5,6 @@ import time
 import traceback
 import google.generativeai as genai
 from google.api_core import exceptions
-from dotenv import load_dotenv
 import re
 
 def normalize_thai_digits(text):
@@ -24,14 +23,46 @@ def determine_filename_and_path(content):
     normalized_sample = normalize_thai_digits(content_sample)
     
     # 1. Supreme Administrative Court (ศาลปกครอง)
+    # 1. Supreme Administrative Court (ศาลปกครอง)
     if "ศาลปกครอง" in content_sample:
-        # Pattern: คดีหมายเลขแดงที่ อ. 2050/2559 or similar
-        # Regex: Look for "คดีหมายเลขแดงที่" then capture Number/Year
-        match = re.search(r"คดีหมายเลขแดงที่\s*[^\d]*(\d+)/(\d+)", normalized_sample)
+        # Pattern: คดีหมายเลขแดงที่ อ. 104/2563 or similar
+        # Regex: Look for "คดีหมายเลขแดงที่" then optional "อ." then Number then Year
+        # Capture groups: 1=(Prefix e.g. อ.), 2=(Number with separators), 3=(Year)
+        match = re.search(r"คดีหมายเลขแดงที่\s*(?:(อ\.|อ)\s*)?([\d.,]+)\s*/\s*(\d+)", normalized_sample)
+        
+        # Also check for Black Case Number (คดีหมายเลขดำที่) to infer prefix if missing in Red Case
+        black_case_match = re.search(r"คดีหมายเลขดำที่\s*(?:(อ\.|อ)\s*)?([\d.,]+)\s*/\s*(\d+)", normalized_sample)
+        has_black_case_prefix = False
+        if black_case_match:
+             bc_prefix = black_case_match.group(1)
+             if bc_prefix and "อ" in bc_prefix:
+                 has_black_case_prefix = True
+
         if match:
-             red_no = match.group(1)
-             year = match.group(2)
-             return f"ref_sac_{red_no}_{year}_full.md", "references/rulings_court"
+             prefix_raw = match.group(1)
+             number_raw = match.group(2)
+             year = match.group(3)
+             
+             # Handle Prefix
+             prefix_str = ""
+             if prefix_raw and "อ" in prefix_raw:
+                 prefix_str = "o_"
+             
+             # Heuristic: If number starts with "1." (e.g. 1.104) and we have no prefix,
+             # it is likely a mis-OCR of "อ." (which looks like 1 in some fonts/contexts or regex ambiguity)
+             # User confirmed "1.104" -> "อ. 104" -> "o_104"
+             if not prefix_str and number_raw.startswith("1."):
+                 prefix_str = "o_"
+                 number_raw = number_raw[2:] # Strip "1."
+             
+             # Heuristic 2: If we still have no prefix, but the Black Case Number had "อ.", assume it's an "o_" case.
+             if not prefix_str and has_black_case_prefix:
+                 prefix_str = "o_"
+
+             number_clean = re.sub(r"[^\d]", "", number_raw)
+             
+             return f"ref_sac_{prefix_str}{number_clean}_{year}.md", "references/rulings_court"
+             
         return "ref_sac_unknown.md", "references/rulings_court"
 
     # 2. Attorney General (OAG / อสส.)
@@ -74,7 +105,7 @@ def determine_filename_and_path(content):
 
 def extract_and_name_with_gemini(filepath):
     # 0. Load .env
-    load_dotenv()
+    # load_dotenv() # Removed to avoid dependency
 
     # 1. Get ALL API Keys
     api_keys = []
@@ -267,6 +298,24 @@ def extract_and_name_with_gemini(filepath):
         print(f"🚚 Auto-Classified & Moved to: {target_subfolder}/{final_filename}")
     except Exception as move_err:
             print(f"⚠️ Could not move file: {move_err}")
+            return # Stop if move failed
+
+    # --- 6. Auto-Rename Source PDF ---
+    try:
+        new_pdf_filename = final_filename.replace(".md", ".pdf")
+        # Use absolute paths to be safe
+        abs_source_path = os.path.abspath(filepath)
+        source_dir = os.path.dirname(abs_source_path)
+        new_pdf_path = os.path.join(source_dir, new_pdf_filename)
+
+        if abs_source_path != new_pdf_path:
+            os.rename(abs_source_path, new_pdf_path)
+            print(f"✨ Auto-Renamed Source PDF to: {new_pdf_filename}")
+        else:
+            print(f"✨ Source PDF already correctly named.")
+            
+    except Exception as pdf_err:
+        print(f"⚠️ Could not rename source PDF: {pdf_err}")
 
 def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk=False):
     """
