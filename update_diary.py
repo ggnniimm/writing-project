@@ -292,10 +292,14 @@ def auto_summarize_log(lines, header_date):
     unique_items = list(dict.fromkeys(accomplished_items))
     return unique_items
 
-def summary_mode():
+def summary_mode(target_date=None):
     print("\n🤖 **Daily Retrospective (Auto-Generated)**")
     
-    today_date = get_thai_date()
+    if target_date:
+        today_date = target_date
+    else:
+        today_date = get_thai_date()
+
     header_date = f"## 📅 {today_date}"
     
     if not os.path.exists(DIARY_FILE):
@@ -320,7 +324,7 @@ def summary_mode():
         summary_md += f"### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅\n*   (No logs recorded)\n\n"
         
     # Keep Pending and others Empty or Standard
-    summary_md += f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   (See task.md)\n\n"
+    summary_md += f"### 🎯 เป้าหมายและแผนงาน (Goals & Plans)\n*   (See task.md)\n\n"
     
     # 3. Went Well (Auto-Generated)
     summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n*   System Stability & Automated Git Sync\n\n"
@@ -392,6 +396,80 @@ def read_latest_mode():
     else:
         print("".join(printed_lines).strip())
 
+def get_previous_next_steps(lines, current_header_date):
+    """
+    Scans the diary for the most recent 'Next Steps' block BEFORE the current date.
+    Returns a list of extracted items.
+    """
+    next_steps = []
+    
+    # We want to look at the day immediately preceeding the current one.
+    # Since the file is reverse chronological (mostly), the previous day should be *after* the current day's entry (if it existed)
+    # But start_day_mode is usually run when the current day *doesn't* exist yet, so we just want the top-most date.
+    
+    # Strategy: Find the first "## 📅" that is NOT the current_header_date (if it exists).
+    # Actually, in start_day_mode, we haven't inserted the new date yet. 
+    # So we just look for the first occurrence of "⏭️ ก้าวต่อไป (Next Steps)"
+    
+    start_search = False
+    items_found = []
+    
+    for line in lines:
+        if "⏭️ ก้าวต่อไป (Next Steps)" in line:
+            start_search = True
+            continue
+        
+        if start_search:
+            stripped = line.strip()
+            if stripped.startswith("## ") or stripped.startswith("---"): 
+                break # End of section
+            
+            if stripped.startswith("- [ ]") or stripped.startswith("- [x]") or stripped.startswith("* "):
+                # Extract text
+                # clean "- [ ] " or "* "
+                clean_item = re.sub(r'^[-*]\s+(\[.*?\]\s+)?', '', stripped)
+                if clean_item and "..." not in clean_item:
+                     items_found.append(clean_item)
+            
+            if items_found: # Just take the first block found (latest day)
+                 pass 
+                 
+    # We only want the *first* block we find (which corresponds to the latest previous entry)
+    # The loop above continues, but we should probably stop after the first block ends.
+    # Let's refine the logic.
+    
+    
+    final_items = []
+    in_section = False
+    
+    # Headers to look for (Legacy & New)
+    target_headers = [
+        "⏭️ ก้าวต่อไป (Next Steps)",
+        "สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned)",
+        "🎯 เป้าหมายและแผนงาน (Goals & Plans)"
+    ]
+
+    for line in lines:
+        if any(h in line for h in target_headers):
+            in_section = True
+            # Check if this header is NOT the current day's (if passing current_header_date is used for exclusion, 
+            # but lines are scanned linearly. We assume we scan from top.
+            # If start_day_mode is run, the current day doesn't exist yet, so the first match IS the previous day.)
+            continue
+        
+        if in_section:
+            stripped = line.strip()
+            if not stripped: continue
+            
+            if stripped.startswith("#") or stripped.startswith("---"):
+                break # End of most recent Next Steps section
+            
+            # Capture items
+            if stripped.startswith("-") or stripped.startswith("*"):
+                 final_items.append(stripped) # Keep format
+                 
+    return final_items
+
 def start_day_mode():
     if not os.path.exists(DIARY_FILE):
         print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
@@ -409,11 +487,26 @@ def start_day_mode():
         print("⚠️ วันนี้มีการเริ่มงานไปแล้ว (Date entry already exists)")
         return
 
-    # Create new section with ONLY "Pending"
+    # Auto-Fetch Previous Next Steps
+    previous_plans = get_previous_next_steps(lines, header_date)
+
+    # Create new section
     new_section = []
     new_section.append(f"\n{header_date}\n")
     new_section.append(f"**🤖 Start of Day:**\n\n")
-    new_section.append(f"### 2. สิ่งที่ยังไม่ได้ทำและมีแผนจะทำ (Pending / Planned) 🗓️\n*   [ ] \n\n")
+    
+    new_section.append(f"### 🎯 เป้าหมายและแผนงาน (Goals & Plans)\n")
+    if previous_plans:
+        for item in previous_plans:
+             # Ensure checkbox is unchecked for the new day? Or keep as is?
+             # User usually clears them or wants to carry over. 
+             # Let's just convert to open checkboxes if they are checked
+             clean_item = item.replace("- [x]", "- [ ]").replace("- [/]", "- [ ]")
+             new_section.append(f"{clean_item}\n")
+    else:
+        new_section.append(f"- [ ] ... (วางแผนงานสำหรับวันนี้)\n")
+    new_section.append("\n") # Spacer
+
     new_section.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n")
     
     # Insert at top (after main header)
@@ -439,8 +532,13 @@ def main():
             suggest_mode()
             sys.exit(0)
         elif sys.argv[1] == "--summary":
-            summary_mode()
+            target_date = None
+            if len(sys.argv) > 2:
+                # Allow passing date as "16 ธันวาคม 2025"
+                target_date = sys.argv[2]
+            summary_mode(target_date)
             sys.exit(0)
+
         elif sys.argv[1] == "--read-latest":
             read_latest_mode()
             sys.exit(0)
