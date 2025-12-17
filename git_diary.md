@@ -18,6 +18,9 @@
     *   [ ] 🧹 **Cleanup:** จัดระเบียบไฟล์ใน `references/` ให้เป็นหมวดหมู่ (Court vs OAG vs Committee)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:38] 📝 ปรับปรุงข้อมูลตำแหน่งมาตรวัดน้ำในเอกสาร EP19**
+    > ผมได้ตรวจพบความคลาดเคลื่อนของข้อมูลตำแหน่งมาตรวัดน้ำที่ระบุอยู่ในเอกสารตอนที่ 19 (EP19) ผมจึงได้ดำเนินการปรับปรุงและแก้ไขรายละเอียดของตำแหน่งมาตรวัดน้ำดังกล่าว เพื่อให้มั่นใจว่าข้อมูลที่นำเสนอมีความถูกต้องและสมบูรณ์ตรงตามข้อเท็จจริงครับ
+
 *   **[14:34] 📝 จัดทำร่างบทความเพื่อประกอบการพิจารณา สค 401/2558**
     > ผมได้รับมอบหมายให้ดำเนินการจัดทำร่างบทความทางวิชาการในประเด็นสำคัญเกี่ยวกับ "ดุลยพินิจในการวางระบบสาธารณูปโภค" โดยอ้างอิงถึงเอกสาร สค 401/2558 การดำเนินการนี้มีจุดประสงค์เพื่อให้มีเอกสารที่เป็นมาตรฐานพร้อมสำหรับการนำเสนอและเผยแพร่ในลำดับถัดไปครับ
 
@@ -1469,3 +1472,9 @@
     -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep16_sac_o_104_2563_material_change.md	articles/learning_from_judgments/ep16_signed_means_bound.md
     -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep17_sac_o_72_2564_inspection_duty.md	articles/learning_from_judgments/ep17_inspection_during_work.md
     -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep18_sac_o_351_2556_shared_liability.md	articles/learning_from_judgments/ep18_shared_liability_75_25.md
+
+**[2025-12-17 14:34] Draft article for SAC 401/2558 (Discretion in Utility Placement)**
+    -   ✨ สร้างใหม่: articles/html/ep19_water_meter_relocation_discretion.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep19_water_meter_relocation_discretion.md
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_401_2558.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_401_2558.md
