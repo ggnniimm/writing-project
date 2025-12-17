@@ -18,6 +18,9 @@
     *   [ ] 🧹 **Cleanup:** จัดระเบียบไฟล์ใน `references/` ให้เป็นหมวดหมู่ (Court vs OAG vs Committee)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:34] 📝 จัดทำร่างบทความเพื่อประกอบการพิจารณา สค 401/2558**
+    > ผมได้รับมอบหมายให้ดำเนินการจัดทำร่างบทความทางวิชาการในประเด็นสำคัญเกี่ยวกับ "ดุลยพินิจในการวางระบบสาธารณูปโภค" โดยอ้างอิงถึงเอกสาร สค 401/2558 การดำเนินการนี้มีจุดประสงค์เพื่อให้มีเอกสารที่เป็นมาตรฐานพร้อมสำหรับการนำเสนอและเผยแพร่ในลำดับถัดไปครับ
+
 *   **[14:08] 📝 ปรับปรุงการตั้งชื่อไฟล์ตอนที่ 16-18 ให้เป็นไปตามหลักสากล**
     > ผมได้ตรวจสอบพบว่าการตั้งชื่อไฟล์ในส่วนของตอนที่ 16 ถึง 18 ยังไม่เป็นไปตามมาตรฐานการจัดระเบียบแบบสากล (English convention) ซึ่งอาจส่งผลต่อความสับสนในการอ้างอิง ผมจึงได้ดำเนินการเปลี่ยนชื่อไฟล์ดังกล่าวให้สอดคล้องกับหลักการที่กำหนดไว้ การแก้ไขนี้ช่วยให้โครงสร้างไฟล์มีความสม่ำเสมอและง่ายต่อการบำรุงรักษาต่อไปครับ
 
@@ -1458,3 +1461,11 @@
 **[2025-12-17 14:03] Fix article accuracy: contract allowed both foundation types**
     -   📝 แก้ไข: articles/html/ep18_sac_o_351_2556_shared_liability.html
     -   📝 แก้ไข: articles/learning_from_judgments/ep18_sac_o_351_2556_shared_liability.md
+
+**[2025-12-17 14:09] Rename ep16-18 to English convention**
+    -   ✨ สร้างใหม่: articles/html/ep16_signed_means_bound.html
+    -   ✨ สร้างใหม่: articles/html/ep17_inspection_during_work.html
+    -   ✨ สร้างใหม่: articles/html/ep18_shared_liability_75_25.html
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep16_sac_o_104_2563_material_change.md	articles/learning_from_judgments/ep16_signed_means_bound.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep17_sac_o_72_2564_inspection_duty.md	articles/learning_from_judgments/ep17_inspection_during_work.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep18_sac_o_351_2556_shared_liability.md	articles/learning_from_judgments/ep18_shared_liability_75_25.md
