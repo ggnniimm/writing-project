@@ -1485,3 +1485,9 @@
 **[2025-12-17 14:38] Fix water meter location detail in ep19 article**
     -   📝 แก้ไข: articles/html/ep19_water_meter_relocation_discretion.html
     -   📝 แก้ไข: articles/learning_from_judgments/ep19_water_meter_relocation_discretion.md
+
+**[2025-12-17 15:15] เขียนบทความ EP20 เรื่อง ท่อประปาขวางงาน...ใครรับผิดชอบ? (อ. 433/2559) สรุปหลักกฎหมายเรื่องการขยายเวลาเมื่อเจออุปสรรคสาธารณูปโภค**
+    -   ✨ สร้างใหม่: articles/html/ep20_utility_obstruction.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep20_utility_obstruction.md
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_433_2559.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_433_2559.md
