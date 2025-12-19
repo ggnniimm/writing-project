@@ -103,4 +103,4 @@ To set up this workflow on a new macOS machine:
 *   **Style:** Narrative (Situation -> Action -> Result).
 
 ### 5. 📚 Article Index
--   [EP.24: "ตรวจรับผิดพลาด...ผู้รับจ้างรอดไหม?" (Inspection Negligence vs Contractor Liability)](articles/html/ep24_inspection_negligence_vs_contractor_liability.html)
+
