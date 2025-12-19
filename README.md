@@ -108,3 +108,5 @@ To set up this workflow on a new macOS machine:
 -   [EP.24: แค่ไหนถึงเรียกว่า "ประมาทเลินเล่ออย่างร้ายแรง"? (Standard of Gross Negligence)](articles/html/ep24_gross_negligence_standard.html)
 
 -   [EP.25: ไฟใต้ลามถึงหน้างาน...คนงานหนีหมด ผู้รับจ้างผิดไหม? (Force Majeure in Conflict Zones)](articles/html/ep25_southern_unrest_force_majeure.html)
+
+-   [EP.26: ค่าปรับแพงหูฉี่...ศาลช่วยได้ไหม? (และข้ออ้างยอดฮิต "รออนุมัติวัสดุ") (Excessive Fine Reduction)](articles/html/ep26_excessive_fine_reduction.html)
