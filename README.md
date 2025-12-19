@@ -104,3 +104,5 @@ To set up this workflow on a new macOS machine:
 
 ### 5. 📚 Article Index
 
+
+-   [EP.24: แค่ไหนถึงเรียกว่า "ประมาทเลินเล่ออย่างร้ายแรง"? (Standard of Gross Negligence)](articles/html/ep24_gross_negligence_standard.html)
