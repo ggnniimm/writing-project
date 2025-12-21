@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP.44: "รอพื้นที่" จนเครื่องจักรเก้อ... เบิกค่าเสียหายได้ไหม? (Standby Cost)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --paper-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 25mm 25mm; /* A4 margins */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18pt;
+            font-weight: 700;
+            margin-top: 1.5em;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 16pt;
+            font-weight: 700;
+            margin-top: 1.2em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1em;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #0366d6;
+            margin: 1.5em 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #a93226;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 3em 0;
+        }
+
+        code {
+            background-color: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        sup {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EP.44: "รอพื้นที่" จนเครื่องจักรเก้อ... เบิกค่าเสียหายได้ไหม? (Standby Cost)</h1>
+<p><strong>Keywords:</strong> #ค่าเสียหาย #standby_cost #ส่งมอบพื้นที่ล่าช้า #การขยายเวลา #คำพิพากษาอ_900_2564</p>
+<hr />
+<p>ปัญหาคลาสสิกของงานก่อสร้างภาครัฐคือ <strong>"เซ็นสัญญาแล้ว แต่เข้าพื้นที่ไม่ได้"</strong> (เช่น ติดขออนุญาตกรมทางฯ, กทม., หรือเจ้าของพื้นที่) ทำให้ผู้รับจ้างที่ขนคนขนของไปรอ (Mobilization) ต้องเสียค่าใช้จ่ายฟรีๆ (Standby Cost)</p>
+<p>คำถามคือ: <strong>เราฟ้องเรียกค่าเสียหายระหว่างรอได้หรือไม่?</strong>
+ศาลปกครองสูงสุดวางบรรทัดฐานไว้ชัดเจนในคดีนี้ครับ</p>
+<h2>1. ข้อเท็จจริง: รอใบอนุญาต 2 เดือน (Case Facts)</h2>
+<p><strong>สัญญาจ้าง:</strong>
+- <strong>งาน:</strong> วางท่อประปา บนถนนนครสวรรค์ (กทม.)
+- <strong>คู่สัญญา:</strong> บริษัท ว. (ผู้รับจ้าง) vs การประปานครหลวง (กปน.)
+- <strong>วงเงิน:</strong> 57.2 ล้านบาท
+- <strong>เงื่อนไข:</strong> เริ่มงานภายใน 360 วัน "นับถัดจากวันที่ได้รับหนังสือแจ้งให้เริ่มงาน" (Notice to Proceed - NTP)</p>
+<h3>ปัญหาที่เกิด:</h3>
+<ol>
+<li><strong>15 ก.ค. 57:</strong> เซ็นสัญญา</li>
+<li><strong>เตรียมความพร้อม:</strong> ผู้รับจ้างทำสัญญาเช่าเครื่องจักรและจ้างคนงานรอไว้แล้ว (เดือนละหลายล้านบาท)</li>
+<li><strong>ติดล็อก:</strong> กปน. ยังไม่ออกหนังสือแจ้งให้เริ่มงาน (NTP) เพราะ <strong>กทม. ยังไม่อนุญาตให้เข้าพื้นที่</strong></li>
+<li><strong>การรอคอย:</strong> ผู้รับจ้างรออยู่ประมาณ 2 เดือน (ส.ค. - ต.ค. 57) ถึงจะได้เข้างาน</li>
+<li><strong>ความเสียหาย:</strong> ผู้รับจ้างฟ้องเรียก <strong>"ค่าจ้างคนงานและค่าเช่าเครื่องจักรที่ต้องจ่ายฟรีระหว่างรอ"</strong> (Standby Cost) รวมดอกเบี้ยกว่า <strong>9.5 ล้านบาท</strong>!</li>
+</ol>
+<hr />
+<h2>2. ข้อต่อสู้ของผู้รับจ้าง (The Argument)</h2>
+<p>ผู้รับจ้างอ้าง "คู่มือการก่อสร้างฯ ของ กทม." ที่ระบุว่า:</p>
+<blockquote>
+<p><em>"หาก กทม. ไม่ตอบผลภายใน 45 วัน ให้ถือว่าอนุญาต"</em></p>
+</blockquote>
+<p>ผู้รับจ้างจึงมองว่า เมื่อครบ 45 วันแล้ว กปน. ควรต้องให้เริ่มงานได้เลย การที่ กปน. ช้า ทำให้ตนเสียหายจากการเตรียมของรอเก้อ</p>
+<hr />
+<h2>3. คำตัดสิน: "ไม่ได้ตังค์" (สักบาท!)</h2>
+<p>ศาลปกครองสูงสุดพิพากษา <strong>"ยกฟ้อง"</strong> (ผู้รับจ้างแพ้) ด้วยเหตุผลสำคัญ 3 ข้อ:</p>
+<h3>3.1 สัญญาล็อกคอไว้แล้ว (Waiver Clause) 🔒</h3>
+<p>สัญญาข้อ 9.2 ระบุชัดเจนว่า:</p>
+<blockquote>
+<p>"หากเกิดความล่าช้าในการขออนุญาตใช้พื้นที่... ผู้รับจ้างจะ <strong>เรียกร้องค่าเสียหายใดๆ มิได้</strong> แต่ผู้ว่าจ้างอาจพิจารณา <strong>ขยายระยะเวลา</strong> ก่อสร้างให้"</p>
+</blockquote>
+<p>ศาลมองว่าผู้รับจ้างลงนามยอมรับเงื่อนไขนี้แล้ว จึงมีสิทธิ์แค่ "ขอขยายเวลา" (Extension of Time) แต่ไม่มีสิทธิ์ "ขอเงินเพิ่ม" (Monetary Claim)</p>
+<h3>3.2 "คู่มือ" ไม่ใช่ "สัญญา" 📄</h3>
+<p>แม้คู่มือ กทม. จะบอกว่า "45 วันถือว่าอนุญาต" แต่นั่นเป็นเพียง <strong>แนวทางปฏิบัติราชการภายใน</strong> ไม่ใช่ข้อตกลงในสัญญาระหว่าง "ผู้รับจ้าง vs กปน." จะนำมาอ้างเพื่อลบล้างเงื่อนไขสัญญาหลักไม่ได้</p>
+<h3>3.3 ความเสี่ยงของผู้รับจ้าง (Contractor's Risk) ⚠️</h3>
+<p>สัญญาและเอกสารประกวดราคาระบุให้ผู้รับจ้าง <strong>"ต้องตรวจสอบสถานที่"</strong> และรู้ดีว่าเป็นย่านชุมชน/จราจรหนาแน่น ซึ่งต้องผ่านขั้นตอนขออนุญาตที่ยุ่งยาก (และอาจล่าช้า)</p>
+<blockquote>
+<p><em>การที่ผู้รับจ้างรีบไปเช่าเครื่องจักร/จ้างคนมา "รอ" ก่อนที่จะได้รับหนังสือแจ้งให้เริ่มงาน (NTP) ถือเป็น </em><em>"การบริหารจัดการและความเสี่ยงของผู้รับจ้างเอง"</em><em> (Commercial Risk) จะมาโทษหน่วยงานไม่ได้</em></p>
+</blockquote>
+<hr />
+<h2>4. สรุปบทเรียน (Key Takeaways)</h2>
+<h3>❌ สิ่งที่ผู้รับจ้างชอบเข้าใจผิด:</h3>
+<ul>
+<li>"เตรียมของมารอแล้ว หน่วยงานช้า ต้องจ่ายค่ารอให้ฉันสิ" (ผิด! ถ้าสัญญามีข้อยกเว้นไว้)</li>
+<li>"คู่มือบอกว่าต้องเสร็จภายใน X วัน ถ้าช้ากว่านั้นถือว่าหน่วยงานผิด" (ผิด! คู่มือไม่ใช่สัญญา)</li>
+</ul>
+<h3>✅ สิ่งที่ต้องทำ (Survival Guide):</h3>
+<ol>
+<li>
+<p><strong>อ่านสัญญาข้อ "การส่งมอบพื้นที่":</strong></p>
+<ul>
+<li>เกือบ 100% ของสัญญาภาครัฐจะมีวรรคทองว่า <em>"ถ้าส่งมอบล่าช้า ให้ขยายเวลา แต่ห้ามเรียกร้องค่าเสียหาย"</em></li>
+<li><strong>ทำใจ:</strong> ถ้าเจอข้อนี้ คุณเบิก Standby Cost ไม่ได้แน่นอน (ได้แค่เวลางานคืน)</li>
+</ul>
+</li>
+<li>
+<p><strong>อย่าเพิ่งขนของ จนกว่าจะเห็น NTP:</strong></p>
+<ul>
+<li>อย่าเพิ่ง Mobilize เครื่องจักรใหญ่ หรือจ้างคนงานเต็มอัตราศึก จนกว่าจะได้ <strong>หนังสือแจ้งให้เริ่มงาน (Notice to Proceed)</strong> อย่างเป็นทางการ</li>
+<li>ค่าใช้จ่ายที่เกิดขึ้น "ก่อน" วันเริ่มงานตามกฎหมาย มักเบิกไม่ได้</li>
+</ul>
+</li>
+<li>
+<p><strong>ใช้สิทธิ์ "ขยายเวลา" ให้คุ้ม:</strong></p>
+<ul>
+<li>แม้ไม่ได้เงิน แต่ต้องรักษาสิทธิ์เรื่องเวลา</li>
+<li>ทำหนังสือแจ้ง "เหตุล่าช้าจากการส่งมอบพื้นที่" เพื่อใช้ขอ งด/ลดค่าปรับ หรือ ขยายสัญญา ในภายหลัง</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><strong>อ้างอิง:</strong>
+คำพิพากษาศาลปกครองสูงสุดที่ <strong>อ. 900/2564</strong>
+(คดีพิพาทเกี่ยวกับสัญญาทางปกครอง)</p>
+        
+        <div class="footer">
+            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: 21/12/2025 22:01</p>
+        </div>
+    </div>
+</body>
+</html>
