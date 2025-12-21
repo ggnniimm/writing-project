@@ -470,6 +470,48 @@ def get_previous_next_steps(lines, current_header_date):
                  
     return final_items
 
+def load_content_ideas():
+    """
+    Loads key future goals from content_ideas.md.
+    Returns a list of goal strings to display in diary.
+    """
+    ideas_file = "content_ideas.md"
+    if not os.path.exists(ideas_file):
+        return []
+    
+    goals = []
+    with open(ideas_file, "r", encoding="utf-8") as f:
+        content = f.read()
+    
+    # Extract key topics from content_ideas.md
+    # Looking for main headings (###) that represent planned work
+    lines = content.split('\n')
+    for i, line in enumerate(lines):
+        if line.startswith('### '):
+            title = line.replace('### ', '').strip()
+            # Extract a brief description from bullet points below
+            desc_lines = []
+            for j in range(i+1, min(i+5, len(lines))):
+                if lines[j].strip().startswith('*   **'):
+                    # Extract first meaningful line
+                    desc = lines[j].strip().replace('*   **ที่มา:**', '').replace('*   **ประเด็น:**', '').strip()
+                    if desc:
+                        desc_lines.append(desc)
+                        break
+            
+            # Format as checkbox item
+            if desc_lines:
+                goals.append(f"- [ ] {title}: {desc_lines[0][:80]}...")
+            else:
+                goals.append(f"- [ ] {title}")
+            
+            # Limit to top 3 items to keep diary clean
+            if len(goals) >= 3:
+                break
+    
+    return goals
+
+
 def start_day_mode():
     if not os.path.exists(DIARY_FILE):
         print(f"❌ ไม่พบไฟล์ {DIARY_FILE}")
@@ -489,6 +531,9 @@ def start_day_mode():
 
     # Auto-Fetch Previous Next Steps
     previous_plans = get_previous_next_steps(lines, header_date)
+    
+    # Load future goals from content_ideas.md
+    content_goals = load_content_ideas()
 
     # Create new section
     new_section = []
@@ -496,15 +541,24 @@ def start_day_mode():
     new_section.append(f"**🤖 Start of Day:**\n\n")
     
     new_section.append(f"### 🎯 เป้าหมายและแผนงาน (Goals & Plans)\n")
+    
+    # Display ongoing tasks from previous day's Next Steps
     if previous_plans:
+        new_section.append(f"**งานต่อเนื่อง:**\n")
         for item in previous_plans:
-             # Ensure checkbox is unchecked for the new day? Or keep as is?
-             # User usually clears them or wants to carry over. 
-             # Let's just convert to open checkboxes if they are checked
+             # Convert to open checkboxes
              clean_item = item.replace("- [x]", "- [ ]").replace("- [/]", "- [ ]")
              new_section.append(f"{clean_item}\n")
+        new_section.append("\n")
+    
+    # Display future goals from content_ideas.md
+    if content_goals:
+        new_section.append(f"**เป้าหมายระยะยาว (จาก content_ideas.md):**\n")
+        for goal in content_goals:
+            new_section.append(f"{goal}\n")
     else:
         new_section.append(f"- [ ] ... (วางแผนงานสำหรับวันนี้)\n")
+    
     new_section.append("\n") # Spacer
 
     new_section.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n")
@@ -524,6 +578,8 @@ def start_day_mode():
         f.writelines(lines)
     
     print(f"✅ เริ่มต้นวันใหม่เรียบร้อย ({today_date})")
+    if content_goals:
+        print(f"📌 โหลดเป้าหมายจาก content_ideas.md: {len(content_goals)} รายการ")
 
 
 def main():
