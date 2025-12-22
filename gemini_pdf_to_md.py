@@ -61,7 +61,8 @@ def determine_filename_and_path(content):
 
              number_clean = re.sub(r"[^\d]", "", number_raw)
              
-             return f"ref_sac_{prefix_str}{number_clean}_{year}.md", "references/rulings_court"
+             # Standardize prefix to 'o' for rulings (matches user request to follow folder convention)
+        return f"ref_sac_o_{number_clean}_{year}.md", "references/rulings_court"
              
         return "ref_sac_unknown.md", "references/rulings_court"
 
