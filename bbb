@@ -4,8 +4,28 @@ echo "🚀 Starting Day... (คำสั่ง bbb)"
 echo "---------------------------------------------------"
 
 # 1. Pull latest changes
+# Check for local changes
+if [[ -n $(git status -s) ]]; then
+  echo "⚠️  Found local changes. Attempting to stash..."
+  git stash
+  STASHED=1
+fi
+
+# 1. Pull latest changes
 echo "📥 Git Pulling..."
-git pull
+if ! git pull; then
+    echo "❌ Git Pull Failed! Please check your network or git status."
+    if [[ "$STASHED" == "1" ]]; then
+        echo "🔄 Restoring local changes..."
+        git stash pop
+    fi
+    exit 1
+fi
+
+if [[ "$STASHED" == "1" ]]; then
+    echo "📤 Restoring local changes..."
+    git stash pop
+fi
 
 echo "---------------------------------------------------"
 # 2. Read README (Highlights)
