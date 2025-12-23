@@ -14,6 +14,12 @@
 - [ ] 3. นิยามและตัวอย่างของ "ประมาทเลินเล่ออย่างร้ายแรง" (Comprehensive Guide): จากการศึกษาคำพิพากษาหลายคดี พบว่าคำว่า "ประมาทเลินเล่ออย่างร้ายแรง" เป็นเกณฑ์สำค...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:55] 📝 บันทึกความคืบหน้าประจำวันและการจัดการปัญหาทางเทคนิค**
+    > ผมได้ดำเนินการจัดทำบันทึกและปรับปรุงเอกสาร `git_diary.md` โดยมีเนื้อหาครอบคลุมถึงการสรุปความคืบหน้าในการดำเนินงานตามแผนงานประจำวัน เน้นที่การประเมินผลลัพธ์ของกระบวนการทำงานแบบ SEW Workflow และรายละเอียดการแก้ไขปัญหาทางเทคนิคต่างๆ ที่เกิดขึ้น เพื่อให้มั่นใจว่าการติดตามสถานะของโครงการเป็นไปอย่างเป็นระบบและต่อเนื่องครับ
+
+*   **[16:58] 📝 สรุปความคืบหน้ากระบวนการ SEW และการแก้ปัญหาทางเทคนิคประจำวัน**
+    > ผมได้ดำเนินการตามกระบวนการ Search-Extract-Write (SEW) จนเสร็จสมบูรณ์สำหรับ 3 คดีสำคัญ ได้แก่ **1. คดี อ. 87/2561** (EP.45: อุบัติเหตุจากถนนชำรุด) **2. คดี อ. 752/2560** (EP.46: ป้ายประชาสัมพันธ์ล้ม) และ **3. คดี อ. 1289/2560** (EP.47: ท่อประปารุกล้ำที่ดิน) ระหว่างการทำงานได้แก้ไขปัญหาทางเทคนิคสำคัญ โดยเฉพาะการเอาชนะระบบป้องกัน (WAF) ของเว็บไซต์ศาลปกครองด้วยการใช้ Browser Subagent เพื่อดึง Session Cookie, การแก้ไขบั๊ก UnboundLocalError ในสคริปต์สกัดข้อมูล (gemini_pdf_to_md.py), และการตรวจสอบความถูกต้องของเนื้อหา (Verification) โดยปรับแก้สัดส่วนความรับผิดใน EP.46 ให้ตรงตามคำพิพากษาครับ
+
 *   **[16:53] 📝 รายงานการบรรจุเนื้อหาคดีปกครองสูงสุดเพิ่มเติม**
     > ผมได้ดำเนินการเพิ่มเติมเนื้อหาที่เป็นประโยชน์สำหรับฐานข้อมูล โดยเป็นการบรรจุบทความจำนวน 2 ตอนใหม่ (Episode 46 และ Episode 47) ซึ่งสกัดจากคำวินิจฉัยของศาลปกครองสูงสุดโดยตรง บทความดังกล่าวครอบคลุมประเด็นสำคัญ ได้แก่ กรณีป้ายประชาสัมพันธ์ล้มขวางทางสาธารณะ และกรณีท่อประปารุกล้ำที่ดินส่วนบุคคลจนต้องมีคำสั่งรื้อถอน การดำเนินการนี้ส่งผลให้ฐานข้อมูลของโครงการมีความสมบูรณ์และเป็นปัจจุบันมากยิ่งขึ้นครับ
 
@@ -1932,3 +1938,28 @@
     -   📝 แก้ไข: gemini_pdf_to_md.py
     -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_87_2561.pdf
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_87_2561.md
+
+**[2025-12-23 16:53] เพิ่มบทความ EP.46 (เมื่อป้ายประชาสัมพันธ์ล้มขวางทาง) และ EP.47 (ท่อประปารุกล้ำที่ดิน ต้องรื้อถอน) จากคดีปกครองสูงสุด**
+    -   ✨ สร้างใหม่: articles/html/ep45_road_hazard_negligence_o_87_2561.html
+    -   ✨ สร้างใหม่: articles/html/ep46_administrative_negligence_road_hazards_o_752_2560.html
+    -   ✨ สร้างใหม่: articles/html/ep47_water_pipe_trespass_o_1289_2560.html
+    -   🔧 การกระทำ: 094	articles/ep48_road_hazard_negligence_o_87_2561.md	articles/learning_from_judgments/ep45_road_hazard_negligence_o_87_2561.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep46_administrative_negligence_road_hazards_o_752_2560.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep47_water_pipe_trespass_o_1289_2560.md
+    -   📝 แก้ไข: ready_to_write_prompt.txt
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep45_seasonal_obstacle_professionalism.md	references/etc/ep45_seasonal_obstacle_professionalism.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep46_revoking_unlawful_appeal_order.md	references/etc/ep46_revoking_unlawful_appeal_order.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep47_scholarship_breach_resign_vs_transfer.md	references/etc/ep47_scholarship_breach_resign_vs_transfer.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep48_cheque_modification_supervisor_liability.md	references/etc/ep48_cheque_modification_supervisor_liability.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep49_unjust_enrichment_from_void_contract.md	references/etc/ep49_unjust_enrichment_from_void_contract.md
+    -   🔧 การกระทำ: 100	articles/learning_from_judgments/ep50_compensation_in_kind_vs_cash.md	references/etc/ep50_compensation_in_kind_vs_cash.md
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_1320_2559.md	references/etc/ref_sac_o_1320_2559.md
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1320_2559.pdf	references/etc/ref_sac_o_1320_2559.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_168_2559.md	references/etc/ref_sac_o_168_2559.md
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sac_red_168_2559.pdf	references/etc/ref_sac_o_168_2559.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_186_2557.md	references/etc/ref_sac_o_186_2557.md
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_186_2557.pdf	references/etc/ref_sac_o_186_2557.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_1289_2560.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_752_2560.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_1289_2560.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_752_2560.md
