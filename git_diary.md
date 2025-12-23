@@ -1,6 +1,23 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 23 ธันวาคม 2025
+**🤖 Start of Day:**
+
+### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+**งานต่อเนื่อง:**
+*   (See task.md)
+
+**เป้าหมายระยะยาว (จาก content_ideas.md):**
+- [ ] 1. การปรับเกิน 10% (Insights from EP.08): เรียนรู้จากคำพิพากษา EP.08 (คดี อ. 836/2563)...
+- [ ] 2. ค่าปรับ 10% - เมื่อไหร่ศาลลด เมื่อไหร่ศาลยอม (Case Comparison): สังเกตจากคำพิพากษาหลายคดีที่มีผลต่างกัน...
+- [ ] 3. นิยามและตัวอย่างของ "ประมาทเลินเล่ออย่างร้ายแรง" (Comprehensive Guide): จากการศึกษาคำพิพากษาหลายคดี พบว่าคำว่า "ประมาทเลินเล่ออย่างร้ายแรง" เป็นเกณฑ์สำค...
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[09:48] 🔧 ปรับปรุงสภาพแวดล้อมการทำงานและจัดการไฟล์ที่ไม่จำเป็น**
+    > ผมได้สังเกตเห็นการสะสมของไฟล์ชั่วคราวและไฟล์ที่ไม่ได้ใช้งานภายในไดเรกทอรีของโครงการ จึงได้ดำเนินการล้างไฟล์เหล่านั้นออกอย่างสมบูรณ์ และปรับปรุงการตั้งค่าในไฟล์ `.gitignore` เพื่อให้ไฟล์ประเภทดังกล่าวถูกละเว้นในการบันทึกข้อมูลครั้งต่อไป ส่งผลให้สภาพแวดล้อมการพัฒนาสะอาดและเป็นระเบียบเรียบร้อยยิ่งขึ้น พร้อมทั้งลดความเสี่ยงที่ไฟล์ที่ไม่จำเป็นจะถูกนำเข้าสู่ Repository หลักครับ
+
+
 ## 📅 22 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -1837,3 +1854,70 @@
     -   🗑️ ลบ: "references/raw_pdfs/\340\270\224\340\270\261\340\270\231\340\270\227\340\271\210\340\270\255\340\270\245\340\270\266\340\270\201\340\270\201\340\270\247\340\271\210\340\270\262\340\271\201\340\270\232\340\270\232 \340\270\250\340\270\262\340\270\245\340\271\203\340\270\253\340\271\211\340\270\204\340\271\210\340\270\262\340\270\207\340\270\262\340\270\231\340\271\200\340\270\236\340\270\264\340\271\210\340\270\241.pdf.txt"
     -   🗑️ ลบ: "references/raw_pdfs/\340\270\250\340\270\262\340\270\245\340\271\204\340\270\241\340\271\210\340\270\245\340\270\224\340\270\204\340\271\210\340\270\262\340\270\233\340\270\243\340\270\261\340\270\232\340\271\203\340\270\253\340\271\211 \340\271\204\340\270\241\340\271\210\340\271\201\340\270\210\340\271\211\340\270\207\340\270\240\340\270\262\340\270\242\340\271\203\340\270\231 15 \340\270\247\340\270\261\340\270\231\340\270\224\340\271\211\340\270\247\340\270\242 \340\271\204\340\270\241\340\271\210\340\270\241\340\270\265\340\270\252\340\270\264\340\270\227\340\270\230\340\270\264\340\270\202\340\270\242\340\270\262\340\270\242.pdf"
     -   🗑️ ลบ: "references/raw_pdfs/\340\271\201\340\270\201\340\271\211\340\271\204\340\270\202\340\270\252\340\270\261\340\270\215\340\270\215\340\270\262 \340\270\201\340\271\210\340\270\255\340\270\231\340\270\225\340\270\243\340\270\247\340\270\210\340\270\243\340\270\261\340\270\232\340\270\207\340\270\262\340\270\231\340\270\207\340\270\247\340\270\224\340\270\252\340\270\270\340\270\224\340\270\227\340\271\211\340\270\262\340\270\242.pdf"
+
+**[2025-12-22 17:23] Standardize SEW Workflow and Add EP.46-47 (Case 593/2563, 526/2560) using automated tool**
+    -   ✨ สร้างใหม่: .agent/workflows/sew.md
+    -   ✨ สร้างใหม่: articles/html/ep46_revoking_unlawful_appeal_order.html
+    -   ✨ สร้างใหม่: articles/html/ep47_scholarship_breach_resign_vs_transfer.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep46_revoking_unlawful_appeal_order.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep47_scholarship_breach_resign_vs_transfer.md
+    -   📝 แก้ไข: draft_writer.py
+    -   📝 แก้ไข: gemini_pdf_to_md.py
+    -   ✨ สร้างใหม่: raw_pdfs/admin_court_ruling_red_506_2562.pdf
+    -   📝 แก้ไข: ready_to_write_prompt.txt
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_134_2563.pdf	references/raw_pdfs/attorney_general/ref_oag_134_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_205_2561.pdf	references/raw_pdfs/attorney_general/ref_oag_205_2561.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_222_2563.pdf	references/raw_pdfs/attorney_general/ref_oag_222_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_67_2561.pdf	references/raw_pdfs/attorney_general/ref_oag_67_2561.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_78_2562.pdf	references/raw_pdfs/attorney_general/ref_oag_78_2562.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_oag_notify15days.pdf	references/raw_pdfs/attorney_general/ref_oag_notify15days.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_o_148_2554.pdf	references/raw_pdfs/court/ref_o_148_2554.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_cmd_262_2566.pdf	references/raw_pdfs/court/ref_sac_cmd_262_2566.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_cmd_289_2564.pdf	references/raw_pdfs/court/ref_sac_cmd_289_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_cmd_633_2560.pdf	references/raw_pdfs/court/ref_sac_cmd_633_2560.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_cmd_811_2566.pdf	references/raw_pdfs/court/ref_sac_cmd_811_2566.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1032_2565.pdf	references/raw_pdfs/court/ref_sac_o_1032_2565.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_104_2563.pdf	references/raw_pdfs/court/ref_sac_o_104_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_111_2549.pdf	references/raw_pdfs/court/ref_sac_o_111_2549.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1256_2558.pdf	references/raw_pdfs/court/ref_sac_o_1256_2558.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1287_2555.pdf	references/raw_pdfs/court/ref_sac_o_1287_2555.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1500_2559.pdf	references/raw_pdfs/court/ref_sac_o_1500_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_16_2559.pdf	references/raw_pdfs/court/ref_sac_o_16_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_1866__2559.pdf	references/raw_pdfs/court/ref_sac_o_1866__2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_18_2564.pdf	references/raw_pdfs/court/ref_sac_o_18_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_2050_2559.pdf	references/raw_pdfs/court/ref_sac_o_2050_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_2120_2559.pdf	references/raw_pdfs/court/ref_sac_o_2120_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_2187_2559.pdf	references/raw_pdfs/court/ref_sac_o_2187_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_2189_2559.pdf	references/raw_pdfs/court/ref_sac_o_2189_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_233_2553.pdf	references/raw_pdfs/court/ref_sac_o_233_2553.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_260_2552.pdf	references/raw_pdfs/court/ref_sac_o_260_2552.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_351_2556.pdf	references/raw_pdfs/court/ref_sac_o_351_2556.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_392_2564.pdf	references/raw_pdfs/court/ref_sac_o_392_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_400_2564.pdf	references/raw_pdfs/court/ref_sac_o_400_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_401_2558.pdf	references/raw_pdfs/court/ref_sac_o_401_2558.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_413_2555.pdf	references/raw_pdfs/court/ref_sac_o_413_2555.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_433_2559.pdf	references/raw_pdfs/court/ref_sac_o_433_2559.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_446_2555.pdf	references/raw_pdfs/court/ref_sac_o_446_2555.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_452_2557.pdf	references/raw_pdfs/court/ref_sac_o_452_2557.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_469_2560.pdf	references/raw_pdfs/court/ref_sac_o_469_2560.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_480_2557.pdf	references/raw_pdfs/court/ref_sac_o_480_2557.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_483_2551.pdf	references/raw_pdfs/court/ref_sac_o_483_2551.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_498_2558.pdf	references/raw_pdfs/court/ref_sac_o_498_2558.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_503_2562.pdf	references/raw_pdfs/court/ref_sac_o_503_2562.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_507_2556.pdf	references/raw_pdfs/court/ref_sac_o_507_2556.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_526_2560.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_593_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_72_2564.pdf	references/raw_pdfs/court/ref_sac_o_72_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_79_2548.pdf	references/raw_pdfs/court/ref_sac_o_79_2548.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_811_2566.pdf	references/raw_pdfs/court/ref_sac_o_811_2566.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_836_2563.pdf	references/raw_pdfs/court/ref_sac_o_836_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_8_2553.pdf	references/raw_pdfs/court/ref_sac_o_8_2553.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.2_10515_06032562.pdf	references/raw_pdfs/kwj/ref_kwj_0405.2_10515_06032562.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.3_37000_2567.pdf	references/raw_pdfs/kwj/ref_kwj_0405.3_37000_2567.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.3_42685_23092564.pdf	references/raw_pdfs/kwj/ref_kwj_0405.3_42685_23092564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.3_8410_02032565.pdf	references/raw_pdfs/kwj/ref_kwj_0405.3_8410_02032565.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.3_w_437_30092562.pdf	references/raw_pdfs/kwj/ref_kwj_0405.3_w_437_30092562.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwj_0405.4_22315_170564.pdf	references/raw_pdfs/kwj/ref_kwj_0405.4_22315_170564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_kwp_0408.4_24379_01092548.pdf	references/raw_pdfs/kwj/ref_kwp_0408.4_24379_01092548.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_526_2560.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_593_2563.md

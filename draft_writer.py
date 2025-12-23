@@ -33,34 +33,44 @@ def load_spec(topic):
     return None
 
 
+import google.generativeai as genai
+
 def call_gemini_api(prompt, api_key):
     """
-    Sends the prompt to Google Gemini API (Flash model) for fast generation.
+    Sends the prompt to Google Gemini API (Flash model) using SDK with streaming.
     """
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key={api_key}"
-    headers = {"Content-Type": "application/json"}
-    data = {
-        "contents": [{
-            "parts": [{"text": prompt}]
-        }]
-    }
-
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    
     try:
-        req = urllib.request.Request(url, data=json.dumps(data).encode('utf-8'), headers=headers)
-        context = ssl._create_unverified_context()
-        with urllib.request.urlopen(req, context=context) as response:
-            result = json.loads(response.read().decode('utf-8'))
-            return result['candidates'][0]['content']['parts'][0]['text']
-    except urllib.error.HTTPError as e:
-        print(f"❌ API Error: HTTP {e.code} {e.reason}")
-        try:
-             print(e.read().decode('utf-8'))
-        except:
-             pass
-        return None
+        response = model.generate_content(prompt, stream=True)
+        full_text = ""
+        print("⏳ Generating...", end="", flush=True)
+        for chunk in response:
+            if chunk.text:
+                full_text += chunk.text
+                print(".", end="", flush=True)
+        print("\n✅ Generation Complete.")
+        return full_text
     except Exception as e:
-        print(f"❌ API Error: {e}")
+        print(f"\n❌ API Error: {e}")
         return None
+
+def load_env_file():
+    """Manually load .env file if python-dotenv is not available."""
+    env_path = os.path.join(os.path.dirname(__file__), ".env")
+    if os.path.exists(env_path):
+        # print(f"🔍 Loading .env from {env_path}")
+        with open(env_path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"): continue
+                if "=" in line:
+                    key, value = line.split("=", 1)
+                    key = key.strip()
+                    value = value.strip().strip('"').strip("'")
+                    if key not in os.environ:
+                        os.environ[key] = value
 
 def main():
     parser = argparse.ArgumentParser(description="AI Writer with Auto-Spec Injection")
@@ -68,6 +78,8 @@ def main():
     parser.add_argument("--auto-send", action="store_true", help="Automatically send to Gemini API")
     parser.add_argument("--source-file", help="Path to a source text file (e.g. extracted PDF markdown) to use as context.")
     args = parser.parse_args()
+
+    load_env_file()
 
     print(f"🤖 AI Writer System Initialized...")
     print(f"📄 Target Topic: {args.topic}")
