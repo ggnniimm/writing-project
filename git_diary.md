@@ -14,6 +14,9 @@
 - [ ] 3. นิยามและตัวอย่างของ "ประมาทเลินเล่ออย่างร้ายแรง" (Comprehensive Guide): จากการศึกษาคำพิพากษาหลายคดี พบว่าคำว่า "ประมาทเลินเล่ออย่างร้ายแรง" เป็นเกณฑ์สำค...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[13:51] 📝 ดำเนินการขั้นตอน SEW สำหรับสองคดีปกครอง และแก้ไขบทความ EP50**
+    > ผมได้ดำเนินการตามขั้นตอน SEW workflow สำหรับคดีปกครองสำคัญสองคดี โดยคดีแรก (อ. 684/2561) ผมได้จัดทำบทความ EP49 ที่มุ่งเน้นเรื่องผลประโยชน์ทับซ้อนทางอ้อม ส่วนคดีที่สอง (อ. 346/2562) ผมได้ดำเนินการแก้ไขเนื้อหาในบทความ EP50 ทั้งหมด เนื่องจากบทสรุปเดิมมีความคลาดเคลื่อนจากคำพิพากษา โดยผมได้เน้นย้ำถึงหลักการที่ถูกต้องว่า ผู้บริหารไม่ต้องรับผิดหากได้ปฏิบัติตามระเบียบและเชื่อรายงานของเจ้าหน้าที่โดยชอบ ส่งผลให้ข้อมูลในฐานความรู้มีความถูกต้องสมบูรณ์ตามแนวคำวินิจฉัยของศาลฯ ครับ
+
 *   **[11:00] 📝 ยกระดับกระบวนการ SEW และกำหนดมาตรฐานชุดคำสั่ง**
     > ผมได้ดำเนินการปรับปรุงขั้นตอนปฏิบัติการ SEW โดยได้กำหนดมาตรการตรวจสอบเพิ่มเติมเพื่อคัดกรองกรณีซ้ำซ้อนและกรณีที่เกี่ยวข้องก่อนการจัดทำบทความ เพื่อประกันคุณภาพและความครบถ้วนของเนื้อหา ควบคู่กันไป ผมได้เพิ่มระเบียบการตั้งชื่อเฉพาะสำหรับชุดคำสั่งอ้างอิง (ref_sac_cmd_xxx_xxxx) เพื่อความเป็นมาตรฐานในการจัดการข้อมูล และในส่วนของผลลัพธ์ ผมได้จัดทำบทความสาระ EP48 เรื่องการฟ้องผิดคู่สัญญา โดยอ้างอิงตามคำสั่ง 180/2563 เสร็จสมบูรณ์แล้วครับ
 
@@ -1996,3 +1999,63 @@
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_752_2560.md
 
 **[2025-12-23 16:55] อัปเดต git_diary.md สรุปความคืบหน้างานประจำวัน (SEW Workflow และการแก้ปัญหาเทคนิค)**
+
+**[2025-12-24 11:00] ปรับปรุง SEW workflow เพิ่มขั้นตอนตรวจสอบ duplicate และ related cases ก่อนเขียนบทความ, เพิ่ม naming convention สำหรับคำสั่ง (ref_sac_cmd_xxx_xxxx), สร้างบทความ EP48 เรื่องการฟ้องผิดคู่สัญญา (Order 180/2563)**
+    -   📝 แก้ไข: .agent/workflows/sew.md
+    -   ✨ สร้างใหม่: articles/html/ep48_suing_wrong_party_o_180_2563.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep48_suing_wrong_party_o_180_2563.md
+    -   ✨ สร้างใหม่: docs/best_practices/browser_automation_thai_input.md
+    -   📝 แก้ไข: draft_writer.py
+    -   ✨ สร้างใหม่: references/etc/ep51_land_buying.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_674_2557.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_674_2557.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_cmd_180_2563.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/court/ref_o_148_2554.pdf	references/raw_pdfs/court/ref_sac_o_148_2554.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_021221_102320.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_040923_134241.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_050517_150754.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_060213_000530.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_060919_172127.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_060919_172341.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_080125_110803.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_090120_122736.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_090622_101048.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_100314_203624.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_130117_112438.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_130918_105040.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_140318_094611.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_140519_094909.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_160819_160543.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_161025_131002-2.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_161025_131002.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_170118_125204.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_170216_134937.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_170723_093418.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_180518_134849.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_180923_100302-2.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_180923_100302.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_124851.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_133610.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_140129.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_141213.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_152943.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_201212_155418.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_210422_101950.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_210823_103938.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_220416_152512.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_220818_162927.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_250118_140157.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_251119_132603.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_251224_085847.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_260213_204742.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_260717_101846.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_261121_111912.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_270218_105530.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_270421_141251.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_280319_153318.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_280825_092954.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_301025_091913.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_310718_145541.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_310818_091446.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/done/Academic_040417_083506.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_cmd_180_2563.md

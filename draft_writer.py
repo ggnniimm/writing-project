@@ -260,7 +260,7 @@ Based on the provided SOURCE MATERIAL, write the article following the format ab
     # 4. Output or Send
     if args.auto_send:
         # api_key is already loaded above
-        if not api_key:
+        api_key = os.environ.get("GEMINI_API_KEY")
         if not api_key:
             print("⚠️  GEMINI_API_KEY not found in environment.")
             api_key = input("� Please paste your Google AI Studio Key here: ").strip()
