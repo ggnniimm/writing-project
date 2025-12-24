@@ -14,6 +14,9 @@
 - [ ] 3. นิยามและตัวอย่างของ "ประมาทเลินเล่ออย่างร้ายแรง" (Comprehensive Guide): จากการศึกษาคำพิพากษาหลายคดี พบว่าคำว่า "ประมาทเลินเล่ออย่างร้ายแรง" เป็นเกณฑ์สำค...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:51] 📝 ระงับภารกิจสืบค้นคำพิพากษา อ. 1/2561 (ชั่วคราว)**
+    > ผมได้รับแจ้งจากผู้ใช้งานโดยตรงให้ระงับการดำเนินการสืบค้นข้อมูลคำพิพากษาคดีหมายเลข อ. 1/2561 ชั่วคราว เพื่อให้ความสำคัญกับภารกิจอื่นที่มีลำดับความเร่งด่วนสูงกว่า ผมจึงได้ดำเนินการยกเลิกภารกิจดังกล่าวจากระบบทันที ส่งผลให้ระบบสามารถจัดสรรทรัพยากรไปดำเนินการในส่วนงานลำดับถัดไปได้อย่างเต็มประสิทธิภาพครับ
+
 *   **[13:51] 📝 ดำเนินการขั้นตอน SEW สำหรับสองคดีปกครอง และแก้ไขบทความ EP50**
     > ผมได้ดำเนินการตามขั้นตอน SEW workflow สำหรับคดีปกครองสำคัญสองคดี โดยคดีแรก (อ. 684/2561) ผมได้จัดทำบทความ EP49 ที่มุ่งเน้นเรื่องผลประโยชน์ทับซ้อนทางอ้อม ส่วนคดีที่สอง (อ. 346/2562) ผมได้ดำเนินการแก้ไขเนื้อหาในบทความ EP50 ทั้งหมด เนื่องจากบทสรุปเดิมมีความคลาดเคลื่อนจากคำพิพากษา โดยผมได้เน้นย้ำถึงหลักการที่ถูกต้องว่า ผู้บริหารไม่ต้องรับผิดหากได้ปฏิบัติตามระเบียบและเชื่อรายงานของเจ้าหน้าที่โดยชอบ ส่งผลให้ข้อมูลในฐานความรู้มีความถูกต้องสมบูรณ์ตามแนวคำวินิจฉัยของศาลฯ ครับ
 
@@ -2059,3 +2062,23 @@
     -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/Academic_310818_091446.pdf
     -   ✨ สร้างใหม่: references/raw_pdfs/sacPdf/done/Academic_040417_083506.pdf
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_cmd_180_2563.md
+
+**[2025-12-24 13:51] ดำเนินการ SEW workflow สำหรับคดี อ. 684/2561 และ อ. 346/2562 - แก้ไขบทความ EP50 ให้สรุปถูกต้องตามคำพิพากษา (ศาลฯ พิพากษายืนให้นายกฯ ไม่ต้องรับผิด)**
+    -   ✨ สร้างใหม่: articles/html/ep49_indirect_conflict_of_interest_o_684_2561.html
+    -   ✨ สร้างใหม่: articles/html/ep50_sac_o_346_2562.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep49_indirect_conflict_of_interest_o_684_2561.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep50_sac_o_346_2562.md
+    -   📝 แก้ไข: draft_writer.py
+    -   ✨ สร้างใหม่: raw_pdfs/ref_sac_o_346_2562.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_684_2561.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_060919_172127.pdf	references/raw_pdfs/sacPdf/done/Academic_060919_172127.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_060919_172341.pdf	references/raw_pdfs/sacPdf/done/Academic_060919_172341.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_090622_101048.pdf	references/raw_pdfs/sacPdf/done/Academic_090622_101048.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_270218_105530.pdf	references/raw_pdfs/sacPdf/done/Academic_270218_105530.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_050517_150754.pdf	references/raw_pdfs/sacPdf/not done/Academic_050517_150754.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_080125_110803.pdf	references/raw_pdfs/sacPdf/not done/Academic_080125_110803.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_100314_203624.pdf	references/raw_pdfs/sacPdf/not done/Academic_100314_203624.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_130117_112438.pdf	references/raw_pdfs/sacPdf/not done/Academic_130117_112438.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_310718_145541.pdf	references/raw_pdfs/sacPdf/not done/Academic_310718_145541.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_346_2562.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_684_2561.md
