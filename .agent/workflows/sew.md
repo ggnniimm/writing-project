@@ -12,16 +12,22 @@ This workflow allows you to go from a Case Number to a Draft Article in one go.
     - **Parsing:**
         - If command is `sew อ. <num>/<year>` (e.g. `sew อ. 111/2555`): Target is **Judgment** (คำพิพากษา) for Case "อ. <num>/<year>".
         - If command is `sew c <num>/<year>` (e.g. `sew c 111/2555`): Target is **Order** (คำสั่ง) for Case "<num>/<year>".
+        - If command is `sew อง. <num>/<year>` (e.g. `sew อง. 1/2561`): Target is **General Assembly Judgment** (คำพิพากษาที่ประชุมใหญ่) for Case "อง. <num>/<year>".
     - **Search:**
         - Navigate to `https://www.admincourt.go.th/admincourt/site/05SearchSuit.html`.
-        - **CRITICAL INPUT RULE:** Extract **ONLY** the numbers.
-            - Input `<num>` into the first Red Number box (input[7]).
-            - Input `<year>` into the second Red Number box (input[8]).
-            - **NEVER** type "อ." or "c" into the search box.
+        - **CRITICAL INPUT RULE:**
+            - **For Normal Cases (อ. or c):** Extract **ONLY** the numbers.
+                - Input `<num>` into the first Red Number box (input[7]).
+                - Input `<year>` into the second Red Number box (input[8]).
+            - **For General Assembly Cases (อง.):**
+                - Input `อง. <num>` (e.g., "อง. 1") into the first Red Number box.
+                - Input `<year>` into the second Red Number box.
             - **ALWAYS** clear Black Number boxes (input[5], input[6]) using JS.
     - **Download:**
         - **CRITICAL FILTER:** Look for the row where "Court Name" (or similar column) indicates **"Supreme Administrative Court"** (ศาลปกครองสูงสุด). Ignore lower courts (e.g., Nakhon Si Thammarat, Chiang Mai) unless explicitly requested.
-        - If Target is **Judgment**: Click the link in the "คำพิพากษา" column for the Supreme Court row.
+        - If Target is **Judgment**: 
+            - Click the link in the "คำพิพากษา" column for the Supreme Court row.
+            - **Check:** Ensure it is indeed the requested case (sometimes "อง." cases appear alongside normal ones). Look for "ที่ประชุมใหญ่" in the notes or "อง." in the case number.
         - If Target is **Order**: 
             - Look for the link in the "คำสั่ง" column for the Supreme Court row.
             - **CRITICAL VERIFICATION:** Ensure the text says "คำสั่งที่ <num>/<year>" with **NO alphabetic prefix** (e.g. "180/2563", NOT "ค. 180/2563").
@@ -40,6 +46,9 @@ This workflow allows you to go from a Case Number to a Draft Article in one go.
         - Rename PDF: `ref_sac_cmd_<num>_<year>.pdf`
     - **For Judgments (คำพิพากษา):**
         - Keep pattern: `ref_sac_o_<num>_<year>.md` and PDF.
+    - **For General Assembly (อง.):**
+        - Rename markdown: `ref_sac_ong_<num>_<year>.md`
+        - Rename PDF: `ref_sac_ong_<num>_<year>.pdf`
 
 4.  **Write Draft**
     - Run the draft writer with the source file:
@@ -65,3 +74,9 @@ This workflow allows you to go from a Case Number to a Draft Article in one go.
    - Agent: Opens browser -> JS injects Red No: "111", Year: "2555" (Clears others) -> Clicks Search.
    - Agent: Finds row. Checks "คำสั่ง" column. Downloads file `raw_pdfs/sac_order_111_2555.pdf`.
    - Agent: `./eee ...` -> `draft_writer.py ...`
+
+3. **General Assembly Flow (อง.):**
+   - User: "sew อง. 1/2561"
+   - Agent: Opens browser -> JS injects Red No: "อง. 1", Year: "2561" -> Clicks Search.
+   - Agent: Finds row with "ศาลปกครองสูงสุด" (checks for "อง." or "ที่ประชุมใหญ่"). Downloads file.
+   - Agent: `./eee ...` -> Renames to `ref_sac_ong_1_2561.*` -> `draft_writer.py ...`
