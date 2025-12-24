@@ -56,6 +56,85 @@ def call_gemini_api(prompt, api_key):
         print(f"\n❌ API Error: {e}")
         return None
 
+def get_knowledge_base_snippets(kb_dir="articles/learning_from_judgments"):
+    """
+    Scans the knowledge base directory for existing articles.
+    Returns a string summary of existing files (Filename + First 500 chars).
+    """
+    if not os.path.exists(kb_dir):
+        return ""
+    
+    snippets = []
+    files = sorted([f for f in os.listdir(kb_dir) if f.endswith(".md")])
+    
+    # Limit to most recent 20 to fit in context? or just list titles? 
+    # Let's try listing all filenames and small snippet.
+    print(f"📚 Scanning {len(files)} existing articles in {kb_dir}...")
+    
+    for i, filename in enumerate(files):
+        path = os.path.join(kb_dir, filename)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                content = f.read(800).replace("\n", " ") # Read first 800 chars
+                snippets.append(f"{i+1}. [{filename}]: {content}...")
+        except:
+            continue
+            
+    return "\n".join(snippets)
+
+def analyze_vs_existing_content(api_key, topic, source_context, kb_snippets):
+    """
+    Asks Gemini if the new topic is a duplicate or related to existing content.
+    """
+    if not kb_snippets:
+        return {"is_duplicate": False, "related_context": ""}
+
+    analysis_prompt = f"""
+    You are an Editor managing a legal knowledge base.
+    
+    ## NEW TOPIC TO WRITE
+    Topic: "{topic}"
+    Source Snippet: "{source_context[:2000]}"
+
+    ## EXISTING ARTICLES (Knowledge Base)
+    {kb_snippets}
+
+    ## TASK
+    Analyze if this new topic is a DUPLICATE of any existing article or RELATED to them.
+    
+    1. **DUPLICATE CHECK**: Does an article with the exact same case number or exact same legal issue/facts already exist?
+    2. **RELATION CHECK**: Are there articles about similar legal principles? (e.g. "Fine reduction", "Late delivery", "Wrongful termination"). 
+       - If yes, summarize how they relate (Supportive? Contradictory? Complementary?).
+
+    ## OUTPUT FORMAT (JSON ONLY)
+    {{
+        "is_duplicate": boolean, 
+        "duplicate_filename": "filename_if_true_else_null",
+        "related_context": "String summary of related cases to be included in the new article. Cite specific filenames. If none, empty string."
+    }}
+    """
+    
+    print("🔍 Analyzing against Knowledge Base...")
+    # Reuse call_gemini_api but need to parse JSON. 
+    # Since call_gemini_api prints to stdout, we might want a silent version or just parse the text.
+    # We will just use the existing function and try to extract JSON.
+    
+    response_text = call_gemini_api(analysis_prompt, api_key)
+    
+    if not response_text:
+        return {"is_duplicate": False, "related_context": ""}
+
+    # Clean code blocks if present
+    response_text = response_text.replace("```json", "").replace("```", "").strip()
+    
+    try:
+        data = json.loads(response_text)
+        return data
+    except json.JSONDecodeError:
+        print("⚠️ Failed to parse analysis JSON. Proceeding without context.")
+        return {"is_duplicate": False, "related_context": ""}
+
+
 def load_env_file():
     """Manually load .env file if python-dotenv is not available."""
     env_path = os.path.join(os.path.dirname(__file__), ".env")
@@ -178,9 +257,10 @@ Based on the provided SOURCE MATERIAL, write the article following the format ab
 - **Language:** Thai (Main content) with some English legal terms in brackets where appropriate.
 """
 
-    # 3. Output or Send
+    # 4. Output or Send
     if args.auto_send:
-        api_key = os.environ.get("GEMINI_API_KEY")
+        # api_key is already loaded above
+        if not api_key:
         if not api_key:
             print("⚠️  GEMINI_API_KEY not found in environment.")
             api_key = input("� Please paste your Google AI Studio Key here: ").strip()
