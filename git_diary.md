@@ -2132,3 +2132,14 @@
     -   📝 แก้ไข: articles/learning_from_judgments/ep47_water_pipe_trespass_o_1289_2560.md
     -   📝 แก้ไข: references/etc/ep51_land_buying.md
     -   📝 แก้ไข: references/rulings_court/ref_sac_o_346_2562.md
+
+**[2025-12-25 08:10] เพิ่มบทความ EP53 จากคำพิพากษา อ. 383/2560 (SEW Workflow)**
+    -   📝 แก้ไข: articles/html/ep48_suing_wrong_party_o_180_2563.html
+    -   📝 แก้ไข: articles/html/ep49_indirect_conflict_of_interest_o_684_2561.html
+    -   📝 แก้ไข: articles/html/ep52_implied_consent_utility_easement_oph_374_2567.html
+    -   ✨ สร้างใหม่: articles/html/ep53_unreliable_work_certificate_cancels_tender_o_383_2560.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep53_unreliable_work_certificate_cancels_tender_o_383_2560.md
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_130918_105040.pdf	references/raw_pdfs/sacPdf/done/Academic_130918_105040.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_180518_134849.pdf	references/raw_pdfs/sacPdf/not done/Academic_180518_134849.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_383_2560.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_383_2560.pdf
