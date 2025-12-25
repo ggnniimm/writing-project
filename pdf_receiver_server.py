@@ -24,7 +24,7 @@ class PDFReceiverHandler(BaseHTTPRequestHandler):
             
             # Decode and save PDF
             pdf_binary = base64.b64decode(base64_data)
-            output_path = "raw_pdfs/sac_o_2060_2559.pdf"
+            output_path = "raw_pdfs/sac_o_105_2566.pdf"
             
             with open(output_path, 'wb') as f:
                 f.write(pdf_binary)
