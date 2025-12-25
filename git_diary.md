@@ -14,6 +14,9 @@
 - [ ] 3. ค่าปรับทางปกครองสำหรับข้าราชการ: ทำไมไม่เท่ากับความเสียหาย? (Administrative Fines Explained): สังเกตจาก EP.51 (คดี อง. 1/2561) ที่มีผู้อ่านสับสนว่าทำไมค่าปรับ 173,400 บาท ไม่...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[17:20] 📝 บันทึกการติดตามกรณีการละเลยการตรวจสอบพื้นที่ ตามคดีหมายเลข อ. ๕๕๗/๒๕๖๒**
+    > ผมได้ดำเนินการบันทึกและจัดเก็บรายละเอียดของเหตุการณ์ตอนที่ ๖๓ (EP.๖๓) ซึ่งเน้นย้ำถึงประเด็นการละเลยในการตรวจสอบพื้นที่ (Site Inspection Negligence) ตามคดีหมายเลข อ. ๕๕๗/๒๕๖๒ อย่างเป็นระบบ เพื่อให้มั่นใจว่าเอกสารอ้างอิงและสถานะของคดีดังกล่าวได้ถูกบรรจุเป็นข้อมูลสำคัญสำหรับการวิเคราะห์ความเสี่ยงและการปฏิบัติตามกฎเกณฑ์อย่างเคร่งครัดต่อไปครับ
+
 *   **[15:42] 📝 จัดทำและเผยแพร่ตอนที่ 60 ว่าด้วยอำนาจศาลในการลดค่าปรับที่สูงเกินส่วน**
     > ผมได้ดำเนินการจัดทำเนื้อหาตอนที่ 60 โดยอ้างอิงจากคดีสำคัญ (SEW อ. 99/2554) ซึ่งเป็นกรณีพิพาทระหว่างบริษัท Giant Construction และเทศบาลเมืองหัวหิน สาระสำคัญคือการเน้นย้ำถึงหลักการที่ศาลมีอำนาจในการใช้ดุลยพินิจลดค่าปรับที่กำหนดไว้สูงเกินสมควรได้ เพื่อให้ผู้ใช้งานได้รับทราบถึงข้อกฎหมายที่เป็นธรรมและใช้เป็นแนวทางในการดำเนินคดีต่อไปครับ
 
@@ -2216,3 +2219,37 @@
     -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_090120_122736.pdf	references/raw_pdfs/sacPdf/not done/Academic_090120_122736.pdf
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_105_2566.md
     -   📝 แก้ไข: server.log
+
+**[2025-12-25 15:42] SEW อ. 99/2554: สร้าง EP.60 เรื่องค่าปรับสูงเกินส่วน ศาลลดได้ (Giant Construction vs เทศบาลเมืองหัวหิน)**
+    -   ✨ สร้างใหม่: articles/html/ep57_10_year_limit_officer_liability_o_264_2565.html
+    -   ✨ สร้างใหม่: articles/html/ep58_delay_from_unclear_docs_interest_liability_o_398_2564.html
+    -   ✨ สร้างใหม่: articles/html/ep59_high_voltage_lines_land_rights_o_170_2562.html
+    -   ✨ สร้างใหม่: articles/html/ep60_excessive_fine_reduction_o_99_2554.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep57_10_year_limit_officer_liability_o_264_2565.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep58_delay_from_unclear_docs_interest_liability_o_398_2564.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep59_high_voltage_lines_land_rights_o_170_2562.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep60_excessive_fine_reduction_o_99_2554.md
+    -   📝 แก้ไข: content_ideas.md
+    -   📝 แก้ไข: pdf_receiver_server.py
+    -   📝 แก้ไข: ready_to_write_prompt.txt
+    -   ✨ สร้างใหม่: references/etc/ep59_benefit_compensation_o_757_2565.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_757_2565.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_757_2565.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_105_2566.pdf	references/raw_pdfs/court/ref_sac_o_105_2566.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_170_2562.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_2060_2559.pdf	references/raw_pdfs/court/ref_sac_o_2060_2559.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_264_2565.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_398_2564.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_99_2554.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_170723_093418.pdf	references/raw_pdfs/sacPdf/done/Academic_170723_093418.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_180923_100302.pdf	references/raw_pdfs/sacPdf/done/Academic_180923_100302.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_201212_152943.pdf	references/raw_pdfs/sacPdf/done/Academic_201212_152943.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_210422_101950.pdf	references/raw_pdfs/sacPdf/done/Academic_210422_101950.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_210823_103938.pdf	references/raw_pdfs/sacPdf/done/Academic_210823_103938.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_220416_152512.pdf	references/raw_pdfs/sacPdf/done/Academic_220416_152512.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_270421_141251.pdf	references/raw_pdfs/sacPdf/done/Academic_270421_141251.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/sacPdf/Academic_201212_140129.pdf	references/raw_pdfs/sacPdf/not done/Academic_201212_140129.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_170_2562.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_264_2565.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_398_2564.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_99_2554.md
