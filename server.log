@@ -1,0 +1,12 @@
+🚀 PDF Receiver Server started on http://localhost:8765
+📡 Waiting for browser to send PDF data...
+   (Server will auto-shutdown after receiving data)
+
+
+✅ Received PDF data!
+📏 Size: 1,435,955 bytes (1.37 MB)
+💾 Saved to: raw_pdfs/sac_judge_1148_2560.pdf
+✓ Valid PDF: True
+
+🛑 Shutting down server...
+
