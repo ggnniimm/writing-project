@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP.120: ส่งของไม่ครบ... แต่เลิกสัญญาทั้งหมดไม่ได้! (Partial Termination Only)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --paper-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 25mm 25mm; /* A4 margins */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18pt;
+            font-weight: 700;
+            margin-top: 1.5em;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 16pt;
+            font-weight: 700;
+            margin-top: 1.2em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1em;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #0366d6;
+            margin: 1.5em 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #a93226;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 3em 0;
+        }
+
+        code {
+            background-color: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        sup {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EP.120: ส่งของไม่ครบ... แต่เลิกสัญญาทั้งหมดไม่ได้! (Partial Termination Only)</h1>
+<blockquote>
+<p><strong>หลักกฎหมาย:</strong> หากผู้ขายส่งมอบสินค้า <strong>"ไม่ครบจำนวน"</strong> หรือ <strong>"ไม่ตรงสเปก"</strong> บางรายการ → หน่วยงานมีสิทธิบอกเลิกสัญญาได้ <strong>"เฉพาะส่วนที่ผิด"</strong> เท่านั้น
+<strong>ไม่อาจบอกเลิกสัญญาทั้งหมดแล้วปฏิเสธจ่ายเงินทั้งหมดได้!</strong></p>
+</blockquote>
+<p><strong>คำพิพากษาศาลปกครองสูงสุด ที่ อ. 281/2565</strong></p>
+<hr />
+<h2>📌 ข้อเท็จจริง: ส่งของมาไม่ตรงสเปก → เลิกสัญญาทั้งหมด?</h2>
+<ol>
+<li><strong>อบต. แห่งหนึ่ง</strong> ทำสัญญาซื้อวัสดุการศึกษาสื่อการเรียนการสอนสำหรับศูนย์พัฒนาเด็กเล็ก 3 แห่ง มูลค่า <strong>170,000 บาท</strong></li>
+<li><strong>ผู้ขาย</strong> ส่งมอบสินค้าช้า และเมื่อตรวจรับพบว่า:<ul>
+<li>ส่งมอบ <strong>ไม่ตรงสเปก</strong> 18 รายการ</li>
+<li>ส่งมอบ <strong>ไม่ครบจำนวน</strong> 3 รายการ</li>
+</ul>
+</li>
+<li><strong>อบต. แจ้งให้แก้ไข</strong> แต่ผู้ขายไม่ดำเนินการแก้ไข</li>
+<li><strong>อบต. บอกเลิกสัญญาทั้งหมด + ริบหลักประกัน + ไม่จ่ายเงินเลย!</strong></li>
+</ol>
+<hr />
+<h2>🏛️ คำตัดสิน: เลิกสัญญาทั้งหมด = ไม่ชอบ! ❌</h2>
+<p>ศาลปกครองสูงสุดพิพากษาว่า การบอกเลิกสัญญาทั้งหมดของ อบต. <strong>ไม่ชอบด้วยสัญญา</strong></p>
+<h3>1. หลัก "Partial Acceptance" ตามระเบียบพัสดุ</h3>
+<p>ตามระเบียบกระทรวงมหาดไทยฯ ข้อ 64(5): </p>
+<blockquote>
+<p><em>"ในกรณีที่ผู้ขายส่งมอบพัสดุถูกต้องแต่ไม่ครบจำนวน หรือส่งมอบครบจำนวนแต่ไม่ถูกต้องทั้งหมด ถ้าสัญญามิได้กำหนดไว้เป็นอย่างอื่น ให้ตรวจรับไว้เฉพาะจำนวนที่ถูกต้อง"</em></p>
+</blockquote>
+<p><strong>ผล:</strong> คณะกรรมการตรวจรับ <strong>ต้องรับสินค้าที่ถูกต้อง</strong> ไม่ใช่ปฏิเสธทั้งหมด</p>
+<h3>2. หลัก "Partial Termination" ตามสัญญา</h3>
+<ul>
+<li>เมื่อผู้ขายไม่แก้ไขตามที่แจ้ง → หน่วยงานมีสิทธิบอกเลิกสัญญา <strong>เฉพาะส่วนที่ส่งมอบไม่ถูกต้อง/ไม่ครบ</strong></li>
+<li><strong>ไม่มีสิทธิบอกเลิกสัญญาทั้งหมด</strong> หากส่วนใหญ่ส่งมอบถูกต้องแล้ว!</li>
+</ul>
+<h3>3. หน่วยงานยังต้องจ่ายเงินสำหรับส่วนที่ถูกต้อง</h3>
+<ul>
+<li>มูลค่ารายการที่ไม่ส่งมอบ = <strong>28,947 บาท</strong></li>
+<li>ค่าสิ่งของตามสัญญา = <strong>170,000 บาท</strong></li>
+<li><strong>อบต. ต้องจ่าย = 170,000 - 28,947 = 141,053 บาท</strong> (ตามที่ส่งมอบถูกต้อง)</li>
+</ul>
+<hr />
+<h2>💡 บทเรียนนำไปใช้</h2>
+<h3>🏛️ เจ้าหน้าที่พัสดุ/คณะกรรมการตรวจรับ</h3>
+<ul>
+<li><strong>รับบางส่วนได้:</strong> หากสินค้าส่งมอบไม่ครบหรือไม่ตรงสเปก → ให้ตรวจรับเฉพาะที่ถูกต้อง</li>
+<li><strong>แจ้งให้แก้ไข:</strong> แจ้งผู้ขายให้นำสินค้าที่ผิดกลับ และส่งมอบใหม่ให้ครบ (ภายใน 3 วันทำการ)</li>
+<li><strong>บอกเลิกบางส่วน:</strong> หากผู้ขายไม่ดำเนินการ สามารถบอกเลิกได้เฉพาะส่วนที่ผิดเท่านั้น</li>
+</ul>
+<h3>🚫 สิ่งที่ทำไม่ได้</h3>
+<ul>
+<li><strong>เลิกสัญญาทั้งหมด</strong> เพื่อไม่ต้องจ่ายเงินเลย → ผิด!</li>
+<li><strong>ริบหลักประกันทั้งหมด</strong> โดยไม่คำนึงถึงส่วนที่ส่งมอบถูกต้อง → ผิด!</li>
+</ul>
+<h3>💰 ผู้ขาย/ผู้รับจ้าง</h3>
+<ul>
+<li><strong>ยังมีสิทธิได้รับเงิน:</strong> ตามสัดส่วนสินค้าที่ส่งมอบถูกต้อง</li>
+<li><strong>ฟ้องคดีได้:</strong> หากหน่วยงานปฏิเสธจ่ายทั้งหมด (วันฟ้อง = วันทวงถามให้ชำระหนี้)</li>
+</ul>
+<hr />
+<p><strong>สรุป:</strong> ส่งของไม่ครบ ≠ ผิดสัญญาทั้งหมด! หน่วยงานต้องรับของที่ถูกต้อง จ่ายเงินตามสัดส่วน และบอกเลิกได้เฉพาะส่วนที่บกพร่องเท่านั้น 📦✅</p>
+        
+        <div class="footer">
+            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: 28/12/2025 22:02</p>
+        </div>
+    </div>
+</body>
+</html>

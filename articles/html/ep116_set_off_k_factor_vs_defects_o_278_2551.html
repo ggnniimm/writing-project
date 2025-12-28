@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP.116: เงินค่า K vs ค่าซ่อม... จับ "หักกลบลบหนี้" กันเองได้ไหม?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --text-color: #333;
+            --bg-color: #f8f9fa;
+            --paper-color: #ffffff;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 210mm; /* A4 width */
+            margin: 0 auto;
+            background-color: var(--paper-color);
+            padding: 25mm 25mm; /* A4 margins */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24pt;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2em;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 18pt;
+            font-weight: 700;
+            margin-top: 1.5em;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        h3 {
+            color: var(--text-color);
+            font-size: 16pt;
+            font-weight: 700;
+            margin-top: 1.2em;
+        }
+
+        p {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 1em;
+            padding-left: 40px;
+        }
+
+        li {
+            margin-bottom: 0.5em;
+        }
+
+        blockquote {
+            background-color: #f1f8ff;
+            border-left: 5px solid #0366d6;
+            margin: 1.5em 0;
+            padding: 15px 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #a93226;
+            text-decoration: underline;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 3em 0;
+        }
+
+        code {
+            background-color: #f6f8fa;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        sup {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EP.116: เงินค่า K vs ค่าซ่อม... จับ "หักกลบลบหนี้" กันเองได้ไหม?</h1>
+<blockquote>
+<p><strong>หลักกฎหมาย:</strong> การใช้สิทธิ <strong>"หักกลบลบหนี้" (Set-off)</strong> ตาม ป.พ.พ. มาตรา 341 จะทำได้ก็ต่อเมื่อหนี้ทั้งสองฝ่าย <strong>"มีวัตถุแห่งหนี้เป็นอย่างเดียวกัน"</strong> และ <strong>"ถึงกำหนดชำระแล้ว"</strong> และที่สำคัญที่สุดคือ <strong>"ต้องไม่มีข้อต่อสู้"</strong> (Determinate &amp; Undisputed)
+คดีนี้สอนว่า: หน่วยงานจะเอา "ค่า K" (ที่ต้องจ่ายแน่ๆ) ไปหักกับ "ค่าซ่อม" (ที่ผู้รับจ้างยังเถียงอยู่) <strong>ไม่ได้!</strong></p>
+</blockquote>
+<p><strong>คำพิพากษาศาลปกครองสูงสุด ที่ อ. 278/2551</strong></p>
+<hr />
+<h2>📌 ข้อเท็จจริง: ได้ค่า K แต่โดนเบรกด้วยค่าซ่อม</h2>
+<p>บริษัท ก. (ผู้รับจ้าง) สร้างอาคารเสร็จแล้ว และมีสิทธิได้รับ <strong>เงินชดเชยค่า K (Escalation Factor)</strong> จำนวน 3.9 แสนบาท (สำนักงบประมาณอนุมัติแล้ว)
+แต่ <strong>กสท.</strong> (ผู้ว่าจ้าง) ไม่ยอมจ่าย โดยอ้างว่า:
+1.  งานก่อสร้างมี <strong>"ความชำรุดบกพร่อง"</strong> ในอาคาร 5 แห่ง
+2.  ค่าซ่อมประเมินไว้ 1.4 แสนบาท
+3.  ขอนำยอดนี้มา <strong>"หักกลบลบหนี้"</strong> แล้วจะจ่ายคืนให้เฉพาะส่วนต่าง</p>
+<p><strong>ผู้รับจ้างโต้แย้ง:</strong> "หมดประกันแล้ว! ผมไม่ต้องรับผิด งานซ่อมนั้นผมไม่เกี่ยวกับผม" (ปฎิเสธหนี้ค่าซ่อม)</p>
+<hr />
+<h2>🏛️ คำตัดสิน: หักไม่ได้! (ต้องจ่ายค่า K เต็มจำนวน)</h2>
+<p>ศาลปกครองสูงสุดตัดสินว่า กสท. <strong>ไม่มีสิทธิหักกลบลบหนี้</strong> (ยกเว้นรายการเดียวที่ผู้รับจ้างยอม) ด้วยเหตุผลดังนี้:</p>
+<h3>1. ธรรมชาติของหนี้ต่างกัน (Certainty of Debt)</h3>
+<ul>
+<li><strong>หนี้ค่า K:</strong> เป็นหนี้ที่ <strong>"แน่นอนแล้ว"</strong> (Liquidated) มีตัวเลขชัดเจน ถึงกำหนดจ่ายแล้ว</li>
+<li><strong>หนี้ค่าซ่อม:</strong> เป็นหนี้ที่ <strong>"ยังไม่แน่นอน"</strong> (Unliquidated) อีกฝ่ายยังโต้แย้งอยู่ว่าไม่ต้องรับผิด (อ้างว่าหมดประกัน) จึงถือเป็น "สิทธิเรียกร้องที่มีข้อต่อสู้" (Disputed Claim)</li>
+</ul>
+<h3>2. หลักการหักกลบลบหนี้ (ป.พ.พ. 344) ❌</h3>
+<ul>
+<li>กฎหมายบอกว่า <em>"สิทธิเรียกร้องใดยังมีข้อต่อสู้อยู่ ท่านว่าหาอาจจะเอามาหักกลบลบหนี้ได้ไม่"</em></li>
+<li>เมื่อผู้รับจ้าง <strong>"ไม่ยอมรับสภาพหนี้"</strong> (เถียงว่าไม่ใช่ความผิดเขา) หน่วยงานจะโมเมหักเงินเองไม่ได้ ต้องไปฟ้องศาลเพื่อพิสูจน์ความรับผิดก่อน</li>
+</ul>
+<h3>3. ข้อยกเว้น: รายการที่ "ยอม" ให้หักได้ ✅</h3>
+<ul>
+<li>มีอยู่ 1 รายการ (ค่าซ่อม 11,914 บาท) ที่ผู้รับจ้าง <strong>"ยินยอม"</strong> ให้หักได้</li>
+<li>ศาลจึงยอมให้หักเฉพาะยอดนี้ ส่วนที่เหลือต้องคืนให้ผู้รับจ้างทั้งหมดพร้อมดอกเบี้ย</li>
+</ul>
+<hr />
+<h2>💡 บทเรียนนำไปใช้</h2>
+<h3>🏛️ เจ้าหน้าที่พัสดุ/การเงิน</h3>
+<ul>
+<li><strong>อย่าหักเพลิน:</strong> จะหักเงินค่างวด/ค่า K เพื่อชดเชยค่าปรับหรือค่าเสียหาย <strong>ต้องดูว่าเขา "ยอม" หรือไม่</strong></li>
+<li><strong>ถ้าเขาไม่ยอม:</strong> ห้ามหักดื้อๆ (เว้นแต่สัญญาเขียนไว้ชัดแจ้งว่าให้หักได้แม้มีข้อโต้แย้ง ซึ่งต้องดูสัญญาดีๆ)</li>
+<li><strong>ทางออก:</strong> ต้องจ่ายเงินที่เขามีสิทธิได้ไปก่อน แล้วรีบ <strong>"ฟ้องคดี/เรียกให้ชดใช้"</strong> ในส่วนค่าเสียหายแยกต่างหาก</li>
+</ul>
+<h3>👷‍♂️ ผู้รับจ้าง</h3>
+<ul>
+<li><strong>อย่ายอมง่ายๆ:</strong> หากหน่วยงานจะขอยึดเงินเรามั่วๆ โดยอ้างค่าเสียหายที่เราไม่ได้ทำ ให้ทำหนังสือ <strong>"คัดค้าน/โต้แย้ง"</strong> ทันที เพื่อสร้าง "ข้อต่อสู้แห่งหนี้" ทำให้เขาหักกลบลบหนี้ไม่ได้ตามกฎหมาย</li>
+</ul>
+<hr />
+<p><strong>สรุป:</strong> "หนี้ที่แน่นอน (ค่า K)" ชนกับ "หนี้ที่ยังเถียงกัน (ค่าซ่อม)"... <strong>หักกันไม่ได้ครับ!</strong> ต้องเคลียร์ให้จบเป็นเรื่องๆ ไป ⚖️</p>
+        
+        <div class="footer">
+            <p>เอกสารฉบับนี้จัดทำขึ้นโดยนายมิ่งศักดิ์ แสงวิไลพร ด้วยระบบ AI Assistant (Antigravity) | ปรับปรุงล่าสุด: 28/12/2025 22:02</p>
+        </div>
+    </div>
+</body>
+</html>
