@@ -207,7 +207,7 @@ def extract_and_name_with_gemini(filepath):
             # --- STEP 3: GENERATE ---
             print("🧠 Generating content...")
             
-            model = genai.GenerativeModel('models/gemini-2.0-flash-lite-preview-02-05')
+            model = genai.GenerativeModel('models/gemini-2.5-flash')
             
             prompt_text = """
             You are an expert OCR engine.
