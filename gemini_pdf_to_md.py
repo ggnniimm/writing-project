@@ -207,7 +207,7 @@ def extract_and_name_with_gemini(filepath):
             # --- STEP 3: GENERATE ---
             print("🧠 Generating content...")
             
-            model = genai.GenerativeModel('models/gemini-2.5-flash-preview-09-2025')
+            model = genai.GenerativeModel('models/gemini-2.0-flash-lite-preview-02-05')
             
             prompt_text = """
             You are an expert OCR engine.
@@ -341,7 +341,7 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
     current_key_index = start_key_index
     genai.configure(api_key=api_keys[current_key_index])
     
-    model = genai.GenerativeModel('models/gemini-2.5-flash-preview-09-2025')
+    model = genai.GenerativeModel('models/gemini-2.5-flash')
     
     # Prompt is slightly different for chunks vs full doc
     if is_chunk:
