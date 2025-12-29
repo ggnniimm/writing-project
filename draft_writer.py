@@ -40,7 +40,7 @@ def call_gemini_api(prompt, api_key):
     Sends the prompt to Google Gemini API (Flash model) using SDK with streaming.
     """
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    model = genai.GenerativeModel('models/gemini-exp-1206')
     
     try:
         response = model.generate_content(prompt, stream=True)
