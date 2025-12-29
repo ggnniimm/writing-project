@@ -14,6 +14,9 @@
 - [ ] EP.76: บอกเลิกสัญญาช้า ≠ หลุดค่าปรับ 100% (Late Termination ≠ Full Fine Exemption): คดี อ. 1170/2568...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:44] 📝 เพิ่มบทเรียนทางกฎหมายใหม่ 7 บทความจากคำพิพากษาศาลปกครองสูงสุด**
+    > ผมได้ดำเนินการตามขั้นตอน SEW Workflow เพื่อสกัดองค์ความรู้จากคำพิพากษาศาลปกครองสูงสุดฉบับล่าสุด และทำการแปลงเอกสาร PDF ต้นฉบับให้อยู่ในรูปแบบ Markdown เพื่อการประมวลผล โดยบทความชุดนี้ครอบคลุมหลักการสำคัญเกี่ยวกับการจัดซื้อจัดจ้าง ค่าปรับล่าช้า การบอกเลิกสัญญา และการใช้ดุลพินิจของหน่วยงาน ส่งผลให้ผมสามารถเพิ่มบทเรียนใหม่จำนวน 7 บทความ ตั้งแต่ EP.135 จนถึง EP.141 เข้าสู่คลังข้อมูลของโครงการได้สำเร็จครับ
+
 *   **[11:24] 📝 ยืนยันความถูกต้องของชุดบทความ EP.129 ถึง EP.133**
     > ผมได้ดำเนินการตรวจสอบความแม่นยำของเนื้อหาสรุปบทความตั้งแต่ EP.129 ถึง EP.133 อย่างละเอียด โดยเทียบเคียงกับคำวินิจฉัยของศาลปกครองสูงสุดซึ่งเป็นข้อมูลหลัก ผลการตรวจสอบยืนยันว่าข้อมูลสรุปทั้งหมดมีความถูกต้องและสอดคล้องกับหลักฐานต้นฉบับ ผมจึงได้ดำเนินการปรับปรุงสถานะงานให้เป็นปัจจุบันเรียบร้อยแล้วครับ
 
@@ -2616,3 +2619,31 @@
 **[2025-12-29 09:22] เพิ่มเนื้อหา "งานหูช้าง" ใน EP.127 ตามคำพิพากษา**
     -   📝 แก้ไข: articles/html/ep127_boq_vs_drawings_o_947_2564.html
     -   📝 แก้ไข: articles/learning_from_judgments/ep127_boq_vs_drawings_o_947_2564.md
+
+**[2025-12-29 11:24] Verified EP.129 - EP.133**
+    -   ✨ สร้างใหม่: articles/html/ep129_no_penalty_without_reservation_o_503_2562.html
+    -   ✨ สร้างใหม่: articles/html/ep130_excessive_fine_reduction_o_146_2560.html
+    -   ✨ สร้างใหม่: articles/html/ep131_defect_repair_notice_o_943_2558.html
+    -   ✨ สร้างใหม่: articles/html/ep132_wrong_material_spec_implied_acceptance_o_529_2560.html
+    -   ✨ สร้างใหม่: articles/html/ep133_implied_delivery_after_repair_o_220_2557.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep129_no_penalty_without_reservation_o_503_2562.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep130_excessive_fine_reduction_o_146_2560.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep131_defect_repair_notice_o_943_2558.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep132_wrong_material_spec_implied_acceptance_o_529_2560.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep133_implied_delivery_after_repair_o_220_2557.md
+    -   ✨ สร้างใหม่: references/raw_pdfs/01012-510531-1f-560702-0000119631.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_903_2564.pdf	references/raw_pdfs/court/ref_sac_o_903_2564.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_947_2564.pdf	references/raw_pdfs/court/ref_sac_o_947_2564.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/etc/01012-610020-1f-631202-0000671873.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_220_2557.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_503_2562.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_529_2560.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_146_2560.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_146_2560.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_220_2557.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_294_2564.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_294_2564.pdf
+    -   📝 แก้ไข: references/rulings_court/ref_sac_o_503_2562.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_529_2560.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_943_2558.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_943_2558.pdf
