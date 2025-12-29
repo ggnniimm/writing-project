@@ -14,6 +14,9 @@
 - [ ] EP.76: บอกเลิกสัญญาช้า ≠ หลุดค่าปรับ 100% (Late Termination ≠ Full Fine Exemption): คดี อ. 1170/2568...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[16:29] 📝 บันทึกการเพิ่มเนื้อหาสาระคดีปกครองสูงสุด (อ. 13/2548) และปรับปรุงความถูกต้องของข้อมูล**
+    > โครงการมีความคืบหน้าในการรวบรวมข้อมูลตาม SEW Workflow สำหรับคดีหมายเลข อ. 13/2548 ซึ่งเป็นเรื่องที่เกี่ยวข้องกับความรับผิดชอบของเจ้าหน้าที่อันเกิดจากความประมาทเลินเล่อในการดำเนินการตามขั้นตอนในสัญญาจ้างก่อสร้าง ผมได้ดำเนินการเพิ่มบทความส่วนที่ EP.142 เข้าสู่ระบบ เพื่อครอบคลุมประเด็นสำคัญเรื่องความรับผิดชอบดังกล่าว และพร้อมกันนั้น ได้ตรวจสอบและแก้ไขหมายเลขคดีให้มีความถูกต้องสมบูรณ์ ส่งผลให้ชุดข้อมูลในระบบมีความสมบูรณ์และถูกต้องตามเอกสารอ้างอิงหลัก สำหรับการใช้งานต่อไปครับ
+
 *   **[15:44] 📝 เพิ่มบทเรียนทางกฎหมายใหม่ 7 บทความจากคำพิพากษาศาลปกครองสูงสุด**
     > ผมได้ดำเนินการตามขั้นตอน SEW Workflow เพื่อสกัดองค์ความรู้จากคำพิพากษาศาลปกครองสูงสุดฉบับล่าสุด และทำการแปลงเอกสาร PDF ต้นฉบับให้อยู่ในรูปแบบ Markdown เพื่อการประมวลผล โดยบทความชุดนี้ครอบคลุมหลักการสำคัญเกี่ยวกับการจัดซื้อจัดจ้าง ค่าปรับล่าช้า การบอกเลิกสัญญา และการใช้ดุลพินิจของหน่วยงาน ส่งผลให้ผมสามารถเพิ่มบทเรียนใหม่จำนวน 7 บทความ ตั้งแต่ EP.135 จนถึง EP.141 เข้าสู่คลังข้อมูลของโครงการได้สำเร็จครับ
 
@@ -2647,3 +2650,56 @@
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_529_2560.md
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_943_2558.md
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_943_2558.pdf
+
+**[2025-12-29 15:44] เพิ่มบทความ EP.135-EP.141 (7 บทความ) จากคำพิพากษาศาลปกครองสูงสุด - หลักการจัดซื้อจัดจ้าง ค่าปรับล่าช้า การบอกเลิกสัญญา และการใช้ดุลพินิจของหน่วยงาน**
+    -   📝 แก้ไข: articles/html/ep133_implied_delivery_after_repair_o_220_2557.html
+    -   ✨ สร้างใหม่: articles/html/ep134_late_termination_fine_reduction_o_514_2556.html
+    -   ✨ สร้างใหม่: articles/html/ep135_wrong_spec_late_termination_o_114_2555.html
+    -   ✨ สร้างใหม่: articles/html/ep136_excessive_fine_rate_reduction_o_144_2553.html
+    -   ✨ สร้างใหม่: articles/html/ep137_encroachment_public_benefit_o_38_2548.html
+    -   ✨ สร้างใหม่: articles/html/ep138_late_termination_fine_cap_o_394_2551.html
+    -   ✨ สร้างใหม่: articles/html/ep139_financial_difficulty_blacklisting_o_546_2551.html
+    -   ✨ สร้างใหม่: articles/html/ep140_late_termination_agency_negligence_o_432_2551.html
+    -   ✨ สร้างใหม่: articles/html/ep141_agency_approved_change_delay_o_513_2554.html
+    -   📝 แก้ไข: articles/learning_from_judgments/ep133_implied_delivery_after_repair_o_220_2557.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep134_late_termination_fine_reduction_o_514_2556.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep135_wrong_spec_late_termination_o_114_2555.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep136_excessive_fine_rate_reduction_o_144_2553.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep137_encroachment_public_benefit_o_38_2548.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep138_late_termination_fine_cap_o_394_2551.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep139_financial_difficulty_blacklisting_o_546_2551.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep140_late_termination_agency_negligence_o_432_2551.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep141_agency_approved_change_delay_o_513_2554.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_1076_2566.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_1076_2566.pdf
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_239_2551.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_239_2551.pdf
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_732_2555.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_88_2550.md
+    -   ✨ สร้างใหม่: references/etc/ref_sac_o_88_2550.pdf
+    -   ✨ สร้างใหม่: references/etc/retroactive_penalty_increase_o_732_2555.md
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_114_2555.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_122_2564.pdf	references/raw_pdfs/court/ref_sac_o_122_2564.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_144_2553.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_146_2560.pdf	references/raw_pdfs/court/ref_sac_o_146_2560.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_220_2557.pdf	references/raw_pdfs/court/ref_sac_o_220_2557.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_294_2564.pdf	references/raw_pdfs/court/ref_sac_o_294_2564.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_38_2548.pdf
+    -   📝 แก้ไข: references/raw_pdfs/court/ref_sac_o_394_2551.pdf
+    -   📝 แก้ไข: references/raw_pdfs/court/ref_sac_o_503_2562.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/01012-510531-1f-560702-0000119631.pdf	references/raw_pdfs/court/ref_sac_o_514_2556.pdf
+    -   🔧 การกระทำ: 100	references/raw_pdfs/ref_sac_o_529_2560.pdf	references/raw_pdfs/court/ref_sac_o_529_2560.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/court/ref_sac_o_732_2555.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_943_2558.pdf	references/raw_pdfs/court/ref_sac_o_943_2558.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_432_2551.pdf
+    -   🗑️ ลบ: references/raw_pdfs/ref_sac_o_503_2562.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_513_2554.pdf
+    -   ✨ สร้างใหม่: references/raw_pdfs/ref_sac_o_546_2551.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_114_2555.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_144_2553.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_38_2548.md
+    -   📝 แก้ไข: references/rulings_court/ref_sac_o_394_2551.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_432_2551.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_513_2554.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_514_2556.md
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_546_2551.md
