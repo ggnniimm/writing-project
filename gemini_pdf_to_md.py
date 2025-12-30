@@ -215,10 +215,12 @@ def extract_and_name_with_gemini(filepath):
             
             Rules:
             1. Extract ALL text verbatim. No summarization.
-            2. Preserve the structure (headers, tables, lists) as best as possible.
-            3. Do NOT wrap the result in JSON or code blocks (like ```markdown). Just return raw markdown text.
-            4. If there are tables, format them as Markdown tables.
-            5. Ignore headers/footers that are just page numbers, but keep document headers.
+            2. PRESERVE THE VISUAL STRUCTURE and LAYOUT as much as possible using Markdown.
+            3. FORCE TOC ALIGNMENT: For Table of Contents, ALWAYS keep the topic and its page number on the SAME LINE. If the text extraction naturally splits them, you must MERGE them back. Example: "Topic ... 123" NOT "Topic\n123".
+            7. If a line would contain ONLY a number (likely a page number from a TOC), append it to the previous line instead of creating a new line.
+            4. Do NOT wrap the result in JSON or code blocks (like ```markdown). Just return raw markdown text.
+            5. If there are tables, format them as Markdown tables.
+            6. PRESERVE ALL PAGE NUMBERS, even if they appear in headers or footers. Do not remove them.
             """
 
             # Use stream=True for responsiveness
