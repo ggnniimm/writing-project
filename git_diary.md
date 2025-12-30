@@ -1,6 +1,23 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 30 ธันวาคม 2025
+**🤖 Start of Day:**
+
+### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+**งานต่อเนื่อง:**
+*   (See task.md)
+
+**เป้าหมายระยะยาว (จาก content_ideas.md):**
+- [ ] 1. การปรับเกิน 10% (Insights from EP.08): เรียนรู้จากคำพิพากษา EP.08 (คดี อ. 836/2563)...
+- [ ] 2. ค่าปรับ 10% - เมื่อไหร่ศาลลด เมื่อไหร่ศาลยอม (Case Comparison): สังเกตจากคำพิพากษาหลายคดีที่มีผลต่างกัน...
+- [ ] EP.76: บอกเลิกสัญญาช้า ≠ หลุดค่าปรับ 100% (Late Termination ≠ Full Fine Exemption): คดี อ. 1170/2568...
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[14:36] 📝 รายงานการสกัดเนื้อหา PDF พร้อมการจัดการ Token Limit**
+    > เอกสาร PDF ชื่อ 'Academic_261125_104912' มีขนาดใหญ่เกินกว่าขีดจำกัดของ Token Limit ที่กำหนดไว้ ผมจึงได้ปรับกลยุทธ์โดยการแบ่งไฟล์ (Split) เพื่อให้สามารถประมวลผลเป็นส่วนย่อยได้ จากนั้นจึงดำเนินการรวมไฟล์ (Merge) พร้อมทั้งแก้ไขปัญหาความผิดพลาดของรหัสภาษาไทย ทำให้การสกัดเนื้อหาทั้งหมดเสร็จสิ้นสมบูรณ์ตามวัตถุประสงค์ที่ตั้งไว้ครับ
+
+
 ## 📅 29 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -2786,3 +2803,13 @@
     -   📝 แก้ไข: content_ideas.md
 
 **[2025-12-29 16:53] Add Content Idea: Gross Negligence**
+
+**[2025-12-29 16:56] Add Content Idea: Gross Negligence**
+    -   ✨ สร้างใหม่: references/raw_pdfs/01021-531412-1f-570708-0000131034.pdf
+
+**[Drafting Article EP.160]**
+- **Time:** 10:33
+- **Action:** Drafted Article **EP.160** based on Supreme Administrative Court Ruling **O. 343/2566** (อ. ๓๔๓/๒๕๖๖).
+- **Topic:** "Pre-Contract Breach & Bid Bond Seizure" (สัญญาซองเกิดทันทีที่ยื่นซอง).
+- **Key Insight:** Even if the main contract is not signed, the "Bid Bond Agreement" is binding. Failure to sign within the deadline constitutes a breach, allowing the agency to confiscate the bid bond. The 15-day return rule does not apply to the defaulting bidder.
+- **Output:** `articles/learning_from_judgments/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.md`

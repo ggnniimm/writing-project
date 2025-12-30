@@ -1,22 +1,26 @@
 import google.generativeai as genai
 import os
 
-# Load API Key
-api_keys = []
-env_path = os.path.join(os.path.dirname(__file__), ".env")
-if os.path.exists(env_path):
-    with open(env_path, "r") as f:
-        for line in f:
-            if line.startswith("GEMINI_API_KEY") and "=" in line:
-                k_val = line.split("=", 1)[1].strip().strip('"').strip("'")
-                if k_val:
-                    api_keys.append(k_val)
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    # Try to find one from .env
+    try:
+        with open(".env", "r") as f:
+            for line in f:
+                if line.startswith("GEMINI_API_KEY"):
+                    api_key = line.split("=")[1].strip().strip('"')
+                    break
+    except:
+        pass
 
-if api_keys:
-    genai.configure(api_key=api_keys[0])
-    print("Available Models:")
-    for m in genai.list_models():
-        if 'generateContent' in m.supported_generation_methods:
-            print(m.name)
+if api_key:
+    genai.configure(api_key=api_key)
+    try:
+        print("Listing models...")
+        for m in genai.list_models():
+            if 'generateContent' in m.supported_generation_methods:
+                print(f"{m.name} (input limit: {m.input_token_limit})")
+    except Exception as e:
+        print(f"Error: {e}")
 else:
-    print("No API Key found")
+    print("No API key found.")
