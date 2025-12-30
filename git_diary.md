@@ -14,6 +14,9 @@
 - [ ] EP.76: บอกเลิกสัญญาช้า ≠ หลุดค่าปรับ 100% (Late Termination ≠ Full Fine Exemption): คดี อ. 1170/2568...
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[15:51] 📝 รายงานการแก้ไขปัญหา Thai Encoding และการแปลงเอกสารอ้างอิง**
+    > ในการรวบรวมเอกสารอ้างอิงนั้น ผมได้ดำเนินการแก้ไขปัญหาการเข้ารหัสภาษาไทย (Thai encoding issues) ที่พบในไฟล์สำคัญคือ ref_research_admin_court_rulings_digest_v13_2568.md ซึ่งจำเป็นต้องแก้ไขจำนวนกว่า 350 จุด เพื่อให้เนื้อหามีความถูกต้องสมบูรณ์ ควบคู่กันไป ผมยังได้ทำการแปลงเอกสารสรุป (digest) รุ่น v13 และ v14 จากรูปแบบ PDF มาเป็นรูปแบบ Markdown เพื่อเป็นการจัดมาตรฐานและเตรียมความพร้อมของชุดข้อมูลครับ
+
 *   **[14:36] 📝 รายงานการสกัดเนื้อหา PDF พร้อมการจัดการ Token Limit**
     > เอกสาร PDF ชื่อ 'Academic_261125_104912' มีขนาดใหญ่เกินกว่าขีดจำกัดของ Token Limit ที่กำหนดไว้ ผมจึงได้ปรับกลยุทธ์โดยการแบ่งไฟล์ (Split) เพื่อให้สามารถประมวลผลเป็นส่วนย่อยได้ จากนั้นจึงดำเนินการรวมไฟล์ (Merge) พร้อมทั้งแก้ไขปัญหาความผิดพลาดของรหัสภาษาไทย ทำให้การสกัดเนื้อหาทั้งหมดเสร็จสิ้นสมบูรณ์ตามวัตถุประสงค์ที่ตั้งไว้ครับ
 
@@ -2813,3 +2816,40 @@
 - **Topic:** "Pre-Contract Breach & Bid Bond Seizure" (สัญญาซองเกิดทันทีที่ยื่นซอง).
 - **Key Insight:** Even if the main contract is not signed, the "Bid Bond Agreement" is binding. Failure to sign within the deadline constitutes a breach, allowing the agency to confiscate the bid bond. The 15-day return rule does not apply to the defaulting bidder.
 - **Output:** `articles/learning_from_judgments/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.md`
+
+**[2025-12-30 14:36] ดำเนินการสกัดเนื้อหาจากไฟล์ PDF Academic_261125_104912 โดยแก้ไขปัญหา Token Limit ด้วยการแบ่งไฟล์ รวมไฟล์ และแก้ไขรหัสภาษาไทย เรียบร้อยแล้ว**
+    -   ✨ สร้างใหม่: articles/html/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.html
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.md
+    -   ✨ สร้างใหม่: etc/ref_research_admin_court_rulings_digest_v14_2569.md
+    -   ✨ สร้างใหม่: etc/ref_research_admin_court_rulings_digest_v14_2569.pdf
+    -   ✨ สร้างใหม่: etc/ref_research_administrative_contracts_2551.md
+    -   ✨ สร้างใหม่: etc/ref_research_administrative_contracts_2551.pdf
+    -   ✨ สร้างใหม่: etc/ref_research_contractor_breach_2550.md
+    -   ✨ สร้างใหม่: etc/ref_research_contractor_breach_2550.pdf
+    -   ✨ สร้างใหม่: etc/ref_research_neutrality_principle_2556.md
+    -   ✨ สร้างใหม่: etc/ref_research_neutrality_principle_2556.pdf
+    -   ✨ สร้างใหม่: etc/ref_research_procurement_disputes_2556.md
+    -   ✨ สร้างใหม่: etc/ref_research_procurement_disputes_2556.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_cmd_1283_2566.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01013-660422-2f-660911-0000756257.pdf	etc/ref_sac_cmd_1283_2566.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_cmd_1424_2566.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01013-661057-2f-660927-0000759073.pdf	etc/ref_sac_cmd_1424_2566.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_cmd_1649_2566.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01013-651159-2f-661127-0000762910.pdf	etc/ref_sac_cmd_1649_2566.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_cmd_181_2567.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01013-661113-2f-670306-0000771118.pdf	etc/ref_sac_cmd_181_2567.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_cmd_1910_2566.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01013-660910-2f-670110-0000766443.pdf	etc/ref_sac_cmd_1910_2566.pdf
+    -   ✨ สร้างใหม่: etc/ref_sac_o_372_2567.md
+    -   🔧 การกระทำ: 100	raw_pdfs/01012-640968-1f-680610-0000809546.pdf	etc/ref_sac_o_372_2567.pdf
+    -   ✨ สร้างใหม่: fix_thai.py
+    -   📝 แก้ไข: list_models.py
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_1000_2566.pdf	references/raw_pdfs/court/ref_sac_o_1000_2566.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_1129_2566.pdf	references/raw_pdfs/court/ref_sac_o_1129_2566.pdf
+    -   🔧 การกระทำ: 100	references/rulings_court/ref_sac_o_121_2564.pdf	references/raw_pdfs/court/ref_sac_o_121_2564.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/01012-630641-1f-660614-0000749225.pdf	references/raw_pdfs/court/ref_sac_o_343_2566.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_432_2560.pdf	references/raw_pdfs/court/ref_sac_o_432_2560.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_607_2565.pdf	references/raw_pdfs/court/ref_sac_o_607_2565.pdf
+    -   🔧 การกระทำ: 100	raw_pdfs/ref_sac_o_708_2566.pdf	references/raw_pdfs/court/ref_sac_o_708_2566.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_343_2566.md
+    -   ✨ สร้างใหม่: split_pdf.py
