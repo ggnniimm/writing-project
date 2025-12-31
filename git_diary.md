@@ -2901,3 +2901,14 @@
     -   ✨ สร้างใหม่: etc/ref_sac_unknown.pdf
     -   📝 แก้ไข: fix_thai.py
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_unknown.md
+
+**[2025-12-31 23:05] Bulk Generation & Verification of Court Ruling Digest (Parts 23-39)**
+- **Objective:** Convert PDF digest parts 23-39 to Markdown and verify accuracy.
+- **Actions:**
+    - Developed parallel processing script `bulk_convert_parts.py` to accelerate conversion.
+    - Recovered missing `part_25` by re-extracting from the master digest PDF using `recover_part_25.py`.
+    - Resolved filename conflict for `part_27` (originally named `ref_sac_unknown`).
+    - Identified and fixed systemic OCR error where "2568" was misread as "2564" across 12 files (Parts 25-34, 37-38) using `fix_years.py`.
+    - Verified 100% clean numeral citations in final check.
+- **Created Scripts:** `bulk_convert_parts.py`, `verify_parts.py`, `fix_years.py`, `recover_part_25.py`, `convert_single.py`.
+- **Outcome:** Complete set of Markdown files for Parts 23-39 ready for use.
