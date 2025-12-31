@@ -5,6 +5,7 @@
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
 ### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   รายงานสรุปผลประจำวัน
 *   ตรวจสอบและแก้ไขเลขไทยใน part_14 และสกัดข้อมูล part_15
 *   สกัดข้อมูล part_16 (Extract PDF)
 *   Syncing Extracted Parts (16-21)
