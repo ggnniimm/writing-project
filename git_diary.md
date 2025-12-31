@@ -23,6 +23,9 @@
 *   **[22:10] 📝 Syncing Extracted Parts (16-21)**
     > ดำเนินการ Sync ข้อมูลล่าสุดเข้าสู่ Git Repository รวมถึงไฟล์ที่สกัดใหม่ (part_16 ถึง part_21) และบันทึกการทำงานนี้แบบ Manual เนื่องจากไม่พบสคริปต์อัตโนมัติ (ppp helpers) ในระบบครับ
 
+*   **[22:20] 📝 Verified and Corrected Numerals in Part 16**
+    > Verified `part_16.md` against extracted text. Corrected "บทที่ 5" to "บทที่ ๖" and "๑๐๘ (๔)" to "๑๐๘ (๙)".
+
 ## 📅 30 ธันวาคม 2025
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
