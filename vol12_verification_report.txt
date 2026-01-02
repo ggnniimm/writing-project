@@ -1,0 +1,729 @@
+VOLUME 12 VERIFICATION REPORT
+============================================================
+
+Part: Academic_120324_111151_part_01.md
+  Lines: 488
+  Numerals: MD=508 PDF=501
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=12 PDF=0 (Diff=-12)
+    ๑๑๓๓๕๕๕๕: MD=0 PDF=6 (Diff=6)
+    ๘๑: MD=0 PDF=4 (Diff=4)
+    ๘๐: MD=4 PDF=0 (Diff=-4)
+    ๑๒: MD=8 PDF=6 (Diff=-2)
+----------------------------------------
+Part: Academic_120324_111151_part_02.md
+  Lines: 410
+  Numerals: MD=662 PDF=971
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑: MD=34 PDF=48 (Diff=14)
+    ๒: MD=33 PDF=47 (Diff=14)
+    ๓: MD=21 PDF=32 (Diff=11)
+    ๑๑๓๓๕๕๕๕: MD=0 PDF=10 (Diff=10)
+    ๑๐๓๗: MD=0 PDF=8 (Diff=8)
+----------------------------------------
+Part: Academic_120324_111151_part_03.md
+  Lines: 608
+  Numerals: MD=390 PDF=416
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=15 PDF=8 (Diff=-7)
+    ๒๕๖๔: MD=13 PDF=18 (Diff=5)
+    ๓: MD=50 PDF=54 (Diff=4)
+    ๖: MD=3 PDF=7 (Diff=4)
+    ๒: MD=10 PDF=14 (Diff=4)
+----------------------------------------
+Part: Academic_120324_111151_part_04.md
+  Lines: 656
+  Numerals: MD=410 PDF=401
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๖๘: MD=0 PDF=1 (Diff=1)
+    ๖๘: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=7 PDF=8 (Diff=1)
+    ๖๔: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_05.md
+  Lines: 669
+  Numerals: MD=390 PDF=406
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๑: MD=52 PDF=55 (Diff=3)
+    ๒๕๔๙: MD=1 PDF=3 (Diff=2)
+    ๑๙: MD=1 PDF=3 (Diff=2)
+    ๙: MD=24 PDF=26 (Diff=2)
+----------------------------------------
+Part: Academic_120324_111151_part_06.md
+  Lines: 651
+  Numerals: MD=416 PDF=408
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=10 PDF=12 (Diff=2)
+    ๑๑๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๑๖: MD=0 PDF=1 (Diff=1)
+    ๑๑๖: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_07.md
+  Lines: 720
+  Numerals: MD=487 PDF=478
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๑๓๒: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๑๓๐: MD=0 PDF=1 (Diff=1)
+    ๖: MD=3 PDF=4 (Diff=1)
+    ๑๓๕๕๑๓๔: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_08.md
+  Lines: 665
+  Numerals: MD=479 PDF=470
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=4 PDF=5 (Diff=1)
+    ๑๔๘: MD=1 PDF=0 (Diff=-1)
+    ๑๕๘: MD=1 PDF=0 (Diff=-1)
+    ๑๕๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_09.md
+  Lines: 291
+  Numerals: MD=402 PDF=392
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๖๒: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=6 PDF=7 (Diff=1)
+    ๑๓๕๕๑๖๘: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๑๗๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_10.md
+  Lines: 832
+  Numerals: MD=540 PDF=531
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=4 PDF=5 (Diff=1)
+    ๑๙๔: MD=1 PDF=0 (Diff=-1)
+    ๑๘๒: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๙๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_11.md
+  Lines: 762
+  Numerals: MD=780 PDF=772
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๒๑๘: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=4 PDF=5 (Diff=1)
+    ๒๑๐: MD=1 PDF=0 (Diff=-1)
+    ๒๑๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_12.md
+  Lines: 777
+  Numerals: MD=492 PDF=482
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๒๕๔๙: MD=1 PDF=0 (Diff=-1)
+    ๒๓๘: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๒๒๒: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๒๓๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_13.md
+  Lines: 704
+  Numerals: MD=413 PDF=405
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๖: MD=1 PDF=2 (Diff=1)
+    ๑๓๕๕๒๔๔: MD=0 PDF=1 (Diff=1)
+    ๒๔๒: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๒๔๒: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_14.md
+  Lines: 283
+  Numerals: MD=447 PDF=437
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๒๗๒: MD=0 PDF=1 (Diff=1)
+    ๒๖๒: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=17 PDF=18 (Diff=1)
+    ๒๖๘: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_15.md
+  Lines: 764
+  Numerals: MD=511 PDF=501
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๒๙๖: MD=1 PDF=0 (Diff=-1)
+    ๗: MD=9 PDF=10 (Diff=1)
+    ๑๓,๓๗๙,๔๔๒.๘๓: MD=0 PDF=1 (Diff=1)
+    ๒๙๘: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_16.md
+  Lines: 758
+  Numerals: MD=414 PDF=410
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๙.๔๐: MD=2 PDF=0 (Diff=-2)
+    ๑๙.๘๐: MD=0 PDF=2 (Diff=2)
+    ๓๑๒: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=1 PDF=2 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_17.md
+  Lines: 740
+  Numerals: MD=454 PDF=444
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๓๓๘: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๓๓๐: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๓๒๘: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๓๓๖: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_18.md
+  Lines: 652
+  Numerals: MD=332 PDF=324
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=17 PDF=9 (Diff=-8)
+    ๓๔๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๓๔๐: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๓๔๖: MD=0 PDF=1 (Diff=1)
+    ๓๕๖: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_19.md
+  Lines: 665
+  Numerals: MD=493 PDF=484
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๓๖๐: MD=1 PDF=0 (Diff=-1)
+    ๓๗๒: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=19 PDF=20 (Diff=1)
+    ๓๗๖: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_20.md
+  Lines: 663
+  Numerals: MD=345 PDF=336
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=1 PDF=3 (Diff=2)
+    ๑๓๕๕๓๙๘: MD=0 PDF=1 (Diff=1)
+    ๓๘๖: MD=1 PDF=0 (Diff=-1)
+    ๓๘๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_21.md
+  Lines: 703
+  Numerals: MD=529 PDF=522
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=1 PDF=3 (Diff=2)
+    ๗.๙๗: MD=0 PDF=2 (Diff=2)
+    ๗.๔๗: MD=2 PDF=0 (Diff=-2)
+    ๔๐๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_22.md
+  Lines: 736
+  Numerals: MD=703 PDF=700
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=3 PDF=6 (Diff=3)
+    ๔๒๔: MD=9 PDF=8 (Diff=-1)
+    ๔๓๖: MD=1 PDF=0 (Diff=-1)
+    ๗: MD=11 PDF=12 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_23.md
+  Lines: 702
+  Numerals: MD=349 PDF=339
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๔๔๔: MD=0 PDF=1 (Diff=1)
+    ๔๕๖: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๔๔๐: MD=0 PDF=1 (Diff=1)
+    ๔๕๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_24.md
+  Lines: 616
+  Numerals: MD=390 PDF=382
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=18 PDF=10 (Diff=-8)
+    ๔๖๘: MD=1 PDF=0 (Diff=-1)
+    ๔๖๐: MD=1 PDF=0 (Diff=-1)
+    ๔๗๒: MD=1 PDF=0 (Diff=-1)
+    ๔๖๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_25.md
+  Lines: 716
+  Numerals: MD=379 PDF=371
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๔๙๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๔๙๒: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๔๙๔: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๔๙๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_26.md
+  Lines: 717
+  Numerals: MD=387 PDF=378
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๕๐๒: MD=1 PDF=0 (Diff=-1)
+    ๕๑๖: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๕๑๔: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๕๑๖: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_27.md
+  Lines: 653
+  Numerals: MD=491 PDF=491
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๐: MD=3 PDF=12 (Diff=9)
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๑๓๕๕๕๓๒: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๕๓๖: MD=0 PDF=1 (Diff=1)
+    ๕๓๘: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_28.md
+  Lines: 698
+  Numerals: MD=492 PDF=483
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๕๕๘: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=13 PDF=14 (Diff=1)
+    ๕๔๘: MD=1 PDF=0 (Diff=-1)
+    ๗: MD=1 PDF=2 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_29.md
+  Lines: 667
+  Numerals: MD=536 PDF=527
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๕๖๐: MD=0 PDF=1 (Diff=1)
+    ๖: MD=8 PDF=9 (Diff=1)
+    ๑๓๕๕๕๗๔: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๕๖๘: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_30.md
+  Lines: 741
+  Numerals: MD=404 PDF=395
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๕๙๐: MD=1 PDF=0 (Diff=-1)
+    ๕๙๖: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๕๘๔: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๕๙๖: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_31.md
+  Lines: 644
+  Numerals: MD=340 PDF=333
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=18 PDF=10 (Diff=-8)
+    ๑๓๕๕๖๑๐: MD=0 PDF=1 (Diff=1)
+    ๖๑๐: MD=1 PDF=0 (Diff=-1)
+    ๖: MD=1 PDF=2 (Diff=1)
+    ๑๓๕๕๖๐๖: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_32.md
+  Lines: 612
+  Numerals: MD=472 PDF=555
+  Broken Thai Chars: 1
+  Top Numeral Discrepancies:
+    ๓: MD=21 PDF=41 (Diff=20)
+    ๑๕๔๐๐: MD=0 PDF=11 (Diff=11)
+    ๒๕๓๓: MD=1 PDF=8 (Diff=7)
+    ๓๒๖๘: MD=0 PDF=7 (Diff=7)
+    ๑๓๕๕: MD=17 PDF=10 (Diff=-7)
+----------------------------------------
+Part: Academic_120324_111151_part_33.md
+  Lines: 686
+  Numerals: MD=487 PDF=480
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=12 PDF=15 (Diff=3)
+    ๑๓๕๕๖๔๖: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๖๕๖: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๖๕๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_34.md
+  Lines: 705
+  Numerals: MD=363 PDF=356
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๐: MD=0 PDF=3 (Diff=3)
+    ๖๗๖: MD=1 PDF=0 (Diff=-1)
+    ๖๖๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๖๗๒: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_35.md
+  Lines: 683
+  Numerals: MD=493 PDF=485
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=8 PDF=10 (Diff=2)
+    ๙๒: MD=3 PDF=1 (Diff=-2)
+    ๙: MD=1 PDF=3 (Diff=2)
+    ๑๓๕๕๖๙๘: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_36.md
+  Lines: 725
+  Numerals: MD=425 PDF=415
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๗๑๔: MD=1 PDF=0 (Diff=-1)
+    ๗๐๔: MD=1 PDF=0 (Diff=-1)
+    ๗๑๘: MD=1 PDF=0 (Diff=-1)
+    ๗๑๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_37.md
+  Lines: 736
+  Numerals: MD=476 PDF=468
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖,๒๓๙,๕๕๒: MD=3 PDF=0 (Diff=-3)
+    ๖,๒๓๙,๔๕๒: MD=0 PDF=3 (Diff=3)
+    ๖: MD=1 PDF=3 (Diff=2)
+    ๑๓๕๕๗๒๒: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_38.md
+  Lines: 738
+  Numerals: MD=468 PDF=460
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=6 PDF=9 (Diff=3)
+    ๙: MD=2 PDF=4 (Diff=2)
+    ๔๙: MD=1 PDF=0 (Diff=-1)
+    ๗๕๖: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_39.md
+  Lines: 708
+  Numerals: MD=426 PDF=416
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๗๖๒: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๗๖๘: MD=0 PDF=1 (Diff=1)
+    ๗๖๐: MD=1 PDF=0 (Diff=-1)
+    ๗๖๔: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_40.md
+  Lines: 670
+  Numerals: MD=354 PDF=357
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๑๓๕๕๗๘๒: MD=0 PDF=1 (Diff=1)
+    ๖: MD=1 PDF=2 (Diff=1)
+    ๗๓๒: MD=0 PDF=1 (Diff=1)
+    ๗: MD=5 PDF=6 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_41.md
+  Lines: 721
+  Numerals: MD=702 PDF=692
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๘๐๐: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๘๑๘: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๘๐๖: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๘๑๒: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_42.md
+  Lines: 655
+  Numerals: MD=617 PDF=614
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๖: MD=1 PDF=4 (Diff=3)
+    ๘: MD=12 PDF=14 (Diff=2)
+    ๘๒๘: MD=1 PDF=0 (Diff=-1)
+    ๘๓๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_43.md
+  Lines: 709
+  Numerals: MD=541 PDF=537
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=6 PDF=12 (Diff=6)
+    ๑๓๕๕๘๔๔: MD=0 PDF=1 (Diff=1)
+    ๘๔๐: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๘๕๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_44.md
+  Lines: 677
+  Numerals: MD=531 PDF=524
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=4 PDF=9 (Diff=5)
+    ๒: MD=55 PDF=53 (Diff=-2)
+    ๘๗๒: MD=1 PDF=0 (Diff=-1)
+    ๘๖๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_45.md
+  Lines: 707
+  Numerals: MD=580 PDF=571
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๘๙๘: MD=0 PDF=1 (Diff=1)
+    ๖: MD=8 PDF=9 (Diff=1)
+    ๑๓๕๕๘๙๐: MD=0 PDF=1 (Diff=1)
+    ๘๙๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_46.md
+  Lines: 675
+  Numerals: MD=308 PDF=298
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๙๐๐: MD=1 PDF=0 (Diff=-1)
+    ๙๐๘: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๙๑๘: MD=0 PDF=1 (Diff=1)
+    ๙๑๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_47.md
+  Lines: 658
+  Numerals: MD=414 PDF=404
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๙๓๐: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๙๓๘: MD=0 PDF=1 (Diff=1)
+    ๑๓๕๕๙๓๒: MD=0 PDF=1 (Diff=1)
+    ๙๒๔: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_48.md
+  Lines: 723
+  Numerals: MD=376 PDF=367
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๙๔๔: MD=1 PDF=0 (Diff=-1)
+    ๙๔๘: MD=1 PDF=0 (Diff=-1)
+    ๙๕๐: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๙๔๔: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_49.md
+  Lines: 478
+  Numerals: MD=340 PDF=395
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๒๕๖๖: MD=1 PDF=6 (Diff=5)
+    ๑๓๕๕: MD=14 PDF=10 (Diff=-4)
+    ๒๗: MD=1 PDF=4 (Diff=3)
+    ๓: MD=10 PDF=13 (Diff=3)
+    ๒๕๖๐: MD=4 PDF=7 (Diff=3)
+----------------------------------------
+Part: Academic_120324_111151_part_50.md
+  Lines: 580
+  Numerals: MD=350 PDF=345
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=18 PDF=11 (Diff=-7)
+    ๖: MD=4 PDF=6 (Diff=2)
+    ๗: MD=2 PDF=4 (Diff=2)
+    ๔: MD=18 PDF=16 (Diff=-2)
+    ๙: MD=8 PDF=10 (Diff=2)
+----------------------------------------
+Part: Academic_120324_111151_part_51.md
+  Lines: 696
+  Numerals: MD=438 PDF=433
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=9 PDF=15 (Diff=6)
+    ๑๐๐๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๐๑๖: MD=0 PDF=1 (Diff=1)
+    ๑๐๐๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_52.md
+  Lines: 667
+  Numerals: MD=478 PDF=474
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=15 PDF=20 (Diff=5)
+    ๑๐๓๐: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๐๒๒: MD=0 PDF=1 (Diff=1)
+    ๑๐๓๘: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_53.md
+  Lines: 629
+  Numerals: MD=451 PDF=447
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๖: MD=9 PDF=14 (Diff=5)
+    ๑๓๕๕๑๐๔๐: MD=0 PDF=1 (Diff=1)
+    ๑๐๕๘: MD=1 PDF=0 (Diff=-1)
+    ๗: MD=7 PDF=8 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_54.md
+  Lines: 705
+  Numerals: MD=526 PDF=522
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=8 PDF=14 (Diff=6)
+    ๑๓๕๕๑๐๖๖: MD=0 PDF=1 (Diff=1)
+    ๑๐๖๘: MD=1 PDF=0 (Diff=-1)
+    ๑๐๖๔: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_55.md
+  Lines: 653
+  Numerals: MD=498 PDF=492
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๖: MD=7 PDF=10 (Diff=3)
+    ๙: MD=1 PDF=3 (Diff=2)
+    ๔๙: MD=3 PDF=2 (Diff=-1)
+    ๗: MD=6 PDF=7 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_56.md
+  Lines: 746
+  Numerals: MD=469 PDF=463
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=14 PDF=18 (Diff=4)
+    ๑๑๐๖: MD=1 PDF=0 (Diff=-1)
+    ๑๑๐๐: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๑๑๒: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_57.md
+  Lines: 695
+  Numerals: MD=432 PDF=423
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=19 PDF=10 (Diff=-9)
+    ๑๑๒๘: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๑๒๖: MD=0 PDF=1 (Diff=1)
+    ๑๑๓๒: MD=1 PDF=0 (Diff=-1)
+    ๑๑๓๖: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_58.md
+  Lines: 734
+  Numerals: MD=433 PDF=423
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๑๔๘: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๑๕๘: MD=0 PDF=1 (Diff=1)
+    ๑๑๔๖: MD=1 PDF=0 (Diff=-1)
+    ๑๑๔๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_59.md
+  Lines: 673
+  Numerals: MD=448 PDF=443
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=4 PDF=9 (Diff=5)
+    ๑๓๕๕๑๑๖๘: MD=0 PDF=1 (Diff=1)
+    ๑๑๗๖: MD=1 PDF=0 (Diff=-1)
+    ๑๑๗๒: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_60.md
+  Lines: 755
+  Numerals: MD=563 PDF=557
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=4 PDF=8 (Diff=4)
+    ๘๕: MD=9 PDF=10 (Diff=1)
+    ๑๑๘๔: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๑๘๔: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_61.md
+  Lines: 712
+  Numerals: MD=420 PDF=411
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๒๐๖: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๒๐๔: MD=0 PDF=1 (Diff=1)
+    ๖: MD=8 PDF=9 (Diff=1)
+    ๑๓๕๕๑๒๐๐: MD=0 PDF=1 (Diff=1)
+----------------------------------------
+Part: Academic_120324_111151_part_62.md
+  Lines: 652
+  Numerals: MD=450 PDF=440
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๑๓๕๕๑๒๓๐: MD=0 PDF=1 (Diff=1)
+    ๑๒๓๐: MD=1 PDF=0 (Diff=-1)
+    ๑๓๕๕๑๒๒๒: MD=0 PDF=1 (Diff=1)
+    ๑๒๓๘: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_63.md
+  Lines: 712
+  Numerals: MD=722 PDF=714
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=10 (Diff=-10)
+    ๖: MD=2 PDF=4 (Diff=2)
+    ๑๓๕๕๑๒๔๘: MD=0 PDF=1 (Diff=1)
+    ๑๒๕๖: MD=1 PDF=0 (Diff=-1)
+    ๑๒๔๐: MD=1 PDF=0 (Diff=-1)
+----------------------------------------
+Part: Academic_120324_111151_part_64.md
+  Lines: 621
+  Numerals: MD=793 PDF=785
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=18 PDF=5 (Diff=-13)
+    ๑๑๑๓๓๓๕๕๕๕๕๕: MD=0 PDF=4 (Diff=4)
+    ๙๘๘: MD=6 PDF=3 (Diff=-3)
+    ๕๙๔: MD=4 PDF=2 (Diff=-2)
+    ๓๓๗๗: MD=2 PDF=0 (Diff=-2)
+----------------------------------------
+Part: Academic_120324_111151_part_65.md
+  Lines: 688
+  Numerals: MD=1550 PDF=1565
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=20 PDF=0 (Diff=-20)
+    ๑๑๑๓๓๓๕๕๕๕๕๕: MD=0 PDF=10 (Diff=10)
+    ๖๘๘: MD=4 PDF=0 (Diff=-4)
+    ๖๑๘: MD=0 PDF=4 (Diff=4)
+    ๗๖๔: MD=4 PDF=0 (Diff=-4)
+----------------------------------------
+Part: Academic_120324_111151_part_66.md
+  Lines: 559
+  Numerals: MD=989 PDF=979
+  Broken Thai Chars: 0
+  Top Numeral Discrepancies:
+    ๑๓๕๕: MD=13 PDF=2 (Diff=-11)
+    ๓๓๓: MD=10 PDF=0 (Diff=-10)
+    ๑๑๑๓๓๓๕๕๕๕๕๕: MD=0 PDF=5 (Diff=5)
+    ๓๓๑: MD=4 PDF=0 (Diff=-4)
+    ๓๐๑: MD=1 PDF=4 (Diff=3)
+----------------------------------------
