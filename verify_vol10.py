@@ -65,8 +65,10 @@ def verify_parts():
             with open(md_file, 'r', encoding='utf-8') as f:
                 content = f.read()
                 lines = [l.strip() for l in content.split('\n') if l.strip()]
-                if lines:
-                    md_last_line = lines[-1]
+                # Filter footers from bottom up
+                valid_lines = [l for l in lines if not is_footer(l)]
+                if valid_lines:
+                    md_last_line = valid_lines[-1]
         except Exception as e:
              md_last_line = f"ERROR: {e}"
              
