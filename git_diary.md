@@ -3011,4 +3011,23 @@
     -   📝 แก้ไข: fix_thai.py
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_unknown.md
 
+**[2026-01-04 11:02] 📚 Volume 10: OCR Fixes and Cleanup Complete**
+    -   **OCR Fixes (151 total):**
+        -   แก้ไข dimension errors: 9 จุด (Parts 20, 21, 22)
+        -   แก้ไข ASCII→Thai numerals: 142 จุด (38 parts)
+        -   หลัก: 5→๖ (113 จุด), 4→๔ (9 จุด), 2→๒ (7 จุด), อื่นๆ (13 จุด)
+    -   **Footer Cleanup:**
+        -   ลบ "สายด่วนศาลปกครอง ๑๓๕๕" - ทุก part
+        -   ลบ "ข้อมูลฉับไว ไขข้อข้องใจ ใส่ใจประชาชน" - ทุก part
+        -   ลบ "TRUST" - 39 parts
+    -   **Page Headers Restored:** 485 headers
+    -   **Final Output:** รวม 49 parts เป็น `references/court_rulings_books/administrative_court_rulings_vol_10.md` (5.6M, 32,381 lines)
+    -   📝 แก้ไข: etc/Academic_281020_102051_parts/Academic_281020_102051_part_*.md (49 files)
+    -   📝 แก้ไข: references/court_rulings_books/administrative_court_rulings_vol_10.md
+    -   ✨ สร้างใหม่: etc/fix_thai_v2.py
+    -   ✨ สร้างใหม่: etc/ref_research_admin_court_rulings_digest_v13_2568.md
+    -   ✨ สร้างใหม่: etc/ref_sac_unknown.pdf
+    -   📝 แก้ไข: fix_thai.py
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_unknown.md
+
 
