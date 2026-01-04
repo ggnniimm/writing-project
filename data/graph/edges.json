@@ -1,0 +1,47 @@
+[
+  {
+    "source": "อ. 123/2566",
+    "target": "มาตรา 9",
+    "relation": "APPLIES"
+  },
+  {
+    "source": "อ. 133/2551",
+    "target": "มาตรา 8 พรบ.ละเมิด",
+    "relation": "APPLIES"
+  },
+  {
+    "source": "อ. 133/2551",
+    "target": "มาตรา 10 พรบ.ละเมิด",
+    "relation": "APPLIES"
+  },
+  {
+    "source": "อ. 133/2551",
+    "target": "ความประมาทเลินเล่ออย่างร้ายแรง",
+    "relation": "ESTABLISHES"
+  },
+  {
+    "source": "อ. 133/2551",
+    "target": "ศาลปกครองขอนแก่น",
+    "relation": "INVOLVES"
+  },
+  {
+    "source": "คำสั่ง 262/2566",
+    "target": "มาตรา 51 พรบ.จัดตั้งฯ",
+    "relation": "APPLIES"
+  },
+  {
+    "source": "คำสั่ง 262/2566",
+    "target": "อายุความสัญญาทางปกครอง",
+    "relation": "ESTABLISHES"
+  },
+  {
+    "source": "คำสั่ง 262/2566",
+    "target": "มติที่ประชุมใหญ่ฯ ที่ 8/2547",
+    "relation": "CITES"
+  },
+  {
+    "source": "คำสั่ง 262/2566",
+    "target": "การประปานครหลวง",
+    "relation": "INVOLVES"
+  }
+]
