@@ -21,6 +21,9 @@
 *   -
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[21:24] 📝 Reverted part_04 to old version and paused work**
+    > User requested to stop and revert due to extraction issues.
+
 *   **[20:25] 🔧 ปรับปรุงระบบ: Config & Scripts**
     📄 แก้ไข: administrative_court_rulings_vol_08.md
     📄 แก้ไข: part_01.md
