@@ -8,3 +8,7 @@ github_key.pub
 241018_001.MP3
 *.MP3
 241018_001*
+
+# Python
+**/__pycache__
+*.pyc

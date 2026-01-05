@@ -24,4 +24,4 @@ if [ "$CAT_CHOICE" == "1" ]; then
     CATEGORY="content"
 fi
 
-python3 update_diary.py "$CATEGORY" "$TITLE" "$DETAILS"
+python3 scripts/update_diary.py "$CATEGORY" "$TITLE" "$DETAILS"

@@ -19,6 +19,13 @@
 *   -
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[17:27] 🔧 Paused Vol 8 Extraction & Cleanup**
+    > Details:
+    > - Removed RAG Knowledge Graph files (backend/frontend/scripts).
+    > - Split 'Academic_180319_152538-2.pdf' (Vol 8) into 55 parts.
+    > - Extracted 39/55 parts (Paused due to API limits).
+    > - Added .env and scripts/__pycache__ to .gitignore.
+
 *   **[09:55] 📝 การติดตั้งและทดสอบระบบ Knowledge Graph Web UI**
     > ตามที่ได้รับคำสั่งให้เร่งรัดการพัฒนาระบบส่วนติดต่อผู้ใช้งาน (Web UI) สำหรับโครงการ Knowledge Graph ผมได้ดำเนินการตามแผนงานอย่างเคร่งครัด โดยมุ่งเน้นทั้งในส่วนของการพัฒนาโครงสร้างและการตรวจสอบความถูกต้องของข้อมูล (Testing) บัดนี้ ผมขอรายงานว่าการพัฒนาและการทดสอบ Knowledge Graph Web UI ได้เสร็จสมบูรณ์แล้ว พร้อมที่จะส่งมอบและดำเนินการติดตั้งในขั้นต่อไป
 
@@ -3055,3 +3062,32 @@
     -   ✨ สร้างใหม่: etc/ref_sac_unknown.pdf
     -   📝 แก้ไข: fix_thai.py
     -   ✨ สร้างใหม่: references/rulings_court/ref_sac_unknown.md
+
+**[2026-01-05 09:55] พัฒนาและทดสอบระบบ Knowledge Graph Web UI สมบูรณ์**
+    -   📝 แก้ไข: .agent/workflows/extract_ruling_kg.md
+    -   📝 แก้ไข: .agent/workflows/query_graph_rag.md
+    -   📝 แก้ไข: data/graph/edges.json
+    -   📝 แก้ไข: data/graph/nodes.json
+    -   ✨ สร้างใหม่: frontend/.gitignore
+    -   ✨ สร้างใหม่: frontend/README.md
+    -   ✨ สร้างใหม่: frontend/eslint.config.js
+    -   ✨ สร้างใหม่: frontend/index.html
+    -   ✨ สร้างใหม่: frontend/package-lock.json
+    -   ✨ สร้างใหม่: frontend/package.json
+    -   ✨ สร้างใหม่: frontend/postcss.config.js
+    -   ✨ สร้างใหม่: frontend/public/vite.svg
+    -   ✨ สร้างใหม่: frontend/src/App.css
+    -   ✨ สร้างใหม่: frontend/src/App.jsx
+    -   ✨ สร้างใหม่: frontend/src/assets/react.svg
+    -   ✨ สร้างใหม่: frontend/src/index.css
+    -   ✨ สร้างใหม่: frontend/src/main.jsx
+    -   ✨ สร้างใหม่: frontend/tailwind.config.js
+    -   ✨ สร้างใหม่: frontend/vite.config.js
+    -   ✨ สร้างใหม่: scripts/__pycache__/graph_builder.cpython-313.pyc
+    -   ✨ สร้างใหม่: scripts/__pycache__/light_rag_indexer.cpython-313.pyc
+    -   ✨ สร้างใหม่: scripts/__pycache__/light_rag_query.cpython-313.pyc
+    -   📝 แก้ไข: scripts/graph_builder.py
+    -   ✨ สร้างใหม่: scripts/light_rag_indexer.py
+    -   ✨ สร้างใหม่: scripts/light_rag_query.py
+    -   ✨ สร้างใหม่: server/app.py
+    -   ✨ สร้างใหม่: test_light_rag.md
