@@ -7,6 +7,8 @@
 ### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
 *   พัฒนา Knowledge Graph Web UI (React + FastAPI) เสร็จสมบูรณ์
 *   แก้ไขปัญหา TailwindCSS และยืนยันผลการทดสอบระบบ 100%
+*   สกัดเนื้อหา (OCR) เล่มที่ 8 (Parts 40-55) และรวมเป็นไฟล์เดียวสมบูรณ์
+*   กู้คืนไฟล์ `part_01.pdf` และแก้ไขความคลาดเคลื่อนใน `part_01.md` (เลขหน้าในสารบัญและวันที่)
 
 ### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
 *   (See task.md)
@@ -19,6 +21,43 @@
 *   -
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[20:25] 🔧 ปรับปรุงระบบ: Config & Scripts**
+    📄 แก้ไข: administrative_court_rulings_vol_08.md
+    📄 แก้ไข: part_01.md
+    📄 แก้ไข: part_01.pdf
+    📄 แก้ไข: part_01_raw.txt
+    📄 แก้ไข: part_02.md
+    📄 แก้ไข: part_02_raw.txt
+    📄 แก้ไข: part_03.md
+    📄 แก้ไข: part_03_raw.txt
+    📄 แก้ไข: part_40.md
+    📄 แก้ไข: part_41.md
+    📄 แก้ไข: part_42.md
+    📄 แก้ไข: part_43.md
+    📄 แก้ไข: part_44.md
+    📄 แก้ไข: part_45.md
+    📄 แก้ไข: part_46.md
+    📄 แก้ไข: part_47.md
+    📄 แก้ไข: part_48.md
+    📄 แก้ไข: part_49.md
+    📄 แก้ไข: part_50.md
+    📄 แก้ไข: part_51.md
+    📄 แก้ไข: part_52.md
+    📄 แก้ไข: part_53.md
+    📄 แก้ไข: part_54.md
+    📄 แก้ไข: part_55.md
+    📄 แก้ไข: git_diary.md
+    📄 แก้ไข: administrative_court_rulings_vol_08.md
+    🛠 แก้ไขระบบ: check_leaked_keys.py
+    🛠 แก้ไขระบบ: combine_vol08.py
+    🛠 แก้ไขระบบ: extract_part01.py
+    🛠 แก้ไขระบบ: extract_vol08_continuation.py
+    🛠 แก้ไขระบบ: list_models_diagnostic.py
+    🛠 แก้ไขระบบ: verify_vol08_generic.py
+    🛠 แก้ไขระบบ: verify_vol08_part01.py
+*   **[19:03] 🔄 Syncing with Remote Repository (git pull)**
+    > ดำเนินการดึงข้อมูลล่าสุดจาก Remote Repository เพื่อให้พื้นที่ทำงานเป็นปัจจุบันที่สุด และรองรับการทำงานในขั้นตอนต่อไปครับ
+
 *   **[17:27] 🔧 Paused Vol 8 Extraction & Cleanup**
     > Details:
     > - Removed RAG Knowledge Graph files (backend/frontend/scripts).
@@ -65,6 +104,11 @@
 
 *   **[11:02] 📚 Volume 10: OCR Fixes + Footer Cleanup + Combined**
     > ดำเนินการตรวจสอบและแก้ไข OCR errors ใน 49 parts โดยเปรียบเทียบกับ PDF ต้นฉบับ แก้ไข dimension errors (9 จุด) และ ASCII→Thai numerals (142 จุด หลัก: 5→๖, 4→๔, 2→๒) พร้อมลบ footers (สายด่วนศาลปกครอง, TRUST) และรวม 49 parts เป็นไฟล์ `administrative_court_rulings_vol_10.md` (5.6M) ใน `references/court_rulings_books/`
+    - [x] Extract Volume 8 (เล่ม 8) Parts 40-55
+    - [x] Modify/Create script for Volume 8 parts 40-55
+    - [x] Run extraction for parts 40-55
+    - [x] Verify results
+    - [x] Combine into `administrative_court_rulings_vol_08.md`
 
 
 ## 📅 3 มกราคม 2026
@@ -2175,9 +2219,9 @@
     -   📝 แก้ไข: articles/procurement_act_section_102.md
 
 *   **[16:15] 🛠 Sync: Manual sync check (Check-in)**
-    *       -   📝 แก้ไข: articles/procurement_act_section_102.md
-    *       -   📝 แก้ไข: git_diary.md
-
+    *       - [x] Pull latest changes from remote repository
+    - [x] Run `git pull`
+    - [x] Update `git_diary.md` with the action
     **[2025-12-11 16:12] Log: บันทึกเพิ่มเติมก่อน Push**
 
     **[2025-12-11 16:05] Log: บันทึกเพิ่มเติมก่อน Push**

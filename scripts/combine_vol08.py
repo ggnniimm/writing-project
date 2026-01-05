@@ -1,40 +1,27 @@
-
 import os
-import glob
-import re
 
-def combine_vol08():
-    base_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "etc", "split_vol08")
-    output_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 
-                              "references", "court_rulings_books", "administrative_court_rulings_vol_08.md")
+def combine_parts(source_dir, output_file, num_parts):
+    print(f"🚀 Combining {num_parts} parts from {source_dir} into {output_file}...")
     
-    print(f"Combining Markdown files from {base_dir}...")
-    
-    # Get all part_*.md files
-    md_files = sorted(glob.glob(os.path.join(base_dir, "part_*.md")))
-    
-    if not md_files:
-        print("❌ No markdown files found.")
-        return
-
-    combined_content = ""
-    
-    for md_file in md_files:
-        print(f"Reading {os.path.basename(md_file)}...")
-        with open(md_file, "r", encoding="utf-8") as f:
-            content = f.read()
-            combined_content += f"\n\n<!-- DEBUG: Start of {os.path.basename(md_file)} -->\n\n"
-            combined_content += content
-            combined_content += f"\n\n<!-- DEBUG: End of {os.path.basename(md_file)} -->\n\n"
-
-    # Ensure output dir exists
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(combined_content)
-    
-    print(f"✅ Combined {len(md_files)} files into {output_path}")
-    print(f"Total size: {os.path.getsize(output_path) / (1024*1024):.2f} MB")
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        for i in range(1, num_parts + 1):
+            part_filename = f"part_{i:02d}.md"
+            part_path = os.path.join(source_dir, part_filename)
+            
+            if not os.path.exists(part_path):
+                print(f"⚠️ Warning: {part_filename} not found. Skipping.")
+                continue
+                
+            print(f"📄 Adding {part_filename}...")
+            with open(part_path, 'r', encoding='utf-8') as infile:
+                content = infile.read().strip()
+                if content:
+                    outfile.write(content)
+                    outfile.write("\n\n") # Add spacing between parts
+                    
+    print(f"✅ Successfully combined into {output_file}")
 
 if __name__ == "__main__":
-    combine_vol08()
+    source_dir = "etc/split_vol08"
+    output_file = "administrative_court_rulings_vol_08.md"
+    combine_parts(source_dir, output_file, 55)
