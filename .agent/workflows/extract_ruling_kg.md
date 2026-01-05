@@ -14,6 +14,6 @@ description: Extract ruling content and link to Knowledge Graph
    - Related court rulings.
    - Core legal principles established.
 4. Update the Knowledge Graph:
-   - Run `python scripts/graph_builder.py` to add nodes and edges.
+   - Run `python scripts/light_rag_indexer.py <path_to_markdown>` to add nodes, edges, and embeddings.
 5. Save the Markdown to `references/rulings_court/`.
 6. Summarize briefly in the Knowledge Graph metadata.

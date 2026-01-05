@@ -1,11 +1,13 @@
 ---
-description: Query the system using GraphRAG (Context + Traversal)
+description: Query the system using LightRAG (Vector + Graph)
 ---
 
-1. Search for relevant rulings using semantic search (Vector RAG).
-2. For each relevant ruling, traverse the Knowledge Graph:
-   - Find cited cases (CITES).
-   - Find related laws (APPLIES).
-   - Find established principles (ESTABLISHES).
-3. Combine all retrieved content as context.
-4. Synthesize the answer based on the augmented context.
+1. Run the query script:
+```bash
+python scripts/light_rag_query.py "Your Question Here"
+```
+
+The system will:
+1.  **Embed** your query to find relevant nodes (Local Search).
+2.  **Traverse** the Knowledge Graph to find related context (Global Search).
+3.  **Synthesize** an answer using Gemini based on the combined context.
