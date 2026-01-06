@@ -65,7 +65,15 @@ def main():
     if not os.path.exists(REF_DIR):
         os.makedirs(REF_DIR)
 
-    for part in PARTS_TO_FIX:
+    # Check for reverse flag to allow parallel processing
+    work_list = PARTS_TO_FIX.copy()
+    if "--reverse" in sys.argv:
+        print("🔄 Mode: REVERSE Order (Starting from Part 58)")
+        work_list.reverse()
+    else:
+        print("➡️ Mode: NORMAL Order (Starting from Part 1)")
+
+    for part in work_list:
         fix_part(part)
         time.sleep(5) # Cooldown
         

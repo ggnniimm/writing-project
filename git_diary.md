@@ -6,12 +6,20 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-**[14:06] 📝 ♻️ Restored Vol 8 Temp Files**
+**[16:29] 📝 ⏸️ Paused Vol 7 (52/58)**
     > **Situation (ที่มา):** User cmd
     > **Action (การดำเนินการ):** Executed command
-    > **Result (ผลลัพธ์):** User requested to keep them\n
-**[14:10] ♻️ Restoring Volume 8 Temp Files**
-    > **Situation (ที่มา):** User requested to keep the temporary files for Vol 8 (which were cleaned up previously).
+    > **Result (ผลลัพธ์):** Synced progress, 6 parts pending retry\n
+**[16:30] ⏸️ Pausing Volume 7 Extraction (90% Complete)**
+    > **Situation (ที่มา):** Run Batch Extraction completed for most parts (Forward & Reverse agents). User requested to pause and sync.
+    > **Action (การดำเนินการ):**
+    > 1. Extracted 52/58 parts successfully.
+    > 2. Identified 6 failed parts (Timeout/Rate Limit): `07, 33, 34, 53, 55, 58`.
+    > **Result (ผลลัพธ์):** Saved progress to Git. Ready to retry remaining parts later.
+    *   *Files:* `etc/split_vol07/` (Updated 52 files)
+
+**[14:10] ♻️ Restored Volume 8 Temp Files**
+    > **Situation (ที่มา):** User requested to keep the temporary files for Vol 8 (which were cleaned up previously by mistake).
     > **Action (การดำเนินการ):** Restored `etc/split_vol08/` from previous commit history.
     > **Result (ผลลัพธ์):** Files extracted from Vol 8 are available again for reference.
     *   *Files:* `etc/split_vol08/` (Restored)
@@ -3868,3 +3876,121 @@
     -   📝 แก้ไข: scripts/gemini_pdf_to_md.py
     -   ✨ สร้างใหม่: scripts/references/rulings_court/ref_sac_unknown.md
     -   📝 แก้ไข: scripts/update_diary.py
+
+**[2026-01-06 14:06] ♻️ Restored Vol 8 Temp Files**
+    -   ✨ สร้างใหม่: etc/split_vol08/add_page_headers.py
+    -   ✨ สร้างใหม่: etc/split_vol08/extract_part_04.py
+    -   ✨ สร้างใหม่: etc/split_vol08/find_superscripts.py
+    -   ✨ สร้างใหม่: etc/split_vol08/part_01.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_01.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_01_raw.txt
+    -   ✨ สร้างใหม่: etc/split_vol08/part_02.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_02.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_02_raw.txt
+    -   ✨ สร้างใหม่: etc/split_vol08/part_03.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_03.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_03_raw.txt
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04_old.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04_raw.txt
+    -   ✨ สร้างใหม่: etc/split_vol08/part_05.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_05.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_06.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_06.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_07.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_07.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_08.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_08.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_09.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_09.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_10.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_10.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_11.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_11.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_12.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_12.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_13.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_13.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_14.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_14.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_15.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_15.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_16.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_16.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_17.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_17.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_18.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_18.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_19.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_19.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_20.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_20.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_21.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_21.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_22.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_22.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_23.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_23.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_24.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_24.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_25.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_25.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_26.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_26.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_27.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_27.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_28.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_28.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_29.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_29.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_30.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_30.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_31.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_31.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_32.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_32.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_33.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_33.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_34.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_34.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_35.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_35.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_36.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_36.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_37.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_37.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_38.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_38.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_39.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_39.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_40.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_40.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_41.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_41.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_42.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_42.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_43.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_43.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_44.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_44.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_45.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_45.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_46.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_46.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_47.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_47.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_48.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_48.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_49.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_49.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_50.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_50.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_51.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_51.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_52.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_52.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_53.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_53.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_54.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_55.pdf
