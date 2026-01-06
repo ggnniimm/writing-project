@@ -489,24 +489,20 @@ def load_content_ideas():
     for i, line in enumerate(lines):
         if line.startswith('### '):
             title = line.replace('### ', '').strip()
-            # Extract a brief description from bullet points below
-            desc_lines = []
-            for j in range(i+1, min(i+5, len(lines))):
-                if lines[j].strip().startswith('*   **'):
-                    # Extract first meaningful line
-                    desc = lines[j].strip().replace('*   **ที่มา:**', '').replace('*   **ประเด็น:**', '').strip()
-                    if desc:
-                        desc_lines.append(desc)
-                        break
+            # Extract a brief description...
+            desc = ""
+            for j in range(i+1, min(i+10, len(lines))): # Scan a bit deeper
+                strip_l = lines[j].strip()
+                if strip_l.startswith('*') and "ที่มา" not in strip_l and "ประเด็น" not in strip_l:
+                     desc = strip_l.replace('*', '').strip()
+                     break
             
-            # Format as checkbox item
-            if desc_lines:
-                goals.append(f"- [ ] {title}: {desc_lines[0][:80]}...")
+            if desc:
+                goals.append(f"- [ ] **{title}**: {desc[:60]}...")
             else:
-                goals.append(f"- [ ] {title}")
+                goals.append(f"- [ ] **{title}**")
             
-            # Limit to top 3 items to keep diary clean
-            if len(goals) >= 3:
+            if len(goals) >= 3: # Get top 3
                 break
     
     return goals
@@ -538,35 +534,42 @@ def start_day_mode():
     # Create new section
     new_section = []
     new_section.append(f"\n{header_date}\n")
-    new_section.append(f"**🤖 Start of Day:**\n\n")
     
     new_section.append(f"### 🎯 เป้าหมายและแผนงาน (Goals & Plans)\n")
+    new_section.append(f"**สถานะปัจจุบัน (Current Status):**\n")
+    new_section.append(f"-   (รอสรุปสถานะ...)\n\n")
+
+    new_section.append(f"**แผนงานวันนี้ (Today's Plan):**\n")
     
-    # Display ongoing tasks from previous day's Next Steps
+    # Display ongoing tasks
     if previous_plans:
-        new_section.append(f"**งานต่อเนื่อง:**\n")
+        new_section.append(f"**จากงานค้างเมื่อวาน (From Previous Day):**\n")
         for item in previous_plans:
-             # Convert to open checkboxes
              clean_item = item.replace("- [x]", "- [ ]").replace("- [/]", "- [ ]")
              new_section.append(f"{clean_item}\n")
         new_section.append("\n")
     
-    # Display future goals from content_ideas.md
+    # Display future goals
     if content_goals:
-        new_section.append(f"**เป้าหมายระยะยาว (จาก content_ideas.md):**\n")
+        new_section.append(f"**ไอเดียที่น่าสนใจ (From content_ideas.md):**\n")
         for goal in content_goals:
             new_section.append(f"{goal}\n")
     else:
-        new_section.append(f"- [ ] ... (วางแผนงานสำหรับวันนี้)\n")
+         new_section.append(f"- [ ] (No automatic suggestions found)\n")
     
     new_section.append("\n") # Spacer
 
     new_section.append(f"### 📝 บันทึกการปฏิบัติงาน (Operations Log)\n")
     
+    # Initial Log Entry
+    time_str = get_time_str().split(" ")[1]
+    new_section.append(f"**[{time_str}] เริ่มต้นภารกิจประจำวัน (Start of Day)**\n")
+    new_section.append(f"    > เริ่มต้นวันใหม่ ตรวจสอบสถานะและวางแผนงานเรียบร้อย\n\n")
+    
     # Insert at top (after main header)
     insert_idx = 0
     for i, line in enumerate(lines):
-        if line.startswith("# "): # Main title
+        if line.startswith("# "): 
              insert_idx = i + 1
              if insert_idx < len(lines) and lines[insert_idx].strip() == "":
                  insert_idx += 1
@@ -578,8 +581,6 @@ def start_day_mode():
         f.writelines(lines)
     
     print(f"✅ เริ่มต้นวันใหม่เรียบร้อย ({today_date})")
-    if content_goals:
-        print(f"📌 โหลดเป้าหมายจาก content_ideas.md: {len(content_goals)} รายการ")
 
 
 def main():

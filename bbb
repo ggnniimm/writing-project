@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "---------------------------------------------------"
+echo "🤖 Starting Day Routine (bbb)..."
+echo "---------------------------------------------------"
+
+# 1. Sync
+echo "🔄 1. Pulling latest changes..."
+git pull
+
+# 2. Read README (Critical Rule)
+echo "📖 2. Reading README.md (Guidelines)..."
+echo "---------------------------------------------------"
+# Display only the first 20 lines (Header) and the Agent Guidelines section to avoid clutter, 
+# or just cat the whole thing if user wants Strict reading. 
+# User said "Agent read README", for human using script, maybe paging?
+# Let's just cat it for now, user can scroll.
+cat README.md
+echo "---------------------------------------------------"
+
+# 3. Smart Plan (Python)
+echo "📝 3. Generating Daily Plan & Status..."
+python3 scripts/update_diary.py --start-day
+
+echo "---------------------------------------------------"
+echo "✅ Ready to work! (Run './ppp' when you finish a task)"
+echo "---------------------------------------------------"

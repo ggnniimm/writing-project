@@ -23,5 +23,5 @@ def combine_parts(source_dir, output_file, num_parts):
 
 if __name__ == "__main__":
     source_dir = "etc/split_vol08"
-    output_file = "administrative_court_rulings_vol_08.md"
-    combine_parts(source_dir, output_file, 55)
+    output_file = "references/court_rulings_books/administrative_court_rulings_vol_08.md"
+    combine_parts(source_dir, output_file, 54)

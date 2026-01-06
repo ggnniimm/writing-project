@@ -1,6 +1,84 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 6 มกราคม 2026
+**🤖 สรุปภาพรวมประจำวัน:**
+(รอสรุป...)
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+*   **[11:08] 📝 Volume 8 Inspection and Combination Complete**
+    > Verified Parts 41-55, fixed Part 53 headers, deleted duplicate Part 55, combined all parts into references/court_rulings_books/administrative_court_rulings_vol_08.md, and updated README with strict logging rules.
+
+
+### ⏭️ ก้าวต่อไป (Next Steps)
+- [ ] ...
+---
+## 📅 2026-01-06 (รอสรุป...)
+
+### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+**สถานะปัจจุบัน (Current Status):**
+-   **อัปเดต:** การสกัดข้อมูล Volume 8 **เสร็จสมบูรณ์แล้ว** (พบไฟล์ฉบับเต็มจากการ `git pull` ล่าสุด)
+-   Content Ideas: มีหัวข้อที่พร้อมเขียนหลายเรื่อง เช่น EP.47 vs EP.52 (เสาไฟฟ้า/ท่อประปา), EP.61 (สเปกภายใน vs สัญญา), EP.62 (เซ็นรับของทิพย์)
+
+**แผนงานวันนี้ (Today's Plan):**
+1.  ~~ดำเนินการต่อสำหรับ Volume 8~~ (เสร็จแล้ว)
+2.  เลือกหัวข้อบทความใหม่เพื่อเขียน (Focus หลัก)
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[10:49] 🔧 Verification and Combination of Volume 8**
+    > **Situation (ที่มา):** User requested the combination of Volume 8 parts after a series of verifications and fixes (Parts 01-55).
+    > **Action (การดำเนินการ):** Verified Parts 41–55, fixed missing headers in Part 53 (pages 1000, 1001, 1003, 1011), identified and deleted Part 55 (duplicate of 54), and executed `combine_vol08.py` to merge all 54 parts.
+    > **Result (ผลลัพธ์):** Successfully generated `administrative_court_rulings_vol_08.md` containing all parts (01–54) in `references/court_rulings_books/`.
+    *   *Files:* `administrative_court_rulings_vol_08.md`
+
+**[Current] 🔧 Correction: Fixing Vol 8 Part 04**
+    > **Situation (ที่มา):** User requested verification of `part_04.md`. Inspection revealed Pages 28-37 were missing despite valid PDF size.
+    > **Action (การดำเนินการ):** Re-extracted `part_04.pdf` using `gemini_pdf_to_md.py`. Located the complete output (which was misplaced due to a script bug), verified missing pages existed, restored the source PDF name, and overwrote `part_04.md` with the complete content.
+    > **Result (ผลลัพธ์):** `part_04.md` is now complete (114KB) and matches the PDF.
+    *   *Files:* `part_04.md`
+
+**[Current] 🔧 Correction: Fixing OCR Numeral in Part 04**
+    > **Situation (ที่มา):** User flagged a specific OCR error on line 649 where Thai numeral ๖ was misread as Arabic 5.
+    > **Action (การดำเนินการ):** Verified context and replaced "5" with "๖" (6) to match standard Thai legal formatting. Checked specifically for other Arabic numerals and found none.
+    > **Result (ผลลัพธ์):** Corrected line 649 to "จำนวน ๖ ไร่".
+    *   *Files:* `part_04.md`
+
+**[08:16] 🔧 สร้าง Script `eee` สำหรับการสกัดข้อมูลและรวมเนื้อหา**
+    > **Situation (ที่มา):** User ต้องการความสม่ำเสมอในการใช้คำสั่ง (`bbb`, `ppp`, `nnn`) จึงขอให้สร้าง `eee` ด้วย
+    > **Action (การดำเนินการ):** สร้างไฟล์ shell script ชื่อ `eee` ที่ Root Directory (`chmod +x`) โดยภายใน Script จะเรียก `python3 scripts/gemini_pdf_to_md.py` เพื่อสกัดข้อความจาก PDF และแจ้งเตือนให้ Agent ทำการ Auto-Integrate ต่อทันที
+    > **Result (ผลลัพธ์):** workflow หลักทั้ง 4 ตัว (`bbb`, `ppp`, `nnn`, `eee`) พร้อมใช้งานครบถ้วน
+    *   *Files:* `eee`
+
+**[08:15] 🔧 สร้าง Script `nnn` สำหรับปิดงานประจำวัน**
+    > **Situation (ที่มา):** User ต้องการใช้คำสั่ง `nnn` เพื่อจบงาน (End of Day) โดยอัตโนมัติ
+    > **Action (การดำเนินการ):** สร้างไฟล์ shell script ชื่อ `nnn` ที่ Root Directory (`chmod +x`) โดยภายใน Script จะเรียก `update_diary.py --summary` เพื่อสรุปงาน และเรียก `./ppp` เพื่อ Sync Code ทันที
+    > **Result (ผลลัพธ์):** สามารถพิมพ์ `./nnn` (หรือ `nnn` หากทำ Alias) เพื่อสรุปงานและส่งขึ้นเซิร์ฟเวอร์ได้ในคำสั่งเดียว
+    *   *Files:* `nnn`
+
+**[08:14] 🔧 สร้าง Script `bbb` สำหรับการใช้งานผ่าน Terminal**
+    > **Situation (ที่มา):** User ต้องการใช้คำสั่ง `bbb` ได้โดยตรง (โดยไม่ต้องผ่าน Slash Command ในแชท) เพื่อความสะดวกรวดเร็วในหน้าจอ Terminal
+    > **Action (การดำเนินการ):** สร้างไฟล์ shell script ชื่อ `bbb` ที่ Root Directory และกำหนดสิทธิ์ Execute (`chmod +x`) โดยภายใน Script จะสั่ง `git pull`, อ่าน `README.md`, และเรียก `scripts/update_diary.py`
+    > **Result (ผลลัพธ์):** สามารถพิมพ์ `./bbb` (หรือ `bbb` หากทำ Alias) เพื่อเริ่มงานประจำวันได้ทันที
+    *   *Files:* `bbb`
+
+**[08:04] 🔧 ปรับปรุงระบบ Automate Diary (Smart Plan)**
+    > **Situation (ที่มา):** User ต้องการให้การเริ่มงาน (bbb) ดึงงานที่ค้างจากเมื่อวานและแนะนำไอเดียบทความใหม่โดยอัตโนมัติ
+    > **Action (การดำเนินการ):** แก้ไข `scripts/update_diary.py` (ฟังก์ชัน `start_day_mode`) ให้:
+        1. ดึงข้อมูลจากส่วน "Next Steps" ของวันก่อนหน้ามาใส่ใน "Today's Plan"
+        2. ดึงหัวข้อจาก `content_ideas.md` มาแนะนำ 3 หัวข้อ
+    > **Result (ผลลัพธ์):** การเริ่มงานครั้งต่อไปจะมีการวางแผนที่ต่อเนื่องและมีตัวเลือกบทความให้อัตโนมัติ
+    *   *Files:* `scripts/update_diary.py`
+
+**[08:01] 📝 กำหนดกฎการบันทึก Log แบบเข้มข้น (Strict Logging Rule)**
+    > **Situation (ที่มา):** ได้รับคำสั่งจาก User ให้ Agent บันทึก Log ทุกครั้งหลังจากทำงานเสร็จ โดยต้องระบุรายละเอียดของที่มา, การกระทำ, และผลลัพธ์
+    > **Action (การดำเนินการ):** ผมได้อัปเดตไฟล์ `README.md` หัวข้อ "Diary Format" โดยเพิ่มกฎ "Strict Logging Rule (New)" เพื่อบังคับใช้รูปแบบการเขียน "Situation -> Action -> Result" สำหรับทุกการทำงาน
+    > **Result (ผลลัพธ์):** กฎระเบียบถูกบันทึกเป็นลายลักษณ์อักษร เพื่อให้ Agent ทุกตัว (รวมถึงตัวผมในอนาคต) ปฏิบัติตามอย่างเคร่งครัด
+    *   *Files:* `README.md`
+
+**[07:55] เริ่มต้นภารกิจประจำวัน (Start of Day)**
+    > เริ่มต้นวันใหม่ ตรวจสอบสถานะและวางแผนงานเรียบร้อย
+
+
 ## 📅 5 มกราคม 2026
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -3138,3 +3216,369 @@
     -   ✨ สร้างใหม่: scripts/light_rag_query.py
     -   ✨ สร้างใหม่: server/app.py
     -   ✨ สร้างใหม่: test_light_rag.md
+
+**[2026-01-05 17:27] Cleanup RAG files and pause Vol 8 extraction (39/55 parts done)**
+    -   📝 แก้ไข: .gitignore
+    -   🗑️ ลบ: analyze_complexity.py
+    -   🔧 การกระทำ: 100	git_diary_v1_archive.md	backups/git_diary_v1_archive.md
+    -   🗑️ ลบ: bbb
+    -   🗑️ ลบ: bulk_clean_v9.py
+    -   🗑️ ลบ: check_models.py
+    -   🗑️ ลบ: clean_all_parts.py
+    -   🗑️ ลบ: clean_part02_artifacts.py
+    -   🗑️ ลบ: clean_part57_artifacts.py
+    -   🗑️ ลบ: clean_thai.py
+    -   🗑️ ลบ: clean_vol10.py
+    -   🗑️ ลบ: combine_hybrid.py
+    -   🗑️ ลบ: combine_vol10.py
+    -   🗑️ ลบ: combine_vol11.py
+    -   🗑️ ลบ: compare_numerals.py
+    -   🗑️ ลบ: compare_numerals_txt.py
+    -   🗑️ ลบ: complexity_analysis.txt
+    -   🗑️ ลบ: convert_table.py
+    -   🗑️ ลบ: data/graph/edges.json
+    -   🗑️ ลบ: data/graph/nodes.json
+    -   🗑️ ลบ: debug_clean_pdf.txt
+    -   🗑️ ลบ: debug_compare.py
+    -   🗑️ ลบ: debug_context.py
+    -   🗑️ ลบ: debug_find_2_vs_7.py
+    -   🗑️ ลบ: debug_find_mismatch_v2.py
+    -   🗑️ ลบ: debug_md_nums.txt
+    -   🗑️ ลบ: debug_numerals.py
+    -   🗑️ ลบ: debug_pdf_extract.txt
+    -   🗑️ ลบ: debug_pdf_nums.txt
+    -   🗑️ ลบ: deep_verify_content.py
+    -   🗑️ ลบ: deep_verify_part_01.txt
+    -   🗑️ ลบ: dump_char.py
+    -   🗑️ ลบ: eee
+    -   ✨ สร้างใหม่: etc/split_vol08/part_01.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_02.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_02.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_03.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_03.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_04.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_05.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_05.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_06.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_06.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_07.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_07.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_08.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_08.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_09.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_09.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_10.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_10.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_11.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_11.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_12.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_12.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_13.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_13.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_14.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_14.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_15.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_15.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_16.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_16.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_17.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_17.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_18.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_18.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_19.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_19.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_20.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_20.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_21.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_21.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_22.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_22.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_23.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_23.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_24.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_24.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_25.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_25.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_26.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_26.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_27.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_27.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_28.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_28.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_29.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_29.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_30.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_30.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_31.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_31.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_32.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_32.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_33.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_33.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_34.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_34.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_35.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_35.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_36.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_36.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_37.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_37.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_38.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_38.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_39.md
+    -   ✨ สร้างใหม่: etc/split_vol08/part_39.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_40.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_41.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_42.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_43.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_44.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_45.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_46.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_47.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_48.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_49.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_50.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_51.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_52.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_53.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_54.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/part_55.pdf
+    -   ✨ สร้างใหม่: etc/split_vol08/ref_sac_unknown.pdf
+    -   🗑️ ลบ: extract_numerals.py
+    -   🗑️ ลบ: extract_pdf_simple.py
+    -   🗑️ ลบ: extract_vol09.py
+    -   🗑️ ลบ: extract_vol10.py
+    -   🗑️ ลบ: extract_vol11_robust.py
+    -   🗑️ ลบ: final_polish_v09.py
+    -   🗑️ ลบ: find_anchors_18.py
+    -   🗑️ ลบ: find_numeral_diff.py
+    -   🗑️ ลบ: find_typos.py
+    -   🗑️ ลบ: fix_all_tone_marks.py
+    -   🗑️ ลบ: fix_spaces.py
+    -   🗑️ ลบ: fix_thai_headers.py
+    -   🗑️ ลบ: fix_thai_ocr.py
+    -   🗑️ ลบ: frontend/.gitignore
+    -   🗑️ ลบ: frontend/README.md
+    -   🗑️ ลบ: frontend/eslint.config.js
+    -   🗑️ ลบ: frontend/index.html
+    -   🗑️ ลบ: frontend/package-lock.json
+    -   🗑️ ลบ: frontend/package.json
+    -   🗑️ ลบ: frontend/postcss.config.js
+    -   🗑️ ลบ: frontend/public/vite.svg
+    -   🗑️ ลบ: frontend/src/App.css
+    -   🗑️ ลบ: frontend/src/App.jsx
+    -   🗑️ ลบ: frontend/src/assets/react.svg
+    -   🗑️ ลบ: frontend/src/index.css
+    -   🗑️ ลบ: frontend/src/main.jsx
+    -   🗑️ ลบ: frontend/tailwind.config.js
+    -   🗑️ ลบ: frontend/vite.config.js
+    -   🗑️ ลบ: gemini_workflow.log
+    -   🗑️ ลบ: hybrid_extract.py
+    -   🗑️ ลบ: hybrid_extraction.log
+    -   🗑️ ลบ: hybrid_verification_report.txt
+    -   🗑️ ลบ: insert_year_headers.py
+    -   🗑️ ลบ: inspect_part02_pages.py
+    -   🗑️ ลบ: inspect_unicode.py
+    -   📝 แก้ไข: log-work
+    -   🗑️ ลบ: md_13.txt
+    -   🗑️ ลบ: md_13770.txt
+    -   🗑️ ลบ: md_5.txt
+    -   🗑️ ลบ: md_6.txt
+    -   🗑️ ลบ: md_6_n.txt
+    -   🗑️ ลบ: md_8.txt
+    -   🗑️ ลบ: md_head.txt
+    -   🗑️ ลบ: md_nums.txt
+    -   🗑️ ลบ: missing_block.txt
+    -   🗑️ ลบ: nnn
+    -   🗑️ ลบ: numerals_md.txt
+    -   🗑️ ลบ: numerals_pdf.txt
+    -   🗑️ ลบ: part_01_extracted.txt
+    -   🗑️ ลบ: part_01_extracted_numerals.txt
+    -   🗑️ ลบ: part_01_verification_report.md
+    -   🗑️ ลบ: part_02_extracted.txt
+    -   🗑️ ลบ: part_03_extracted.txt
+    -   🗑️ ลบ: part_04_extracted.txt
+    -   🗑️ ลบ: part_05_extracted.txt
+    -   🗑️ ลบ: part_06_extracted.txt
+    -   🗑️ ลบ: part_07_extracted.txt
+    -   🗑️ ลบ: part_08_extracted.txt
+    -   🗑️ ลบ: part_09_extracted.txt
+    -   🗑️ ลบ: part_10_extracted.txt
+    -   🗑️ ลบ: part_11_extracted.txt
+    -   🗑️ ลบ: part_12_extracted.txt
+    -   🗑️ ลบ: part_13_extracted.txt
+    -   🗑️ ลบ: part_14_extracted.txt
+    -   🗑️ ลบ: part_15_extracted.txt
+    -   🗑️ ลบ: part_16_extracted.txt
+    -   🗑️ ลบ: part_17_extracted.txt
+    -   🗑️ ลบ: part_18_extracted.txt
+    -   🗑️ ลบ: part_19_extracted.txt
+    -   🗑️ ลบ: part_20_extracted.txt
+    -   🗑️ ลบ: part_21_extracted.txt
+    -   🗑️ ลบ: part_21_fresh_extract.txt
+    -   🗑️ ลบ: part_22_extracted.txt
+    -   🗑️ ลบ: parts_verification_report.txt
+    -   🗑️ ลบ: patch_part05.py
+    -   🗑️ ลบ: pdf_13.txt
+    -   🗑️ ลบ: pdf_5.txt
+    -   🗑️ ลบ: pdf_6.txt
+    -   🗑️ ลบ: pdf_6_n.txt
+    -   🗑️ ลบ: pdf_8.txt
+    -   🗑️ ลบ: pdf_extracted_text.txt
+    -   🗑️ ลบ: pdf_nums.txt
+    -   📝 แก้ไข: ppp
+    -   🗑️ ลบ: prepare_missing_block.py
+    -   🗑️ ลบ: process_pdf_gemini.py
+    -   🗑️ ลบ: push-work
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_01.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_02.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_03.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_04.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_05.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_06.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_07.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_08.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_09.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_10.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_11.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_12.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_13.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_14.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_15.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_16.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_17.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_18.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_19.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_20.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_21.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_22.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_23.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_24.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_25.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_26.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_27.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_28.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_29.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_30.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_31.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_32.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_33.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_34.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_35.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_36.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_37.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_38.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_39.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_40.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_41.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_42.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_43.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_44.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_45.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_46.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_47.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_48.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_49.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_50.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_51.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_52.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_53.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_54.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_55.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_56.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_57.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_58.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_59.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_60.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_61.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_62.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_63.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_64.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_65.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_120324_111151_part_66.pdf
+    -   🔧 การกระทำ: 056	raw_pdfs/Academic_291121_112321.pdf	raw_pdfs/Academic_180319_152538-2.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_280125_142653.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_281019_141643.pdf
+    -   🗑️ ลบ: raw_pdfs/Academic_281020_102051.pdf
+    -   🗑️ ลบ: raw_pdfs/ref_cac_o_133_2551.pdf
+    -   🗑️ ลบ: raw_pdfs/ref_sac_cmd_262_2566.pdf
+    -   🗑️ ลบ: read_page5.py
+    -   🗑️ ลบ: read_part57_page1.py
+    -   🗑️ ลบ: remove_footers.py
+    -   🗑️ ลบ: repair_part_39.py
+    -   🗑️ ลบ: repaired_tables.txt
+    -   🗑️ ลบ: restore_page_numbers.py
+    -   🗑️ ลบ: restore_text_headers.py
+    -   🗑️ ลบ: scripts/__pycache__/graph_builder.cpython-313.pyc
+    -   🗑️ ลบ: scripts/__pycache__/graph_builder.cpython-314.pyc
+    -   🗑️ ลบ: scripts/__pycache__/light_rag_indexer.cpython-313.pyc
+    -   🗑️ ลบ: scripts/__pycache__/light_rag_query.cpython-313.pyc
+    -   ✨ สร้างใหม่: scripts/bulk_extract_vol08.py
+    -   ✨ สร้างใหม่: scripts/combine_vol08.py
+    -   🔧 การกระทำ: 100	fix_thai_comprehensive.py	scripts/fix_thai.py
+    -   🔧 การกระทำ: 100	gemini_audio_to_md.py	scripts/gemini_audio_to_md.py
+    -   🔧 การกระทำ: 095	gemini_pdf_to_md.py	scripts/gemini_pdf_to_md.py
+    -   🔧 การกระทำ: 100	generate_html.py	scripts/generate_html.py
+    -   🗑️ ลบ: scripts/graph_builder.py
+    -   🗑️ ลบ: scripts/light_rag_indexer.py
+    -   🗑️ ลบ: scripts/light_rag_query.py
+    -   ✨ สร้างใหม่: scripts/references/rulings_court/ref_sac_unknown.md
+    -   ✨ สร้างใหม่: scripts/split_large_pdf.py
+    -   ✨ สร้างใหม่: scripts/split_pdf_chunks.py
+    -   🔧 การกระทำ: 100	update_diary.py	scripts/update_diary.py
+    -   🗑️ ลบ: server.log
+    -   🗑️ ลบ: server/app.py
+    -   🗑️ ลบ: split_pages_individual.py
+    -   🗑️ ลบ: split_pdf.py
+    -   🗑️ ลบ: split_pdf_vol10.py
+    -   🗑️ ลบ: standardize_format.py
+    -   🗑️ ลบ: standardize_formatting.py
+    -   🗑️ ลบ: test_light_rag.md
+    -   🗑️ ลบ: test_new_key.py
+    -   🗑️ ลบ: txt_head.txt
+    -   🗑️ ลบ: verification_report.txt
+    -   🗑️ ลบ: verify_all_parts_v9.py
+    -   🗑️ ลบ: verify_full_content.py
+    -   🗑️ ลบ: verify_gemini_output.py
+    -   🗑️ ลบ: verify_part02.py
+    -   🗑️ ลบ: verify_part57.py
+    -   🗑️ ลบ: verify_part57_quick.py
+    -   🗑️ ลบ: verify_parts.py
+    -   🗑️ ลบ: verify_recheck_18_57.py
+    -   🗑️ ลบ: verify_vol10.py
+    -   🗑️ ลบ: verify_vol11_full.py
+    -   🗑️ ลบ: verify_vol11_part01.py
+    -   🗑️ ลบ: verify_vol11_part18.py
+    -   🗑️ ลบ: verify_vol11_parts.py
+    -   🗑️ ลบ: verify_vol12.py
+    -   🗑️ ลบ: vol11_verification_report.txt
+    -   🗑️ ลบ: vol12_verification_report.txt
+
+### 2026-01-06 (Continued) - Vol 8 Repair
+- **Audit Findings**:
+    - Automated audit revealed "Page Gaps" (e.g. 770 -> 774) and Arabic numeral errors in Parts 05-55.
+    - Critical failures in Part 54, 55 (low content).
+- **Repair Actions**:
+    - **Re-extraction**: Initiated batch re-extraction for Parts 41, 42, 43, 45, 49, 52, 53, 54, 55.
+    - **Part 41 Analysis**: Verified "Gap 770->774". Found that intermediate pages (771-773) correspond to Chapter Title Pages / Layout spacers which lack page numbers in headers. Content text appears continuous.
+    - **Numeral Fix**: Created and ran `scripts/fix_numerals_vol08.py` to bulk-convert Arabic to Thai numerals in 44 files.
+    - **Current Status**:
+        - **Part 41**: Verified and Fixed (Gap 770-774 is structural, text is complete).
+        - **Parts 42-55**: Repair PARTIALLY FAILED.
+        - **Blocker**: API Quota Exceeded for ALL keys and ALL models (gemini-2.5-flash, 2.0-flash, 2.0-flash-lite).
+        - **Action**: User provided new API Key. Verified working with `gemini-2.5-flash` (limit 20).
+        - **Status update**:
+            - ✅ **Fixed (Re-extracted)**: Parts 42, 43, 45, 49, 52.
+            - ✅ **Fixed (Logic)**: Part 41 (Gap verified as structural).
+            - ⚠️ **Timeout**: Parts 53, 55 (Need retry).
+        - **Manual Verification (Part 36)**:
+            - **Issue**: Header `๙๙๐` (990) and Gap `660->662`.
+            - **Result**: Re-extracted. "990" persisted (OCR header error). "661" missing (Page skip).
+            - **Fix**: Manually corrected header to `๖๕๙`. Verified content continuity across 660->662 (No missing text).
+            - **Status**: ✅ Part 36 Fully Verified.
+            - ❌ **Missing**: Part 54 PDF is missing from directory (Needs investigation).
+        - **Next Steps**: Retry 53/55 manually. Locate Part 54. Run numeral fix on new files.
+
+

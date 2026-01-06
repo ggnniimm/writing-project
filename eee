@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if file argument is provided
+if [ -z "$1" ]; then
+    echo "Usage: ./eee <path_to_pdf>"
+    exit 1
+fi
+
+echo "---------------------------------------------------"
+echo "🤖 Starting Extraction Routine (eee)..."
+echo "---------------------------------------------------"
+
+# 1. Extract PDF
+echo "📄 1. Extracting Text from PDF..."
+python3 scripts/gemini_pdf_to_md.py "$1"
+
+# 2. Agent Reminder (Auto-Integration)
+echo "---------------------------------------------------"
+echo "🧠 2. AGENT ACTION REQUIRED:"
+echo "   - Review the extracted file in 'references/'."
+echo "   - DRAFT a summary and content block."
+echo "   - INTEGRATE it into the relevant Article immediately."
+echo "---------------------------------------------------"
+
+# 3. Reminder to Sync
+echo "🚀 3. When finished, run './ppp' to sync your work."
+echo "---------------------------------------------------"

@@ -13,11 +13,27 @@ We use a specific format for `git_diary.md`.
     - Always use **"คำวินิจฉัย อสส. ที่ [เลขที่]/[ปี]"** when referring to Office of the Attorney General rulings. (e.g., *คำวินิจฉัย อสส. ที่ 133/2561*)
     - **Strict Thai Policy:** All diary entries, commit messages, and contexts MUST be written in **Thai (ภาษาไทย)**. English is allowed only for technical terms or code references.
     - **Daily Retrospective:** DO NOT fill in the summary section (Accomplished, Pending, etc.) manually during the day. This section is reserved for the end-of-day process triggered by `nnn`. Leave it empty or `(รอสรุป...)`.
+-### 3. Strict Logging Rule (New) 📝
+**IMPORTANT:** Every time an Agent completes a significant task (Operation), it MUST log the activity in `git_diary.md` using the **Strict SAR Format**.
+
+**Format Structure:**
+```markdown
+**[HH:mm] 🔧 Title of the Task**
+    > **Situation (ที่มา):** Explain the context or user request.
+    > **Action (การดำเนินการ):** Detail the specific steps taken, files modified, or commands run.
+    > **Result (ผลลัพธ์):** Describe the final outcome or deliverables.
+    *   *Files:* `file1.ext`, `file2.ext`
+```
+
+**Rules:**
+1.  **Top-Down:** Always insert the new log entry at the **TOP** of the "📝 บันทึกการปฏิบัติงาน (Operations Log)" section.
+2.  **Explicit Labels:** You MUST use the exact Thai/English labels: `Situation (ที่มา)`, `Action (การดำเนินการ)`, `Result (ผลลัพธ์)`.
+3.  **Timestamps:** Always include the local time `[HH:mm]` in the title.
 
 ### 2. ⚡ Workflow Commands
 The user interacts with this repo primarily through **custom scripts**.
-*   **`./push-work` (Alias: `ppp`):** The main command.
-    *   **Usage:** `./push-work "Message" "Context (Why & How)"`
+*   **`./ppp` (Push Work):** The main command.
+    *   **Usage:** `./ppp "Message" "Context (Why & How)"`
     *   Stages all files.
     *   Analyzes changes using `update_diary.py`.
     *   **Context is MANDATORY:** If running manually, always provide the 2nd argument. If running interactively, fill in the prompt.

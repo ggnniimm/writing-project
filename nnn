@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo "---------------------------------------------------"
+echo "🤖 Ending Day Routine (nnn)..."
+echo "---------------------------------------------------"
+
+# 1. Generate Summary
+echo "📝 1. Summarizing today's achievements..."
+python3 scripts/update_diary.py --summary
+
+# 2. Push Work
+echo "🚀 2. Syncing to Remote..."
+# Call ppp with default message to avoid interactive prompt
+./ppp "End of Day Sync 💤" "Auto-generated End of Day Commit by nnn script"
+
+echo "---------------------------------------------------"
+echo "✅ Day ended successfully! See you tomorrow."
+echo "---------------------------------------------------"
