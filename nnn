@@ -10,8 +10,14 @@ python3 scripts/update_diary.py --summary
 
 # 2. Push Work
 echo "🚀 2. Syncing to Remote..."
-# Call ppp with default message to avoid interactive prompt
-./ppp "End of Day Sync 💤" "Auto-generated End of Day Commit by nnn script"
+
+# Generate HTML (parity with ppp)
+echo "🎨 กำลังสร้างเอกสาร HTML ระดับพรีเมียม (Smart Build)..."
+python3 scripts/generate_html.py
+
+git add .
+git commit -m "End of Day Sync 💤" || echo "Nothing to commit"
+git push
 
 echo "---------------------------------------------------"
 echo "✅ Day ended successfully! See you tomorrow."

@@ -299,6 +299,62 @@ def auto_summarize_log(lines, header_date):
     unique_items = list(dict.fromkeys(accomplished_items))
     return unique_items
 
+def load_accomplished_from_artifacts():
+    items = []
+    # 1. Read task.md and extract verified parts
+    task_path = "task.md"
+    possible_paths = [
+        "task.md", 
+        "../task.md",
+        "/Users/mingsaksaengwilaipon/.gemini/antigravity/brain/c13ed90a-2404-4ad6-b88c-c3880e242ffd/task.md"
+    ]
+    
+    target_task_file = None
+    for p in possible_paths:
+        if os.path.exists(p):
+            target_task_file = p
+            break
+            
+    verified_parts = []
+    other_items = []
+    
+    if target_task_file:
+        try:
+            with open(target_task_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    if "- [x]" in line:
+                        clean = line.split("- [x]")[1].strip()
+                        # Detect Part XX
+                        match = re.search(r'Part (\d+)', clean)
+                        if match:
+                             verified_parts.append(int(match.group(1)))
+                        else:
+                             other_items.append(clean)
+        except: pass
+
+    # Sort and Group Parts
+    if verified_parts:
+        verified_parts.sort()
+        ranges = []
+        if verified_parts:
+             start = verified_parts[0]
+             end = verified_parts[0]
+             for i in range(1, len(verified_parts)):
+                 if verified_parts[i] == end + 1:
+                     end = verified_parts[i]
+                 else:
+                     if start == end: ranges.append(f"{start:02d}")
+                     else: ranges.append(f"{start:02d}-{end:02d}")
+                     start = verified_parts[i]
+                     end = verified_parts[i]
+             if start == end: ranges.append(f"{start:02d}")
+             else: ranges.append(f"{start:02d}-{end:02d}")
+        
+        items.append(f"Verified Volume 7 Parts: {', '.join(ranges)}")
+        
+    items.extend(other_items)
+    return items
+
 def summary_mode(target_date=None):
     print("\n🤖 **Daily Retrospective (Auto-Generated)**")
     
@@ -316,8 +372,18 @@ def summary_mode(target_date=None):
     with open(DIARY_FILE, "r", encoding="utf-8") as f:
         lines = f.readlines()
         
-    # Auto-Extract Accomplished
-    accomplished_list = auto_summarize_log(lines, header_date)
+    # Auto-Extract Accomplished from Logs
+    accomplished_logs = auto_summarize_log(lines, header_date)
+    
+    # Auto-Extract from Artifacts (Task.md & Walkthrough.md)
+    accomplished_artifacts = load_accomplished_from_artifacts()
+    
+    # Merge unique
+    accomplished_list = list(dict.fromkeys(accomplished_logs + accomplished_artifacts))
+
+
+
+
     
     summary_md = ""
     summary_md += f"**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**\n\n"
