@@ -731,7 +731,7 @@ def main():
     with open(DIARY_FILE, "w", encoding="utf-8") as f:
         f.writelines(lines)
     
-    print(f"✅ บันทึก '{message}' เรียบร้อย")
+    print(f"✅ บันทึก '{title}' เรียบร้อย")
 
 if __name__ == "__main__":
     main()
