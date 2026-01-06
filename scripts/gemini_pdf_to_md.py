@@ -104,11 +104,16 @@ def determine_filename_and_path(content):
     # Fallback
     return "suggested_name.md", "references/raw_pdfs"
 
-def extract_and_name_with_gemini(filepath):
-    # 0. Load .env
-    # load_dotenv() # Removed to avoid dependency
 
-    # 1. Get ALL API Keys
+def extract_and_name_with_gemini(filepath, explicit_output_path=None):
+    """
+    Uploads file to Gemini, extracts content, and saves as Markdown.
+    If explicit_output_path is provided, saves directly to that path.
+    Otherwise, uses AI to determine filename and checks for duplicates.
+    """
+    
+    # 1. Load API Key
+    # 1. Load API Key
     api_keys = []
     
     # Check environment variables first
@@ -117,21 +122,6 @@ def extract_and_name_with_gemini(filepath):
              api_keys.append(value)
     
     # Always check .env file as well to gather more keys
-    # Process specific file
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    pdf_path = os.path.join(base_dir, "raw_pdfs", "sac_o_558_2562.pdf")
-    if os.path.exists(pdf_path):
-        print(f"Processing single file: {pdf_path}")
-        # Assuming process_pdf is the function that calls extract_and_name_with_gemini
-        # This block seems to be intended for a main execution context, not inside this function.
-        # For now, I'll just add the path definition as requested, but the `process_pdf` call
-        # would create a recursive loop if `process_pdf` itself calls this function.
-        # Given the instruction is "Update the file path in the main block", and this is inside
-        # `extract_and_name_with_gemini`, I will only add the path definition.
-        # If the intention was to add a main execution block, it should be outside this function.
-        pass # Placeholder, as `process_pdf` is not defined here and would cause recursion.
-    else:
-        print(f"File not found: {pdf_path}")
     if True:
         # Check current dir and parent dir for .env
         possible_paths = [
@@ -161,28 +151,22 @@ def extract_and_name_with_gemini(filepath):
     
     # User-requested Key (Default to 0)
     current_key_index = 0
-
     print(f"🔑 DEBUG: Active Key Mask: ...{api_keys[current_key_index][-5:]}")
     genai.configure(api_key=api_keys[current_key_index])
-
-    if not os.path.exists(filepath):
-        print(f"❌ File not found: {filepath}")
-        return
-
-    # import pypdf removed (no longer needed)
-    
-    # 2. Check File Size & Strategy -> Switch to File API for ALL files (cleaner context)
-    file_size_mb = os.path.getsize(filepath) / (1024 * 1024)
-    print(f"📦 File size: {file_size_mb:.2f} MB")
-    
-    final_combined_markdown = ""
 
     # Reuse the retry logic but adapted for File API
     # We need to iterate keys at this level because File Upload + Generation are linked to the key.
     
     success = False
     
+    # If explicit output path is provided, we skip auto-naming later
+    # and just save to that path.
+    
+    file_size_mb = os.path.getsize(filepath) / (1024 * 1024)
+    print(f"📦 File size: {file_size_mb:.2f} MB")
+    
     for i in range(len(api_keys)):
+
         # Calculate index with offset based on start (rotation)
         key_index = (current_key_index + i) % len(api_keys)
         api_key = api_keys[key_index]
@@ -294,6 +278,20 @@ def extract_and_name_with_gemini(filepath):
     # Identify output filename
     # We'll use the Agentic determine_filename_and_path on the CONTENT.
     
+    if explicit_output_path:
+        # BYPASS AUTO-NAMING
+        output_path = explicit_output_path
+        # Ensure dir exists
+        out_dir = os.path.dirname(output_path)
+        if out_dir and not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+            
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(final_combined_markdown)
+            
+        print(f"✅ Success! Extracted to explicit path: {output_path}")
+        return
+
     # Save to temp first
     temp_filename = f"extracted_{os.path.basename(filepath)}.md"
     output_dir = os.path.dirname(filepath)
@@ -437,7 +435,14 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 gemini_pdf_to_md.py <filepath>")
+        print("Usage: python3 gemini_pdf_to_md.py <pdf_path> [output_path]")
         sys.exit(1)
+        
+    pdf_input = sys.argv[1]
     
-    extract_and_name_with_gemini(sys.argv[1])
+    # Optional explicit output path
+    output_path = None
+    if len(sys.argv) >= 3:
+        output_path = sys.argv[2]
+        
+    extract_and_name_with_gemini(pdf_input, explicit_output_path=output_path)

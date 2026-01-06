@@ -150,11 +150,11 @@ def generate_ai_log(diff_text):
 
 def rewrite_log_entry(message, details):
     """
-    Uses AI to rewrite the log entry into the standard Thai 'Captain's Log' format.
-    Ensures consistency regardless of input language (English/Thai).
+    Uses AI to rewrite the log entry into the standard Strict SAR format.
+    Returns: title, situation, action, result
     """
     if not API_KEYS:
-        return message, details # Fallback
+        return message, "User cmd", "Executed command", details # Fallback
 
     current_key_index = 0
     max_retries = len(API_KEYS) * 2
@@ -166,40 +166,47 @@ def rewrite_log_entry(message, details):
             
             prompt = f"""
             You are the "Chief Officer" of this coding project. 
-            Rewrite the following git log entry into a Formal Thai "Captain's Log" style.
+            Rewrite the following git log entry into the Strict SAR Format (Situation-Action-Result) in Thai.
 
             Input Message: "{message}"
             Input Details/Context: "{details}"
             
             Rules:
-            1. **Language:** STRICTLY THAI (ภาษาไทย). Use English only for specific technical terms (e.g., API, PDF, Markdown).
+            1. **Language:** STRICTLY THAI (ภาษาไทย). Use English only for specific technical terms.
             2. **Style:** Professional, Narrative, First-person ("ผม").
-            3. **Structure:** 
-               - **Title:** Concise summary in Thai.
-               - **Details:** A short paragraph explaining "Situation -> Action -> Result".
-            4. **Output Format:** Just return the string "TITLE|DETAILS". 
-               (Separator is pipe symbol). Do not use Markdown notation for the output wrapper.
-            
-            Example Input: "Implemented Gemini File API", "Replaced PDF extraction logic..."
-            Example Output: ติดตั้งระบบ Gemini File API|ผมได้ดำเนินการเปลี่ยนระบบการดึงข้อมูล PDF มาใช้ Gemini File API แทนการแบ่งหน้าแบบเดิม เพื่อแก้ปัญหาข้อจำกัดขนาดไฟล์และช่วยให้ AI เข้าใจบริบทของเอกสารทั้งฉบับได้ดีขึ้น ส่งผลให้การทำงานเสถียรและแม่นยำขึ้นครับ
+            3. **Structure (Output Format):**
+               You must return exactly 4 parts separated by " ||| ".
+               Format: TITLE ||| SITUATION ||| ACTION ||| RESULT
+               
+               - **TITLE:** Concise summary (e.g. "แก้ไขบั๊กการคำนวณภาษี").
+               - **SITUATION:** Context/Why? (e.g. "User แจ้งว่ายอดเงินไม่ตรง...").
+               - **ACTION:** What did you do? (e.g. "ผมได้ตรวจสอบสูตรและแก้ไขไฟล์...").
+               - **RESULT:** Outcome? (e.g. "ผลลัพธ์คือคำนวณถูกต้องแม่นยำ").
+
+            Example Output:
+            ปรับปรุงระบบ Login ||| User แจ้งว่าเข้าสู่ระบบไม่ได้เมื่อเน็ตช้า ||| ผมได้เพิ่ม Timeout และ Retry logic ในหน้า Login ||| ทำให้ User สามารถเข้าใช้งานได้เสถียรขึ้นแม้เน็ตไม่ดี
             """
             
             response = model.generate_content(prompt)
             text = response.text.strip()
             
-            if "|" in text:
-                parts = text.split("|", 1)
-                return parts[0].strip(), parts[1].strip()
+            if "|||" in text:
+                parts = text.split("|||")
+                if len(parts) >= 4:
+                    return parts[0].strip(), parts[1].strip(), parts[2].strip(), parts[3].strip()
+                else:
+                    # Best effort mapping
+                    return parts[0].strip(), "See details", "Executed changes", text
             else:
-                return text, details # Fallback if format wrong
+                return text, "Context unavailable", "Executed changes", details 
                 
         except Exception as e:
             if len(API_KEYS) > 1:
                 current_key_index = (current_key_index + 1) % len(API_KEYS)
                 continue
-            return message, details 
+            return message, "Unknown Context", "Executed Command", details 
 
-    return message, details
+    return message, "Unknown Context", "Executed Command", details
 
 def suggest_mode():
     changes = run_git_diff()
@@ -613,8 +620,8 @@ def main():
 
     # --- NEW: Standardize Input via AI ---
     # Always rewrite to ensure Thai language and narrative style
-    print("🤖 AI กำลังเรียบเรียงภาษาให้เป็นมาตรฐาน (Standardizing Log)...")
-    message, details = rewrite_log_entry(raw_message, raw_details)
+    print("🤖 AI กำลังเรียบเรียงภาษาตาม Strict SAR Format...")
+    title, situation, action, result = rewrite_log_entry(raw_message, raw_details)
 
     today_date = get_thai_date()
     # Format: ## 📅 12 ธันวาคม 2025
@@ -630,47 +637,34 @@ def main():
     elif category_code == "system":
         icon = "🔧"
     
-    # Narrative Entry Format
-    # *   **[HH:MM] 🔧 Task Name**
-    #     > "Narrative..."
+    # Strict SAR Entry Format
+    # **[HH:MM] 🔧 Title**
+    #     > **Situation (ที่มา):** ...
+    #     > **Action (การดำเนินการ):** ...
+    #     > **Result (ผลลัพธ์):** ...
     #     *   *Files:* ...
     
     time_str = get_time_str().split(" ")[1] # Get HH:MM
-    entry_header = f"*   **[{time_str}] {icon} {message}**"
+    entry_header = f"**[{time_str}] {icon} {title}**"
     
     entry_body = []
-    if details:
-        details_clean = details.replace("\\n", "\n")
-        # Add narrative text with quote style for emphasis (Context)
-        # Check if it looks like a file list or narrative
-        lines_detail = details_clean.splitlines()
-        narrative = []
-        file_info = []
-        
-        for line in lines_detail:
-            if line.strip().startswith("📝 แก้ไข:") or line.strip().startswith("🛠") or line.strip().startswith("✨") or line.strip().startswith("📄"):
-                 file_info.append(line)
-            else:
-                 narrative.append(line)
-        
-        if narrative:
-            entry_body.append("    > " + "\n    > ".join(narrative))
-            entry_body.append("") # Spacer
-            
-        if file_info:
-             entry_body.extend([f"    {l}" for l in file_info])
-    
-    # Auto-detect files if not explicitly mentioned (Simple heuristic)
+    entry_body.append(f"    > **Situation (ที่มา):** {situation}")
+    entry_body.append(f"    > **Action (การดำเนินการ):** {action}")
+    entry_body.append(f"    > **Result (ผลลัพธ์):** {result}")
+
+    # Auto-detect files
+    file_list_str = ""
     try:
         files = [line.split('\t')[1] for line in run_git_diff() if len(line.split('\t')) > 1]
         if files:
-            file_list = ", ".join([f"`{os.path.basename(f)}`" for f in files])
-            # Avoid duplicate file listing if possible, but keep specific changes
-            if not any("Files:" in d for d in details.split("\\n")):
-                 entry_body.append(f"    *   *Files:* {file_list}")
+            file_objs = [f"`{os.path.basename(f)}`" for f in files]
+            file_list_str = ", ".join(file_objs)
     except:
         pass
-
+    
+    if file_list_str:
+        entry_body.append(f"    *   *Files:* {file_list_str}")
+        
     full_entry = f"{entry_header}\n" + "\n".join(entry_body) + "\n"
 
     # Read file

@@ -6,6 +6,14 @@
 (รอสรุป...)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[13:47] 🔧 ปรับปรุงระบบ: Config & Scripts**
+    > **Situation (ที่มา):** User cmd
+    > **Action (การดำเนินการ):** Executed command
+    > **Result (ผลลัพธ์):** 📄 แก้ไข: part_01.md\n📄 แก้ไข: part_01.pdf\n📄 แก้ไข: part_02.md\n📄 แก้ไข: part_02.pdf\n📄 แก้ไข: part_03.md\n📄 แก้ไข: part_03.pdf\n📄 แก้ไข: part_04.md\n📄 แก้ไข: part_04.pdf\n📄 แก้ไข: part_05.pdf\n📄 แก้ไข: part_06.md\n📄 แก้ไข: part_06.pdf\n📄 แก้ไข: part_07.pdf\n📄 แก้ไข: part_08.md\n📄 แก้ไข: part_08.pdf\n📄 แก้ไข: part_09.md\n📄 แก้ไข: part_09.pdf\n📄 แก้ไข: part_10.md\n📄 แก้ไข: part_10.pdf\n📄 แก้ไข: part_11.pdf\n📄 แก้ไข: part_12.pdf\n📄 แก้ไข: part_13.pdf\n📄 แก้ไข: part_14.pdf\n📄 แก้ไข: part_15.pdf\n📄 แก้ไข: part_16.pdf\n📄 แก้ไข: part_17.pdf\n📄 แก้ไข: part_18.pdf\n📄 แก้ไข: part_19.md\n📄 แก้ไข: part_19.pdf\n📄 แก้ไข: part_20.md\n📄 แก้ไข: part_20.pdf\n📄 แก้ไข: part_21.pdf\n📄 แก้ไข: part_22.pdf\n📄 แก้ไข: part_23.md\n📄 แก้ไข: part_23.pdf\n📄 แก้ไข: part_24.md\n📄 แก้ไข: part_24.pdf\n📄 แก้ไข: part_25.md\n📄 แก้ไข: part_25.pdf\n📄 แก้ไข: part_26.md\n📄 แก้ไข: part_26.pdf\n📄 แก้ไข: part_27.md\n📄 แก้ไข: part_27.pdf\n📄 แก้ไข: part_28.md\n📄 แก้ไข: part_28.pdf\n📄 แก้ไข: part_29.md\n📄 แก้ไข: part_29.pdf\n📄 แก้ไข: part_30.md\n📄 แก้ไข: part_30.pdf\n📄 แก้ไข: part_31.md\n📄 แก้ไข: part_31.pdf\n📄 แก้ไข: part_32.pdf\n📄 แก้ไข: part_33.pdf\n📄 แก้ไข: part_34.pdf\n📄 แก้ไข: part_35.pdf\n📄 แก้ไข: part_36.pdf\n📄 แก้ไข: part_37.pdf\n📄 แก้ไข: part_38.pdf\n📄 แก้ไข: part_39.pdf\n📄 แก้ไข: part_40.pdf\n📄 แก้ไข: part_41.pdf\n📄 แก้ไข: part_42.pdf\n📄 แก้ไข: part_43.pdf\n📄 แก้ไข: part_44.pdf\n📄 แก้ไข: part_45.pdf\n📄 แก้ไข: part_46.pdf\n📄 แก้ไข: part_47.pdf\n📄 แก้ไข: part_48.pdf\n📄 แก้ไข: part_49.pdf\n📄 แก้ไข: part_50.pdf\n📄 แก้ไข: part_51.pdf\n📄 แก้ไข: part_52.pdf\n📄 แก้ไข: part_53.pdf\n📄 แก้ไข: part_54.pdf\n📄 แก้ไข: part_55.pdf\n📄 แก้ไข: part_56.pdf\n📄 แก้ไข: part_57.pdf\n📄 แก้ไข: part_58.pdf\n🛠 แก้ไขระบบ: add_page_headers.py\n🛠 แก้ไขระบบ: extract_part_04.py\n🛠 แก้ไขระบบ: find_superscripts.py\n📄 แก้ไข: part_01.pdf\n📄 แก้ไข: part_01_raw.txt\n📄 แก้ไข: part_02.md\n📄 แก้ไข: part_02.pdf\n📄 แก้ไข: part_02_raw.txt\n📄 แก้ไข: part_03.md\n📄 แก้ไข: part_03.pdf\n📄 แก้ไข: part_03_raw.txt\n📄 แก้ไข: part_04.md\n📄 แก้ไข: part_04.pdf\n📄 แก้ไข: part_04_old.md\n📄 แก้ไข: part_04_raw.txt\n📄 แก้ไข: part_05.md\n📄 แก้ไข: part_05.pdf\n📄 แก้ไข: part_06.md\n📄 แก้ไข: part_06.pdf\n📄 แก้ไข: part_07.md\n📄 แก้ไข: part_07.pdf\n📄 แก้ไข: part_08.md\n📄 แก้ไข: part_08.pdf\n📄 แก้ไข: part_09.md\n📄 แก้ไข: part_09.pdf\n📄 แก้ไข: part_10.md\n📄 แก้ไข: part_10.pdf\n📄 แก้ไข: part_11.md\n📄 แก้ไข: part_11.pdf\n📄 แก้ไข: part_12.md\n📄 แก้ไข: part_12.pdf\n📄 แก้ไข: part_13.md\n📄 แก้ไข: part_13.pdf\n📄 แก้ไข: part_14.md\n📄 แก้ไข: part_14.pdf\n📄 แก้ไข: part_15.md\n📄 แก้ไข: part_15.pdf\n📄 แก้ไข: part_16.md\n📄 แก้ไข: part_16.pdf\n📄 แก้ไข: part_17.md\n📄 แก้ไข: part_17.pdf\n📄 แก้ไข: part_18.md\n📄 แก้ไข: part_18.pdf\n📄 แก้ไข: part_19.md\n📄 แก้ไข: part_19.pdf\n📄 แก้ไข: part_20.md\n📄 แก้ไข: part_20.pdf\n📄 แก้ไข: part_21.md\n📄 แก้ไข: part_21.pdf\n📄 แก้ไข: part_22.md\n📄 แก้ไข: part_22.pdf\n📄 แก้ไข: part_23.md\n📄 แก้ไข: part_23.pdf\n📄 แก้ไข: part_24.md\n📄 แก้ไข: part_24.pdf\n📄 แก้ไข: part_25.md\n📄 แก้ไข: part_25.pdf\n📄 แก้ไข: part_26.md\n📄 แก้ไข: part_26.pdf\n📄 แก้ไข: part_27.md\n📄 แก้ไข: part_27.pdf\n📄 แก้ไข: part_28.md\n📄 แก้ไข: part_28.pdf\n📄 แก้ไข: part_29.md\n📄 แก้ไข: part_29.pdf\n📄 แก้ไข: part_30.md\n📄 แก้ไข: part_30.pdf\n📄 แก้ไข: part_31.md\n📄 แก้ไข: part_31.pdf\n📄 แก้ไข: part_32.md\n📄 แก้ไข: part_32.pdf\n📄 แก้ไข: part_33.md\n📄 แก้ไข: part_33.pdf\n📄 แก้ไข: part_34.md\n📄 แก้ไข: part_34.pdf\n📄 แก้ไข: part_35.md\n📄 แก้ไข: part_35.pdf\n📄 แก้ไข: part_36.md\n📄 แก้ไข: part_36.pdf\n📄 แก้ไข: part_37.md\n📄 แก้ไข: part_37.pdf\n📄 แก้ไข: part_38.md\n📄 แก้ไข: part_38.pdf\n📄 แก้ไข: part_39.md\n📄 แก้ไข: part_39.pdf\n📄 แก้ไข: part_40.md\n📄 แก้ไข: part_40.pdf\n📄 แก้ไข: part_41.md\n📄 แก้ไข: part_41.pdf\n📄 แก้ไข: part_42.md\n📄 แก้ไข: part_42.pdf\n📄 แก้ไข: part_43.md\n📄 แก้ไข: part_43.pdf\n📄 แก้ไข: part_44.md\n📄 แก้ไข: part_44.pdf\n📄 แก้ไข: part_45.md\n📄 แก้ไข: part_45.pdf\n📄 แก้ไข: part_46.md\n📄 แก้ไข: part_46.pdf\n📄 แก้ไข: part_47.md\n📄 แก้ไข: part_47.pdf\n📄 แก้ไข: part_48.md\n📄 แก้ไข: part_48.pdf\n📄 แก้ไข: part_49.md\n📄 แก้ไข: part_49.pdf\n📄 แก้ไข: part_50.md\n📄 แก้ไข: part_50.pdf\n📄 แก้ไข: part_51.md\n📄 แก้ไข: part_51.pdf\n📄 แก้ไข: part_52.md\n📄 แก้ไข: part_52.pdf\n📄 แก้ไข: part_53.md\n📄 แก้ไข: part_53.pdf\n📄 แก้ไข: part_54.md\n📄 แก้ไข: part_55.pdf\n📄 แก้ไข: git_diary.md\n📄 แก้ไข: Academic_210218_131903-2.pdf\n🛠 แก้ไขระบบ: batch_fix_vol07.py\n🛠 แก้ไขระบบ: gemini_pdf_to_md.py\n📄 แก้ไข: ref_sac_unknown.md\n🛠 แก้ไขระบบ: update_diary.py
+**[13:45] 📌 หยุด Script batch_fix_vol07.py ตามคำสั่ง User\n- สำเร็จแล้ว 19 ไฟล์ (จาก 58)\n- มีการแก้ปัญหา API Key และ Path Logic เรียบร้อย\n- พร้อมกลับมา Run ต่อได้ทันที**
+    > **Situation (ที่มา):** User cmd
+    > **Action (การดำเนินการ):** Executed command
+    > **Result (ผลลัพธ์):** 
 *   **[11:08] 📝 Volume 8 Inspection and Combination Complete**
     > Verified Parts 41-55, fixed Part 53 headers, deleted duplicate Part 55, combined all parts into references/court_rulings_books/administrative_court_rulings_vol_08.md, and updated README with strict logging rules.
 
@@ -3582,3 +3590,73 @@
         - **Next Steps**: Retry 53/55 manually. Locate Part 54. Run numeral fix on new files.
 
 
+
+**[2026-01-06 11:08] Volume 8 Inspection and Combination Complete**
+    -   ✨ สร้างใหม่: .agent/workflows/bbb.md
+    -   📝 แก้ไข: README.md
+    -   ✨ สร้างใหม่: bbb
+    -   ✨ สร้างใหม่: eee
+    -   📝 แก้ไข: etc/split_vol08/part_01.md
+    -   📝 แก้ไข: etc/split_vol08/part_04.md
+    -   📝 แก้ไข: etc/split_vol08/part_04_old.md
+    -   📝 แก้ไข: etc/split_vol08/part_06.md
+    -   📝 แก้ไข: etc/split_vol08/part_07.md
+    -   📝 แก้ไข: etc/split_vol08/part_08.md
+    -   📝 แก้ไข: etc/split_vol08/part_09.md
+    -   📝 แก้ไข: etc/split_vol08/part_10.md
+    -   📝 แก้ไข: etc/split_vol08/part_11.md
+    -   📝 แก้ไข: etc/split_vol08/part_12.md
+    -   📝 แก้ไข: etc/split_vol08/part_13.md
+    -   📝 แก้ไข: etc/split_vol08/part_14.md
+    -   📝 แก้ไข: etc/split_vol08/part_15.md
+    -   📝 แก้ไข: etc/split_vol08/part_16.md
+    -   📝 แก้ไข: etc/split_vol08/part_17.md
+    -   📝 แก้ไข: etc/split_vol08/part_18.md
+    -   📝 แก้ไข: etc/split_vol08/part_19.md
+    -   📝 แก้ไข: etc/split_vol08/part_20.md
+    -   📝 แก้ไข: etc/split_vol08/part_21.md
+    -   📝 แก้ไข: etc/split_vol08/part_22.md
+    -   📝 แก้ไข: etc/split_vol08/part_23.md
+    -   📝 แก้ไข: etc/split_vol08/part_24.md
+    -   📝 แก้ไข: etc/split_vol08/part_25.md
+    -   📝 แก้ไข: etc/split_vol08/part_26.md
+    -   📝 แก้ไข: etc/split_vol08/part_27.md
+    -   📝 แก้ไข: etc/split_vol08/part_28.md
+    -   📝 แก้ไข: etc/split_vol08/part_29.md
+    -   📝 แก้ไข: etc/split_vol08/part_30.md
+    -   📝 แก้ไข: etc/split_vol08/part_31.md
+    -   📝 แก้ไข: etc/split_vol08/part_32.md
+    -   📝 แก้ไข: etc/split_vol08/part_33.md
+    -   📝 แก้ไข: etc/split_vol08/part_34.md
+    -   📝 แก้ไข: etc/split_vol08/part_35.md
+    -   📝 แก้ไข: etc/split_vol08/part_36.md
+    -   📝 แก้ไข: etc/split_vol08/part_37.md
+    -   📝 แก้ไข: etc/split_vol08/part_38.md
+    -   📝 แก้ไข: etc/split_vol08/part_39.md
+    -   📝 แก้ไข: etc/split_vol08/part_40.md
+    -   📝 แก้ไข: etc/split_vol08/part_41.md
+    -   📝 แก้ไข: etc/split_vol08/part_42.md
+    -   📝 แก้ไข: etc/split_vol08/part_43.md
+    -   📝 แก้ไข: etc/split_vol08/part_45.md
+    -   📝 แก้ไข: etc/split_vol08/part_46.md
+    -   📝 แก้ไข: etc/split_vol08/part_47.md
+    -   📝 แก้ไข: etc/split_vol08/part_48.md
+    -   📝 แก้ไข: etc/split_vol08/part_49.md
+    -   📝 แก้ไข: etc/split_vol08/part_50.md
+    -   📝 แก้ไข: etc/split_vol08/part_51.md
+    -   📝 แก้ไข: etc/split_vol08/part_52.md
+    -   📝 แก้ไข: etc/split_vol08/part_53.md
+    -   🗑️ ลบ: etc/split_vol08/part_54.pdf
+    -   🗑️ ลบ: etc/split_vol08/part_55.md
+    -   🗑️ ลบ: etc/split_vol08/ref_sac_unknown.pdf
+    -   🗑️ ลบ: etc/split_vol08/verify_part_03.py
+    -   🗑️ ลบ: etc/split_vol08/verify_part_04.py
+    -   ✨ สร้างใหม่: nnn
+    -   📝 แก้ไข: references/court_rulings_books/administrative_court_rulings_vol_08.md
+    -   ✨ สร้างใหม่: scripts/batch_fix_vol08.py
+    -   ✨ สร้างใหม่: scripts/batch_fix_vol08_v2.py
+    -   📝 แก้ไข: scripts/combine_vol08.py
+    -   ✨ สร้างใหม่: scripts/fix_numerals_vol08.py
+    -   🗑️ ลบ: scripts/references/rulings_court/ref_sac_unknown.md
+    -   📝 แก้ไข: scripts/update_diary.py
+    -   ✨ สร้างใหม่: scripts/verify_vol08_audit.py
