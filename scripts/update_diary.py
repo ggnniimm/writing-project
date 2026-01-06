@@ -656,6 +656,132 @@ def start_day_mode():
     print(f"✅ เริ่มต้นวันใหม่เรียบร้อย ({today_date})")
 
 
+
+def auto_logging_mode():
+    """
+    Analyzes staged changes (task.md completions or general files)
+    and APPENDS a log entry to the diary automatically.
+    """
+    if not os.path.exists(DIARY_FILE): return
+
+    # 1. Check task.md for newly completed items [x]
+    task_diff = ""
+    try:
+        task_diff = subprocess.check_output(["git", "diff", "--cached", "-U0", "task.md"], encoding="utf-8")
+    except: task_diff = ""
+
+    completed_tasks = []
+    if task_diff:
+        for line in task_diff.split('\n'):
+            # Look for lines becoming [x]
+            # Git diff + means added line. If we see + ... [x] ... it might be a completion
+            # But we should ensure it was [ ] before? Diff shows - [ ] and + [x] typically.
+            if line.startswith("+") and "- [x]" in line:
+                 clean = line.split("- [x]")[1].strip()
+                 # Clean up generic names
+                 if clean.startswith("Part"): clean = f"Verified {clean} (Volume 7)"
+                 completed_tasks.append(clean)
+    
+    # 2. General Changes
+    files_changed = run_git_diff()
+    
+    if not completed_tasks and not files_changed:
+        print("No staged changes to log.")
+        return
+
+    # Determine Message
+    title = ""
+    situation = "System auto-detected staged changes."
+    action = "Executed automated workflow."
+    result = "Updates applied."
+    
+    if completed_tasks:
+        # Group parts if possible
+        parts = []
+        others = []
+        for t in completed_tasks:
+            match = re.search(r'Verified Part (\d+)', t)
+            if match: parts.append(int(match.group(1)))
+            else: others.append(t)
+            
+        parts.sort()
+        summary_parts = ""
+        if parts:
+             summary_parts = f"Verified Volume 7 Parts: {parts[0]:02d}-{parts[-1]:02d}" if len(parts) > 1 else f"Verified Volume 7 Part {parts[0]:02d}"
+        
+        all_actions = []
+        if summary_parts: all_actions.append(summary_parts)
+        all_actions.extend(others)
+        
+        title = f"✅ Completed Tasks: {', '.join(all_actions)}"
+        action = f"Marked as complete: {', '.join(all_actions)}"
+        result = "Task list updated."
+        
+    elif files_changed:
+        # Fallback to AI or Heuristic
+        # Just use file names for Title
+        filenames = [os.path.basename(f[1]) for f in files_changed]
+        title = f"🛠 Updated {', '.join(filenames[:2])}"
+        if len(filenames) > 2: title += " and more..."
+        action = f"Modified files: {', '.join(filenames)}"
+    
+    # Check if this exact title already exists in today's log to prevent dupes
+    # (Simple check)
+    with open(DIARY_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+    if title in content:
+        print(f"Log '{title}' already exists. Skipping.")
+        return
+
+    # Construct Entry (Reuse main logic's format manually or call it?)
+    # Let's verify we have headers.
+    
+    today_date = get_thai_date()
+    header_date = f"## 📅 {today_date}"
+    log_header = "### 📝 บันทึกการปฏิบัติงาน (Operations Log)"
+    
+    time_str = get_time_str().split(" ")[1]
+    
+    # Icon selection
+    icon = "✅" if completed_tasks else "🛠"
+    
+    entry = f"**[{time_str}] {icon} {title}**\n"
+    entry += f"    > **Situation (ที่มา):** {situation}\n"
+    entry += f"    > **Action (การดำเนินการ):** {action}\n"
+    entry += f"    > **Result (ผลลัพธ์):** {result}\n"
+    
+    # Insert
+    with open(DIARY_FILE, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        
+    # Find Date
+    date_found_idx = -1
+    for i, line in enumerate(lines):
+        if line.strip() == header_date:
+            date_found_idx = i
+            break
+            
+    if date_found_idx != -1:
+         # Find Log Header
+         log_idx = -1
+         for i in range(date_found_idx, len(lines)):
+             if lines[i].strip().startswith(log_header):
+                 log_idx = i
+                 break
+             if lines[i].strip().startswith("## 📅") and i != date_found_idx: 
+                 break
+         
+         if log_idx != -1:
+             lines.insert(log_idx + 1, entry)
+             with open(DIARY_FILE, "w", encoding="utf-8") as f:
+                 f.writelines(lines)
+             print(f"✅ Auto-Logged: {title}")
+         else:
+             print("Log header not found, skipping auto-log.")
+    else:
+        print("Date header not found, skipping auto-log.")
+
+
 def main():
     if len(sys.argv) > 1:
         if sys.argv[1] == "--suggest":
@@ -668,8 +794,12 @@ def main():
                 target_date = sys.argv[2]
             summary_mode(target_date)
             sys.exit(0)
+        elif sys.argv[1] == "--auto-log":
+            auto_logging_mode()
+            sys.exit(0)
 
         elif sys.argv[1] == "--read-latest":
+
             read_latest_mode()
             sys.exit(0)
         elif sys.argv[1] == "--start-day":

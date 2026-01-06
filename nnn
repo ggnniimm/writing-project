@@ -4,8 +4,12 @@ echo "---------------------------------------------------"
 echo "🤖 Ending Day Routine (nnn)..."
 echo "---------------------------------------------------"
 
-# 1. Generate Summary
-echo "📝 1. Summarizing today's achievements..."
+# 1. Auto-Log Staged Changes (Operations Log)
+echo "📝 1. Auto-logging staged changes..."
+python3 scripts/update_diary.py --auto-log
+
+# 2. Generate Summary
+echo "📊 2. Summarizing today's achievements..."
 python3 scripts/update_diary.py --summary
 
 # 2. Push Work
