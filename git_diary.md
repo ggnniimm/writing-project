@@ -4236,3 +4236,9 @@
     -   ✨ สร้างใหม่: etc/split_vol07/temp_part_13_analysis.txt
     -   ✨ สร้างใหม่: etc/split_vol07/temp_part_14_analysis.txt
     -   ✨ สร้างใหม่: part16_full.txt
+
+**[2026-01-07 17:23] Cleanup temp files**
+    -   🗑️ ลบ: etc/split_vol07/part_13_copy.pdf
+    -   🗑️ ลบ: etc/split_vol07/temp_part_13_analysis.txt
+    -   🗑️ ลบ: etc/split_vol07/temp_part_14_analysis.txt
+    -   🗑️ ลบ: part16_full.txt
