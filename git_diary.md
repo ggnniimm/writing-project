@@ -18,6 +18,16 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[17:25] ✅ Verified Part 14 and Part 15**
+    > **Situation (ที่มา):** User requested verification of `part_14.md` and `part_15.md` against their PDF sources, specifically to fix numeral validation issues.
+    > **Action (การดำเนินการ):**
+    > 1. Ran `vmd` workflow on both files.
+    > 2. Part 14: Corrected 4 instances of Arabic numerals '5' and '4' to Thai '๖' and '๘'.
+    > 3. Part 15: Corrected 10 instances of Arabic numeral '5' to Thai '๖'.
+    > 4. Updated `vmd.md` workflow to mandate character count reporting in all future summaries.
+    > **Result (ผลลัพธ์):** Both files verified with healthy stats (Ratio ~1.00, Overlap ~0.89) and numeral validation passed.
+    *   *Files:* `etc/split_vol07/part_14.md`, `etc/split_vol07/part_15.md`, `.agent/workflows/vmd.md`
+
 **[08:35] เริ่มต้นภารกิจประจำวัน (Start of Day)**
     > เริ่มต้นวันใหม่ ตรวจสอบสถานะและวางแผนงานเรียบร้อย
 
@@ -4128,3 +4138,47 @@
 **[2026-01-07 08:52] End of Day Sync 💤**
     -   📝 แก้ไข: etc/split_vol07/part_12.md
     -   ✨ สร้างใหม่: temp_part_12_dump.txt
+
+**[2026-01-07 11:40] End of Day Sync 💤**
+    -   ✨ สร้างใหม่: analyze_diff_07.py
+    -   ✨ สร้างใหม่: analyze_diff_08.py
+    -   ✨ สร้างใหม่: analyze_diff_09.py
+    -   ✨ สร้างใหม่: batch_verify.py
+    -   ✨ สร้างใหม่: compare_counts_final.py
+    -   ✨ สร้างใหม่: compare_page_129.py
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_gap.md
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_gap.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_missing.md
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_missing.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_page131_133.md
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_09_page131_133.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_204_205.md
+    -   ✨ สร้างใหม่: etc/split_vol07/extract_204_205.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/final_pdf_dump.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/fix_part_12_structure.py
+    -   ✨ สร้างใหม่: etc/split_vol07/page_204_content.txt
+    -   📝 แก้ไข: etc/split_vol07/part_07.md
+    -   📝 แก้ไข: etc/split_vol07/part_08.md
+    -   📝 แก้ไข: etc/split_vol07/part_09.md
+    -   📝 แก้ไข: etc/split_vol07/part_12.md
+    -   ✨ สร้างใหม่: etc/split_vol07/part_12_backup.md
+    -   ✨ สร้างใหม่: etc/split_vol07/ref_sac_unknown.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_page_verify.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_part_07_analysis.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_part_08_analysis.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_part_09_analysis.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_part_09_dump.txt
+    -   ✨ สร้างใหม่: etc/split_vol07/temp_part_12_pages.txt
+    -   ✨ สร้างใหม่: extract_pages.py
+    -   ✨ สร้างใหม่: extract_pages_07_fix_105.py
+    -   ✨ สร้างใหม่: extract_pages_08_fix_113.py
+    -   ✨ สร้างใหม่: extract_pages_09.py
+    -   ✨ สร้างใหม่: extract_pages_09_fix_131.py
+    -   ✨ สร้างใหม่: extract_pages_09_gap.py
+    -   ✨ สร้างใหม่: merge_gemini_extract.py
+    -   ✨ สร้างใหม่: merge_part_07.py
+    -   ✨ สร้างใหม่: merge_part_08.py
+    -   ✨ สร้างใหม่: merge_part_09.py
+    -   ✨ สร้างใหม่: merge_part_09_fix_131.py
+    -   ✨ สร้างใหม่: merge_part_09_gap.py
+    -   📝 แก้ไข: scripts/references/rulings_court/ref_sac_unknown.md

@@ -16,3 +16,6 @@ description: Verify the accuracy and completeness of an extracted Markdown file 
    ```bash
    pdftotext -layout "$2" - | grep -C 3 "context string"
    ```
+
+3. **Report Results**:
+   In your final report, YOU MUST include the **Character Count** for both the PDF and Markdown files, and the **Ratio**, as outputted by the verification script.
