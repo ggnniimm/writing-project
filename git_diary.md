@@ -30,14 +30,18 @@
     > **Result (ผลลัพธ์):** Part 25 formatting is corrected, and the superscript verification rule is codified for future tasks.
     *   *Files:* `etc/split_vol07/part_25.md`, `README.md`
 
-**[Current] 🔧 Fixed Part 25 Discrepancies**
-    > **Situation (ที่มา):** Investigation revealed ~3,700 missing chars (whitespace) and specific errors (missing header, typos, footnote refs) in `part_25.md`.
+**[21:18] 🔄 Re-split Part 25 from Master PDF**
+    > **Situation (ที่มา):** User identified massive character discrepancy (~10k chars) between Part 25 MD and PDF. Investigation revealed the part was extracted from wrong page range - old Part 25 covered Insurance law (ประกันวินาศภัย) while it should cover Weapons/Land law to bridge Part 24 and Part 26.
     > **Action (การดำเนินการ):**
-    > 1. Added missing header "๔๕๓ แนวคำวินิจฉัยของศาลปกครอง".
-    > 2. Corrected typos (๖.๐๘ -> ว.๐๘, ข้อ ๔ -> ข้อ ๘).
-    > 3. Added missing footnote references (superscripts 2, 3, 4, 5, 6, 7, 8, 9, 10) and fixed footnote labels.
-    > 4. Verified changes match the PDF context.
-    > **Result (ผลลัพธ์):** Part 25 is now fully corrected and verified.
+    > 1. Identified correct page boundaries: Part 24 ends at p.451 (Insurance), Part 26 starts at p.473 (Land law).
+    > 2. Located master PDF physical pages: 486-506 correspond to content pages 452-472.
+    > 3. Extracted new `part_25.pdf` from `raw_pdfs/Academic_230317_084750-2.pdf` (physical pages 486-506).
+    > 4. Re-extracted Markdown content via Gemini API (`./eee` workflow).
+    > 5. Backed up old file as `part_25_old.md` for reference.
+    > 6. Cleaned up temporary files (master text extractions, test PDFs).
+    > **Result (ผลลัพธ์):** New Part 25 correctly bridges content gap (p.452-472), now covering Weapons law (อาวุธปืน) instead of Insurance. File has 709 lines and ensures perfect continuity: Part 24 (→451) → Part 25 (452-472) → Part 26 (473→).
+    *   *Files:* `etc/split_vol07/part_25.pdf`, `etc/split_vol07/part_25.md`, `etc/split_vol07/part_25_old.md` (backup)
+    *   *Scripts:* `scripts/fix_part_25_pdf.py` (extraction logic)
     *   *Files:* `etc/split_vol07/part_25.md`, `investigation_report_part_25.md`
 
 **[20:32] ✅ Verified Part 25 (Volume 7)**
