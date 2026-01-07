@@ -118,6 +118,15 @@ To set up this workflow on a new macOS machine:
     *   Bottom: `[08:30] First Task`
 *   **Style:** Narrative (Situation -> Action -> Result).
 
+### 6. 🔍 Verification Protocol (Agent Rules)
+When verifying or correcting Markdown files against PDF sources, Agents MUST follow these rules:
+
+#### 6.1 Superscript Validation
+*   **Rule:** Always verify footnote references in the text body are correctly formatted as superscripts.
+*   **Format:** Use HTML `<sup>` tags to prevent ambiguity with Thai numerals or section numbers.
+*   **Example:** Change `มาตรา ๓๔๒` (Ambiguous) to `มาตรา ๓๔<sup>๒</sup>` (Correct).
+*   **Check:** Verify that no numbers are "smushed" against section numbers (e.g., `๑๓๓๒๘` vs `๑๓๓๒<sup>๘</sup>`).
+
 ### 5. 📚 Article Index
 
 

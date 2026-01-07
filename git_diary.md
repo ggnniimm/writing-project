@@ -21,6 +21,44 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+
+**[20:55] 🔧 Refined Superscripts in Part 25**
+    > **Situation (ที่มา):** User requested correction of superscript formatting in `part_25.md` to ensure clarity and requested a permanent protocol for future agents.
+    > **Action (การดำเนินการ):**
+    > 1. Modified `part_25.md` to use HTML `<sup>` tags for footnote references (e.g., `มาตรา ๓๔<sup>๒</sup>`) to prevent ambiguity with Thai numerals/sections.
+    > 2. Documented this rule in `README.md` under specific "Verification Protocol" section (Section 6).
+    > **Result (ผลลัพธ์):** Part 25 formatting is corrected, and the superscript verification rule is codified for future tasks.
+    *   *Files:* `etc/split_vol07/part_25.md`, `README.md`
+
+**[Current] 🔧 Fixed Part 25 Discrepancies**
+    > **Situation (ที่มา):** Investigation revealed ~3,700 missing chars (whitespace) and specific errors (missing header, typos, footnote refs) in `part_25.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Added missing header "๔๕๓ แนวคำวินิจฉัยของศาลปกครอง".
+    > 2. Corrected typos (๖.๐๘ -> ว.๐๘, ข้อ ๔ -> ข้อ ๘).
+    > 3. Added missing footnote references (superscripts 2, 3, 4, 5, 6, 7, 8, 9, 10) and fixed footnote labels.
+    > 4. Verified changes match the PDF context.
+    > **Result (ผลลัพธ์):** Part 25 is now fully corrected and verified.
+    *   *Files:* `etc/split_vol07/part_25.md`, `investigation_report_part_25.md`
+
+**[20:32] ✅ Verified Part 25 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_25.md` against its PDF source.
+    > **Action (การดำเนินการ):** 
+    > 1. Ran `vmd` workflow.
+    > 2. Numeral validation passed automatically.
+    > 3. Verified stats: Ratio 0.91, Jaccard 0.82.
+    > **Result (ผลลัพธ์):** Part 25 verified clean.
+    *   *Files:* `etc/split_vol07/part_25.md`
+
+**[20:30] ✅ Verified Part 24 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_24.md` against its PDF source.
+    > **Action (การดำเนินการ):** 
+    > 1. Ran `vmd` workflow.
+    > 2. Script flagged Arabic numeral '4' in Thai context on line 426.
+    > 3. Verified against PDF using `pdftotext`: Found Thai numeral '๘' (8) was misread as '4'.
+    > 4. Corrected `part_24.md` (4. -> ๘.).
+    > 5. Re-ran `vmd`: Passed (Ratio 0.99, Jaccard 0.87).
+    > **Result (ผลลัพธ์):** Part 24 verified and corrected.
+    *   *Files:* `etc/split_vol07/part_24.md`
 **[17:25] ✅ Verified Part 14 and Part 15**
     > **Situation (ที่มา):** User requested verification of `part_14.md` and `part_15.md` against their PDF sources, specifically to fix numeral validation issues.
     > **Action (การดำเนินการ):**
