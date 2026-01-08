@@ -198,7 +198,7 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
             # --- STEP 3: GENERATE ---
             print("🧠 Generating content...")
             
-            model = genai.GenerativeModel('models/gemini-2.5-flash')
+            model = genai.GenerativeModel('models/gemini-flash-latest')
             
             prompt_text = """
             You are an expert OCR engine.
@@ -212,6 +212,10 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
             4. Do NOT wrap the result in JSON or code blocks (like ```markdown). Just return raw markdown text.
             5. If there are tables, format them as Markdown tables.
             6. PRESERVE ALL PAGE NUMBERS, even if they appear in headers or footers. Do not remove them.
+            7. **FOOTNOTE FORMATTING**:
+               - Identify footnote numbers in the text (often appearing as small numbers or Thai numerals like ๑, ๒) and format them as superscripts: <sup>1</sup>, <sup>2</sup>.
+               - Format footnote DEFINITIONS (at the bottom of page) on their own line, starting with the superscript number: <sup>1</sup> Content...
+               - Do NOT merge footnote definitions into the main text paragraph.
             """
 
             # Use stream=True for responsiveness
@@ -348,7 +352,7 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
     current_key_index = start_key_index
     genai.configure(api_key=api_keys[current_key_index])
     
-    model = genai.GenerativeModel('models/gemini-2.5-flash')
+    model = genai.GenerativeModel('models/gemini-flash-latest')
     
     # Prompt is slightly different for chunks vs full doc
     if is_chunk:
@@ -357,6 +361,9 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
         Document Chunk to Markdown.
         Extract all text verbatim from this part. No summary. No analysis.
         Start immediately with the text content. Do NOT wrap in JSON. Do NOT use markdown code blocks like ```markdown.
+        **FOOTNOTE FORMATTING**:
+        - Use superscripts <sup>1</sup> for footnote references.
+        - Place footnote definitions on a new line: <sup>1</sup> Definition...
         Just raw text/markdown.
         """
     else:
@@ -365,6 +372,9 @@ def generate_content_with_retry(api_keys, start_key_index, inline_data, is_chunk
         Document to Markdown.
         Extract all text verbatim. No summary. No analysis.
         Start immediately with the text content. Do NOT wrap in JSON. Do NOT use markdown code blocks like ```markdown.
+        **FOOTNOTE FORMATTING**:
+        - Use superscripts <sup>1</sup> for footnote references.
+        - Place footnote definitions on a new line: <sup>1</sup> Definition...
         Just raw text/markdown.
         """
 

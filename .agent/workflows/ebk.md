@@ -98,6 +98,18 @@ pdftotext -layout etc/<parts>/<part>.pdf - | grep "<context>"
 
 # Fix based on PDF verification
 # Common: 5→๖, 4→๔, dimension fixes like ๒๖๕๔๐→๒๖ x ๔๐
+
+#### 3.4 Verify Footnotes & Superscripts
+```bash
+# Check superscripts vs footnote labels
+grep -n -E "<sup>|^\s*[๑-๙๐-๙]+(-[๑-๙๐-๙]+)?\s*$" etc/<parts>/*.md
+```
+
+**Verification Rules:**
+- **Superscript Formatting:** Ensure referenced numbers in text are wrapped in `<sup>` (e.g., `ข้อ ๑๐<sup>๔</sup>`).
+- **Label Accuracy:** Check bottom-of-page footnote labels for OCR errors (e.g., `*` or `٩` instead of `๔-๖`).
+- **One-to-One Mapping:** Every superscript must have a corresponding footnote definition.
+- **Content Integrity:** Verify footnote text matches PDF (watch for OCR errors in section numbers, e.g., `๔๒๑` vs `๘๒๑`).
 ```
 
 ---
@@ -189,6 +201,7 @@ grep -c "สายด่วนศาลปกครอง\|TRUST" references/cou
 - [ ] Verify content completeness  
 - [ ] Clean administrative footers
 - [ ] Fix OCR errors (PDF-verified)
+- [ ] Verify Footnotes (Superscripts, Labels, Mappings)
 - [ ] Combine into single file
 - [ ] Final verification
 - [ ] Move to references/court_rulings_books/

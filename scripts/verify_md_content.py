@@ -34,28 +34,97 @@ def check_numerals(md_content):
     issues = []
     lines = md_content.splitlines()
     for i, line in enumerate(lines):
-         # Skip likely English lines (e.g. headers, footer, or tables with English)
-         # Heuristic: if line has Thai chars, it should use Thai numerals.
-         if re.search(r'[ก-ฮ]', line):
-             # Look for Arabic numerals 0-9
-             # Exclude patterns like URLs, English references (e.g. v.1, 2024, etc)
-             # This is a strict check as requested.
-             
-             # Find all matches
-             matches = re.finditer(r'[0-9]+', line)
-             for m in matches:
-                 # Check context? For now, just flag it.
-                 # Maybe ignore if it looks like a year "256x" and user allows it? 
-                 # But user specifically asked for Thai numerals.
-                 # Volume 7 usually uses Thai numerals for everything in the body.
-                 
-                 # Exception: "Page X" or similar if explicit.
-                 # Exception: English words nearby?
-                 
-                 issues.append(f"⚠️  Line {i+1}: Arabic numeral '{m.group()}' found in Thai context.")
-                 if len(issues) >= 10:
-                     issues.append("... (too many numeral errors, stopping check)")
-                     return issues
+        if re.search(r'[ก-ฮ]', line):
+            matches = re.finditer(r'[0-9]+', line)
+            for m in matches:
+                # Filter out likely superscripts (footnotes) if they are 1-2 digits
+                # But strictly speaking, the prompt says "Thai Court Rulings use Thai numerals".
+                # Superscripts in HTML are text.
+                # If the regex matches inside <sup>...</sup>, we might want to allow it IF the user accepts Arabic for footnotes.
+                # However, usually footnotes in Thai texts are also Thai numerals.
+                # Let's flag everything for now.
+                issues.append(f"⚠️  Line {i+1}: Arabic numeral '{m.group()}' found in Thai context.")
+                if len(issues) >= 10:
+                    issues.append("... (too many numeral errors, stopping check)")
+                    return issues
+    return issues
+
+def check_footnotes(md_content):
+    """
+    Verifies footnote completeness and correctness.
+    1. Finds all references `<sup>X</sup>`.
+    2. Finds all definitions starting with `<sup>X</sup>`.
+    3. Checks sequence and pairing.
+    """
+    issues = []
+    
+    # 1. Normalize numbers in superscripts to integers
+    # Regex for <sup> 1 </sup>, <sup>๑</sup>, etc.
+    # We will convert Thai digits to Arabic for logic check
+    
+    thai_digits = "๐๑๒๓๔๕๖๗๘๙"
+    arabic_digits = "0123456789"
+    trans = str.maketrans(thai_digits, arabic_digits)
+    
+    def to_int(s):
+        s = s.translate(trans)
+        try:
+            return int(s)
+        except:
+            return None
+
+    # Find References
+    # Pattern: <sup>(digits)</sup>
+    ref_matches = []
+    for m in re.finditer(r'<sup>\s*([0-9๐-๙]+)\s*</sup>', md_content):
+        val = to_int(m.group(1))
+        if val is not None:
+            ref_matches.append(val)
+    
+    # Find Definitions
+    # Pattern: Start of line (ignoring whitespace), <sup>(digits)</sup>
+    # Or common fallback: * (digits) or just (digits) if prompt failed slightly
+    def_matches = []
+    lines = md_content.splitlines()
+    for i, line in enumerate(lines):
+        # Strict check based on new prompt rules
+        m = re.match(r'^\s*<sup>\s*([0-9๐-๙]+)\s*</sup>', line)
+        if m:
+            val = to_int(m.group(1))
+            if val is not None:
+                def_matches.append(val)
+                
+    # Sort
+    refs = sorted(list(set(ref_matches)))
+    defs = sorted(list(set(def_matches)))
+    
+    # CHECK 1: Sequence
+    if refs:
+        full_seq = list(range(refs[0], refs[-1] + 1))
+        missing_refs = [x for x in full_seq if x not in refs]
+        if missing_refs:
+            issues.append(f"❌ GAP in Footnote References: Missing {missing_refs}")
+    
+    if defs:
+        full_seq_defs = list(range(defs[0], defs[-1] + 1))
+        missing_defs = [x for x in full_seq_defs if x not in defs]
+        if missing_defs:
+            issues.append(f"❌ GAP in Footnote Definitions: Missing {missing_defs}")
+
+    # CHECK 2: Pairing
+    # Refs without Defs
+    orphan_refs = [x for x in refs if x not in defs]
+    if orphan_refs:
+        issues.append(f"❌ References without Definitions: {orphan_refs}")
+        
+    # Defs without Refs
+    orphan_defs = [x for x in defs if x not in refs]
+    if orphan_defs:
+        issues.append(f"❌ Definitions without References: {orphan_defs}")
+
+    if not refs and not defs:
+        issues.append("ℹ️  No footnotes found.")
+        
     return issues
 
 def verify_content(md_path, pdf_path=None):
@@ -75,9 +144,18 @@ def verify_content(md_path, pdf_path=None):
         for issue in num_issues:
             print(issue)
     else:
-        print("✅ Numeral Validation Passed (No misplaced Arabic numerals found).")
+        print("✅ Numeral Validation Passed.")
 
-    # 2. PDF Comparison (if provided)
+    # 2. Footnote Check
+    fn_issues = check_footnotes(md_content)
+    if fn_issues:
+        print("\nFn Footnote Validation Issues:")
+        for issue in fn_issues:
+            print(issue)
+    else:
+        print("✅ Footnote Validation Passed (Sequence & Pairing correct).")
+
+    # 3. PDF Comparison (if provided)
     if pdf_path and os.path.exists(pdf_path):
         print(f"\n📄 Comparing with PDF: {os.path.basename(pdf_path)}")
         try:

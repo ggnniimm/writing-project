@@ -1,6 +1,37 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 8 มกราคม 2026
+**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
+
+### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   (No logs recorded)
+
+### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+*   (See task.md)
+
+### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟
+*   System Stability & Automated Git Sync
+
+### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
+*   -
+
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[Current] ✅ Verified Part 36 and Part 37 (Volume 7)**
+    > **Situation (ที่มา):** Need to verify footnote fidelity and correct numeral issues in Parts 36 and 37.
+    > **Action (การดำเนินการ):**
+    > 1. Part 36: Fixed footnote formatting, converted to Thai numerals (๑, ๒, ๓) for consistency, verified content (Jaccard 0.89).
+    > 2. Part 37: Addressed significant footnote gaps. Merged definitions, manually corrected hallucinated numbers (1 -> 5, 1 -> 10), inserted missing references (6-9) and definition (8-9). Fixed encoding typos (ต่า -> ต่ำ, สานัก -> สำนัก). Verified (Jaccard 0.90).
+    > 3. Created `cleanup_part_36.py`, `cleanup_part_37.py`, and `convert_footnotes_to_thai.py`.
+    > **Result (ผลลัพธ์):** Parts 36 and 37 are now clean, accurate, and consistent with the PDF source.
+    *   *Files:* `part_36.md`, `part_37.md`
+    *   *Tools:* `verify_md_content.py`, `cleanup_part_*.py`
+
+**[08:18] เริ่มต้นภารกิจประจำวัน (Start of Day)**
+    > เริ่มต้นวันใหม่ ตรวจสอบสถานะและวางแผนงานเรียบร้อย
+
+
 ## 📅 7 มกราคม 2026
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -4242,3 +4273,5 @@
     -   🗑️ ลบ: etc/split_vol07/temp_part_13_analysis.txt
     -   🗑️ ลบ: etc/split_vol07/temp_part_14_analysis.txt
     -   🗑️ ลบ: part16_full.txt
+
+**[2026-01-08 08:16] docs: update writing project git diary.**
