@@ -18,6 +18,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[Current] 🔧 Correction: Fixing Page Headers in Part 37**
+    > **Situation (ที่มา):** User flagged weird page numbers (707, 715) appearing as footnotes or invisible headers.
+    > **Action (การดำเนินการ):**
+    > 1. Identified missing page number prefixes in lines 327 and 594.
+    > 2. Found "707" and "715" wrongly formatted as `<sup>707</sup>` and `<sup>715</sup>` in the text body.
+    > 3. Applied `multi_replace` to restore proper headers "๗๐๗ แนวคำวินิจฉัย..." and "๗๑๕ แนวคำวินิจฉัย..." and removed the artifacts.
+    > **Result (ผลลัพธ์):** Page headers 707 and 715 are now correctly formatted.
+    *   *Files:* `part_37.md`
+
 **[Current] ✅ Verified Part 36 and Part 37 (Volume 7)**
     > **Situation (ที่มา):** Need to verify footnote fidelity and correct numeral issues in Parts 36 and 37.
     > **Action (การดำเนินการ):**
@@ -4275,3 +4284,46 @@
     -   🗑️ ลบ: part16_full.txt
 
 **[2026-01-08 08:16] docs: update writing project git diary.**
+
+**[2026-01-08 16:17] End of Day Sync 💤**
+    -   📝 แก้ไข: .agent/workflows/ebk.md
+    -   ✨ สร้างใหม่: .agent/workflows/extract_and_verify.md
+    -   📝 แก้ไข: .agent/workflows/vmd.md
+    -   ✨ สร้างใหม่: debug_32_md.txt
+    -   ✨ สร้างใหม่: debug_32_pdf.txt
+    -   ✨ สร้างใหม่: debug_33_md.txt
+    -   ✨ สร้างใหม่: debug_33_pdf.txt
+    -   📝 แก้ไข: etc/split_vol07/part_26.md
+    -   📝 แก้ไข: etc/split_vol07/part_28.md
+    -   📝 แก้ไข: etc/split_vol07/part_28.pdf
+    -   📝 แก้ไข: etc/split_vol07/part_29.md
+    -   📝 แก้ไข: etc/split_vol07/part_30.md
+    -   📝 แก้ไข: etc/split_vol07/part_31.md
+    -   📝 แก้ไข: etc/split_vol07/part_32.md
+    -   📝 แก้ไข: etc/split_vol07/part_33.md
+    -   📝 แก้ไข: etc/split_vol07/part_34.md
+    -   📝 แก้ไข: etc/split_vol07/part_35.md
+    -   📝 แก้ไข: etc/split_vol07/part_36.md
+    -   ✨ สร้างใหม่: etc/split_vol07/part_36_part1.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/part_36_part2.pdf
+    -   ✨ สร้างใหม่: etc/split_vol07/part_36_raw.txt
+    -   📝 แก้ไข: etc/split_vol07/part_37.md
+    -   ✨ สร้างใหม่: scripts/cleanup_part_33.py
+    -   ✨ สร้างใหม่: scripts/cleanup_part_36.py
+    -   ✨ สร้างใหม่: scripts/cleanup_part_37.py
+    -   ✨ สร้างใหม่: scripts/convert_footnotes_to_thai.py
+    -   ✨ สร้างใหม่: scripts/convert_txt_to_md.py
+    -   ✨ สร้างใหม่: scripts/extract_pdf_pages.py
+    -   ✨ สร้างใหม่: scripts/find_text_page.py
+    -   📝 แก้ไข: scripts/gemini_pdf_to_md.py
+    -   ✨ สร้างใหม่: scripts/re_extract_part_33.py
+    -   ✨ สร้างใหม่: scripts/simple_extract.py
+    -   ✨ สร้างใหม่: scripts/split_pdf.py
+    -   📝 แก้ไข: scripts/verify_md_content.py
+    -   ✨ สร้างใหม่: temp_check_13_14.txt
+    -   ✨ สร้างใหม่: temp_check_16.txt
+    -   ✨ สร้างใหม่: temp_check_25.txt
+    -   ✨ สร้างใหม่: temp_check_30.txt
+    -   ✨ สร้างใหม่: temp_check_9_10.txt
+    -   ✨ สร้างใหม่: temp_check_line25.txt
+    -   ✨ สร้างใหม่: temp_pdf_dump.txt
