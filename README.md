@@ -121,11 +121,19 @@ To set up this workflow on a new macOS machine:
 ### 6. 🔍 Verification Protocol (Agent Rules)
 When verifying or correcting Markdown files against PDF sources, Agents MUST follow these rules:
 
-#### 6.1 Superscript Validation
+### 6.1 Superscript Validation
 *   **Rule:** Always verify footnote references in the text body are correctly formatted as superscripts.
 *   **Format:** Use HTML `<sup>` tags to prevent ambiguity with Thai numerals or section numbers.
 *   **Example:** Change `มาตรา ๓๔๒` (Ambiguous) to `มาตรา ๓๔<sup>๒</sup>` (Correct).
 *   **Check:** Verify that no numbers are "smushed" against section numbers (e.g., `๑๓๓๒๘` vs `๑๓๓๒<sup>๘</sup>`).
+
+#### 6.2 Mandatory Reporting
+*   **Rule:** When reporting the results of a verification (`verify_md_content.py`) to the user, you **MUST** explicitly state:
+    1.  **Character Count:** (MD vs PDF)
+    2.  **Ratio:** (Should be ~1.00)
+    3.  **Content Overlap (Jaccard):** (Should be > 0.8)
+    4.  **Footnote Status:** (Verified/Fixed)
+*   **Reason:** The user requires these metrics to trust the verification. "It looks good" is not enough.
 
 ### 5. 📚 Article Index
 

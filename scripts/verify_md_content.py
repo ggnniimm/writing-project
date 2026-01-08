@@ -155,6 +155,11 @@ def verify_content(md_path, pdf_path=None):
     else:
         print("✅ Footnote Validation Passed (Sequence & Pairing correct).")
 
+    ratio = None
+    jaccard = None
+    len_md = 0
+    len_pdf = 0
+
     # 3. PDF Comparison (if provided)
     if pdf_path and os.path.exists(pdf_path):
         print(f"\n📄 Comparing with PDF: {os.path.basename(pdf_path)}")
@@ -215,6 +220,23 @@ def verify_content(md_path, pdf_path=None):
             print(f"⚠️  PDF path provided but not found: {pdf_path}")
         else:
             print("ℹ️  No PDF provided. Skipping detailed comparison.")
+    
+    print("\n✅ Verification Complete.")
+    
+    # Summary for Agent Reporting
+    print("\n" + "="*40)
+    print("📋 REPORT SUMMARY (COPY THIS TO USER)")
+    print("="*40)
+    if pdf_path and ratio is not None: 
+        print(f"File: {os.path.basename(md_path)}")
+        print(f"Stats: Ratio={ratio:.2f} (MD: {len_md} / PDF: {len_pdf} chars)")
+        if jaccard is not None:
+            print(f"Jaccard: {jaccard:.2f}")
+    if fn_issues:
+        print(f"Footnotes: ⚠️ Found {len(fn_issues)} issues")
+    else:
+        print("Footnotes: ✅ Clean")
+    print("="*40 + "\n")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Verify Markdown content against PDF.")

@@ -18,6 +18,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[Current] 🔧 Process Improvement: Mandatory Verification Reporting**
+    > **Situation (ที่มา):** User requested consistent reporting of character limit/stats without having to ask every time.
+    > **Action (การดำเนินการ):**
+    > 1. Updated `README.md` to add "Mandatory Reporting" rule under Verification Protocol.
+    > 2. Updated `scripts/verify_md_content.py` to auto-generate a copy-paste friendly "REPORT SUMMARY" block at the end of execution.
+    > 3. Fixed variable scope bug in the verification script.
+    > **Result (ผลลัพธ์):** Future verifications will automatically output detailed stats (Ratio, Jaccard, Char Counts) for the Agent to report.
+    *   *Files:* `README.md`, `scripts/verify_md_content.py`
+
 **[Current] 🔧 Correction: Fixing Page Headers in Part 37**
     > **Situation (ที่มา):** User flagged weird page numbers (707, 715) appearing as footnotes or invisible headers.
     > **Action (การดำเนินการ):**
@@ -4327,3 +4336,6 @@
     -   ✨ สร้างใหม่: temp_check_9_10.txt
     -   ✨ สร้างใหม่: temp_check_line25.txt
     -   ✨ สร้างใหม่: temp_pdf_dump.txt
+
+**[2026-01-08 16:19] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/split_vol07/part_37.md
