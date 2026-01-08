@@ -18,6 +18,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[Current] ✅ Verified Part 38 (Volume 7)**
+    > **Situation (ที่มา):** Need to verify `part_38.md`. Initial verification failed to detect missing footnote definitions due to range formatting.
+    > **Action (การดำเนินการ):**
+    > 1. Created `cleanup_part_38.py` to tidy up artifacts and headers.
+    > 2. Manually inserted missing/broken footnote references and definitions (11, 13, 14, 15, 16).
+    > 3. Updated `verify_md_content.py` to correctly parse and validate footnote ranges (e.g., `12-14` -> 12, 13, 14).
+    > **Result (ผลลัพธ์):** Part 38 is verified with Ratio 0.99, Jaccard 0.89, and Clean Footnotes (11-18).
+    *   *Files:* `part_38.md`, `scripts/verify_md_content.py`
+
 **[Current] 🔧 Process Improvement: Mandatory Verification Reporting**
     > **Situation (ที่มา):** User requested consistent reporting of character limit/stats without having to ask every time.
     > **Action (การดำเนินการ):**
@@ -4339,3 +4348,7 @@
 
 **[2026-01-08 16:19] End of Day Sync 💤**
     -   📝 แก้ไข: etc/split_vol07/part_37.md
+
+**[2026-01-08 16:22] End of Day Sync 💤**
+    -   📝 แก้ไข: README.md
+    -   📝 แก้ไข: scripts/verify_md_content.py

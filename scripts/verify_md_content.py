@@ -66,33 +66,37 @@ def check_footnotes(md_content):
     arabic_digits = "0123456789"
     trans = str.maketrans(thai_digits, arabic_digits)
     
-    def to_int(s):
+    # Helper to parse "Num" or "Start-End"
+    def parse_fn_str(s):
         s = s.translate(trans)
         try:
-            return int(s)
+            if '-' in s:
+                parts = s.split('-')
+                if len(parts) == 2:
+                    start, end = int(parts[0]), int(parts[1])
+                    return list(range(start, end + 1))
+            return [int(s)]
         except:
-            return None
+            return []
 
     # Find References
-    # Pattern: <sup>(digits)</sup>
+    # Pattern: <sup>(digits or digits-digits)</sup>
     ref_matches = []
-    for m in re.finditer(r'<sup>\s*([0-9๐-๙]+)\s*</sup>', md_content):
-        val = to_int(m.group(1))
-        if val is not None:
-            ref_matches.append(val)
+    # Regex allows dash now
+    for m in re.finditer(r'<sup>\s*([0-9๐-๙]+(?:-[0-9๐-๙]+)?)\s*</sup>', md_content):
+        vals = parse_fn_str(m.group(1))
+        ref_matches.extend(vals)
     
     # Find Definitions
     # Pattern: Start of line (ignoring whitespace), <sup>(digits)</sup>
-    # Or common fallback: * (digits) or just (digits) if prompt failed slightly
     def_matches = []
     lines = md_content.splitlines()
     for i, line in enumerate(lines):
         # Strict check based on new prompt rules
-        m = re.match(r'^\s*<sup>\s*([0-9๐-๙]+)\s*</sup>', line)
+        m = re.match(r'^\s*<sup>\s*([0-9๐-๙]+(?:-[0-9๐-๙]+)?)\s*</sup>', line)
         if m:
-            val = to_int(m.group(1))
-            if val is not None:
-                def_matches.append(val)
+            vals = parse_fn_str(m.group(1))
+            def_matches.extend(vals)
                 
     # Sort
     refs = sorted(list(set(ref_matches)))
