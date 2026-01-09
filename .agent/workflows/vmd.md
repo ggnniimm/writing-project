@@ -38,3 +38,38 @@ description: Verify the accuracy and completeness of an extracted Markdown file 
    **C. One-to-One Mapping**
    - **CRITICALLY**: Every superscript in the text MUST have a corresponding footnote definition at the bottom of the relevant page/section.
    - Conversely, every footnote definition must correspond to a superscript in the text.
+
+---
+
+## ⚠️ Lessons Learned
+
+### Arabic Numeral Verification (CRITICAL)
+When the verification script flags Arabic numerals in Thai text:
+1. **DO NOT assume** Arabic `5` → Thai `๕`. OCR may have misread the digit entirely.
+2. **ALWAYS verify against PDF source first** using `pdftotext` before making any changes.
+3. Example: Arabic `5` was found in MD, but PDF source showed `๖` — the OCR misread the digit shape, not just the script.
+
+```bash
+# Verify specific numeral context in PDF
+pdftotext -layout "$2" - | grep -C 2 "มาตรา"
+```
+
+### Missing Page Detection (CRITICAL)
+When Ratio is below 0.95 (e.g., 0.93), **suspect missing pages**:
+
+1. **Check page headers are sequential**:
+   ```bash
+   grep -n "แนวคำวินิจฉัยของศาลปกครอง ๗" "$1"
+   ```
+   - Headers should follow odd-number sequence: ๗๑, ๗๓, ๗๕, ๗๗, ๗๙
+   - Missing header = missing page content
+
+2. **Calculate expected deficit**:
+   - ~2,000 chars/page typical
+   - Deficit of 3,000 chars ≈ 1.5 pages missing
+
+3. **Extract and insert missing content from PDF**:
+   ```bash
+   pdftotext -layout -f PAGE_NUM -l PAGE_NUM "$2" -
+   ```
+
