@@ -5,7 +5,6 @@ import time
 import google.generativeai as genai
 from google.api_core import exceptions
 import re
-from concurrent.futures import ThreadPoolExecutor
 import threading
 
 # Global lock for printing to avoid mixed output
@@ -39,10 +38,6 @@ def generate_markdown_from_pdf(pdf_path, output_path, api_keys, worker_id):
         safe_print("❌ Error: No API keys found.")
         return False
 
-    file_size_mb = os.path.getsize(pdf_path) / (1024 * 1024)
-    # safe_print(f"📦 [Worker {worker_id}] Processing {os.path.basename(pdf_path)} ({file_size_mb:.2f} MB)")
-
-    # Simple strategy: worker_id determines starting key to spread load
     current_key_index = worker_id % len(api_keys)
 
     for i in range(len(api_keys)):
@@ -52,19 +47,26 @@ def generate_markdown_from_pdf(pdf_path, output_path, api_keys, worker_id):
         genai.configure(api_key=api_key)
 
         try:
-            safe_print(f"🚀 [Worker {worker_id} - {os.path.basename(pdf_path)}] Uploading...")
+            safe_print(f"🚀 [Reverse-Worker {worker_id} - {os.path.basename(pdf_path)}] Uploading...")
             uploaded_file = genai.upload_file(pdf_path, mime_type="application/pdf")
             
+            # Wait for processing
+            attempt_count = 0
             while uploaded_file.state.name == "PROCESSING":
-                time.sleep(1)
+                time.sleep(2)
                 uploaded_file = genai.get_file(uploaded_file.name)
-            
-            if uploaded_file.state.name == "FAILED":
-                raise Exception("File processing failed.")
+                attempt_count += 1
+                if attempt_count > 30: # 60 seconds max wait for active state
+                     break
 
-            safe_print(f"🧠 [Worker {worker_id} - {os.path.basename(pdf_path)}] Generating...")
+            if uploaded_file.state.name == "FAILED":
+                raise Exception("File processing failed on Google Server.")
+
+            safe_print(f"🧠 [Reverse-Worker {worker_id} - {os.path.basename(pdf_path)}] Generating...")
+            # STRICTLY USE 2.5 FLASH as requested for Vol 8 parity
             model = genai.GenerativeModel('models/gemini-2.5-flash')
             
+            # PROMPT FROM Vol 8 (bulk_extract_vol08.py)
             prompt_text = """
             You are an expert OCR engine.
             Convert this entire PDF document into Markdown.
@@ -105,70 +107,58 @@ def generate_markdown_from_pdf(pdf_path, output_path, api_keys, worker_id):
             with open(output_path, "w", encoding="utf-8") as f:
                 f.write(final_markdown)
             
-            safe_print(f"✅ [Worker {worker_id}] Saved {os.path.basename(output_path)}")
+            safe_print(f"✅ [Reverse-Worker {worker_id}] Saved {os.path.basename(output_path)}")
             return True
 
         except Exception as e:
-            safe_print(f"❌ [Worker {worker_id} - {os.path.basename(pdf_path)}] Error: {e}")
-            if "429" in str(e) or "ResourceExhausted" in str(e):
-                safe_print(f"   ⏳ [Worker {worker_id}] Quota exceeded. Switching key...")
-                time.sleep(5)
+            safe_print(f"❌ [Reverse-Worker {worker_id} - {os.path.basename(pdf_path)}] Error: {e}")
+            if "503" in str(e) or "504" in str(e) or "429" in str(e) or "ResourceExhausted" in str(e):
+                safe_print(f"   ⏳ [Reverse-Worker {worker_id}] API Issue ({e}). Switching key...")
+                time.sleep(10)
                 continue
             else:
-                time.sleep(5)
+                time.sleep(10)
                 continue
 
-    safe_print(f"❌ [Worker {worker_id}] Failed to process {os.path.basename(pdf_path)}")
     return False
 
-def process_part(args):
-    part_num, base_dir, api_keys, worker_id = args
-    pdf_filename = f"part_{part_num:02d}.pdf"
-    md_filename = f"part_{part_num:02d}.md"
-    pdf_path = os.path.join(base_dir, pdf_filename)
-    output_path = os.path.join(base_dir, md_filename)
-
-    if not os.path.exists(pdf_path):
-        safe_print(f"⚠️ {pdf_filename} not found. Skipping.")
-        return
-
-    if os.path.exists(output_path):
-        safe_print(f"ℹ️ {md_filename} already exists. Skipping.")
-        return
-
-    generate_markdown_from_pdf(pdf_path, output_path, api_keys, worker_id)
-
 def main():
-    base_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "etc", "split_vol08")
+    base_dir = "/Users/mingsaksaengwilaipon/.gemini/antigravity/scratch/writing_project/etc/Academic_230317_084750-2_parts"
     api_keys = load_api_keys()
     print(f"Loaded {len(api_keys)} API keys.")
 
     if not api_keys:
-        print("❌ No API keys found in .env files.")
+        print("❌ No API keys found.")
         sys.exit(1)
 
-    # List of tasks: Parts 1 to 55
-    tasks = []
-    num_parts = 55 # based on 1088 pages / 20
-    for i in range(num_parts):
+    start_part = 87
+    end_part = 10 # Stop around where forward worker might be
+    
+    # Reverse loop
+    for i in range(start_part - 1, end_part - 1, -1):
         part_num = i + 1
-        tasks.append((part_num, base_dir, api_keys, i))
+        pdf_filename = f"part_{part_num:02d}.pdf"
+        md_filename = f"part_{part_num:02d}.md"
+        pdf_path = os.path.join(base_dir, pdf_filename)
+        output_path = os.path.join(base_dir, md_filename)
 
-    # Use ThreadPoolExecutor
-    # 5 workers seems reasonable based on previous usage
-    max_workers = 5
-    
-    # Use ThreadPoolExecutor
-    # Sequential execution to avoid 403/429 errors
-    max_workers = 1
-    
-    print(f"Running with {max_workers} workers for {len(tasks)} parts (Sequential Mode)...")
-    
-    # We can still use ThreadPoolExecutor with 1 worker, or just a loop.
-    # Loop is safer for debugging.
-    for task in tasks:
-        process_part(task)
-        time.sleep(2) # Cooldown between files
+        # Check for existing completed files to skip (Resuming)
+        if os.path.exists(output_path):
+             file_size = os.path.getsize(output_path)
+             if file_size > 1000: # Simple check for non-empty
+                 print(f"ℹ️ {md_filename} exists ({file_size} bytes). Skipping.")
+                 continue
+             else:
+                 print(f"⚠️ {md_filename} exists but too small. Overwriting.")
+
+        if os.path.exists(pdf_path):
+             success = generate_markdown_from_pdf(pdf_path, output_path, api_keys, i)
+             if success:
+                 time.sleep(5) # Cooldown to simulate sequential processing of Vol 8
+             else:
+                 print(f"❌ Failed part {part_num}")
+        else:
+             print(f"⚠️ {pdf_filename} missing. Skipping.")
 
 if __name__ == "__main__":
     main()
