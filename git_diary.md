@@ -4416,3 +4416,225 @@
 **Next Steps:**
 - Verification of content completeness.
 - Combining all parts into a single Markdown file.
+
+**[2026-01-09 16:19] End of Day Sync 💤**
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.pdf
+    -   📝 แก้ไข: scripts/bulk_extract_vol08.py
+    -   ✨ สร้างใหม่: scripts/check_boundary_part08.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_230317.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_230317_reverse.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_repair_48_65.py
+    -   ✨ สร้างใหม่: scripts/smart_resplit_part08.py
+    -   ✨ สร้างใหม่: scripts/verify_ebk_230317.py
+
+## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [RETRY]
+
+**Completed:**
+- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic ( + simple prompt) to ensure high quality.
+- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
+- **Parallel Extraction:** Successfully ran Forward (01->47) and Reverse (87->66) agents.
+- **Gap Repair:** Deployed "Infinite Retry" agent to fill the difficult gap (Part 48-65).
+- **Status:** All 87 parts extracted and verified.
+
+**Next Steps:**
+- Verification of content completeness.
+- Combining all parts into a single Markdown file.
+
+## $(date '+%Y-%m-%d %H:%M') - Court Ruling Book Extraction (Volume 2) [RETRY]
+
+**Completed:**
+- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic (`gemini-2.5-flash` + simple prompt) to ensure high quality.
+- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
+- **Parallel Extraction:** Successfully ran Forward (01->47) and Reverse (87->66) agents.
+- **Gap Repair:** Deployed "Infinite Retry" agent to fill the difficult gap (Part 48-65).
+- **Status:** All 87 parts extracted and verified.
+
+**Next Steps:**
+- Verification of content completeness.
+- Combining all parts into a single Markdown file.
+
+## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [FINAL]
+
+**Completed:**
+- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic (`gemini-2.5-flash` + simple prompt).
+- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
+- **Parallel Extraction:** Forward (01->47) and Reverse (87->66) agents completed.
+- **Gap Repair:** Fixed Gap 48-65 with Infinite Retry logic.
+- **Status:** All 87 parts extracted and verified.
+
+**Next Steps:**
+- Verification of content completeness.
+- Combining all parts into a single Markdown file.
