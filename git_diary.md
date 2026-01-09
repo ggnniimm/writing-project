@@ -18,6 +18,14 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[16:25] 📝 Court Ruling Book Extraction (Volume 2) [COMPLETED]**
+    > **Situation (ที่มา):** Extraction of all 87 parts completed using robust "Volume 8" strategy + Repair Agent.
+    > **Action (การดำเนินการ):**
+    > 1. Scaled Extraction: Forward (01-47) & Reverse (87-66) agents.
+    > 2. Smart Repair: Deployed Infinite Retry agent to fill missing gap (48-65) caused by rate limits.
+    > 3. Quality Control: Re-split Part 08 for continuity.
+    > **Result (ผลลัพธ์):** All 87 parts extracted successfully.
+
 **[08:26] 🔄 เริ่มต้นภารกิจประจำวัน (Start of Day Routine)**
     > **Situation (ที่มา):** เริ่มต้นวันใหม่และต้องการ Sync ข้อมูลกับ Repository ล่าสุด
     > **Action (การดำเนินการ):**
@@ -4602,39 +4610,4 @@
 
 ## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [RETRY]
 
-**Completed:**
-- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic ( + simple prompt) to ensure high quality.
-- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
-- **Parallel Extraction:** Successfully ran Forward (01->47) and Reverse (87->66) agents.
-- **Gap Repair:** Deployed "Infinite Retry" agent to fill the difficult gap (Part 48-65).
-- **Status:** All 87 parts extracted and verified.
 
-**Next Steps:**
-- Verification of content completeness.
-- Combining all parts into a single Markdown file.
-
-## $(date '+%Y-%m-%d %H:%M') - Court Ruling Book Extraction (Volume 2) [RETRY]
-
-**Completed:**
-- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic (`gemini-2.5-flash` + simple prompt) to ensure high quality.
-- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
-- **Parallel Extraction:** Successfully ran Forward (01->47) and Reverse (87->66) agents.
-- **Gap Repair:** Deployed "Infinite Retry" agent to fill the difficult gap (Part 48-65).
-- **Status:** All 87 parts extracted and verified.
-
-**Next Steps:**
-- Verification of content completeness.
-- Combining all parts into a single Markdown file.
-
-## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [FINAL]
-
-**Completed:**
-- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic (`gemini-2.5-flash` + simple prompt).
-- **Smart Re-splitting:** Detected and fixed boundary issues in Part 08.
-- **Parallel Extraction:** Forward (01->47) and Reverse (87->66) agents completed.
-- **Gap Repair:** Fixed Gap 48-65 with Infinite Retry logic.
-- **Status:** All 87 parts extracted and verified.
-
-**Next Steps:**
-- Verification of content completeness.
-- Combining all parts into a single Markdown file.
