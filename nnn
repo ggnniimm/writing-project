@@ -4,6 +4,10 @@ echo "---------------------------------------------------"
 echo "🤖 Ending Day Routine (nnn)..."
 echo "---------------------------------------------------"
 
+# 0. Stage All Changes first (so Auto-Log can see them)
+echo "📦 0. Staging all changes..."
+git add .
+
 # 1. Auto-Log Staged Changes (Operations Log)
 echo "📝 1. Auto-logging staged changes..."
 python3 scripts/update_diary.py --auto-log
@@ -12,13 +16,14 @@ python3 scripts/update_diary.py --auto-log
 echo "📊 2. Summarizing today's achievements..."
 python3 scripts/update_diary.py --summary
 
-# 2. Push Work
-echo "🚀 2. Syncing to Remote..."
+# 3. Push Work
+echo "🚀 3. Syncing to Remote..."
 
 # Generate HTML (parity with ppp)
 echo "🎨 กำลังสร้างเอกสาร HTML ระดับพรีเมียม (Smart Build)..."
 python3 scripts/generate_html.py
 
+# Final Stage (Capture Diary & HTML updates)
 git add .
 git commit -m "End of Day Sync 💤" || echo "Nothing to commit"
 git push
