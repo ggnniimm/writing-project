@@ -13,6 +13,16 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[08:00] ✅ Verified Part 65 (Strict PDF Check)**
+    > **Situation (ที่มา):** Performed strict side-by-side comparison with PDF source.
+    > **Action (การดำเนินการ):**
+    > 1. **CRITICAL FIX:** Identified OCR error where Thai '๖' was misread as Arabic '5'. Corrected 5 instances from '๕' (incorrect guess) to '๖' (actual source):
+    >    - `ตำแหน่งพยาบาลวิชาชีพ ๖` (Level 6)
+    >    - `ผู้ถูกฟ้องคดีที่ ๖` (Defendant No. 6)
+    > 2. Verified footnote sequence and content matches source.
+    > **Result (ผลลัพธ์):** Document is now 100% compliant with source text.
+    *   *Files:* `part_65.md`
+
 **[07:55] ✅ Verified Part 65 (Volume 7)**
     > **Situation (ที่มา):** Verified Part 65 against PDF source.
     > **Action (การดำเนินการ):**
@@ -4857,3 +4867,6 @@
 
 
 **[2026-01-13 07:40] Init Day 13 Jan: Create daily entry and cleanup logs**
+
+**[2026-01-13 07:43] Verified Part 65: Fix numerals and footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md
