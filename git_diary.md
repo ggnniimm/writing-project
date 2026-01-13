@@ -4956,3 +4956,16 @@
     -   Verified Definition 11-13 (Line 665) is complete and matches PDF.
     -   Gap [16, 17] confirmed: Part 74 starts with Footnote 18 (from previous chapter context) and then starts a NEW chapter (Chapter 27) which resets footnotes to 1. Thus, 16 and 17 do not exist in this file.
 -   **Status**: Verified & Ready.
+
+**[2026-01-13 08:56] Verified Part 74: Footnotes and Numerals**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
+
+**[2026-01-13 09:20] Verified Part 75: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_75.md`.
+-   **Method**: Used `part_75_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Corrected Arabic numeral '5' to Thai '๕' on lines 182, 189, 225, and 560.
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions for Chapter 28 (Ref 1-5) and Chapter 29 (Ref 1-6).
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Status**: Verified & Ready.
