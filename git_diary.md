@@ -13,6 +13,71 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[17:15] ⏸️ Paused Volume 5 Extraction (42/90 Parts)**
+    > **Situation (ที่มา):** User requested to pause extraction to continue later.
+    > **Action (การดำเนินการ):**
+    > 1. Terminated `extract_vol05.py` process.
+    > 2. Confirmed 42 out of 90 parts extracted successfully (`part_01.md` to `part_42.md`).
+    > **Result (ผลลัพธ์):** Process paused. Files saved securely.
+    *   *Files:* `part_01.md` -> `part_42.md`
+
+**[13:45] 🚀 Started Extraction of Volume 5 (90 Parts)**
+    > **Situation (ที่มา):** User initiated `/ebk` workflow for `Academic_310717_154727-2.pdf` (Volume 5).
+    > **Action (การดำเนินการ):**
+    > 1. Split PDF into 90 parts (20 pages each) using fixed `split_pdf.py`.
+    > 2. Initiated `extract_vol05.py` using Gemini 2.5 Flash.
+    > 3. Verified `part_01.md` content (Header/Footer/Text present).
+    > **Result (ผลลัพธ์):** Extraction is running in background.
+    *   *Files:* `etc/Academic_310717_154727-2_parts/`
+
+**[13:20] 📦 Merged Volume 6 (Parts 1-87)**
+    > **Situation (ที่มา):** User requested to merge all parts of Volume 6 (re-do).
+    > **Action (การดำเนินการ):** Concatenated `part_01.md` through `part_87.md` from `etc/Academic_230317_084750-2_parts` into `references/court_rulings_books/administrative_court_rulings_vol_06.md`.
+    > **Result (ผลลัพธ์):** Volume 6 merged successfully.
+    *   *Files:* `administrative_court_rulings_vol_06.md`
+
+**[13:10] ✅ Verified Part 87 (Volume 6)**
+    > **Situation (ที่มา):** User requested verification of `part_87.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Investigated high Ratio (2.03): MD contains full text of "Order 40/2559" (pages 1705-1707) which was missing from PDF text extraction. Confirmed MD content is legitimate.
+    > 2. **Fixes:**
+    >    - Corrected Index typo: `๕๐๖` -> `๔๐๖`.
+    >    - Corrected Arabic numerals in table headers (`1`, `2` -> `๑`, `๒`).
+    >    - Removed `TRUST` watermarks and OCR placeholders.
+    > 3. Verified content accuracy.
+    > **Result (ผลลัพธ์):** Part 87 is verified.
+    *   *Files:* `part_87.md`
+
+**[12:20] ✅ Verified Part 86 (Volume 6)**
+    > **Situation (ที่มา):** User requested verification of `part_86.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Investigated low Jaccard/High Ratio: Caused by Markdown table formatting.
+    > 2. **Major Fixes:** Corrected significant transcription errors, shifted rows, and mismatched values in tables on pages 1685, 1686, 1687, 1688, 1690, 1696, 1697, 1698, 1700, 1701.
+    > 3. Removed 'TRUST' watermarks.
+    > 4. Verified content matches PDF extraction despite structural differences.
+    > **Result (ผลลัพธ์):** Part 86 is verified. Content is accurate.
+    *   *Files:* `part_86.md`
+
+**[11:55] ✅ Verified Part 85 (Volume 6)**
+    > **Situation (ที่มา):** User requested verification of `part_85.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numerals '5' to Thai '๖' in 5 instances.
+    > 2. Formatted footnotes 34-37 with `<sup>` tags and proper definitions.
+    > 3. Removed 'TRUST' watermark artifacts.
+    > 4. Verified content (Ratio 1.10, Jaccard 0.49 due to table formatting).
+    > **Result (ผลลัพธ์):** Part 85 is verified and clean.
+    *   *Files:* `part_85.md`
+
+**[11:30] ✅ Verified Part 84 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_84.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numerals '5' to Thai '๖' or '๕' in 8 instances.
+    > 2. Formatted footnotes 17-33 with `<sup>` tags and definitions.
+    > 3. Removed noise artifacts ('mo') and stray numbers.
+    > 4. Verified content fidelity (Ratio 1.00, Jaccard 0.56).
+    > **Result (ผลลัพธ์):** Part 84 is verified and clean.
+    *   *Files:* `part_84.md`
+
 **[11:00] ✅ Verified Part 79 (Volume 7)**
     > **Situation (ที่มา):** User requested verification of `part_79.md`.
     > **Action (การดำเนินการ):**
@@ -5044,3 +5109,26 @@
 - Footnote ๑-๒ missing from PDF part, sequence starts at ๓.
 - Char Ratio: 0.99. Jaccard: 0.54.
 - Document integrity confirmed.
+
+**[2026-01-13 11:23] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_80.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_81.md
+
+- Verified `part_83.md` against `part_83.pdf`.
+- Corrected Arabic numeral '5' to Thai '๖' in 'Nakhon Ban 6' (Line 72) and date '6 Oct' (Line 644).
+- Confirmed no footnotes present in this part.
+- Verification script passed with clean results.
+
+## 2026-01-13: Part 83 Verification
+- **Verified Part 83**: `etc/Academic_230317_084750-2_parts/part_83.md`
+    - Check against PDF: `part_83.pdf`
+    - **Numeral Corrections**: Corrected Arabic '5' to Thai '๖' at lines 72 and 644.
+    - **Footnote Formatting**:
+        - Formatted Pre-Chapter 33 footnotes (32, 33).
+        - Mapped and formatted Chapter 33 footnotes (1-14) which were previously unformatted or had merged numbering issues (e.g., mismatch between PDF starting at 1 and MD continuing with 35+).
+        - Resolved specific mapping (e.g., MD `๔๔` -> PDF `๑๔`, MD `๔๑-๔๓` -> PDF `๑๑` definitions).
+        - Fixed missing definitions for Footnotes 7 and 12.
+    - **Verification Results**:
+        - Ratio: 0.99
+        - Jaccard: 0.54 (Moderate)
+        - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
