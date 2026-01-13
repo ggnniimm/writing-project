@@ -98,7 +98,7 @@ def process_file_full(pdf_path, output_path, api_key, worker_id):
 
     except Exception as e:
         print(f"❌ [Worker {worker_id} - {os.path.basename(pdf_path)}] Error: {e}")
-        time.sleep(5)
+        time.sleep(60)
         return False
 
 def worker_entry(args):
@@ -121,7 +121,7 @@ def worker_entry(args):
             return True
         else:
             print(f"   ⚠️ [Worker {i}] Retry with next key...")
-            time.sleep(5)
+            time.sleep(60)
             
     return False
 
