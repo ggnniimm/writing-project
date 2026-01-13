@@ -9,12 +9,24 @@ import multiprocessing
 import glob
 import concurrent.futures
 
-# Global lock for printing is not useful across processes, need a different approach or just accept mixed output.
-# We will just print natively, it might mix but that's fine for now.
+# ==================================================================================
+# ⚙️ CONFIGURATION
+# ==================================================================================
+# Directory containing the split PDF parts (e.g., "etc/MyBook_parts")
+BASE_DIR = "etc/Your_Book_Dir_parts" 
+
+# Model to use (Flash is recommended for speed/cost)
+MODEL_NAME = 'models/gemini-2.5-flash'
+
+# Rate Limiting: Sleep time (seconds) after each successful generation to preserve quota
+# Free Tier: ~15 RPM. With N workers, sleep should be sufficient to keep total RPM < 15.
+# Recommended: 12s for safe buffer if using multiple keys.
+SLEEP_PER_REQUEST = 12 
+# ==================================================================================
 
 def load_api_keys():
+    """Lengths API keys from .env file in current or parent directory."""
     api_keys = []
-    # Check current dir and parent dir for .env
     possible_paths = [
         os.path.join(os.path.dirname(__file__), ".env"),
         os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
@@ -32,6 +44,10 @@ def load_api_keys():
     return list(set(api_keys))
 
 def process_file_full(pdf_path, output_path, api_key, worker_id):
+    """
+    Processes a single PDF file using the Gemini API.
+    Isolated function for use in separate processes.
+    """
     # Setup for this process
     genai.configure(api_key=api_key)
     
@@ -52,7 +68,7 @@ def process_file_full(pdf_path, output_path, api_key, worker_id):
             raise Exception("File processing failed on Google Server.")
 
         print(f"🧠 [Worker {worker_id} - {os.path.basename(pdf_path)}] Generating...")
-        model = genai.GenerativeModel('models/gemini-2.5-flash')
+        model = genai.GenerativeModel(MODEL_NAME)
         
         prompt_text = """
         You are an expert OCR engine.
@@ -83,6 +99,7 @@ def process_file_full(pdf_path, output_path, api_key, worker_id):
             pass
 
         final_markdown = full_text.strip()
+        # Clean up markdown code block wrappers if present
         if final_markdown.startswith("```"):
             lines = final_markdown.splitlines()
             if lines[0].startswith("```"): lines = lines[1:]
@@ -93,26 +110,27 @@ def process_file_full(pdf_path, output_path, api_key, worker_id):
             f.write(final_markdown)
         
         print(f"✅ [Worker {worker_id}] Saved {os.path.basename(output_path)}")
-        time.sleep(12) # Throttle to ~5 RPM (12s + processing)
+        time.sleep(SLEEP_PER_REQUEST) # Rate limit throttle
         return True
 
     except Exception as e:
         print(f"❌ [Worker {worker_id} - {os.path.basename(pdf_path)}] Error: {e}")
-        time.sleep(5)
+        time.sleep(5) # Short cool down on error
         return False
 
 def worker_entry(args):
+    """
+    Entry point for worker process. 
+    Handles logic to rotate keys if needed (though simple 1-1 mapping is preferred for simplicity).
+    """
     pdf_path, output_path, api_keys, i = args
-    # Assign specific key to this worker/task based on round-robin
-    # Since we are in a process, we can configure genai safely for this process
     
-    # Simple retry logic with key rotation if needed?
-    # For now, just pick one key based on Index
-    
-    # Strategy: Try up to len(api_keys) times with rotation
+    # Simple Strategy: Assign one primary key based on worker index
+    # If it fails, we could rotate, but for now we just retry with the same or next one.
     
     current_key_idx = i % len(api_keys)
     
+    # Try up to len(api_keys) times (rotating through available keys)
     for attempt in range(len(api_keys)):
         idx = (current_key_idx + attempt) % len(api_keys)
         api_key = api_keys[idx]
@@ -120,50 +138,62 @@ def worker_entry(args):
         if process_file_full(pdf_path, output_path, api_key, i):
             return True
         else:
-            print(f"   ⚠️ [Worker {i}] Retry with next key...")
-            time.sleep(5)
+            print(f"   ⚠️ [Worker {i}] Request failed. Retrying with next available key...")
+            time.sleep(SLEEP_PER_REQUEST) 
             
     return False
 
 def main():
-    base_dir = "/Users/mingsaksaengwilaipon/.gemini/antigravity/scratch/writing_project/etc/Academic_310717_154727-2_parts"
+    # 1. Load Keys
     api_keys = load_api_keys()
     print(f"Loaded {len(api_keys)} API keys.")
 
     if not api_keys:
-        print("❌ No API keys found.")
+        print("❌ No API keys found in .env files.")
         sys.exit(1)
 
-    pdf_files = sorted(glob.glob(os.path.join(base_dir, "part_*.pdf")))
+    # 2. Find Files
+    if not os.path.exists(BASE_DIR):
+        print(f"❌ Directory not found: {BASE_DIR}")
+        print("   Please edit the 'BASE_DIR' variable at the top of this script.")
+        sys.exit(1)
+
+    pdf_files = sorted(glob.glob(os.path.join(BASE_DIR, "part_*.pdf")))
     
     if not pdf_files:
-        print(f"❌ No PDF files found in {base_dir}")
+        print(f"❌ No PDF files found in {BASE_DIR}")
         return
 
+    print(f"Found {len(pdf_files)} parts to process in {BASE_DIR}")
+
     tasks = []
-    # Process Pool for isolation
-    # Max workers = number of keys (1 per key) to strictly respect rate limits
+    
+    # 3. Configure Parallel Execution
+    # Best Practice: ONE worker per API key to maximize throughput while respecting individual key rate limits.
     max_workers = len(api_keys)
     if max_workers < 1: max_workers = 1
     
-    print(f"🚀 Starting parallel extraction with {max_workers} processes (Conservative Mode)...")
+    print(f"🚀 Starting parallel extraction with {max_workers} processes...")
+    print(f"   (Using ProcessPoolExecutor for isolation + {SLEEP_PER_REQUEST}s sleep per request)")
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
         for i, pdf_path in enumerate(pdf_files):
             filename = os.path.basename(pdf_path)
             md_filename = filename.replace(".pdf", ".md")
-            output_path = os.path.join(base_dir, md_filename)
+            output_path = os.path.join(BASE_DIR, md_filename)
 
+            # Resume Capability: Skip existing non-empty files
             if os.path.exists(output_path):
                  file_size = os.path.getsize(output_path)
                  if file_size > 1000:
                      print(f"ℹ️ {md_filename} exists ({file_size} bytes). Skipping.")
                      continue
                  else:
-                     print(f"⚠️ {md_filename} exists but too small. Overwriting.")
+                     print(f"⚠️ {md_filename} exists but likely empty/broken. Overwriting.")
 
             tasks.append(executor.submit(worker_entry, (pdf_path, output_path, api_keys, i)))
 
+        # Wait for completion
         for future in concurrent.futures.as_completed(tasks):
              pass
 

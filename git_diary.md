@@ -13,6 +13,15 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 **[17:15] ⏸️ Paused Volume 5 Extraction (42/90 Parts)**
     > **Situation (ที่มา):** User requested to pause extraction to continue later.
     > **Action (การดำเนินการ):**
@@ -183,6 +192,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 **[17:56] ✅ Verified Parts 58-64 (Volume 7)**
     > **Situation (ที่มา):** Detected numeral discrepancies and missing superscript footnotes in Parts 58-64.
     > **Action (การดำเนินการ):**
@@ -300,6 +318,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 **[21:52] 🔧 End of Day Sync (Verified Vol 7 Parts 01-09)**
     > **Situation (ที่มา):** Completed verification of Volume 7 parts (01-09) and initiated end-of-day sync.
     > **Action (การดำเนินการ):**
@@ -347,6 +374,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 **[17:00] ✅ Verified Parts 39, 40, 41, 42, 43 (Volume 7)**
     > **Situation (ที่มา):** Continue verifying the remaining parts of Volume 7.
     > **Action (การดำเนินการ):**
@@ -418,6 +454,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 
 **[20:55] 🔧 Refined Superscripts in Part 25**
     > **Situation (ที่มา):** User requested correction of superscript formatting in `part_25.md` to ensure clarity and requested a permanent protocol for future agents.
@@ -502,6 +547,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 
 **[21:50] 🔧 Improved Diary Automation**
     > **Situation (ที่มา):** User reported "No Content" issues in daily diary. `nnn` script was generating empty logs.
@@ -578,6 +632,15 @@
 2.  เลือกหัวข้อบทความใหม่เพื่อเขียน (Focus หลัก)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 **[10:49] 🔧 Verification and Combination of Volume 8**
     > **Situation (ที่มา):** User requested the combination of Volume 8 parts after a series of verifications and fixes (Parts 01-55).
     > **Action (การดำเนินการ):** Verified Parts 41–55, fixed missing headers in Part 53 (pages 1000, 1001, 1003, 1011), identified and deleted Part 55 (duplicate of 54), and executed `combine_vol08.py` to merge all 54 parts.
@@ -652,6 +715,15 @@
 *   -
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:24] 📝 Reverted part_04 to old version and paused work**
     > User requested to stop and revert due to extraction issues.
 
@@ -724,6 +796,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:48] 📝 ปรับปรุงพื้นที่ทำงานหลักและเพิ่มกระบวนการทำงานใหม่**
     > ผมได้ดำเนินการประสานการเปลี่ยนแปลงและปรับปรุงข้อมูลในพื้นที่ทำงานหลักตามความจำเป็น โดยเฉพาะการกลั่นกรองและแก้ไขเนื้อหาระเบียบอ้างอิงสองฉบับหลัก (ref_cac_o_133_2551.md และ ref_sac_cmd_262_2566.md) ให้มีความสมบูรณ์ยิ่งขึ้น พร้อมกันนี้ได้ติดตั้งขั้นตอนการทำงานใหม่ที่สำคัญสองส่วน คือ workflow 'extract_ruling_kg' และ 'query_graph_rag' โดยได้อัปเดตชุดสคริปต์และข้อมูล Knowledge Graph ทั้งหมด ส่งผลให้ระบบสามารถจัดเก็บและเรียกใช้ข้อมูลระเบียบอย่างเป็นระบบและมีความแม่นยำสูงขึ้นมากครับ
 
@@ -764,6 +845,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:29] 📝 บันทึกสรุปสถานะประจำวัน**
     > ณ เวลาสิ้นสุดวาระการปฏิบัติงานประจำวัน ผมได้ดำเนินการปิดวาระและจัดทำบันทึกสรุปผลงานตามกระบวนการ บันทึกนี้ถูกสร้างขึ้นโดยระบบอัตโนมัติ เพื่อยืนยันว่าสถานะความคืบหน้าของโครงการทั้งหมดได้ถูกจัดเก็บและบันทึกไว้ในสมุดปูมอย่างเป็นทางการเรียบร้อยแล้วครับ
 
@@ -793,6 +883,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:49] 📝 📝 Daily Wrap-up: สรุปงานประจำวัน (Auto-Generated)**
 
 *   **[10:17] 📝 รายงานการปรับปรุงความถูกต้องของข้อมูลและการวิเคราะห์บทลงโทษ**
@@ -817,6 +916,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:10] 📝 รายงานสรุปการดำเนินการรายวัน**
     > ตามระเบียบวาระการปฏิบัติงานประจำวัน ผมได้ดำเนินการรวบรวมและจัดทำรายงานสรุปผลการดำเนินการของทีมงานในรอบยี่สิบสี่ชั่วโมงที่ผ่านมา รายการนี้เป็นรายการที่จัดทำขึ้นโดยระบบอัตโนมัติ (Auto-Generated) เพื่อยืนยันความสมบูรณ์ของการบันทึกข้อมูลและเป็นประโยชน์ในการทบทวนแผนงานในวันถัดไปครับ
 
@@ -848,6 +956,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[23:07] 📝 สรุปผลการสร้างและตรวจสอบข้อมูลชุดที่ 23-39**
     > ผมได้ดำเนินการแปลงและสร้างข้อมูลชุดที่ 23 ถึง 39 ให้เป็นรูปแบบ Markdown เสร็จสิ้นสมบูรณ์ ในการนี้ ผมได้ทำการกู้คืนไฟล์ที่สูญหายไป (ส่วนที่ 25 และ 27) และแก้ไขข้อผิดพลาดของปีในระบบ OCR (ปรับจาก 2568 เป็น 2564) ที่เกิดขึ้นซ้ำอย่างละเอียดถี่ถ้วน ส่งผลให้ขณะนี้ไฟล์ทั้งหมดได้รับการตรวจสอบและยืนยันความถูกต้องเรียบร้อยแล้ว และพร้อมสำหรับการดำเนินการในขั้นตอนถัดไปครับ
 
@@ -885,6 +1002,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:54] 📝 รายงานสรุปผลการปฏิบัติงานประจำวัน**
     > ผมได้ดำเนินการรวบรวมข้อมูลและจัดทำรายงานสรุปผลการปฏิบัติงานของวันนี้โดยอัตโนมัติ (Auto-Generated) เพื่อเป็นการบันทึกความคืบหน้าของโครงการอย่างเป็นทางการ ส่งผลให้คณะทำงานสามารถตรวจสอบกิจกรรมที่เสร็จสิ้นและประเมินสถานะปัจจุบันของโครงการได้อย่างรวดเร็วและเป็นระเบียบครับ
 
@@ -939,6 +1065,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:40] 📝 รายงานการบันทึกภารกิจประจำวัน**
     > ในช่วงสิ้นสุดการปฏิบัติงาน ผมได้สั่งการให้ระบบทำการรวบรวมและสรุปผลการดำเนินการประจำวันทั้งหมดโดยอัตโนมัติ เพื่อให้มั่นใจว่าข้อมูลมีความครบถ้วนและถูกต้องตามระเบียบ ส่งผลให้การบันทึกหลักฐานการทำงานในรอบนี้เสร็จสมบูรณ์เรียบร้อยครับ
 
@@ -1027,6 +1162,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:02] 📝 สรุปผลการดำเนินงานประจำวัน**
     > ผมได้ดำเนินการจัดทำรายงานสรุปผลการปฏิบัติงานของทุกภาคส่วนประจำวัน (ซึ่งจัดทำโดยระบบอัตโนมัติ) เพื่อรวบรวมสถานะความคืบหน้าของงานทั้งหมดและตรวจสอบว่ากิจกรรมที่สำคัญในรอบ 24 ชั่วโมงที่ผ่านมาได้เสร็จสมบูรณ์ตามเป้าหมายหรือไม่ ทั้งนี้เพื่อใช้เป็นข้อมูลในการวางแผนและปรับกลยุทธ์ในวันถัดไปครับ
 
@@ -1056,6 +1200,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:43] 📝 รายงานสรุปผลการปฏิบัติงานประจำวัน**
     > ผมได้ดำเนินการรวบรวมและตรวจสอบความคืบหน้าของภารกิจทั้งหมดที่ได้ปฏิบัติการในรอบวัน เพื่อให้มั่นใจว่าทุกกิจกรรมเป็นไปตามแผนงานที่กำหนดไว้ ส่งผลให้สามารถจัดทำบันทึกรายงานสรุปผลการปฏิบัติงานอย่างเป็นทางการ เพื่อใช้ในการอ้างอิงและตรวจสอบต่อไปได้ครับ
 
@@ -1104,6 +1257,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:10] 📝 รายงานสรุปภารกิจประจำวัน**
     > ผมขอรายงานว่า เมื่อสิ้นสุดรอบการปฏิบัติงานในวันนี้ ผมได้ดำเนินการจัดทำบันทึกสรุปงานประจำวัน (Daily Wrap-up) โดยอาศัยการประมวลผลอัตโนมัติ (Auto-Generated) ของระบบ เพื่อรวบรวมข้อมูลความก้าวหน้าทั้งหมดของโครงการในรอบ 24 ชั่วโมงที่ผ่านมา ซึ่งส่งผลให้คณะทำงานสามารถตรวจสอบสถานะและเตรียมการสำหรับภารกิจต่อไปได้อย่างทันท่วงทีครับ
 
@@ -1192,6 +1354,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:44] 📝 สรุปผลการปฏิบัติงานประจำวัน**
     > เพื่อให้การติดตามความคืบหน้าของโครงการเป็นไปอย่างต่อเนื่อง ผมได้ดำเนินการบันทึกข้อสรุปการปฏิบัติงานประจำวันนี้ โดยเป็นไปตามระบบการสร้างบันทึกอัตโนมัติ (Auto-Generated) ซึ่งทำให้สถานะงานทั้งหมดได้รับการรายงานอย่างครบถ้วนตามกำหนดครับ
 
@@ -1241,6 +1412,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:12] 📝 รายงานสรุปผลปฏิบัติการประจำวัน**
     > ผมขอรายงานผลการปฏิบัติงานประจำวัน ซึ่งบันทึกนี้ถูกสร้างขึ้นโดยระบบอัตโนมัติ (Auto-Generated) เพื่อเป็นการยืนยันว่าการดำเนินการตามแผนงานทั้งหมดได้เสร็จสิ้นลงแล้ว และได้รวบรวมข้อมูลความก้าวหน้าทั้งหมดไว้เพื่อการตรวจสอบและสรุปผลในขั้นตอนถัดไปครับ
 
@@ -1281,6 +1461,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:23] 📝 บันทึกสรุปปฏิบัติการประจำวัน**
     > เมื่อเสร็จสิ้นการปฏิบัติงานประจำวัน ผมได้สั่งการให้ระบบทำการรวบรวมข้อมูลและจัดทำ 'บันทึกสรุปความคืบหน้า' (Daily Wrap-up) โดยอัตโนมัติ เพื่อยืนยันว่าภารกิจที่ได้รับมอบหมายทั้งหมดมีความสมบูรณ์ และพร้อมสำหรับการตรวจสอบตามระเบียบวาระการรายงานครับ
 
@@ -1322,6 +1511,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:14] 📝 บันทึกสรุปสถานการณ์ประจำวัน**
     > ผมได้ดำเนินการรวบรวมและตรวจสอบความคืบหน้าของภารกิจที่ได้ปฏิบัติการในวันนี้ทั้งหมด โดยใช้ระบบจัดการอัตโนมัติ (Auto-Generated) ในการจัดทำรายงานสรุปฉบับนี้ เพื่อเป็นการยืนยันความสมบูรณ์ของการปฏิบัติงานและสถานะปัจจุบันของโครงการ ก่อนที่จะเริ่มต้นการปฏิบัติภารกิจในวันต่อไป
 
@@ -1374,6 +1572,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:01] 📝 บันทึกสรุปการปฏิบัติงานประจำวัน**
     > ผมได้ดำเนินการรวบรวมและบันทึกข้อมูลกิจกรรมทั้งหมดที่ได้ปฏิบัติงานเสร็จสิ้นในรอบวัน บันทึกฉบับนี้ถูกสร้างขึ้นโดยระบบอัตโนมัติ เพื่อรับประกันความถูกต้องแม่นยำและความครบถ้วนของข้อมูลตามกำหนดการครับ
 
@@ -1447,6 +1654,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:00] 📝 รายงานสรุปผลการปฏิบัติงานประจำวัน**
     > ผมได้ดำเนินการบันทึกรายการสรุปผลการปฏิบัติงานประจำวัน ซึ่งเป็นไปตามข้อกำหนดการรายงานของโครงการ การบันทึกนี้ถูกสร้างขึ้นโดยระบบอัตโนมัติ เพื่อให้มั่นใจว่าการเก็บรวบรวมข้อมูล ณ สิ้นสุดช่วงเวลาการทำงานมีความครบถ้วนและแม่นยำสำหรับการตรวจสอบในภายภาคหน้าครับ
 
@@ -1507,6 +1723,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:23] 📝 บันทึกสรุปการปฏิบัติงานประจำวัน**
     > เมื่อสิ้นสุดการปฏิบัติภารกิจประจำวัน ผมได้ดำเนินการจัดทำและบันทึกสรุปความคืบหน้าของงานที่ได้ดำเนินการไปทั้งหมด เพื่อให้สามารถติดตามสถานะและตรวจสอบความคลาดเคลื่อนของการพัฒนาระบบได้อย่างชัดเจนครับ
 
@@ -1551,6 +1776,15 @@
 *   [ ] 🧹 **Cleanup:** จัดระเบียบไฟล์ใน `references/` ให้เป็นหมวดหมู่ (Court vs OAG vs Committee)
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[08:30] 📝 การปรับปรุงแก้ไขบันทึกประวัติการทำงานย้อนหลัง**
     > ผมได้ตรวจสอบและพบว่าบันทึกประวัติการทำงาน (Diary) ย้อนหลัง มีความคลาดเคลื่อนในการรวมรายการระหว่าง EP22 และ EP23 ดังนั้น ผมจึงดำเนินการแก้ไขบันทึกด้วยมือ (Manual Log Fix) เพื่อแยกรายการทั้งสองให้มีความชัดเจนและเป็นระเบียบเรียบร้อย ส่งผลให้ประวัติการทำงานมีความถูกต้องแม่นยำสำหรับการตรวจสอบต่อไปครับ
 
@@ -1585,6 +1819,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[20:55] 📝 รายงานสรุปผลการปฏิบัติภารกิจประจำวัน**
     > ณ ช่วงสิ้นสุดการปฏิบัติงานในวันนี้ ผมได้ดำเนินการรวบรวมและจัดทำบันทึกสรุปความก้าวหน้าของโครงการทั้งหมดที่ได้ดำเนินการเสร็จสิ้น เพื่อให้การรายงานมีความครบถ้วนและเป็นไปตามวาระที่กำหนดไว้ครับ
 
@@ -1660,6 +1903,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[20:43] 📝 บันทึกสรุปการปฏิบัติงานประจำวัน**
     > ผมได้ดำเนินการตามระเบียบวาระการปฏิบัติงาน โดยสั่งการให้ระบบทำการรวบรวมและประมวลผลข้อมูลกิจกรรมทั้งหมดที่เสร็จสิ้นในรอบวัน ด้วยกระบวนการอัตโนมัติ เพื่อจัดทำรายงานฉบับสมบูรณ์ ส่งผลให้มีการบันทึกความคืบหน้าของโครงการอย่างเป็นทางการและครบถ้วนตามกำหนดเวลาครับ
 
@@ -1779,6 +2031,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:47] 📝 📝 Daily Wrap-up: สรุปงานประจำวัน (Auto-Generated)**
 
 *   **[21:14] 📝 📝 เพิ่มบทความ EP.09 คดีน้ำท่วมเหตุสุดวิสัย พร้อมเอกสารอ้างอิง**
@@ -2056,6 +2317,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[21:42] 📝 📝 Daily Wrap-up: สรุปงานประจำวัน (Auto-Generated)**
     > ผมได้รับคำสั่งให้รวบรวมกิจกรรมการพัฒนาทั้งหมดประจำวันที่ 14 ธันวาคม 2025 และนำมาจัดทำเป็นบันทึกสรุปภาพรวมประจำวัน (Daily Retrospective) ผมเห็นว่าบันทึกเดิมไม่สมบูรณ์และขาดโครงสร้างที่ดี เพื่อให้การติดตามงานและการทำความเข้าใจภาพรวมของวันมีความชัดเจน ผมจึงตัดสินใจนำรายการที่ทำไปแล้วทั้งหมดมาจัดกลุ่ม ผมจึงได้ปรับปรุงโครงสร้างของไฟล์ `git_diary.md` ใหม่ โดยแบ่งเป็น 4 ส่วนหลัก และเพิ่มรายการงานที่ทำสำเร็จแล้ว (Accomplished) กว่า 30 รายการ เช่น การเพิ่มกรณีศึกษาหลายตัว, การอัปเกรดระบบ API Keys และการแก้ไขเวลาที่ซ้ำซ้อนในบันทึก เพื่อให้ผู้ตรวจสอบสามารถเข้าถึงข้อมูลได้อย่างรวดเร็วครับ
 
@@ -2293,6 +2563,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 *   **[22:04] 📝 📝 Daily Wrap-up: สรุปงานประจำวันเรียบร้อย**
 
 *   **[22:03] 📝 ตรวจสอบและลบอ้างอิงที่ไม่ชัดเจน**
@@ -2467,6 +2746,15 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 
 *   **[22:23] 📝 📝 Daily Wrap-up: สรุปงานประจำวันเรียบร้อย**
 
@@ -2695,6 +2983,15 @@
 *   **Proactive Review:** ก่อนเพิ่ม Section ใหม่ จะ Scan ดูโครงสร้างไฟล์รอบๆ ให้ละเอียดขึ้น เพื่อป้องกันการวางหัวข้อซ้ำ.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+
 
 **[2025-12-12 16:57] Update Task Status: Mark Case Study 7 as complete**
     -   📝 แก้ไข: articles/html/my_first_article.html
@@ -5132,3 +5429,17 @@
         - Ratio: 0.99
         - Jaccard: 0.54 (Moderate)
         - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
+
+
+## 📅 2026-01-13 (รอสรุป...)
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
+    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
+    > **Action (การดำเนินการ):**
+    > 1. Located `extract_vol05.py`.
+    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
+    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
+    > **Result (ผลลัพธ์):** Extraction running in background.
+    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
+

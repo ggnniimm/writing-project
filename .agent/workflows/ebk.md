@@ -47,18 +47,23 @@ python3 split_pdf.py raw_pdfs/<source_pdf>.pdf etc/<source_pdf_name>_parts/
 
 ### 2. Extract Content (Gemini API)
 
-**Option A: Use extraction script (recommended)**
-```bash
-# Edit extract_vol10.py - update these lines:
-# input_dir = "etc/<source_pdf>_parts"
+**Option A: Use Parallel Extraction Template (Best Practice)**
 
-python3 extract_vol10.py
+```bash
+# 1. Copy the template
+cp scripts/extract_ebk_parallel_template.py scripts/extract_<vol_name>.py
+
+# 2. Edit the new script to set your configuration:
+#    BASE_DIR = "etc/<source_pdf>_parts"
+
+# 3. Run the script
+python3 scripts/extract_<vol_name>.py
 ```
 
-**Features:**
-- Automatic API key rotation on rate limit (429)
-- Infinite retry until success
-- Skips already-extracted parts (resume support)
+**Why this is Best Practice:**
+- **Parallel Processing:** Uses `ProcessPoolExecutor` to run 1 worker per API Key (e.g., 3 keys = 3x speed).
+- **Rate Limit Safe:** Includes built-in sleep (12s) to strictly respect the Free Tier limits (15 RPM/key) and prevent 429 errors.
+- **Robustness:** Handles network errors, rotates keys automatically (via worker assignment), and supports resuming interrupted tasks.
 
 **Option B: Manual extraction per part**
 ```bash
