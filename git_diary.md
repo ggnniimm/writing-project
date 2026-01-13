@@ -1,9 +1,23 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
-## 📅 13 มกราคม 2026 (รอสรุป...)
+## 📅 13 มกราคม 2026
+
+**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
+
+### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   Verified and corrected numerals in `part_81.md` and `part_83.md`.
+*   Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
+*   Optimised extraction script with parallel processing and better rate limit handling (60s delay).
+
+### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
+*   Gemini API Rate Limits (429) slowed down batch extraction.
 
 ### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+**เป้าหมายพรุ่งนี้ (Tomorrow's Plan):**
+*   Continue extracting remaining parts (72, 73, 75-90).
+*   Run verification on newly extracted parts.
+
 **สถานะปัจจุบัน (Current Status):**
 -   Verified Volume 7 Parts 50-64.
 -   Volume 7 Verification approaching completion.
@@ -13,6 +27,13 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[21:40] 🔧 Fixed Rate Limit & Resumed Extraction**
+    > **Situation:** Encountered `429 Resource Exhausted` errors while extracting Part 72 using Gemini 2.5 Flash.
+    > **Action:**
+    > 1. Modified `scripts/extract_vol05.py` to increase retry delay from 5s to 60s.
+    > 2. Successfully extracted `part_68.md` and `part_69.md` before hitting the limit.
+    > **Result:** Script is now more robust against rate limits. Extraction of 68/69 complete.
+
 **[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
     > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
     > **Action (การดำเนินการ):**
@@ -87,6 +108,30 @@
     > **Result (ผลลัพธ์):** Part 84 is verified and clean.
     *   *Files:* `part_84.md`
 
+**[11:23] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_80.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_81.md
+
+**[11:20] ✅ Verified Part 83 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_83.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic '5' to Thai '๖' (Lines 72, 644).
+    > 2. Formatted footnotes 1-14 (Chapter 33) and 32-33. Resolved merged numbering issues.
+    > 3. Fixed missing definitions for Footnotes 7 and 12.
+    > **Result (ผลลัพธ์):** Verified clean (Ratio 0.99, Jaccard 0.54).
+    *   *Files:* `part_83.md`
+
+**[11:15] Verified Part 80 🇹🇭**
+    -   **File**: `etc/Academic_230317_084750-2_parts/part_80.md`
+    -   **Numerals**: Corrected 7 instances of Arabic '5' to Thai '๖'.
+    -   **Footnotes**: Formatted inline references and definitions. Validated pairs.
+    -   **Stats**: Ratio=0.99, Jaccard=0.55.
+
+**[11:02] End of Day Sync 💤**
+    -   📝 แก้ไข: Parts 75-79 (Formatting & Cleanup)
+    -   🗑️ ลบ: Extracted txt files for parts 75, 79.
+    -   ✨ สร้างใหม่: Extracted txt files for parts 76, 77, 79.
+
 **[11:00] ✅ Verified Part 79 (Volume 7)**
     > **Situation (ที่มา):** User requested verification of `part_79.md`.
     > **Action (การดำเนินการ):**
@@ -95,6 +140,20 @@
     > 3. Removed noise 'mo' at line 624.
     > **Result (ผลลัพธ์):** Part 79 is verified. No Arabic numerals remain.
     *   *Files:* `part_79.md`, `part_79_extracted.txt`
+
+**[10:35] Verified Part 77: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_77.md`.
+-   **Method**: Used `part_77_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Validation Passed (no Arabic numeral issues).
+-   **Footnotes**: Identified and applied `<sup>` tags to all footnote references and definitions (Ref 11-21). Fixed section numeral typos.
+-   **Stats**: Ratio=0.99, Jaccard=0.55.
+-   **Status**: Verified & Ready.
+
+**[10:25] Verified Part 76: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_76.md`.
+-   **Numerals**: Corrected Arabic numeral '5' to Thai '๖' on lines 22, 281, 443, and 596.
+-   **Footnotes**: Identified and applied `<sup>` tags to all footnote references and definitions (Ref 1-7).
+-   **Status**: Verified & Ready.
 
 **[09:55] ✅ Verified Part 78 (Volume 7)**
     > **Situation (ที่มา):** User requested verification of `part_78.md`.
@@ -106,6 +165,10 @@
     > 5. Verification passed: Ratio 1.00, Numerals Valid, Footnotes Complete (excluding expected cross-part gap).
     > **Result (ผลลัพธ์):** Part 78 is verified.
     *   *Files:* `part_78.md`
+
+**[09:40] Verified Part 75: Corrected numerals and formatted footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
+    -   ✨ สร้างใหม่: part_75_extracted.txt
 
 **[09:20] ✅ Verified Part 71 (Volume 7)**
     > **Situation (ที่มา):** User requested verification of `part_71.md`.
@@ -5334,134 +5397,3 @@
 -   **Numerals**: Validation Passed (Thai numerals correct).
 -   **Footnotes**:
     -   Available: 1-15, 18.
-    -   Fixed `<sup>` tags for References 14, 15 and their Definitions.
-    -   Verified Definition 11-13 (Line 665) is complete and matches PDF.
-    -   Gap [16, 17] confirmed: Part 74 starts with Footnote 18 (from previous chapter context) and then starts a NEW chapter (Chapter 27) which resets footnotes to 1. Thus, 16 and 17 do not exist in this file.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 08:56] Verified Part 74: Footnotes and Numerals**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
-
-**[2026-01-13 09:20] Verified Part 75: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_75.md`.
--   **Method**: Used `part_75_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Corrected Arabic numeral '5' to Thai '๕' on lines 182, 189, 225, and 560.
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions for Chapter 28 (Ref 1-5) and Chapter 29 (Ref 1-6).
-    -   Validation Passed (Sequence & Pairing correct).
--   **Status**: Verified & Ready.
-
-**[2026-01-13 09:40] Verified Part 75: Corrected numerals and formatted footnotes**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
-    -   ✨ สร้างใหม่: part_75_extracted.txt
-
-**[2026-01-13 10:25] Verified Part 76: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_76.md`.
--   **Method**: Used `part_76_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Corrected Arabic numeral '5' to Thai '๖' on lines 22, 281, 443, and 596.
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 1-7).
-    -   Validation Passed (Sequence & Pairing correct).
--   **Status**: Verified & Ready.
-
-**[2026-01-13 10:35] Verified Part 77: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_77.md`.
--   **Method**: Used `part_77_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Validation Passed (no Arabic numeral issues).
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 11-21).
-    -   Fixed section numeral typos: (๔) -> (๘) on lines 313-314 and 340-341.
-    -   Validation Passed (Sequence & Pairing correct).
--   **Stats**: Ratio=0.99 (MD: 45877 / PDF: 46335 chars), Jaccard=0.55.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 11:15] Verified Part 80 🇹🇭**
--   **File**: `etc/Academic_230317_084750-2_parts/part_80.md`
--   **Numerals**: Corrected 7 instances of Arabic '5' to Thai '๖' (Lines 9, 92, 111, 122, 174, 499, 635).
--   **Footnotes**:
-    -   Formatted inline references and definitions with `<sup>` tags.
-    -   Fixed misnumbered definition for footnote 31.
-    -   Validated all pairs (Refs 1, 2, 31-37).
--   **Stats**: Ratio=0.99 (MD: 43772 / PDF: 44207 chars), Jaccard=0.55.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 11:02] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_76.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_77.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_78.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_79.md
-    -   🗑️ ลบ: part_75_extracted.txt
-    -   ✨ สร้างใหม่: part_76_extracted.txt
-    -   ✨ สร้างใหม่: part_77_extracted.txt
-    -   ✨ สร้างใหม่: part_79_extracted.txt
-
-## [2026-01-13] part_81.md Verification
-- Verified against part_81.pdf.
-- ✅ Numeral Validation: Passed (No Arabic 4/5 issues found).
-- ✅ Footnote Validation: Clean after correcting references and definitions ๓-๒๐.
-- Footnote ๑-๒ missing from PDF part, sequence starts at ๓.
-- Char Ratio: 0.99. Jaccard: 0.54.
-- Document integrity confirmed.
-
-**[2026-01-13 11:23] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_80.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_81.md
-
-- Verified `part_83.md` against `part_83.pdf`.
-- Corrected Arabic numeral '5' to Thai '๖' in 'Nakhon Ban 6' (Line 72) and date '6 Oct' (Line 644).
-- Confirmed no footnotes present in this part.
-- Verification script passed with clean results.
-
-## 2026-01-13: Part 83 Verification
-- **Verified Part 83**: `etc/Academic_230317_084750-2_parts/part_83.md`
-    - Check against PDF: `part_83.pdf`
-    - **Numeral Corrections**: Corrected Arabic '5' to Thai '๖' at lines 72 and 644.
-    - **Footnote Formatting**:
-        - Formatted Pre-Chapter 33 footnotes (32, 33).
-        - Mapped and formatted Chapter 33 footnotes (1-14) which were previously unformatted or had merged numbering issues (e.g., mismatch between PDF starting at 1 and MD continuing with 35+).
-        - Resolved specific mapping (e.g., MD `๔๔` -> PDF `๑๔`, MD `๔๑-๔๓` -> PDF `๑๑` definitions).
-        - Fixed missing definitions for Footnotes 7 and 12.
-    - **Verification Results**:
-        - Ratio: 0.99
-        - Jaccard: 0.54 (Moderate)
-        - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
-
-
-## 📅 2026-01-13
-
-**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
-
-### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
-*   Verified and corrected numerals in `part_81.md` and `part_83.md`.
-*   Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
-*   Optimised extraction script with parallel processing and better rate limit handling (60s delay).
-
-### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
-*   Gemini API Rate Limits (429) slowed down batch extraction.
-
-### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
-*   Continue extracting remaining parts (72, 73, 75-90) tomorrow.
-*   Run verification on newly extracted parts.
-
-### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-**[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
-    > **Situation (ที่มา):** User requested to continue the paused extraction task from 17:15.
-    > **Action (การดำเนินการ):**
-    > 1. Located `extract_vol05.py`.
-    > 2. Upgraded script to use `ProcessPoolExecutor` for parallel processing (Speeds up ~3x).
-    > 3. Restarted extraction filling gaps (e.g., Part 12) and continuing from Part 43.
-    > **Result (ผลลัพธ์):** Extraction running in background.
-    *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
-
-
-**[21:40] 🔧 Fixed Rate Limit & Resumed Extraction**
-    > **Situation:** Encountered `429 Resource Exhausted` errors while extracting Part 72 using Gemini 2.5 Flash.
-    > **Action:**
-    > 1. Modified `scripts/extract_vol05.py` to increase retry delay from 5s to 60s.
-    > 2. Successfully extracted `part_68.md` and `part_69.md` before hitting the limit.
-    > **Result:** Script is now more robust against rate limits. Extraction of 68/69 complete.
-
