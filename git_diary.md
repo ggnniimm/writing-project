@@ -5443,3 +5443,21 @@
     > **Result (ผลลัพธ์):** Extraction running in background.
     *   *Files:* `scripts/extract_vol05.py`, `etc/Academic_310717_154727-2_parts/part_*.md`
 
+
+**[21:40] 🔧 Fixed Rate Limit & Resumed Extraction**
+    > **Situation:** Encountered `429 Resource Exhausted` errors while extracting Part 72 using Gemini 2.5 Flash.
+    > **Action:**
+    > 1. Modified `scripts/extract_vol05.py` to increase retry delay from 5s to 60s.
+    > 2. Successfully extracted `part_68.md` and `part_69.md` before hitting the limit.
+    > **Result:** Script is now more robust against rate limits. Extraction of 68/69 complete.
+
+## 🏆 Retrospective (2026-01-13)
+- **Achievements:**
+    - Verified and corrected numerals in `part_81.md` and `part_83.md`.
+    - Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
+    - Optimised extraction script with parallel processing and better rate limit handling.
+- **Issues/Blockers:**
+    - Gemini API Rate Limits (429) slowed down batch extraction. Added 60s delay to mitigate.
+- **Next Steps:**
+    - Continue extracting remaining parts (72, 73, 75-90) tomorrow.
+    - Run verification on newly extracted parts.
