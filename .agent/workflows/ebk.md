@@ -105,8 +105,9 @@ pdftotext -layout etc/<parts>/<part>.pdf - | grep "<context>"
 grep -n -E "<sup>|^\s*[๑-๙๐-๙]+(-[๑-๙๐-๙]+)?\s*$" etc/<parts>/*.md
 ```
 
-**Verification Rules:**
-- **Superscript Formatting:** Ensure referenced numbers in text are wrapped in `<sup>` (e.g., `ข้อ ๑๐<sup>๔</sup>`).
+**Verification Rules:** (See rules in `README.md` Sec 3)
+- **Superscript Formatting:** Ensure referenced numbers in text are wrapped in `<sup>` **without preceding spaces** (e.g., `ข้อ ๑๐<sup>๔</sup>`).
+- **Footnote Definitions:** Must start with `<sup>` tag and be placed at the bottom of the section (e.g., `<sup>๔</sup> คำอธิบาย`).
 - **Label Accuracy:** Check bottom-of-page footnote labels for OCR errors (e.g., `*` or `٩` instead of `๔-๖`).
 - **One-to-One Mapping:** Every superscript must have a corresponding footnote definition.
 - **Content Integrity:** Verify footnote text matches PDF (watch for OCR errors in section numbers, e.g., `๔๒๑` vs `๘๒๑`).
