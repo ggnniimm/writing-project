@@ -5015,3 +5015,32 @@
     -   Validation Passed (Sequence & Pairing correct).
 -   **Stats**: Ratio=0.99 (MD: 45877 / PDF: 46335 chars), Jaccard=0.55.
 -   **Status**: Verified & Ready.
+
+**[2026-01-13 11:15] Verified Part 80 🇹🇭**
+-   **File**: `etc/Academic_230317_084750-2_parts/part_80.md`
+-   **Numerals**: Corrected 7 instances of Arabic '5' to Thai '๖' (Lines 9, 92, 111, 122, 174, 499, 635).
+-   **Footnotes**:
+    -   Formatted inline references and definitions with `<sup>` tags.
+    -   Fixed misnumbered definition for footnote 31.
+    -   Validated all pairs (Refs 1, 2, 31-37).
+-   **Stats**: Ratio=0.99 (MD: 43772 / PDF: 44207 chars), Jaccard=0.55.
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 11:02] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_76.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_77.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_78.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_79.md
+    -   🗑️ ลบ: part_75_extracted.txt
+    -   ✨ สร้างใหม่: part_76_extracted.txt
+    -   ✨ สร้างใหม่: part_77_extracted.txt
+    -   ✨ สร้างใหม่: part_79_extracted.txt
+
+## [2026-01-13] part_81.md Verification
+- Verified against part_81.pdf.
+- ✅ Numeral Validation: Passed (No Arabic 4/5 issues found).
+- ✅ Footnote Validation: Clean after correcting references and definitions ๓-๒๐.
+- Footnote ๑-๒ missing from PDF part, sequence starts at ๓.
+- Char Ratio: 0.99. Jaccard: 0.54.
+- Document integrity confirmed.
