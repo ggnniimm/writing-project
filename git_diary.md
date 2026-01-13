@@ -4945,3 +4945,14 @@
     -   ✨ สร้างใหม่: part_70_verify.txt
 
 **[2026-01-13 08:44] Update git_diary.md with Part 74 verification**
+
+**[2026-01-13 09:00] Verified Part 74: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_74.md`.
+-   **Method**: Used `part_74_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Validation Passed (Thai numerals correct).
+-   **Footnotes**:
+    -   Available: 1-15, 18.
+    -   Fixed `<sup>` tags for References 14, 15 and their Definitions.
+    -   Verified Definition 11-13 (Line 665) is complete and matches PDF.
+    -   Gap [16, 17] confirmed: Part 74 starts with Footnote 18 (from previous chapter context) and then starts a NEW chapter (Chapter 27) which resets footnotes to 1. Thus, 16 and 17 do not exist in this file.
+-   **Status**: Verified & Ready.
