@@ -13,6 +13,26 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[11:00] ✅ Verified Part 79 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_79.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numerals '5' to Thai '๖' at lines 174, 226 (x2), and 702.
+    > 2. Formatted all footnotes 19-30 with `<sup>` tags (12 footnote definitions).
+    > 3. Removed noise 'mo' at line 624.
+    > **Result (ผลลัพธ์):** Part 79 is verified. No Arabic numerals remain.
+    *   *Files:* `part_79.md`, `part_79_extracted.txt`
+
+**[09:55] ✅ Verified Part 78 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_78.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Replaced Arabic numerals '5' with Thai '๖' on 5 lines (9, 66, 92, 531, 631).
+    > 2. Formatted all footnotes (1-18, 22) with `<sup>` tags.
+    > 3. Added definitions for footnotes 4, 5, 8 with proper `<sup>` tags.
+    > 4. Note: Footnotes 19-21 gap exists because footnote 22 appears at the start of this part (page 1522) from a previous section, while 1-18 are from later sections in this part. This is expected for multi-part documents.
+    > 5. Verification passed: Ratio 1.00, Numerals Valid, Footnotes Complete (excluding expected cross-part gap).
+    > **Result (ผลลัพธ์):** Part 78 is verified.
+    *   *Files:* `part_78.md`
+
 **[09:20] ✅ Verified Part 71 (Volume 7)**
     > **Situation (ที่มา):** User requested verification of `part_71.md`.
     > **Action (การดำเนินการ):**
@@ -4968,4 +4988,30 @@
     -   Found no footnotes initially (formatting missing).
     -   Identified and applied `<sup>` tags to all footnote references and definitions for Chapter 28 (Ref 1-5) and Chapter 29 (Ref 1-6).
     -   Validation Passed (Sequence & Pairing correct).
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 09:40] Verified Part 75: Corrected numerals and formatted footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
+    -   ✨ สร้างใหม่: part_75_extracted.txt
+
+**[2026-01-13 10:25] Verified Part 76: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_76.md`.
+-   **Method**: Used `part_76_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Corrected Arabic numeral '5' to Thai '๖' on lines 22, 281, 443, and 596.
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 1-7).
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 10:35] Verified Part 77: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_77.md`.
+-   **Method**: Used `part_77_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Validation Passed (no Arabic numeral issues).
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 11-21).
+    -   Fixed section numeral typos: (๔) -> (๘) on lines 313-314 and 340-341.
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Stats**: Ratio=0.99 (MD: 45877 / PDF: 46335 chars), Jaccard=0.55.
 -   **Status**: Verified & Ready.
