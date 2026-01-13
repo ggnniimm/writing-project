@@ -13,6 +13,35 @@
 2.  Review Content Ideas (e.g., Utility Installation EP.47 vs EP.52, Gross Negligence).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[09:20] ✅ Verified Part 71 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_71.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numeral `5` to Thai `๖` (Line 265).
+    > 2. Formatted inline footnotes and definitions (Refs 2-16) with `<sup>` tags.
+    > 3. Discovered and linked missing footnote 13.
+    > 4. Verification passed: Ratio 1.00, Footnotes Valid, Numerals Clean.
+    > **Result (ผลลัพธ์):** Part 71 is fully verified.
+    *   *Files:* `part_71.md`
+
+**[09:00] ✅ Verified Part 70 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_70.md` against its verification text.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numeral discrepancies (Lines 341, 359).
+    > 2. Formatted inline footnotes and definitions to match verify text and use `<sup>` tags.
+    > 3. Verification script passed (Ratio 1.02, Jaccard 0.55, Footnotes Valid).
+    > **Result (ผลลัพธ์):** Part 70 is verified and formatted correctly.
+    *   *Files:* `part_70.md`
+
+**[08:20] ✅ Verified Parts 66, 67, 68, 69**
+    > **Situation (ที่มา):** Completed verification of adjacent parts. (Note: Restored missing logs for 66 & 67).
+    > **Action (การดำเนินการ):**
+    > 1. **Part 68:** Fixed numerals (5->๕) and formatting footnotes. Verified Chapter 21 transition.
+    > 2. **Part 67:** Verified numeral correction (Line 195: 5->๖) and footnote superscripts.
+    > 3. **Part 66:** Confirmed fix for numeral (6->๖) and Restoration of Missing Page 1283.
+    > 4. **Part 69:** Formatted footnotes 11-23 and 2-4. Note: Source PDF jumps from page 1343 to 1351, causing non-continuous footnote sequence, but content fidelity is verified. Verified Chapter 21 transition.
+    > **Result (ผลลัพธ์):** Parts 66, 67, 68, 69 are verified, complete, and formatted correctly.
+    *   *Files:* `part_66.md`, `part_67.md`, `part_68.md`, `part_69.md`
+
 **[08:00] ✅ Verified Part 65 (Strict PDF Check)**
     > **Situation (ที่มา):** Performed strict side-by-side comparison with PDF source.
     > **Action (การดำเนินการ):**
@@ -31,6 +60,14 @@
     > 3. Formatted footnote definitions.
     > **Result (ผลลัพธ์):** Verified clean (Ratio 0.99, Jaccard 0.58).
     *   *Files:* `part_65.md`
+
+**[07:45] ✅ Verified Part 72 (Volume 7)**
+    > **Situation (ที่มา):** User requested verification of `part_72.md`.
+    > **Action (การดำเนินการ):**
+    > 1. Fixed Arabic numeral '5' (identified as footnote 18).
+    > 2. Formatted footnotes 17-22.
+    > **Result (ผลลัพธ์):** Part 72 is verified. Ratio 1.00. Jaccard 0.57.
+    *   *Files:* `part_72.md`
 
 **[07:39] 🔧 Fix: Move misplaced diary log to correct position**
     > **Situation (ที่มา):** Auto-generated log was appended to the bottom of the file instead of the top.
@@ -4870,3 +4907,19 @@
 
 **[2026-01-13 07:43] Verified Part 65: Fix numerals and footnotes**
     -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md
+
+**[2026-01-13 08:31] Verified Part 65: Correct OCR misread 5->6 based on strict PDF check**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md (เปลี่ยน ๕ -> ๖ ใน 5 จุดที่ OCR อ่านผิด)
+
+**[2026-01-13 08:45] Docs: Standardize footnote formatting (based on Part 65)**
+    -   📝 แก้ไข: README.md (เพิ่ม Section 3. Footnote Standard)
+    -   📝 แก้ไข: .agent/workflows/vmd.md (Update Step 4 strict rules)
+    -   📝 แก้ไข: .agent/workflows/ebk.md (Update Section 3.4 strict rules)
+
+**[2026-01-13 09:30] Verified Part 66: Restore MISSING Page 1283 and fix numeral/footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_66.md (คืนค่าเนื้อหาหน้า 1283 ที่หายไป, แก้เลข ๖, จัดรูปแบบเชิงอรรถ)
+    -   ✅ ผลการตรวจสอบ: Ratio 0.99 (เพิ่มขึ้นจาก 0.94), Numeral/Footnote Clean.
+
+**[2026-01-13 09:45] Verified Part 67: Fix numeral (5->๖) and format footnotes (20-25)**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_67.md (แก้เลข ๖, จัดรูปแบบเชิงอรรถ 20-25, แก้คำผิด 156->15, 623->6)
+    -   ✅ ผลการตรวจสอบ: Ratio 1.00, Numeral/Footnote Clean.
