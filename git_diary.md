@@ -5431,7 +5431,21 @@
         - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
 
 
-## 📅 2026-01-13 (รอสรุป...)
+## 📅 2026-01-13
+
+**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
+
+### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   Verified and corrected numerals in `part_81.md` and `part_83.md`.
+*   Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
+*   Optimised extraction script with parallel processing and better rate limit handling (60s delay).
+
+### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
+*   Gemini API Rate Limits (429) slowed down batch extraction.
+
+### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
+*   Continue extracting remaining parts (72, 73, 75-90) tomorrow.
+*   Run verification on newly extracted parts.
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
 **[19:46] 🚀 Resumed Volume 5 Extraction (Parallel Optimized)**
@@ -5451,13 +5465,3 @@
     > 2. Successfully extracted `part_68.md` and `part_69.md` before hitting the limit.
     > **Result:** Script is now more robust against rate limits. Extraction of 68/69 complete.
 
-## 🏆 Retrospective (2026-01-13)
-- **Achievements:**
-    - Verified and corrected numerals in `part_81.md` and `part_83.md`.
-    - Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
-    - Optimised extraction script with parallel processing and better rate limit handling.
-- **Issues/Blockers:**
-    - Gemini API Rate Limits (429) slowed down batch extraction. Added 60s delay to mitigate.
-- **Next Steps:**
-    - Continue extracting remaining parts (72, 73, 75-90) tomorrow.
-    - Run verification on newly extracted parts.
