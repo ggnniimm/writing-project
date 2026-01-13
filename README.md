@@ -112,16 +112,39 @@ To set up this workflow on a new macOS machine:
     *   **Template:** `* **[1] Title/Source**: Short description of the content.`
     *   **Example:** `* **[1] คำพิพากษาศาลปกครองสูงสุดที่ อ. 1766/2559**: เรื่อง การไม่แจ้งเหตุแห่งความล่าช้า...`
 
-#### 4.2 Diary Format (Log)
+#### 5.2 Diary Format (Log)
 *   **Order:** strictly **Reverse Chronological (LIFO)**. Newest entry MUST be at the top of the list for the current day.
     *   Top: `[09:40] Latest Task`
     *   Bottom: `[08:30] First Task`
 *   **Style:** Narrative (Situation -> Action -> Result).
 
-### 6. 🔍 Verification Protocol (Agent Rules)
+### 3. Footnote & Superscript Standard (มาตรฐานเชิงอรรถ)
+**Reference Model:** (See `part_65.md`)
+ทุกส่วนของเอกสาร **ต้อง** ปฏิบัติตามรูปแบบนี้อย่างเคร่งครัด:
+
+1.  **ในเนื้อหา (In-text citations):**
+    *   ใช้ `<sup`> เสมอ
+    *   **ห้าม** เว้นวรรคหน้าตัวเลข
+    *   **Format:** `ข้อความ<sup>๑</sup>`
+    *   *Example:* `ตามมาตรา ๖๘๘<sup>๑๕</sup> แห่งประมวลกฎหมาย...`
+
+2.  **คำอธิบายเชิงอรรถ (Footnote Definitions):**
+    *   ต้องอยู่ท้ายสุดของหน้า/ส่วน (Section) ที่ปรากฏ
+    *   ใช้ `<sup>` นำหน้าตัวเลขเชิงอรรถเช่นกัน
+    *   เว้นวรรค 1 เคาะ หลัง tag ปิด `</sup>` ก่อนเริ่มข้อความ
+    *   **Format:** `<sup>๑</sup> คำอธิบาย...`
+    *   *Example:*
+        ```markdown
+        <sup>๑๕</sup> ประมวลกฎหมายแพ่งและพาณิชย์
+        มาตรา ๖๘๘ ...
+        
+        <sup>๑๖</sup> มาตรา ๖๘๙ ...
+        ```
+
+### 7. 🔍 Verification Protocol (Agent Rules)
 When verifying or correcting Markdown files against PDF sources, Agents MUST follow these rules:
 
-### 6.1 Superscript Validation
+### 7.1 Superscript Validation
 *   **Rule:** Always verify footnote references in the text body are correctly formatted as superscripts.
 *   **Format:** Use HTML `<sup>` tags to prevent ambiguity with Thai numerals or section numbers.
 *   **Example:** Change `มาตรา ๓๔๒` (Ambiguous) to `มาตรา ๓๔<sup>๒</sup>` (Correct).
