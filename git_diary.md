@@ -1,17 +1,6 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
-## 📅 13 มกราคม 2026
-
-**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
-
-### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
-*   Verified and corrected numerals in `part_81.md` and `part_83.md`.
-*   Resumed batch extraction for Volume 5 (Parts 68, 69 completed).
-*   Optimised extraction script with parallel processing and better rate limit handling (60s delay).
-
-### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
-*   Gemini API Rate Limits (429) slowed down batch extraction.
 ## 📅 14 มกราคม 2026 (รอสรุป...)
 
 ### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
@@ -26,6 +15,35 @@
 3.  Draft a new article (Topic: Utility Installation vs. Trespass).
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[08:57] ✅ Verified & Corrected Part 01**
+    > **Situation (ที่มา):** รัน `/vmd` ตรวจสอบ Part 01 (หน้า 1-20)
+    > **Action (การดำเนินการ):**
+    > 1. ตรวจสอบ completeness พบ Ratio 0.65 (เนื่องจากสารบัญมีช่องว่างเยอะ) ยืนยันหน้าครบ
+    > 2. แก้ไข OCR misreads ในสารบัญ (mo, bemon, GOON ฯลฯ)
+    > 3. เปลี่ยนเลขอาหรับเป็นเลขไทยตามมาตรฐาน
+    > **Result (ผลลัพธ์):** ✅ `part_01.md` ถูกต้องตามต้นฉบับ PDF
+    *   *Files:* `etc/Academic_310717_154727-2_parts/part_01.md`, `walkthrough.md`
+
+**[08:32] 📝 Updated VMD Workflow**
+    > **Situation (ที่มา):** ผู้ใช้ขอปรับปรุงรูปแบบงาน `/vmd` ให้ครอบคลุมมากขึ้น
+    > **Action (การดำเนินการ):** เขียน workflow ใหม่ 5 ขั้นตอน:
+    > 1. ตรวจความครบถ้วน (Char diff > 100 → สงสัยหน้าหาย)
+    > 2. ตรวจเลขหน้า
+    > 3. ตรวจเชิงอรรถ (Superscript format)
+    > 4. ตรวจเลขอารบิค (ต้อง verify กับ PDF)
+    > 5. สรุปผลพร้อมรายละเอียด
+    > **Result (ผลลัพธ์):** ✅ Updated `.agent/workflows/vmd.md`
+    *   *Files:* `.agent/workflows/vmd.md`
+
+**[08:04] 🚀 Volume 5 Extraction Completed**
+    > **Situation (ที่มา):** ผู้ใช้สั่งให้ดำเนินการ Extract เล่ม 5 ต่อ (หยุดค้างที่ Part 42)
+    > **Action (การดำเนินการ):**
+    > 1. รัน `scripts/extract_vol05.py` ด้วย 5 API keys แบบ parallel
+    > 2. สำเร็จ 21 parts ที่เหลือ: 67, 72-73, 75-90
+    > 3. มี retry สำหรับ Part 79, 83, 84 เนื่องจาก API errors (504/Invalid response)
+    > **Result (ผลลัพธ์):** ✅ All 90/90 parts extracted successfully
+    *   *Files:* `etc/Academic_310717_154727-2_parts/part_*.md` (90 ไฟล์)
+
 **[08:00] 🌅 เริ่มต้นภารกิจประจำวัน (Start of Day Routine)**
     > **Situation (ที่มา):** เริ่มต้นวันใหม่ตามคำสั่ง `/bbb`
     > **Action (การดำเนินการ):**
@@ -5665,3 +5683,5 @@
     -   ✨ สร้างใหม่: references/court_rulings_books/administrative_court_rulings_vol_06.md
     -   ✨ สร้างใหม่: scripts/extract_vol05.py
     -   📝 แก้ไข: scripts/split_pdf.py
+
+**[2026-01-14 08:01] Merge: Resolve git_diary.md conflict (keep stashed logs)**

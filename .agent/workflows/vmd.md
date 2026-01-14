@@ -2,78 +2,175 @@
 description: Verify the accuracy and completeness of an extracted Markdown file against its source PDF.
 ---
 
-1. Run the verification script
-   
-   ```bash
-   python3 scripts/verify_md_content.py "$1" "$2"
-   ```
-
-2. **Verify against PDF Source**:
-   If the verification script reports issues (e.g., Arabic numerals in Thai text) or if there are any doubts, YOU MUST verify the content against the original PDF.
-
-   Use `pdftotext` to extract the relevant section or the whole file to check the actual characters used in the source.
-
-   ```bash
-   pdftotext -layout "$2" - | grep -C 3 "context string"
-   ```
-
-   In your final report, YOU MUST include the **Character Count** for both the PDF and Markdown files, and the **Ratio**, as outputted by the verification script.
-
-4. **Verify Footnotes & Superscripts**:
-   If the document contains footnotes, perform the following strict checks (See `README.md` Sec 3):
-
-   **A. Check Superscript Formatting (In-Text)**
-   Run the following command to see all superscripts and isolated numbers:
-   ```bash
-   grep -n -E "<sup>|^\s*[๑-๙๐-๙]+(-[๑-๙๐-๙]+)?\s*$" "$1"
-   ```
-   - All citations must be `<sup>๑</sup>`.
-   - No spaces before the `<sup>` tag.
-
-   **B. Verify Footnote Definitions (Bottom)**
-   - Definitions must also start with `<sup>`.
-   - Format: `<sup>๑</sup> คำอธิบาย` (Note the space after tag).
-   - Check the bottom of pages/sections.
-   - Example command to check definitions:
-     ```bash
-     grep -n "^<sup>" "$1"
-     ```
-
-   **C. One-to-One Mapping**
-   - **CRITICALLY**: Every superscript in the text MUST have a corresponding footnote definition at the bottom.
-   - Conversely, every footnote definition must correspond to a superscript in the text.
+## วิธีใช้งาน (Usage)
+```bash
+/vmd <path_to_md> <path_to_pdf>
+```
 
 ---
 
-## ⚠️ Lessons Learned
+## ขั้นตอนการตรวจสอบ (Verification Steps)
 
-### Arabic Numeral Verification (CRITICAL)
-When the verification script flags Arabic numerals in Thai text:
-1. **DO NOT assume** Arabic `5` → Thai `๕`. OCR may have misread the digit entirely.
-2. **ALWAYS verify against PDF source first** using `pdftotext` before making any changes.
-3. Example: Arabic `5` was found in MD, but PDF source showed `๖` — the OCR misread the digit shape, not just the script.
+### 1. ตรวจสอบความครบถ้วนของเนื้อหา (Page Completeness Check)
 
+**1.1 เปรียบเทียบจำนวนตัวอักษร:**
 ```bash
-# Verify specific numeral context in PDF
-pdftotext -layout "$2" - | grep -C 2 "มาตรา"
+# นับตัวอักษร MD
+wc -m "$1"
+
+# นับตัวอักษร PDF (ต้อง extract ก่อน)
+pdftotext -layout "$2" - | wc -m
 ```
 
-### Missing Page Detection (CRITICAL)
-When Ratio is below 0.95 (e.g., 0.93), **suspect missing pages**:
+**1.2 ถ้าต่างกันเกิน 100 ตัวอักษร → สงสัยว่ามีหน้าหายไป:**
+- Ratio ปกติควรอยู่ที่ 0.98-1.02
+- ถ้า Ratio < 0.95 หรือ Deficit > 2,000 chars → น่าจะมี 1+ หน้าหายไป
 
-1. **Check page headers are sequential**:
-   ```bash
-   grep -n "แนวคำวินิจฉัยของศาลปกครอง ๗" "$1"
-   ```
-   - Headers should follow odd-number sequence: ๗๑, ๗๓, ๗๕, ๗๗, ๗๙
-   - Missing header = missing page content
+**1.3 ตรวจสอบลำดับหน้า:**
+```bash
+# ดูเลขหน้าทั้งหมดใน MD
+grep -n -E "^[๐-๙]{3,4}$|^[0-9]{3,4}$" "$1"
 
-2. **Calculate expected deficit**:
-   - ~2,000 chars/page typical
-   - Deficit of 3,000 chars ≈ 1.5 pages missing
+# เปรียบเทียบกับ PDF
+pdftotext -layout "$2" - | grep -E "^[๐-๙]{3,4}$|^[0-9]{3,4}$"
+```
 
-3. **Extract and insert missing content from PDF**:
-   ```bash
-   pdftotext -layout -f PAGE_NUM -l PAGE_NUM "$2" -
-   ```
+**1.4 หากพบหน้าหายไป:**
+```bash
+# Extract หน้าที่หายไปจาก PDF (PAGE_NUM = เลขหน้าใน PDF ไม่ใช่ในเอกสาร)
+pdftotext -layout -f PAGE_NUM -l PAGE_NUM "$2" -
+```
+แล้วใช้ Gemini API เพื่อถอดความและเพิ่มเติมลงใน MD ในตำแหน่งที่ถูกต้อง
 
+---
+
+### 2. ตรวจสอบเลขหน้า (Page Number Verification)
+
+**2.1 ตรวจสอบว่าเลขหน้าครบถ้วนและต่อเนื่อง:**
+```bash
+# ดูเลขหน้าใน MD
+grep -n -E "^[๐-๙]{3,4}$" "$1" | head -20
+
+# ดูเลขหน้าใน PDF
+pdftotext -layout "$2" - | grep -E "^[๐-๙]{3,4}$" | head -20
+```
+
+**2.2 หากเลขหน้าขาดหาย:**
+- ตรวจสอบ PDF ว่าเลขหน้าที่ถูกต้องคืออะไร
+- เพิ่มเลขหน้าที่หายไปใน MD
+
+**2.3 หากเลขหน้าผิด (เช่น 0000 หรือ Arabic แทน Thai):**
+- แก้ไขให้ตรงกับ PDF ต้นฉบับ
+
+---
+
+### 3. ตรวจสอบเชิงอรรถ (Footnote Formatting)
+
+**3.1 ตรวจสอบ Superscript ในเนื้อหา (In-Text References):**
+```bash
+# ค้นหาเชิงอรรถในเนื้อหา
+grep -n -E "<sup>|>\s*[๐-๙]+" "$1"
+```
+
+**รูปแบบที่ถูกต้อง:**
+- `ข้อความ<sup>๑</sup>` (ไม่มีเว้นวรรคก่อน `<sup>`)
+- ห้ามเป็น `ข้อความ ๑` หรือ `ข้อความ> ๑`
+
+**3.2 ตรวจสอบคำอธิบายเชิงอรรถ (Footnote Definitions):**
+```bash
+# ค้นหาคำอธิบายเชิงอรรถ
+grep -n "^<sup>" "$1"
+```
+
+**รูปแบบที่ถูกต้อง:**
+- `<sup>๑</sup> คำอธิบาย...` (มีเว้นวรรค 1 เคาะหลัง `</sup>`)
+
+**3.3 ตรวจสอบการจับคู่ (One-to-One Mapping):**
+- ทุก Reference ในเนื้อหา ต้องมี Definition ที่ตรงกัน
+- ทุก Definition ต้องมี Reference อ้างอิงในเนื้อหา
+- หากมีช่องว่าง (Gap) ให้ตรวจสอบกับ PDF ว่าเป็นปกติหรือไม่ (เช่น เปลี่ยนบท)
+
+**3.4 แก้ไขหากไม่ถูกต้อง:**
+- เปรียบเทียบกับ PDF ต้นฉบับ
+- แก้ไข MD ให้ตรงตามรูปแบบมาตรฐาน
+
+---
+
+### 4. ตรวจสอบเลขอารบิค (Arabic Numeral Verification)
+
+**⚠️ กฎสำคัญ: ห้ามสันนิษฐาน!**
+- Arabic `5` อาจเป็น Thai `๕` หรือ `๖` ก็ได้ (OCR อาจอ่านผิด)
+- **ต้องตรวจสอบกับ PDF ต้นฉบับเสมอ**
+
+**4.1 ค้นหาเลขอารบิคใน MD:**
+```bash
+grep -n -E "[0-9]" "$1" | head -30
+```
+
+**4.2 ตรวจสอบกับ PDF:**
+```bash
+# ดูบริบทรอบๆ ตำแหน่งที่พบเลขอารบิค
+pdftotext -layout "$2" - | grep -C 2 "คำค้นหาบริบท"
+```
+
+**4.3 แก้ไขให้ถูกต้อง:**
+- เปลี่ยน Arabic → Thai ตามที่ PDF ระบุ
+- บันทึกทุกตำแหน่งที่แก้ไข
+
+---
+
+### 5. สรุปผลการตรวจสอบ (Summary Report)
+
+**รายงานต้องประกอบด้วย:**
+
+```markdown
+## สรุปผลการตรวจสอบ Part XX
+
+### ข้อมูลทั่วไป
+| รายการ | ค่า |
+|---|---|
+| ไฟล์ MD | `part_XX.md` |
+| ไฟล์ PDF | `part_XX.pdf` |
+| ตัวอักษร MD | XXX,XXX |
+| ตัวอักษร PDF | XXX,XXX |
+| Ratio | X.XX |
+| สถานะ | ✅ ผ่าน / ⚠️ มีการแก้ไข |
+
+### การแก้ไขที่ดำเนินการ
+
+#### 1. หน้าที่เพิ่มเติม (ถ้ามี)
+- หน้า XXX: เพิ่มเติมจาก PDF หน้า YY
+
+#### 2. เลขหน้าที่แก้ไข (ถ้ามี)
+- บรรทัด XX: `0000` → `๑๒๓๔`
+
+#### 3. เชิงอรรถที่แก้ไข (ถ้ามี)
+- บรรทัด XX: เพิ่ม `<sup>๑</sup>` ให้ Reference
+- บรรทัด YY: เพิ่ม `<sup>๑</sup>` ให้ Definition
+
+#### 4. เลขอารบิคที่แก้ไข (ถ้ามี)
+- บรรทัด XX: Arabic `5` → Thai `๖` (ตรวจสอบจาก PDF แล้ว)
+
+### ผลการตรวจสอบขั้นสุดท้าย
+- [x] ตัวอักษรครบถ้วน (Ratio ≥ 0.98)
+- [x] เลขหน้าครบถ้วนและถูกต้อง
+- [x] เชิงอรรถจัดรูปแบบถูกต้อง
+- [x] ไม่มีเลขอารบิคผิดพลาด
+```
+
+---
+
+## ⚠️ บทเรียนสำคัญ (Lessons Learned)
+
+### 1. OCR Misread
+- Arabic `5` อาจถูก OCR อ่านผิดเป็น Thai `๕` หรือ `๖`
+- **ต้องตรวจสอบ PDF ทุกครั้ง**
+
+### 2. Missing Pages
+- Ratio < 0.95 → สงสัยหน้าหายไป
+- ~2,000 chars/page เป็นค่าประมาณ
+- Deficit 3,000 chars ≈ 1.5 หน้าหายไป
+
+### 3. Footnote Gaps
+- ช่องว่างในลำดับเชิงอรรถ อาจเป็นเรื่องปกติ (เปลี่ยนบท/ส่วน)
+- ตรวจสอบกับ PDF ก่อนสรุปว่าผิดพลาด
