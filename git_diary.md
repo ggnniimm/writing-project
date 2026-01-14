@@ -3,6 +3,19 @@
 
 ## 📅 14 มกราคม 2026 (รอสรุป...)
 
+- **2026-01-14**: Verified `part_07.md`.
+  - **Status**: ✅ Verified & Corrected.
+  - **Key Fixes**: Restored 17 missing footnote references (FN 9-25) in the text body which were merged during extraction.
+  - **Structure**: Confirmed Pages 122-123 are structural title pages (Chapters) without page numbers in source extraction, but content is present in MD.
+
+  - **Numerals**: Strict check passed (0 Arabic numerals).
+  - **Footnotes**: All formatting validated.
+
+- **2026-01-14**: Verified `part_08.md`.
+  - **Status**: ✅ Verified & Corrected.
+  - **Major Fixes**: Restoration of missing Page 135 content and header. Fix of massive header corruption (125-129). Strict footnote formatting (75 tags).
+  - **Ratio**: 0.84.
+
 ### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
 **สถานะปัจจุบัน (Current Status):**
 -   Volume 5 Extraction paused at Part 42/90.
@@ -5685,3 +5698,35 @@
     -   📝 แก้ไข: scripts/split_pdf.py
 
 **[2026-01-14 08:01] Merge: Resolve git_diary.md conflict (keep stashed logs)**
+
+**[2026-01-14 10:49] End of Day Sync 💤**
+    -   📝 แก้ไข: .agent/workflows/vmd.md
+    -   ✨ สร้างใหม่: 02_parts.txt
+    -   ✨ สร้างใหม่: 15_20_pdf.txt
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_01.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_02.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_03.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_04.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_67.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_72.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_73.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_75.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_76.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_77.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_78.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_79.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_80.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_81.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_82.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_83.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_84.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_85.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_86.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_87.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_88.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_89.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_90.md
+    -   ✨ สร้างใหม่: part_02_text_raw.txt
+    -   ✨ สร้างใหม่: pdftmp.txt
+- **Verify Part 06**: เสร็จสิ้นการตรวจสอบและแก้ไข part_06.md (Re-extracted, Fixed Headers 95/99/100, Formatted Footnotes).
+- Verified Part 06 with strict numeral checks. Fixed OCR error (5->6 for fish size) after PDF confirmation. Corrected phantom footnotes and double superscripts. Verified 0 Arabic numerals via grep.
