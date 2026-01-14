@@ -8,17 +8,23 @@ import google.generativeai as genai
 # Load API Keys from .env manually to avoid extra dependencies
 def load_env():
     api_keys = []
-    env_path = os.path.join(os.path.dirname(__file__), ".env")
-    if os.path.exists(env_path):
-        with open(env_path, "r") as f:
-            for line in f:
-                if line.strip() and not line.startswith("#"):
-                    if "=" in line:
-                        key, value = line.strip().split("=", 1)
-                        # Robust quoting handling: strip " and '
-                        value = value.strip().strip("'").strip('"')
-                        if key.startswith("GEMINI_API_KEY") and value:
-                             api_keys.append(value)
+    # Check current dir and parent dir (project root) for .env
+    possible_paths = [
+        os.path.join(os.path.dirname(__file__), ".env"),
+        os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+    ]
+    
+    for env_path in possible_paths:
+        if os.path.exists(env_path):
+            with open(env_path, "r") as f:
+                for line in f:
+                    if line.strip() and not line.startswith("#"):
+                        if "=" in line:
+                            key, value = line.strip().split("=", 1)
+                            # Robust quoting handling: strip " and '
+                            value = value.strip().strip("'").strip('"')
+                            if key.startswith("GEMINI_API_KEY") and value:
+                                api_keys.append(value)
     # Deduplicate while preserving order
     return list(dict.fromkeys(api_keys))
 
@@ -208,6 +214,105 @@ def rewrite_log_entry(message, details):
 
     return message, "Unknown Context", "Executed Command", details
 
+def generate_retro_points(log_text):
+    """
+    Analyzes the daily logs to generate 'What Went Well' and 'What Didn't Go Well'.
+    Returns: (went_well_list, improvement_list)
+    """
+    if not API_KEYS or not log_text:
+        return ["System Stability"], ["-"]
+
+    current_key_index = 0
+    max_retries = len(API_KEYS) * 2
+    
+    for attempt in range(max_retries):
+        try:
+            genai.configure(api_key=API_KEYS[current_key_index])
+            model = genai.GenerativeModel('models/gemini-flash-latest')
+            
+            prompt = f"""
+            Analyze these daily developer logs (in Thai/English) and generate a retrospective.
+            
+            Input Logs:
+            {log_text[:8000]}
+            
+            Requirements:
+            1. **Output:** TWO lists separated by "|||".
+               - List 1: What Went Well (Things accomplished, fixed, or worked smoothly)
+               - List 2: What Didn't Go Well (Problems encountered, delays, or things needing improvement)
+            2. **Format:** Bullet points in Thai (ภาษาไทย).
+            3. **Style:** Concise, professional, honest.
+            4. **Limit:** Max 3-4 points per list.
+            
+            Example Output:
+            - แก้ไขบั๊กการคำนวณภาษีได้สำเร็จ
+            - ระบบ Auto-Sync ทำงานเสถียร
+            |||
+            - ติดปัญหา Rate Limit ของ API ช่วงบ่าย
+            - เอกสารยังไม่ครบถ้วน
+            """
+            
+            response = model.generate_content(prompt)
+            text = response.text.strip()
+            
+            if "|||" in text:
+                parts = text.split("|||")
+                
+                # Check for redundant headers inside the list
+                def clean_list(raw_list_str):
+                     lines = raw_list_str.strip().split('\n')
+                     cleaned = []
+                     for line in lines:
+                         line = line.strip().lstrip("-*•").strip()
+                         # Filter out headers
+                         if not line or "What Went Well" in line or "What Didn't Go Well" in line or "สิ่งที่ทำได้ดี" in line or "สิ่งที่ต้องปรับปรุง" in line:
+                             continue
+                         cleaned.append(line)
+                     return cleaned
+
+                went_well = clean_list(parts[0])
+                improvements = clean_list(parts[1])
+                return went_well, improvements
+            else:
+                # Fallback if separator not found
+                return ["Logs parsed successfully"], ["AI format error"]
+
+        except Exception as e:
+            if len(API_KEYS) > 1:
+                current_key_index = (current_key_index + 1) % len(API_KEYS)
+                continue
+            return ["System Verified"], ["AI Service Unavailable"]
+            
+    return ["System Verified"], ["AI Service Unavailable"]
+
+def extract_log_section_text(lines, header_date):
+    """
+    Extracts the raw text of the logs for a specific date to feed into AI.
+    """
+    log_text = []
+    in_log_section = False
+    date_found = False
+    
+    for line in lines:
+        # Flexible match for date header
+        if line.strip().startswith(header_date):
+            date_found = True
+            continue
+            
+        if date_found:
+            if line.strip().startswith("## "): 
+                break # Next Day
+            
+            if "### 📝 บันทึกการปฏิบัติงาน" in line:
+                in_log_section = True
+                continue
+                
+            if in_log_section:
+                if line.strip():
+                    log_text.append(line.strip())
+                    
+    return "\n".join(log_text)
+
 def suggest_mode():
     changes = run_git_diff()
     if not changes:
@@ -280,7 +385,8 @@ def auto_summarize_log(lines, header_date):
     
     date_found = False
     for line in lines:
-        if line.strip() == header_date:
+        # Flexible match
+        if line.strip().startswith(header_date):
             date_found = True
             continue
         
@@ -363,6 +469,7 @@ def summary_mode(target_date=None):
     else:
         today_date = get_thai_date()
 
+    # Base header to look for (ignoring suffix like (รอสรุป...))
     header_date = f"## 📅 {today_date}"
     
     if not os.path.exists(DIARY_FILE):
@@ -399,18 +506,36 @@ def summary_mode(target_date=None):
     # Keep Pending and others Empty or Standard
     summary_md += f"### 🎯 เป้าหมายและแผนงาน (Goals & Plans)\n*   (See task.md)\n\n"
     
-    # 3. Went Well (Auto-Generated)
-    summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n*   System Stability & Automated Git Sync\n\n"
+    # 3. Went Well (Auto-Generated via AI)
+    # Extract logs for AI analysis
+    day_log_text = extract_log_section_text(lines, header_date)
+    wow_points, bad_points = generate_retro_points(day_log_text)
     
-    # 4. Not Well (Auto-Generated)
-    summary_md += f"### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧\n*   -\n\n"
+    summary_md += f"### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟\n"
+    if wow_points:
+        for p in wow_points:
+             summary_md += f"*   {p}\n"
+    else:
+        summary_md += "*   System Stability\n"
+    summary_md += "\n"
+    
+    # 4. Not Well (Auto-Generated via AI)
+    summary_md += f"### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧\n"
+    if bad_points:
+        for p in bad_points:
+            summary_md += f"*   {p}\n"
+    else:
+        summary_md += "*   -\n"
+    summary_md += "\n"
 
     # Update Diary File
     # Logic to replace summary
     # Find Date Header
     date_idx = -1
+    # Find Date Header
+    date_idx = -1
     for i, line in enumerate(lines):
-        if line.strip() == header_date:
+        if line.strip().startswith(header_date):
             date_idx = i
             break
     

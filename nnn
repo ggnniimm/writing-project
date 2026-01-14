@@ -13,7 +13,7 @@ echo "📝 1. Auto-logging staged changes..."
 python3 scripts/update_diary.py --auto-log
 
 # 2. Generate Summary
-echo "📊 2. Summarizing today's achievements..."
+echo "📊 2. Summarizing today's achievements (w/ AI Retrospective)..."
 python3 scripts/update_diary.py --summary
 
 # 3. Push Work

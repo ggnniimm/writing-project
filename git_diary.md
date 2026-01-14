@@ -2,30 +2,26 @@
 
 
 ## 📅 14 มกราคม 2026 (รอสรุป...)
+**🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
-- **2026-01-14**: Verified `part_07.md`.
-  - **Status**: ✅ Verified & Corrected.
-  - **Key Fixes**: Restored 17 missing footnote references (FN 9-25) in the text body which were merged during extraction.
-  - **Structure**: Confirmed Pages 122-123 are structural title pages (Chapters) without page numbers in source extraction, but content is present in MD.
-
-  - **Numerals**: Strict check passed (0 Arabic numerals).
-  - **Footnotes**: All formatting validated.
-
-- **2026-01-14**: Verified `part_08.md`.
-  - **Status**: ✅ Verified & Corrected.
-  - **Major Fixes**: Restoration of missing Page 135 content and header. Fix of massive header corruption (125-129). Strict footnote formatting (75 tags).
-  - **Ratio**: 0.84.
+### 1. สิ่งที่ทำไปแล้ว (Accomplished) ✅
+*   Verified Volume 7 Parts: 01-09
+*   Create Verification Tools
+*   Scripts (`verify_md_content.py`, helper scripts)
+*   Workflow (`vmd`)
 
 ### 🎯 เป้าหมายและแผนงาน (Goals & Plans)
-**สถานะปัจจุบัน (Current Status):**
--   Volume 5 Extraction paused at Part 42/90.
--   Volume 7 Verification nearing completion.
--   Ready to write new articles (e.g. Utility Installation, Fine > 10%).
+*   (See task.md)
 
-**แผนงานวันนี้ (Today's Plan):**
-1.  Resume and Complete Volume 5 Extraction.
-2.  Finalize Volume 7 Verification.
-3.  Draft a new article (Topic: Utility Installation vs. Trespass).
+### 3. สิ่งที่ทำได้ดี (What Went Well) 🌟
+*   ดำเนินการสกัดข้อมูล Volume 5 ได้สำเร็จครบถ้วนทั้ง 90 parts โดยใช้การประมวลผลแบบขนาน
+*   ปรับปรุงกระบวนการตรวจสอบคุณภาพ (VMD workflow) ให้มีความละเอียดและเป็นมาตรฐาน 5 ขั้นตอน
+*   ยืนยันและแก้ไขข้อมูลใน Part 01 ได้ถูกต้องตามต้นฉบับ รวมถึงการแก้ไข OCR และการเปลี่ยนรูปแบบตัวเลข
+
+### 4. สิ่งที่ยังทำได้ไม่ดี (What Didn't Go Well) 🚧
+*   พบข้อผิดพลาดของ API (504/Invalid response) ระหว่างการสกัดข้อมูลใน 3 ส่วน ทำให้ต้องมีการดำเนินการซ้ำ
+*   ข้อมูลที่ได้รับมาในเบื้องต้นมีคุณภาพต่ำ (Ratio 0.65) และมีข้อผิดพลาดจากการอ่านค่า (OCR misreads) ในสารบัญจำนวนมาก
+
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
 **[08:57] ✅ Verified & Corrected Part 01**
