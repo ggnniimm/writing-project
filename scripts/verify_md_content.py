@@ -175,12 +175,16 @@ def verify_content(md_path, pdf_path=None):
     if pdf_path and os.path.exists(pdf_path):
         print(f"\n📄 Comparing with PDF: {os.path.basename(pdf_path)}")
         try:
-            reader = PdfReader(pdf_path)
             pdf_text = ""
-            for page in reader.pages:
-                extracted = page.extract_text()
-                if extracted:
-                    pdf_text += extracted
+            if pdf_path.lower().endswith('.txt'):
+                with open(pdf_path, 'r', encoding='utf-8') as f:
+                    pdf_text = f.read()
+            else:
+                reader = PdfReader(pdf_path)
+                for page in reader.pages:
+                    extracted = page.extract_text()
+                    if extracted:
+                        pdf_text += extracted
             
             # Simple Length Ratio
             norm_md = normalize_text(md_content)
