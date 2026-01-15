@@ -42,22 +42,22 @@ Ratio = MD_chars / PDF_chars
 | 0.99 - 1.01 | ✅ ปกติ | ดำเนินการต่อได้ |
 | > 1.01 | เนื้อหาซ้ำ, OCR artifacts เพิ่ม | ตรวจสอบเนื้อหาซ้ำ, แจ้ง User |
 
-**1.4 การวิเคราะห์เชิงลึก (ทำเมื่อ Ratio นอกช่วง):**
+
+**1.4 การวิเคราะห์เชิงลึก (Standard Analysis - New Standard):**
 // turbo
 ```bash
-# นับ space characters
-tr -cd ' ' < "$MD_FILE" | wc -c
-tr -cd ' ' < "$PDF_TXT_FILE" | wc -c
-
-# นับ non-space bytes
-tr -d ' \n' < "$MD_FILE" | wc -c
-tr -d ' \n' < "$PDF_TXT_FILE" | wc -c
+# นับเนื้อหาจริง (ไม่รวม Space/Layout)
+tr -d '[:space:]' < "$MD_FILE" | wc -m
+tr -d '[:space:]' < "$PDF_TXT_FILE" | wc -m
 ```
+> [!TIP]
+> **ค่า Content Ratio (No Space)** ควรอยู่ที่ **0.99 - 1.00**
+> นี่คือค่าที่แม่นยำที่สุดในการบอกว่าเนื้อหาครบหรือไม่ (ตัดปัญหา formatting ออก)
 
 **1.5 แจ้ง User ด้วย notify_user:**
 หาก Ratio นอกช่วง 0.99-1.01 ต้องใช้ `notify_user` เพื่อ:
-- รายงาน Ratio ที่พบ
-- อธิบายสาเหตุที่วิเคราะห์ได้
+- รายงาน Ratio ปกติ
+- รายงาน **Content Ratio (No Space)**
 - ถามว่าจะดำเนินการต่อหรือไม่
 
 **1.6 ตรวจสอบลำดับหน้า:**
@@ -211,9 +211,12 @@ grep -C 3 "คำบริบท" "$PDF_TXT_FILE"
 |---|---|
 | ไฟล์ MD | `part_XX.md` |
 | ไฟล์ PDF | `part_XX.pdf` |
-| ตัวอักษร MD | XXX,XXX |
-| ตัวอักษร PDF | XXX,XXX |
-| Ratio | X.XX |
+| ตัวอักษร MD (รวม Space) | XXX,XXX |
+| ตัวอักษร PDF (รวม Space) | XXX,XXX |
+| **Ratio (รวม Space)** | **X.XX** |
+| ตัวอักษร MD (No Space) | YY,YYY |
+| ตัวอักษร PDF (No Space) | YY,YYY |
+| **Ratio (No Space)** | **Y.YY** (Target: 0.99-1.00) |
 | สถานะ | ✅ ผ่าน / ⚠️ มีการแก้ไข |
 
 ### การแก้ไขที่ดำเนินการ
@@ -232,7 +235,7 @@ grep -C 3 "คำบริบท" "$PDF_TXT_FILE"
 - บรรทัด XX: Arabic `5` → Thai `๖` (ตรวจสอบจาก PDF แล้ว)
 
 ### ผลการตรวจสอบขั้นสุดท้าย
-- [x] ตัวอักษรครบถ้วน (Ratio ≥ 0.98)
+- [x] ตัวอักษรครบถ้วน (Ratio No Space ~ 1.00)
 - [x] เลขหน้าครบถ้วนและถูกต้อง
 - [x] เชิงอรรถจัดรูปแบบถูกต้อง
 - [x] ไม่มีเลขอารบิคผิดพลาด
@@ -254,3 +257,8 @@ grep -C 3 "คำบริบท" "$PDF_TXT_FILE"
 ### 3. Footnote Gaps
 - ช่องว่างในลำดับเชิงอรรถ อาจเป็นเรื่องปกติ (เปลี่ยนบท/ส่วน)
 - ตรวจสอบกับ PDF ก่อนสรุปว่าผิดพลาด
+
+### 4. Space Analysis
+- การตัด Whitespace ออกช่วยให้เห็น Content ที่แท้จริงได้ชัดเจนกว่า
+- ใช้ `tr -d '[:space:]'` เพื่อยืนยันความครบถ้วนเมื่อ Ratio ปกติ (รวม Space) ดูน้อยกว่าที่ควรจะเป็น
+
