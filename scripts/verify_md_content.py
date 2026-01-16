@@ -133,6 +133,27 @@ def check_footnotes(md_content):
     if orphan_defs:
         issues.append(f"❌ Definitions without References: {orphan_defs}")
 
+    # ERROR TRAP: Check for "Stray" Thai numerals (potential unformatted footnotes)
+    # Regex: Line containing ONLY Thai numerals (and whitespace)
+    lines = md_content.splitlines()
+    for i, line in enumerate(lines):
+        # Specific check for lines that are JUST a Thai number (1-3 digits) usually indicating a dropped footnote
+        if re.match(r'^\s*[๐-๙]{1,3}\s*$', line):
+            # Only flag if not seemingly a page number (which are usually top/bottom, but harder to context check)
+            # But page numbers usually have "แนวคำวินิจฉัย..." or appear at predictable intervals.
+            # A raw number on a line is suspicious.
+            issues.append(f"⚠️  Line {i+1}: Suspicious stray Thai numeral '{line.strip()}' found. Possible unformatted footnote?")
+            
+    # Also check for stray numbers at end of line NOT in superscripts, e.g. "Text text ๖๘"
+    # This is noisier, but worth checking for "floating" refs.
+    # regex: text then space then 1-3 thai digits end of line
+    # Avoid flagging simple sentences ending in numbers (rare in Thai law text without unit).
+    # for i, line in enumerate(lines):
+    #     m = re.search(r'(?<!\d)(?<!\s)[ก-๙]+\s+([๐-๙]{1,3})\s*$', line)
+    #     if m:
+    #         # Verify it's not a page number or item number
+    #         pass
+
     if not refs and not defs:
         issues.append("ℹ️  No footnotes found.")
         
