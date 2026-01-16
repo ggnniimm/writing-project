@@ -10,4 +10,4 @@ description: Start of day routine (Pull, Read README, Check Diary/Ideas)
 5. Check if an entry for **today's date** exists in `git_diary.md`.
     - If NO: Create a new entry using the standard template (see `README.md` or previous entries).
     - If YES: Read it to see what has already been logged.
-6. Present a concise summary of the project status (Pending Tasks, Ready-to-Write Ideas) and ask the user for instructions.
+6. Log a **"Start of Day"** entry in `git_diary.md` summarizing the project status, then present this summary to the user.

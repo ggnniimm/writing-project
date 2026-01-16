@@ -1,6 +1,36 @@
 # 🧠 บันทึกการพัฒนาด้วย AI (AI Development Log)
 
 
+## 📅 2026-01-16 (รอสรุป...)
+
+### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[08:35] 🌅 เริ่มต้นภารกิจประจำวัน (Start of Day)**
+    > **Situation (ที่มา):** Start of Day Routine (bbb) completed.
+    > **Action (การดำเนินการ):**
+    > 1. Resolved git conflict (Part 21 & Local Logs).
+    > 2. Consolidated diary structure.
+    > 3. Reviewed status: Verified up to Part 21.
+    > **Result (ผลลัพธ์):** Ready for Verification of Part 22+.
+    *   *Files:* `git_diary.md`
+
+**[11:30] 🧠 Lesson Learned: Numeral Verification**
+    > **Problem (ปัญหา):** Miscorrected Arabic '5' to Thai '๕' at lines 637/641, when the PDF source actually stated '๖' (6).
+    > **Root Cause (สาเหตุ):**
+    > 1. **Transformation Bias:** Focus was on switching "Font/Type" (Arabic -> Thai) rather than verifying "Value" (5 vs 6). I assumed the Markdown's '5' was the correct number, just wrong format.
+    > 2. **OCR Trap:** OCR often misreads Thai '๖' (6) as Arabic '5'. Blindly incorrectly 'fixing' the format preserves the OCR error.
+    > **Prevention (การป้องกัน):**
+    > 1. **Value-First Verification:** Never assume the Arabic number in Markdown is correct. Always verify the *value* against PDF before converting the *format*.
+    > 2. **Context Logic:** Check progressions (e.g., 5 -> 5.5 -> [X] -> 6.5). If X=5, the sequence breaks (decreasing). If X=6, it holds. Use context to flag suspicious numbers.
+
+**[11:15] ✅ Verified Part 22**
+    > **Situation (ที่มา):** Verified `part_22.md` against PDF source strictly following `vmd` workflow.
+    > **Action (การดำเนินการ):**
+    > 1. Corrected Arabic numerals at line 239 to Thai '๖' (6).
+    > 2. **Correction:** At lines 637 and 641, initially misread Arabic '5' as Thai '๕'. Re-verified against PDF and corrected to Thai '๖' (6) as per user feedback/PDF source.
+    > 3. Formatted Footnotes 2-8 with `<sup>` tags (References and Definitions).
+    > **Result (ผลลัพธ์):** Verification Passed. Character Ratio 0.99. Jaccard 0.57.
+    *   *Files:* `etc/Academic_310717_154727-2_parts/part_22.md`
+
 ## 📅 15 มกราคม 2026
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -65,6 +95,71 @@
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
 
 
+[2026-01-15 17:50] Part 20 Verification Completed
+- Verified 'part_20.md' against PDF.
+- Ratio (No Space): 0.99 (Excellent).
+- Corrected Arabic numerals (5 -> ๖) in 4 locations (Date corrections confirmed by PDF).
+- Fixed Footnote references and definitions (4-15) which were missing or malformed.
+- Confirmed Page 369 content exists (Header missing in source PDF).
+- Jaccard Similarity: 0.55 (Moderate).
+
+[2026-01-15 17:30] Part 19 Verification Completed
+- Verified 'part_19.md' against PDF.
+- Ratio (No Space): 0.99 (Excellent).
+- Corrected content error: '5 เดือน' -> '๖ เดือน' (Line 713).
+- Formatted footnotes and fixed multiple reference typos (e.g., 544 -> 54, 196 -> 19).
+- Confirmed page header sequence.
+
+[2026-01-15 17:00] Part 18 Verification Completed
+- Verified 'part_18.md' against PDF.
+- Ratio (No Space): 0.99.
+- Corrected Arabic numerals (4, 5, 5 -> Thai).
+- Formatted 25+ footnotes.
+
+**[2026-01-15 16:56] End of Day Sync 💤**
+    -   📝 แก้ไข: .agent/workflows/vmd.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_15.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_16.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_17.md
+    -   ✨ สร้างใหม่: part_15_pdf.txt
+    -   ✨ สร้างใหม่: part_16_pdf.txt
+    -   ✨ สร้างใหม่: part_17_pdf.txt
+
+[2026-01-15 16:10] Part 17 Verification Completed
+- Verified 'part_17.md' against PDF.
+- Character ratio 0.87 (explained by whitespace, user approved).
+- No Arabic numerals found.
+- Formatted 12 footnote definitions (๑๒-๒๔) with <sup> tags.
+
+**[14:55] ✅ Verify Part 15 (เสร็จสิ้น)**
+- **ตรวจสอบความถูกต้อง:**
+  - Page Range: 267-286 (ครบถ้วน)
+  - Character Count: พบความต่างเยอะ (MD 48k vs PDF 55k) แต่เกิดจาก Justified Spacing ใน PDF (Space ต่างกัน 6,000 ตัว) และ Header padding
+  - Non-Space Byte Check: Difference ~1.2% (1.8kb) ซึ่งตรงกับขนาดของ Header ที่ตัดออกพอดี
+- **การแก้ไข:**
+  - แก้ไขตัวเลขอาหรับเป็นไทย (5 -> ๕, 1 -> ๑)
+  - แก้ไข Footnote artifacts (b, ໑໑ -> <sup>๕</sup>, <sup>๑๑</sup>)
+- **Status:** Verified & Ready for sync.
+
+[2026-01-15 11:15] Part 21 Verification Completed
+- Verified 'part_21.md' against PDF.
+- **Correction**: Verified and corrected 5 -> ๖ at two locations (lines 5, 321) based on PDF context (Date and Measurement).
+- **Footnotes**: Formatted references and definitions 17-28.
+- **Page Headers**: Confirmed continuity. Identified Chapter 12 title page (approx pg 406/407) as source of header gap, but content is contiguous.
+- **Stats**: Char Ratio 1.00, Jaccard 0.52 (Moderate, headers spot-checked).
+
+[2026-01-15 10:30] Part 16 Verification Completed
+- Verified 'part_16.md' against PDF.
+- Character count ratio ~0.94 (Formatted text vs Expanded PDF).
+- Corrected Arabic numeral error (ข้อ 5 -> ข้อ ๕).
+- Preserved 'HIV-1' as technical term.
+- Fixed multiple footnote formatting issues and OCR noise.
+- Confirmed content completeness despite missing page headers for 298-299 in source PDF.
+- Character ratio 0.87 (explained by whitespace, user approved).
+- No Arabic numerals found.
+- Formatted 12 footnote definitions (๑๒-๒๔) with <sup> tags.
+
+
 ## 📅 14 มกราคม 2026 (รอสรุป...)
 **🤖 สรุปภาพรวมประจำวัน (Daily Retrospective):**
 
@@ -88,6 +183,79 @@
 
 
 ### 📝 บันทึกการปฏิบัติงาน (Operations Log)
+**[2026-01-16] ✅ Verified Part 23**
+- **Situation:** Verified `part_23.md` against PDF.
+- **Action:**
+    - Corrected OCR numeral error ('5' -> '๖') at line 23.
+    - Formatted footnotes 9-18 with superscript tags.
+    - Split and grouped definitions for [9-10], [12-14], [17-18] to match references and fix validation errors.
+- **Result:** Part 23 verified clean (Ratio 0.99, Footnotes Valid).
+    - *Files:* `part_23.md`
+
+**[2026-01-14 08:01] Merge: Resolve git_diary.md conflict (keep stashed logs)**
+
+**[2026-01-14 10:49] End of Day Sync 💤**
+    -   📝 แก้ไข: .agent/workflows/vmd.md
+    -   ✨ สร้างใหม่: 02_parts.txt
+    -   ✨ สร้างใหม่: 15_20_pdf.txt
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_01.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_02.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_03.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_04.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_67.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_72.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_73.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_75.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_76.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_77.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_78.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_79.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_80.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_81.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_82.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_83.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_84.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_85.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_86.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_87.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_88.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_89.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_90.md
+    -   ✨ สร้างใหม่: part_02_text_raw.txt
+    -   ✨ สร้างใหม่: pdftmp.txt
+- **Verify Part 06**: เสร็จสิ้นการตรวจสอบและแก้ไข part_06.md (Re-extracted, Fixed Headers 95/99/100, Formatted Footnotes).
+- Verified Part 06 with strict numeral checks. Fixed OCR error (5->6 for fish size) after PDF confirmation. Corrected phantom footnotes and double superscripts. Verified 0 Arabic numerals via grep.
+
+**[2026-01-14 17:38] End of Day Sync 💤**
+    -   ✨ สร้างใหม่: clean_part_06.py
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_05.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_06.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06_part_1.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06_part_2.pdf
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_07.md
+    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_08.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_2a.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_2b.pdf
+    -   ✨ สร้างใหม่: fix_headers.py
+    -   ✨ สร้างใหม่: format_part_06.py
+    -   ✨ สร้างใหม่: inspect_pdf.py
+    -   ✨ สร้างใหม่: page_135.txt
+    -   ✨ สร้างใหม่: page_135_range.txt
+    -   ✨ สร้างใหม่: part_06_pdf.txt
+    -   ✨ สร้างใหม่: part_07_head.txt
+    -   ✨ สร้างใหม่: part_07_missing_pages.txt
+    -   ✨ สร้างใหม่: part_07_page_8.txt
+    -   ✨ สร้างใหม่: part_07_pages_18_22.txt
+    -   ✨ สร้างใหม่: part_07_pages_9_17.txt
+    -   ✨ สร้างใหม่: part_08_pdf.txt
+    -   ✨ สร้างใหม่: reconstruct_pages.py
+    -   ✨ สร้างใหม่: repair_part_08.py
+    -   ✨ สร้างใหม่: smart_format_part_06.py
+    -   ✨ สร้างใหม่: split_pdf.py
+    -   ✨ สร้างใหม่: verify_part_08.py
+
+***
+
 **[08:57] ✅ Verified & Corrected Part 01**
     > **Situation (ที่มา):** รัน `/vmd` ตรวจสอบ Part 01 (หน้า 1-20)
     > **Action (การดำเนินการ):**
@@ -166,6 +334,311 @@
     > 2. Confirmed 42 out of 90 parts extracted successfully (`part_01.md` to `part_42.md`).
     > **Result (ผลลัพธ์):** Process paused. Files saved securely.
     *   *Files:* `part_01.md` -> `part_42.md`
+
+**[2026-01-13 07:40] Init Day 13 Jan: Create daily entry and cleanup logs**
+
+**[2026-01-13 07:43] Verified Part 65: Fix numerals and footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md
+
+**[2026-01-13 08:31] Verified Part 65: Correct OCR misread 5->6 based on strict PDF check**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md (เปลี่ยน ๕ -> ๖ ใน 5 จุดที่ OCR อ่านผิด)
+
+**[2026-01-13 08:45] Docs: Standardize footnote formatting (based on Part 65)**
+    -   📝 แก้ไข: README.md (เพิ่ม Section 3. Footnote Standard)
+    -   📝 แก้ไข: .agent/workflows/vmd.md (Update Step 4 strict rules)
+    -   📝 แก้ไข: .agent/workflows/ebk.md (Update Section 3.4 strict rules)
+
+**[2026-01-13 09:30] Verified Part 66: Restore MISSING Page 1283 and fix numeral/footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_66.md (คืนค่าเนื้อหาหน้า 1283 ที่หายไป, แก้เลข ๖, จัดรูปแบบเชิงอรรถ)
+    -   ✅ ผลการตรวจสอบ: Ratio 0.99 (เพิ่มขึ้นจาก 0.94), Numeral/Footnote Clean.
+
+**[2026-01-13 09:45] Verified Part 67: Fix numeral (5->๖) and format footnotes (20-25)**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_67.md (แก้เลข ๖, จัดรูปแบบเชิงอรรถ 20-25, แก้คำผิด 156->15, 623->6)
+    -   ✅ ผลการตรวจสอบ: Ratio 1.00, Numeral/Footnote Clean.
+
+**[2026-01-13 08:43] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_66.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_67.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_68.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68_verify.txt
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_69.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_70.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_71.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71_verify.txt
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_72.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72_verify.txt
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_73.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
+    -   ✨ สร้างใหม่: part_58_temp.txt
+    -   ✨ สร้างใหม่: part_66_verify.txt
+    -   ✨ สร้างใหม่: part_67_verify.txt
+    -   ✨ สร้างใหม่: part_68_verify.txt
+    -   ✨ สร้างใหม่: part_69_verify.txt
+    -   ✨ สร้างใหม่: part_70_verify.txt
+
+**[2026-01-13 08:44] Update git_diary.md with Part 74 verification**
+
+**[2026-01-13 09:00] Verified Part 74: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_74.md`.
+-   **Method**: Used `part_74_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Validation Passed (Thai numerals correct).
+-   **Footnotes**:
+    -   Available: 1-15, 18.
+    -   Fixed `<sup>` tags for References 14, 15 and their Definitions.
+    -   Verified Definition 11-13 (Line 665) is complete and matches PDF.
+    -   Gap [16, 17] confirmed: Part 74 starts with Footnote 18 (from previous chapter context) and then starts a NEW chapter (Chapter 27) which resets footnotes to 1. Thus, 16 and 17 do not exist in this file.
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 08:56] Verified Part 74: Footnotes and Numerals**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
+
+**[2026-01-13 09:20] Verified Part 75: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_75.md`.
+-   **Method**: Used `part_75_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Corrected Arabic numeral '5' to Thai '๕' on lines 182, 189, 225, and 560.
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions for Chapter 28 (Ref 1-5) and Chapter 29 (Ref 1-6).
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 09:40] Verified Part 75: Corrected numerals and formatted footnotes**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
+    -   ✨ สร้างใหม่: part_75_extracted.txt
+
+**[2026-01-13 10:25] Verified Part 76: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_76.md`.
+-   **Method**: Used `part_76_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Corrected Arabic numeral '5' to Thai '๖' on lines 22, 281, 443, and 596.
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 1-7).
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 10:35] Verified Part 77: Footnotes and Numerals**
+-   Verified `etc/Academic_230317_084750-2_parts/part_77.md`.
+-   **Method**: Used `part_77_extracted.txt` (extracted from PDF) as reference.
+-   **Numerals**: Validation Passed (no Arabic numeral issues).
+-   **Footnotes**:
+    -   Found no footnotes initially (formatting missing).
+    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 11-21).
+    -   Fixed section numeral typos: (๔) -> (๘) on lines 313-314 and 340-341.
+    -   Validation Passed (Sequence & Pairing correct).
+-   **Stats**: Ratio=0.99 (MD: 45877 / PDF: 46335 chars), Jaccard=0.55.
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 11:15] Verified Part 80 🇹🇭**
+-   **File**: `etc/Academic_230317_084750-2_parts/part_80.md`
+-   **Numerals**: Corrected 7 instances of Arabic '5' to Thai '๖' (Lines 9, 92, 111, 122, 174, 499, 635).
+-   **Footnotes**:
+    -   Formatted inline references and definitions with `<sup>` tags.
+    -   Fixed misnumbered definition for footnote 31.
+    -   Validated all pairs (Refs 1, 2, 31-37).
+-   **Stats**: Ratio=0.99 (MD: 43772 / PDF: 44207 chars), Jaccard=0.55.
+-   **Status**: Verified & Ready.
+
+**[2026-01-13 11:02] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_76.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_77.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_78.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_79.md
+    -   🗑️ ลบ: part_75_extracted.txt
+    -   ✨ สร้างใหม่: part_76_extracted.txt
+    -   ✨ สร้างใหม่: part_77_extracted.txt
+    -   ✨ สร้างใหม่: part_79_extracted.txt
+
+## [2026-01-13] part_81.md Verification
+- Verified against part_81.pdf.
+- ✅ Numeral Validation: Passed (No Arabic 4/5 issues found).
+- ✅ Footnote Validation: Clean after correcting references and definitions ๓-๒๐.
+- Footnote ๑-๒ missing from PDF part, sequence starts at ๓.
+- Char Ratio: 0.99. Jaccard: 0.54.
+- Document integrity confirmed.
+
+**[2026-01-13 11:23] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_80.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_81.md
+
+- Verified `part_83.md` against `part_83.pdf`.
+- Corrected Arabic numeral '5' to Thai '๖' in 'Nakhon Ban 6' (Line 72) and date '6 Oct' (Line 644).
+- Confirmed no footnotes present in this part.
+- Verification script passed with clean results.
+
+### 2026-01-16 Part 24 Verification
+- **File**: `part_24.md`
+- **Status**: Verified & Corrected
+- **Corrections**:
+  - Corrected Arabic numerals to Thai numerals at lines 55, 385, 411 (verified against PDF).
+  - Formatted footnote references and definitions for footnotes 21-26 and 1-3.
+  - Added missing footnote references where OCR failed (e.g., line 129, 684).
+- **Verification Result**:
+  - Ratio: 1.00
+  - Numerals: Passed
+  - Footnotes: Gaps [4-20] expected due to file split and chapter reset (Chapter 13 starts with footnote 1).
+
+## 2026-01-13: Part 83 Verification
+- **Verified Part 83**: `etc/Academic_230317_084750-2_parts/part_83.md`
+    - Check against PDF: `part_83.pdf`
+    - **Numeral Corrections**: Corrected Arabic '5' to Thai '๖' at lines 72 and 644.
+    - **Footnote Formatting**:
+        - Formatted Pre-Chapter 33 footnotes (32, 33).
+        - Mapped and formatted Chapter 33 footnotes (1-14) which were previously unformatted or had merged numbering issues (e.g., mismatch between PDF starting at 1 and MD continuing with 35+).
+        - Resolved specific mapping (e.g., MD `๔๔` -> PDF `๑๔`, MD `๔๑-๔๓` -> PDF `๑๑` definitions).
+        - Fixed missing definitions for Footnotes 7 and 12.
+    - **Verification Results**:
+        - Ratio: 0.99
+        - Jaccard: 0.54 (Moderate)
+        - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
+
+**[2026-01-13 17:11] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_82.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_83.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_84.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_85.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_86.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_87.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_01.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_01.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_02.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_02.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_03.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_03.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_04.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_04.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_05.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_05.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_07.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_07.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_08.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_08.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_09.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_09.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_10.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_10.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_11.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_11.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_12.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_13.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_13.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_14.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_14.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_15.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_15.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_16.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_16.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_17.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_17.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_18.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_18.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_19.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_19.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_20.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_20.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_21.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_21.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_22.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_22.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_23.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_23.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_24.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_24.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_25.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_25.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_26.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_26.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_27.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_27.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_28.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_28.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_29.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_29.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_30.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_30.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_31.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_31.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_32.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_32.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_33.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_33.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_34.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_34.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_35.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_35.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_36.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_36.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_37.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_37.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_38.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_38.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_39.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_39.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_40.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_40.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_41.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_41.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_42.md
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_42.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_43.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_44.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_45.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_46.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_47.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_48.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_49.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_50.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_51.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_52.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_53.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_54.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_55.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_56.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_57.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_58.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_59.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_60.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_61.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_62.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_63.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_64.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_65.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_66.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_67.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_68.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_69.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_70.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_71.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_72.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_73.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_74.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_75.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_76.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_77.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_78.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_79.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_80.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_81.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_82.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_83.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_84.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_85.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_86.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_87.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_88.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_89.pdf
+    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_90.pdf
+    -   ✨ สร้างใหม่: part_83_extracted.txt
+    -   ✨ สร้างใหม่: part_84_extracted.txt
+    -   ✨ สร้างใหม่: part_85_extracted.txt
+    -   ✨ สร้างใหม่: part_86_extracted.txt
+    -   ✨ สร้างใหม่: part_87_extracted.txt
+    -   ✨ สร้างใหม่: raw_pdfs/Academic_310717_154727-2.pdf
+    -   ✨ สร้างใหม่: references/court_rulings_books/administrative_court_rulings_vol_06.md
+    -   ✨ สร้างใหม่: scripts/extract_vol05.py
+    -   📝 แก้ไข: scripts/split_pdf.py
 
 **[13:45] 🚀 Started Extraction of Volume 5 (90 Parts)**
     > **Situation (ที่มา):** User initiated `/ebk` workflow for `Academic_310717_154727-2.pdf` (Volume 5).
@@ -398,6 +871,78 @@
     > **Result (ผลลัพธ์):** เอกสาร Part 50-57 มีความถูกต้องสมบูรณ์และพร้อมใช้งาน
     *   *Files:* `part_50.md`, `part_51.md`, `part_52.md`, `part_53.md`, `part_54.md`, `part_55.md`, `part_56.md`, `part_57.md`
 
+**[2026-01-12 08:35] Verifying Part 51 Content**
+-   **Status:** Verified (Ratio: 0.99, Jaccard: 0.55, Clean Footnotes).
+-   **Issues Fixed:**
+    -   Numeric Discrepancies: Fixed incorrect numeral in line 474 (PDF: `๖`, MD: `5` -> `๖`).
+    -   Footnotes:
+        -   Fixed concatenated references: `มาตรา ๕๑๔` -> `๕๑ <sup>๕๔</sup>` and `มาตรา ๔๕๖...๓๙๗` -> `ม.๔๕ <sup>๕๖</sup>...ม.๓๙ <sup>๕๗</sup>`.
+        -   Formatted unformatted footnotes: 54, 55, 56, 57, 58.
+-   **Result:** `part_51.md` verified clean.
+
+**[2026-01-12 08:45] Verifying Part 52 Content**
+-   **Status:** Verified (Ratio: 0.99, Jaccard: 0.56, Clean Footnotes).
+-   **Issues Fixed:**
+    -   Numeric Discrepancies: Fixed 7 instances of incorrect numerals (Region 5->6, User Plaintiff 5->6, Clause 5->6).
+    -   Footnotes:
+        -   Fixed OCR artifacts `> bo` -> `<sup>๖๐,๖๑</sup>`, `> ๖๒` -> `<sup>๖๒</sup>`, `> ๖”` -> `<sup>๖๓</sup>`.
+        -   Fixed unconnected footnote references for 61 and 62.
+    -   **Round 2 Fixes**:
+        -   Corrected Page Headers: Line 1 (`59` -> `990`) and Line 43 (`60` -> `991`).
+        -   Fixed Footnote Ref 60: Line 47 (`๑๙๓/๓๒๐` -> `๑๙๓/๓๒ <sup>๖๐</sup>`).
+-   **Result:** `part_52.md` verified clean.
+
+**[2026-01-12 08:50] Verifying Part 53 Content**
+-   **Status:** Verified (Ratio: 0.99, Jaccard: 0.55, Clean Footnotes).
+-   **Issues Fixed:**
+    -   Page Headers: Fixed placeholders `0000` to `๑๐๑๐` and `๑๐๑๑`.
+    -   Numerals: Fixed Arabic '5' to Thai '๕' in 3 instances (User Plaintiff 5, > 5 months).
+    -   Footnotes:
+        -   Formatted footnotes 64, 65, 66 (Reg 2520, Civil Code 206, 224).
+        -   Added missing `<sup>` tags for references and definitions.
+-   **Result:** `part_53.md` verified clean.
+
+**[2026-01-12 09:45] Verifying Part 54 Content**
+-   **Status:** Verified (Ratio: 0.99, Jaccard: 0.56).
+-   **Issues Fixed:**
+    -   **Page Headers:** Corrected header sequence to restart at 1031 (Odd) -> 1047.
+    -   **Numerals:**
+        -   Fixed Arabic '5' to '๕' (July 5).
+        -   Fixed Arabic '8' to '๘' (Section 8 -> actually Section 6, see below).
+        -   Fixed Arabic '0' to '๐' (km 0+100).
+        -   **Correction:** Line 534 `มาตรา ๘` corrected to `มาตรา ๖` based on PDF cross-check.
+    -   **Footnotes:**
+        -   Formatted footnotes 67-71.
+        -   Formatted footnotes 12-13 (which appear in PDF, causing a sequence gap 14-66 which is expected).
+        -   Formatted missing reference tags.
+-   **Result:** `part_54.md` verified clean (accepted gap warning).
+
+**[2026-01-12 10:03] Verifying Part 55 Content**
+-   **Status:** Verified (Ratio: 0.99, Jaccard: 0.58).
+-   **Issues Fixed:**
+    -   **Numerals (Strict PDF Check):**
+        -   Line 12: `5 ไร่ ๑๘๐ ตารางวา` -> `๖ ไร่ ๑๘๔/๑๐ ตารางวา` (PDF shows `๖ ไร่ ๑๘๔/๑๐`).
+        -   Line 12: `๕๓๐ ตารางวา` -> `๕๓/๑๐ ตารางวา` (PDF shows `๕๓/๑๐`).
+        -   Line 272: `5 พฤษภาคม` -> `๕ พฤษภาคม` (PDF confirmed).
+-   **Footnotes:** None found (expected, PDF has no footnotes in this section).
+-   **Result:** `part_55.md` verified clean.
+
+**[2026-01-12 11:57] End of Day Sync 💤**
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_50.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_51.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_52.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_53.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_54.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_55.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_56.md
+    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_57.md
+    -   ✨ สร้างใหม่: page1.txt
+    -   ✨ สร้างใหม่: page2.txt
+    -   ✨ สร้างใหม่: page3.txt
+    -   ✨ สร้างใหม่: part56_dump.txt
+
+
+
 **[2026-01-12 08:30] Verifying Part 50 Content**
 -   **Status:** Verified (Ratio: 1.00, Jaccard: 0.55, Clean Footnotes).
 -   **Issues Fixed:**
@@ -522,6 +1067,213 @@
     > 2. Smart Repair: Deployed Infinite Retry agent to fill missing gap (48-65) caused by rate limits.
     > 3. Quality Control: Re-split Part 08 for continuity.
     > **Result (ผลลัพธ์):** All 87 parts extracted successfully.
+
+## 2026-01-09 16:19 - Court Ruling Book Extraction (Volume 2)
+
+**Completed:**
+- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic ( + simple prompt) for higher quality, with  to fix timeouts.
+- **Smart Re-splitting:** Detected and fixed boundary issues in  by analyzing content overlap with Part 07 and 09, ensuring perfect continuity.
+- **Parallel Processing:** Deployed two concurrent agents:
+    1.  **Forward Agent:** Extracting from Part 01 -> 47
+    2.  **Reverse Agent:** Extracting from Part 87 -> 66
+- **Gap Repair:** Identified a gap (Part 48-65) caused by rate limits and deployed a specialized **Repair Agent** with infinite retry logic to successfully fill it.
+- **Status:** All 87 parts extracted.
+
+**Next Steps:**
+- Verification of content completeness.
+- Combining all parts into a single Markdown file.
+
+**[2026-01-09 16:19] End of Day Sync 💤**
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.pdf
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.md
+    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.pdf
+    -   📝 แก้ไข: scripts/bulk_extract_vol08.py
+    -   ✨ สร้างใหม่: scripts/check_boundary_part08.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_230317.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_230317_reverse.py
+    -   ✨ สร้างใหม่: scripts/extract_ebk_repair_48_65.py
+    -   ✨ สร้างใหม่: scripts/smart_resplit_part08.py
+    -   ✨ สร้างใหม่: scripts/verify_ebk_230317.py
+
+## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [RETRY]
+
+
+
+**[2026-01-09 16:24] End of Day Sync 💤**
+
+
+
 
 **[08:26] 🔄 เริ่มต้นภารกิจประจำวัน (Start of Day Routine)**
     > **Situation (ที่มา):** เริ่มต้นวันใหม่และต้องการ Sync ข้อมูลกับ Repository ล่าสุด
@@ -4173,6 +4925,32 @@
 - **Key Insight:** Even if the main contract is not signed, the "Bid Bond Agreement" is binding. Failure to sign within the deadline constitutes a breach, allowing the agency to confiscate the bid bond. The 15-day return rule does not apply to the defaulting bidder.
 - **Output:** `articles/learning_from_judgments/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.md`
 
+**[2026-01-16] ✅ Verified Part 25**
+- **Situation:** Verified `part_25.md` against PDF.
+- **Action:**
+    - Corrected 14 instances of Arabic numeral '5' to Thai numeral '๖' (e.g., lines 122, 443, 548).
+    - Formatted all footnotes (References and Definitions) with correct `<sup>` tags and Thai numerals.
+- **Result:**
+    - Ratio: 1.00 (Perfect Match).
+    - Numeral Validation: Passed.
+    - Footnote Validation: Passed (Sequence & Pairing correct).
+    - *Files:* `part_25.md`
+
+**[11:30] 🧠 Lesson Learned: Numeral Verification**
+    > **Problem (ปัญหา):** Miscorrected Arabic '5' to Thai '๕' at lines 442/547, when the PDF source actually stated '๖' (6).
+    > **Root Cause (สาเหตุ):**
+    > 1. **Transformation Bias:** Focus was on switching "Font/Type" (Arabic -> Thai) rather than verifying "Value" (5 vs 6). I assumed the Markdown's '5' was the correct number, just wrong format.
+    > 2. **OCR Trap:** OCR often misreads Thai '๖' (6) as Arabic '5'. Blindly incorrectly 'fixing' the format preserves the OCR error.
+    > **Prevention (การป้องกัน):**
+    > 1. **Value-First Verification:** Never assume the Arabic number in Markdown is correct. Always verify the *value* against PDF before converting the *format*.
+    > 2. **Context Logic:** Check progressions (e.g., 5 -> 5.5 -> [X] -> 6.5). If X=5, the sequence breaks (decreasing). If X=6, it holds. Use context to flag suspicious numbers.
+
+**[11:15] 🛠 Corrected Part 25 (Fixing the Fix)**
+    > **Situation:** User flagged potential error in lines 442/547.
+    > **Action:** Re-verified PDF. Confirmed source says "๖" (6).
+    > **Result:** Updated `part_25.md` lines 442, 547 to '๖'.
+
+
 **[2025-12-30 14:36] ดำเนินการสกัดเนื้อหาจากไฟล์ PDF Academic_261125_104912 โดยแก้ไขปัญหา Token Limit ด้วยการแบ่งไฟล์ รวมไฟล์ และแก้ไขรหัสภาษาไทย เรียบร้อยแล้ว**
     -   ✨ สร้างใหม่: articles/html/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.html
     -   ✨ สร้างใหม่: articles/learning_from_judgments/ep160_bid_bond_confiscation_pre_contract_breach_o_343_2566.md
@@ -5185,694 +5963,3 @@
 
 **[2026-01-08 16:59] End of Day Sync 💤**
 
-## 2026-01-09 16:19 - Court Ruling Book Extraction (Volume 2)
-
-**Completed:**
-- **Extraction Strategy Overhaul:** Reverted to "Volume 8" logic ( + simple prompt) for higher quality, with  to fix timeouts.
-- **Smart Re-splitting:** Detected and fixed boundary issues in  by analyzing content overlap with Part 07 and 09, ensuring perfect continuity.
-- **Parallel Processing:** Deployed two concurrent agents:
-    1.  **Forward Agent:** Extracting from Part 01 -> 47
-    2.  **Reverse Agent:** Extracting from Part 87 -> 66
-- **Gap Repair:** Identified a gap (Part 48-65) caused by rate limits and deployed a specialized **Repair Agent** with infinite retry logic to successfully fill it.
-- **Status:** All 87 parts extracted.
-
-**Next Steps:**
-- Verification of content completeness.
-- Combining all parts into a single Markdown file.
-
-**[2026-01-09 16:19] End of Day Sync 💤**
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_01.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_02.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_03.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_04.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_05.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_06.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_07.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_08.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_09.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_10.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_11.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_12.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_13.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_14.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_15.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_16.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_17.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_18.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_19.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_20.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_21.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_22.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_23.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_24.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_25.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_26.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_27.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_28.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_29.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_30.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_31.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_32.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_33.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_34.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_35.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_36.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_37.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_38.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_39.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_40.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_41.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_42.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_43.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_44.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_45.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_46.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_47.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_48.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_49.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_50.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_51.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_52.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_53.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_54.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_55.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_56.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_57.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_58.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_59.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_60.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_61.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_62.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_63.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_64.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_65.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_66.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_67.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_69.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_70.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_73.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_74.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_75.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_76.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_77.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_78.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_79.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_80.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_81.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_82.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_83.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_84.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_85.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_86.pdf
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_87.pdf
-    -   📝 แก้ไข: scripts/bulk_extract_vol08.py
-    -   ✨ สร้างใหม่: scripts/check_boundary_part08.py
-    -   ✨ สร้างใหม่: scripts/extract_ebk_230317.py
-    -   ✨ สร้างใหม่: scripts/extract_ebk_230317_reverse.py
-    -   ✨ สร้างใหม่: scripts/extract_ebk_repair_48_65.py
-    -   ✨ สร้างใหม่: scripts/smart_resplit_part08.py
-    -   ✨ สร้างใหม่: scripts/verify_ebk_230317.py
-
-## 2026-01-09 16:21 - Court Ruling Book Extraction (Volume 2) [RETRY]
-
-
-
-**[2026-01-09 16:24] End of Day Sync 💤**
-
-
-
-
-**[2026-01-12 08:35] Verifying Part 51 Content**
--   **Status:** Verified (Ratio: 0.99, Jaccard: 0.55, Clean Footnotes).
--   **Issues Fixed:**
-    -   Numeric Discrepancies: Fixed incorrect numeral in line 474 (PDF: `๖`, MD: `5` -> `๖`).
-    -   Footnotes:
-        -   Fixed concatenated references: `มาตรา ๕๑๔` -> `๕๑ <sup>๕๔</sup>` and `มาตรา ๔๕๖...๓๙๗` -> `ม.๔๕ <sup>๕๖</sup>...ม.๓๙ <sup>๕๗</sup>`.
-        -   Formatted unformatted footnotes: 54, 55, 56, 57, 58.
--   **Result:** `part_51.md` verified clean.
-
-**[2026-01-12 08:45] Verifying Part 52 Content**
--   **Status:** Verified (Ratio: 0.99, Jaccard: 0.56, Clean Footnotes).
--   **Issues Fixed:**
-    -   Numeric Discrepancies: Fixed 7 instances of incorrect numerals (Region 5->6, User Plaintiff 5->6, Clause 5->6).
-    -   Footnotes:
-        -   Fixed OCR artifacts `> bo` -> `<sup>๖๐,๖๑</sup>`, `> ๖๒` -> `<sup>๖๒</sup>`, `> ๖”` -> `<sup>๖๓</sup>`.
-        -   Fixed unconnected footnote references for 61 and 62.
-    -   **Round 2 Fixes**:
-        -   Corrected Page Headers: Line 1 (`59` -> `990`) and Line 43 (`60` -> `991`).
-        -   Fixed Footnote Ref 60: Line 47 (`๑๙๓/๓๒๐` -> `๑๙๓/๓๒ <sup>๖๐</sup>`).
--   **Result:** `part_52.md` verified clean.
-
-**[2026-01-12 08:50] Verifying Part 53 Content**
--   **Status:** Verified (Ratio: 0.99, Jaccard: 0.55, Clean Footnotes).
--   **Issues Fixed:**
-    -   Page Headers: Fixed placeholders `0000` to `๑๐๑๐` and `๑๐๑๑`.
-    -   Numerals: Fixed Arabic '5' to Thai '๕' in 3 instances (User Plaintiff 5, > 5 months).
-    -   Footnotes:
-        -   Formatted footnotes 64, 65, 66 (Reg 2520, Civil Code 206, 224).
-        -   Added missing `<sup>` tags for references and definitions.
--   **Result:** `part_53.md` verified clean.
-
-**[2026-01-12 09:45] Verifying Part 54 Content**
--   **Status:** Verified (Ratio: 0.99, Jaccard: 0.56).
--   **Issues Fixed:**
-    -   **Page Headers:** Corrected header sequence to restart at 1031 (Odd) -> 1047.
-    -   **Numerals:**
-        -   Fixed Arabic '5' to '๕' (July 5).
-        -   Fixed Arabic '8' to '๘' (Section 8 -> actually Section 6, see below).
-        -   Fixed Arabic '0' to '๐' (km 0+100).
-        -   **Correction:** Line 534 `มาตรา ๘` corrected to `มาตรา ๖` based on PDF cross-check.
-    -   **Footnotes:**
-        -   Formatted footnotes 67-71.
-        -   Formatted footnotes 12-13 (which appear in PDF, causing a sequence gap 14-66 which is expected).
-        -   Formatted missing reference tags.
--   **Result:** `part_54.md` verified clean (accepted gap warning).
-
-**[2026-01-12 10:03] Verifying Part 55 Content**
--   **Status:** Verified (Ratio: 0.99, Jaccard: 0.58).
--   **Issues Fixed:**
-    -   **Numerals (Strict PDF Check):**
-        -   Line 12: `5 ไร่ ๑๘๐ ตารางวา` -> `๖ ไร่ ๑๘๔/๑๐ ตารางวา` (PDF shows `๖ ไร่ ๑๘๔/๑๐`).
-        -   Line 12: `๕๓๐ ตารางวา` -> `๕๓/๑๐ ตารางวา` (PDF shows `๕๓/๑๐`).
-        -   Line 272: `5 พฤษภาคม` -> `๕ พฤษภาคม` (PDF confirmed).
--   **Footnotes:** None found (expected, PDF has no footnotes in this section).
--   **Result:** `part_55.md` verified clean.
-
-**[2026-01-12 11:57] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_50.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_51.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_52.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_53.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_54.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_55.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_56.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_57.md
-    -   ✨ สร้างใหม่: page1.txt
-    -   ✨ สร้างใหม่: page2.txt
-    -   ✨ สร้างใหม่: page3.txt
-    -   ✨ สร้างใหม่: part56_dump.txt
-
-
-
-**[2026-01-13 07:40] Init Day 13 Jan: Create daily entry and cleanup logs**
-
-**[2026-01-13 07:43] Verified Part 65: Fix numerals and footnotes**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md
-
-**[2026-01-13 08:31] Verified Part 65: Correct OCR misread 5->6 based on strict PDF check**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_65.md (เปลี่ยน ๕ -> ๖ ใน 5 จุดที่ OCR อ่านผิด)
-
-**[2026-01-13 08:45] Docs: Standardize footnote formatting (based on Part 65)**
-    -   📝 แก้ไข: README.md (เพิ่ม Section 3. Footnote Standard)
-    -   📝 แก้ไข: .agent/workflows/vmd.md (Update Step 4 strict rules)
-    -   📝 แก้ไข: .agent/workflows/ebk.md (Update Section 3.4 strict rules)
-
-**[2026-01-13 09:30] Verified Part 66: Restore MISSING Page 1283 and fix numeral/footnotes**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_66.md (คืนค่าเนื้อหาหน้า 1283 ที่หายไป, แก้เลข ๖, จัดรูปแบบเชิงอรรถ)
-    -   ✅ ผลการตรวจสอบ: Ratio 0.99 (เพิ่มขึ้นจาก 0.94), Numeral/Footnote Clean.
-
-**[2026-01-13 09:45] Verified Part 67: Fix numeral (5->๖) and format footnotes (20-25)**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_67.md (แก้เลข ๖, จัดรูปแบบเชิงอรรถ 20-25, แก้คำผิด 156->15, 623->6)
-    -   ✅ ผลการตรวจสอบ: Ratio 1.00, Numeral/Footnote Clean.
-
-**[2026-01-13 08:43] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_66.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_67.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_68.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_68_verify.txt
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_69.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_70.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_71.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_71_verify.txt
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_72.md
-    -   ✨ สร้างใหม่: etc/Academic_230317_084750-2_parts/part_72_verify.txt
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_73.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
-    -   ✨ สร้างใหม่: part_58_temp.txt
-    -   ✨ สร้างใหม่: part_66_verify.txt
-    -   ✨ สร้างใหม่: part_67_verify.txt
-    -   ✨ สร้างใหม่: part_68_verify.txt
-    -   ✨ สร้างใหม่: part_69_verify.txt
-    -   ✨ สร้างใหม่: part_70_verify.txt
-
-**[2026-01-13 08:44] Update git_diary.md with Part 74 verification**
-
-**[2026-01-13 09:00] Verified Part 74: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_74.md`.
--   **Method**: Used `part_74_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Validation Passed (Thai numerals correct).
--   **Footnotes**:
-    -   Available: 1-15, 18.
-    -   Fixed `<sup>` tags for References 14, 15 and their Definitions.
-    -   Verified Definition 11-13 (Line 665) is complete and matches PDF.
-    -   Gap [16, 17] confirmed: Part 74 starts with Footnote 18 (from previous chapter context) and then starts a NEW chapter (Chapter 27) which resets footnotes to 1. Thus, 16 and 17 do not exist in this file.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 08:56] Verified Part 74: Footnotes and Numerals**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_74.md
-
-**[2026-01-13 09:20] Verified Part 75: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_75.md`.
--   **Method**: Used `part_75_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Corrected Arabic numeral '5' to Thai '๕' on lines 182, 189, 225, and 560.
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions for Chapter 28 (Ref 1-5) and Chapter 29 (Ref 1-6).
-    -   Validation Passed (Sequence & Pairing correct).
--   **Status**: Verified & Ready.
-
-**[2026-01-13 09:40] Verified Part 75: Corrected numerals and formatted footnotes**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
-    -   ✨ สร้างใหม่: part_75_extracted.txt
-
-**[2026-01-13 10:25] Verified Part 76: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_76.md`.
--   **Method**: Used `part_76_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Corrected Arabic numeral '5' to Thai '๖' on lines 22, 281, 443, and 596.
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 1-7).
-    -   Validation Passed (Sequence & Pairing correct).
--   **Status**: Verified & Ready.
-
-**[2026-01-13 10:35] Verified Part 77: Footnotes and Numerals**
--   Verified `etc/Academic_230317_084750-2_parts/part_77.md`.
--   **Method**: Used `part_77_extracted.txt` (extracted from PDF) as reference.
--   **Numerals**: Validation Passed (no Arabic numeral issues).
--   **Footnotes**:
-    -   Found no footnotes initially (formatting missing).
-    -   Identified and applied `<sup>` tags to all footnote references and definitions (Ref 11-21).
-    -   Fixed section numeral typos: (๔) -> (๘) on lines 313-314 and 340-341.
-    -   Validation Passed (Sequence & Pairing correct).
--   **Stats**: Ratio=0.99 (MD: 45877 / PDF: 46335 chars), Jaccard=0.55.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 11:15] Verified Part 80 🇹🇭**
--   **File**: `etc/Academic_230317_084750-2_parts/part_80.md`
--   **Numerals**: Corrected 7 instances of Arabic '5' to Thai '๖' (Lines 9, 92, 111, 122, 174, 499, 635).
--   **Footnotes**:
-    -   Formatted inline references and definitions with `<sup>` tags.
-    -   Fixed misnumbered definition for footnote 31.
-    -   Validated all pairs (Refs 1, 2, 31-37).
--   **Stats**: Ratio=0.99 (MD: 43772 / PDF: 44207 chars), Jaccard=0.55.
--   **Status**: Verified & Ready.
-
-**[2026-01-13 11:02] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_75.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_76.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_77.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_78.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_79.md
-    -   🗑️ ลบ: part_75_extracted.txt
-    -   ✨ สร้างใหม่: part_76_extracted.txt
-    -   ✨ สร้างใหม่: part_77_extracted.txt
-    -   ✨ สร้างใหม่: part_79_extracted.txt
-
-## [2026-01-13] part_81.md Verification
-- Verified against part_81.pdf.
-- ✅ Numeral Validation: Passed (No Arabic 4/5 issues found).
-- ✅ Footnote Validation: Clean after correcting references and definitions ๓-๒๐.
-- Footnote ๑-๒ missing from PDF part, sequence starts at ๓.
-- Char Ratio: 0.99. Jaccard: 0.54.
-- Document integrity confirmed.
-
-**[2026-01-13 11:23] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_80.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_81.md
-
-- Verified `part_83.md` against `part_83.pdf`.
-- Corrected Arabic numeral '5' to Thai '๖' in 'Nakhon Ban 6' (Line 72) and date '6 Oct' (Line 644).
-- Confirmed no footnotes present in this part.
-- Verification script passed with clean results.
-
-## 2026-01-13: Part 83 Verification
-- **Verified Part 83**: `etc/Academic_230317_084750-2_parts/part_83.md`
-    - Check against PDF: `part_83.pdf`
-    - **Numeral Corrections**: Corrected Arabic '5' to Thai '๖' at lines 72 and 644.
-    - **Footnote Formatting**:
-        - Formatted Pre-Chapter 33 footnotes (32, 33).
-        - Mapped and formatted Chapter 33 footnotes (1-14) which were previously unformatted or had merged numbering issues (e.g., mismatch between PDF starting at 1 and MD continuing with 35+).
-        - Resolved specific mapping (e.g., MD `๔๔` -> PDF `๑๔`, MD `๔๑-๔๓` -> PDF `๑๑` definitions).
-        - Fixed missing definitions for Footnotes 7 and 12.
-    - **Verification Results**:
-        - Ratio: 0.99
-        - Jaccard: 0.54 (Moderate)
-        - Footnote Validation: Passed (with expected gap 15-31 due to chapter break).
-
-**[2026-01-13 17:11] End of Day Sync 💤**
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_82.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_83.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_84.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_85.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_86.md
-    -   📝 แก้ไข: etc/Academic_230317_084750-2_parts/part_87.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_01.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_01.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_02.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_02.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_03.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_03.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_04.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_04.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_05.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_05.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_07.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_07.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_08.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_08.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_09.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_09.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_10.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_10.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_11.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_11.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_12.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_13.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_13.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_14.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_14.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_15.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_15.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_16.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_16.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_17.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_17.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_18.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_18.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_19.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_19.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_20.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_20.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_21.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_21.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_22.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_22.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_23.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_23.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_24.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_24.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_25.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_25.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_26.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_26.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_27.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_27.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_28.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_28.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_29.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_29.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_30.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_30.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_31.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_31.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_32.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_32.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_33.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_33.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_34.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_34.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_35.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_35.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_36.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_36.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_37.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_37.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_38.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_38.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_39.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_39.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_40.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_40.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_41.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_41.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_42.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_42.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_43.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_44.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_45.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_46.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_47.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_48.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_49.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_50.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_51.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_52.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_53.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_54.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_55.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_56.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_57.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_58.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_59.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_60.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_61.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_62.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_63.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_64.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_65.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_66.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_67.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_68.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_69.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_70.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_71.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_72.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_73.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_74.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_75.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_76.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_77.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_78.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_79.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_80.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_81.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_82.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_83.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_84.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_85.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_86.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_87.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_88.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_89.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_90.pdf
-    -   ✨ สร้างใหม่: part_83_extracted.txt
-    -   ✨ สร้างใหม่: part_84_extracted.txt
-    -   ✨ สร้างใหม่: part_85_extracted.txt
-    -   ✨ สร้างใหม่: part_86_extracted.txt
-    -   ✨ สร้างใหม่: part_87_extracted.txt
-    -   ✨ สร้างใหม่: raw_pdfs/Academic_310717_154727-2.pdf
-    -   ✨ สร้างใหม่: references/court_rulings_books/administrative_court_rulings_vol_06.md
-    -   ✨ สร้างใหม่: scripts/extract_vol05.py
-    -   📝 แก้ไข: scripts/split_pdf.py
-
-**[2026-01-14 08:01] Merge: Resolve git_diary.md conflict (keep stashed logs)**
-
-**[2026-01-14 10:49] End of Day Sync 💤**
-    -   📝 แก้ไข: .agent/workflows/vmd.md
-    -   ✨ สร้างใหม่: 02_parts.txt
-    -   ✨ สร้างใหม่: 15_20_pdf.txt
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_01.md
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_02.md
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_03.md
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_04.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_67.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_72.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_73.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_75.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_76.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_77.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_78.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_79.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_80.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_81.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_82.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_83.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_84.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_85.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_86.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_87.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_88.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_89.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_90.md
-    -   ✨ สร้างใหม่: part_02_text_raw.txt
-    -   ✨ สร้างใหม่: pdftmp.txt
-- **Verify Part 06**: เสร็จสิ้นการตรวจสอบและแก้ไข part_06.md (Re-extracted, Fixed Headers 95/99/100, Formatted Footnotes).
-- Verified Part 06 with strict numeral checks. Fixed OCR error (5->6 for fish size) after PDF confirmation. Corrected phantom footnotes and double superscripts. Verified 0 Arabic numerals via grep.
-
-**[2026-01-14 17:38] End of Day Sync 💤**
-    -   ✨ สร้างใหม่: clean_part_06.py
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_05.md
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_06.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06_part_1.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_06_part_2.pdf
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_07.md
-    -   📝 แก้ไข: etc/Academic_310717_154727-2_parts/part_08.md
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_2a.pdf
-    -   ✨ สร้างใหม่: etc/Academic_310717_154727-2_parts/part_2b.pdf
-    -   ✨ สร้างใหม่: fix_headers.py
-    -   ✨ สร้างใหม่: format_part_06.py
-    -   ✨ สร้างใหม่: inspect_pdf.py
-    -   ✨ สร้างใหม่: page_135.txt
-    -   ✨ สร้างใหม่: page_135_range.txt
-    -   ✨ สร้างใหม่: part_06_pdf.txt
-    -   ✨ สร้างใหม่: part_07_head.txt
-    -   ✨ สร้างใหม่: part_07_missing_pages.txt
-    -   ✨ สร้างใหม่: part_07_page_8.txt
-    -   ✨ สร้างใหม่: part_07_pages_18_22.txt
-    -   ✨ สร้างใหม่: part_07_pages_9_17.txt
-    -   ✨ สร้างใหม่: part_08_pdf.txt
-    -   ✨ สร้างใหม่: reconstruct_pages.py
-    -   ✨ สร้างใหม่: repair_part_08.py
-    -   ✨ สร้างใหม่: smart_format_part_06.py
-    -   ✨ สร้างใหม่: split_pdf.py
-    -   ✨ สร้างใหม่: verify_part_08.py
-
-***
-
-## 📅 2026-01-15 (รอสรุป...)
-
-### 📝 บันทึกการปฏิบัติงาน (Operations Log)
-
-[2026-01-15 17:50] Part 20 Verification Completed
-- Verified 'part_20.md' against PDF.
-- Ratio (No Space): 0.99 (Excellent).
-- Corrected Arabic numerals (5 -> ๖) in 4 locations (Date corrections confirmed by PDF).
-- Fixed Footnote references and definitions (4-15) which were missing or malformed.
-- Confirmed Page 369 content exists (Header missing in source PDF).
-- Jaccard Similarity: 0.55 (Moderate).
-
-[2026-01-15 17:30] Part 19 Verification Completed
-- Verified 'part_19.md' against PDF.
-- Ratio (No Space): 0.99 (Excellent).
-- Corrected content error: '5 เดือน' -> '๖ เดือน' (Line 713).
-- Formatted footnotes and fixed multiple reference typos (e.g., 544 -> 54, 196 -> 19).
-- Confirmed page header sequence.
-
-[2026-01-15 17:00] Part 18 Verification Completed
-- Verified 'part_18.md' against PDF.
-- Ratio (No Space): 0.99.
-- Corrected Arabic numerals (4, 5, 5 -> Thai).
-- Formatted 25+ footnotes.
-
-[2026-01-15 16:10] Part 17 Verification Completed
-- Verified 'part_17.md' against PDF.
-
-**[14:55] ✅ Verify Part 15 (เสร็จสิ้น)**
-- **ตรวจสอบความถูกต้อง:**
-  - Page Range: 267-286 (ครบถ้วน)
-  - Character Count: พบความต่างเยอะ (MD 48k vs PDF 55k) แต่เกิดจาก Justified Spacing ใน PDF (Space ต่างกัน 6,000 ตัว) และ Header padding
-  - Non-Space Byte Check: Difference ~1.2% (1.8kb) ซึ่งตรงกับขนาดของ Header ที่ตัดออกพอดี
-- **การแก้ไข:**
-  - แก้ไขตัวเลขอาหรับเป็นไทย (5 -> ๕, 1 -> ๑)
-  - แก้ไข Footnote artifacts (b, ໑໑ -> <sup>๕</sup>, <sup>๑๑</sup>)
-- **Status:** Verified & Ready for sync.
-
-[2026-01-15 10:30] Part 16 Verification Completed
-- Verified 'part_16.md' against PDF.
-- Character count ratio ~0.94 (Formatted text vs Expanded PDF).
-- Corrected Arabic numeral error (ข้อ 5 -> ข้อ ๕).
-- Preserved 'HIV-1' as technical term.
-- Fixed multiple footnote formatting issues and OCR noise.
-- Confirmed content completeness despite missing page headers for 298-299 in source PDF.
-- Character ratio 0.87 (explained by whitespace, user approved).
-- No Arabic numerals found.
-- Formatted 12 footnote definitions (๑๒-๒๔) with <sup> tags.
-
-[2026-01-15 11:15] Part 21 Verification Completed
-- Verified 'part_21.md' against PDF.
-- **Correction**: Verified and corrected 5 -> ๖ at two locations (lines 5, 321) based on PDF context (Date and Measurement).
-- **Footnotes**: Formatted references and definitions 17-28.
-- **Page Headers**: Confirmed continuity. Identified Chapter 12 title page (approx pg 406/407) as source of header gap, but content is contiguous.
-- **Stats**: Char Ratio 1.00, Jaccard 0.52 (Moderate, headers spot-checked).
