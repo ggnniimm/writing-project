@@ -1,0 +1,18 @@
+--- Extracting PDF ---
+-rw-r--r--@ 1 mingsaksaengwilaipon  staff  155326 Jan 16 15:34 etc/Academic_310717_154727-2_parts/part_29_extracted.txt
+--- MD Char Count ---
+   50977
+--- PDF Char Count ---
+   57892
+--- MD NoSpace Count ---
+   48668
+--- PDF NoSpace Count ---
+   49067
+--- Footnote Count ---
+0
+0 (grep failed)
+--- Page Number Count ---
+0
+0 (grep failed)
+--- Arabic Numerals Check ---
+None found
