@@ -43,7 +43,14 @@ def check_numerals(md_content):
                 # If the regex matches inside <sup>...</sup>, we might want to allow it IF the user accepts Arabic for footnotes.
                 # However, usually footnotes in Thai texts are also Thai numerals.
                 # Let's flag everything for now.
-                issues.append(f"⚠️  Line {i+1}: Arabic numeral '{m.group()}' found in Thai context.")
+                numeral = m.group()
+                
+                # HIGH RISK WARNING: Arabic 5 is often OCR misread from Thai ๖
+                if '5' in numeral:
+                    issues.append(f"🔴 Line {i+1}: HIGH RISK - Arabic '5' found! OCR often misreads Thai ๖ as 5. MUST check PDF visually!")
+                else:
+                    issues.append(f"⚠️  Line {i+1}: Arabic numeral '{numeral}' found in Thai context.")
+                    
                 if len(issues) >= 10:
                     issues.append("... (too many numeral errors, stopping check)")
                     return issues
