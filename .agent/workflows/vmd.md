@@ -165,18 +165,20 @@ grep -C 3 "คำบริบท" "$PDF_TXT_FILE"
 > 3. **กฎเลข 6 (Rule of 6):** ในชุดข้อมูลนี้ เลข `5` มักจะเป็น `๖` (6) ที่ OCR อ่านผิด ให้ตั้งสมมติฐานว่าเป็น `๖` ไว้ก่อนเสมอจนกว่าจะพิสูจน์ได้ว่าเป็น `๕`
 > 4. **กฎ Screenshot (Visual Proof Rule):** ทุกการแก้ไข numeral **ต้อง** capture screenshot จาก PDF เป็นหลักฐาน ห้ามเชื่อ text extraction เด็ดขาด
 
-**Step 4.2.1: MANDATORY Visual Verification (NEW)**
-> [!CAUTION]
-> **ห้ามข้ามขั้นตอนนี้เด็ดขาด!**
-> 
-> สำหรับ **ทุก** Arabic numeral ที่พบ ต้อง:
-> 1. **เปิด PDF ใน Browser** ด้วย browser_subagent
-> 2. **Navigate ไปยังหน้าที่เกี่ยวข้อง**
-> 3. **Capture Screenshot** ที่แสดงตัวเลขนั้นชัดเจน
-> 4. **ดูด้วยตา** ว่า PDF แสดงเลขอะไร (Thai or Arabic, ค่าเท่าไหร่)
-> 5. **บันทึก screenshot path** เป็นหลักฐาน
+**Step 4.2.1: Automated Context Verification (NEW)**
+> [!TIP]
+> **Better & Cheaper:** Use the new script to automatically verify numerals against PDF text context.
 >
-> **เหตุผล:** OCR อ่าน Thai `๖` (6) เป็น Arabic `5` บ่อยมาก — text extraction เชื่อถือไม่ได้!
+> 1. Run the strict verification script:
+>    ```bash
+>    python3 scripts/verify_numerals_strict.py "$MD_FILE" "$PDF_FILE"
+>    ```
+> 2. **Analyze the Output:**
+>    - **AUTO-FIX:** If the script says `AUTO-FIX: Change 5 -> ๖`, you can apply that change.
+>    - **MATCH:** If it says `MATCH`, it means PDF also has Arabic '5'.
+>    - **MISMATCH / UNCHECKED:** Only then do you need to look at the PDF manually (Use `open_browser_page` if needed, or just trusting the context if obvious).
+>
+> **Reason:** This script performs the "Search Context" step for you faster and without token-heavy browser calls.
 
 
 **Step 4.3: เปรียบเทียบและตัดสินใจ**

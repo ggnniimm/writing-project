@@ -229,12 +229,14 @@ def verify_content(md_path, pdf_path=None):
                 print(f"   - MD Char Length:  {len_md}")
                 print(f"   - Ratio (MD/PDF):  {ratio:.2f}")
                 
-                if ratio < 0.8:
-                    print("❌ Warning: Markdown significantly shorter than PDF text (< 80%). Content might be missing.")
+                if ratio < 0.9:
+                    print("❌ Warning: Markdown significantly shorter than PDF text (< 90%). LIKELY MISSING PAGES! Check Page Count.")
+                elif ratio < 0.95:
+                    print("⚠️  Warning: Markdown slightly shorter (< 95%). Potential missing paragraph or page. Verify visuals.")
                 elif ratio > 1.2:
                     print("⚠️  Warning: Markdown significantly longer than PDF text (> 120%). Possible duplication or hallucination.")
                 else:
-                    print("✅ Length Ratio looks healthy (0.8 - 1.2).")
+                    print("✅ Length Ratio looks healthy (0.95 - 1.2).")
                 
                 # Jaccard Sim (Set Overlap)
                 # Using 4-char shingles
