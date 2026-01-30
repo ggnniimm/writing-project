@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP.162: Improper Contract Termination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --warning-color: #e74c3c;
+            --success-color: #27ae60;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-gray: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Typography */
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--accent-color);
+            margin-right: 10px;
+            border-radius: 4px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-top: 25px;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .highlight-red {
+            color: var(--warning-color);
+            font-weight: 600;
+        }
+
+        /* Components */
+        .intro-box {
+            background-color: #ebf5fb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        blockquote {
+            background: var(--light-gray);
+            border-left: 5px solid var(--primary-color);
+            margin: 2em 0;
+            padding: 1.5em 20px;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '"';
+            font-size: 4em;
+            color: #bdc3c7;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            opacity: 0.5;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+
+        /* Lesson Cards */
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .lesson-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .lesson-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-color);
+        }
+
+        .lesson-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Footer */
+        .footer-note {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .final-thought {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .final-thought strong {
+            color: #f1c40f;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>EP.162: งานเสร็จ 97% แล้วโดนเลิกสัญญา? <br><span
+                style="font-size: 0.8em; font-weight: 400; color: #555;">บทเรียนราคาแพงที่ "หน่วยงานรัฐ"
+                ต้องระวัง</span></h1>
+
+        <div class="intro-box">
+            <p><strong>เคยไหมครับ?</strong> ทำงานแทบตายจนเกือบจะเสร็จสมบูรณ์ เหลือแค่เก็บงานนิดหน่อย แต่จู่ๆ กลับโดน
+                <strong>"บอกเลิกสัญญา"</strong> พร้อมโดนยึดประกันและเรียกค่าเสียหายมหาศาล!
+            </p>
+            <p style="margin-bottom: 0;">สำหรับเคสนี้ ศาลปกครองสูงสุดมีคำตอบที่ชัดเจนและเป็นธรรมมากใน
+                <strong>คำพิพากษาที่ อ. 774/2564</strong>
+                ซึ่งถือเป็นบรรทัดฐานสำคัญที่ทั้งผู้ตรวจรับและผู้รับจ้างต้องรู้ครับ
+            </p>
+        </div>
+
+        <h2>1. ดุลพินิจต้อง "แฟร์" (งานเสร็จขนาดนี้ เลิกสัญญาไม่ได้!)</h2>
+        <p>แม้ในสัญญา (ข้อ 5 ข.) จะระบุสิทธิให้หน่วยงานรัฐบอกเลิกสัญญาได้หากงานล่าช้า แต่ศาลวางหลักการสำคัญว่า <span
+                class="highlight-red">"การใช้สิทธินั้นต้องมีเหตุผลรองรับที่เหมาะสม"</span> ไม่ใช่จะเลิกเมื่อไหร่ก็ได้
+        </p>
+
+        <p><strong>ทำไมคดีนี้ศาลถึงมองว่า "เลิกสัญญาไม่ชอบ"?</strong></p>
+        <ul>
+            <li>✅ <strong>เนื้องานเดินไปถึง 97.42%:</strong> งานหลักเสร็จหมดแล้ว เหลือเพียงรายละเอียดเล็กน้อย เช่น ฝาท่อ
+                หรือการเก็บสี</li>
+            <li>✅ <strong>ผู้รับจ้างใจสู้:</strong> ไม่ทิ้งงาน ยังคงพยายามทำงานต่อแม้จะไม่ได้รับค่างวด</li>
+        </ul>
+
+        <blockquote>
+            <p style="margin:0;">"สภาพของงานที่มีข้อโต้แย้งนั้นเป็นเพียงรายละเอียดบางส่วน...
+                กรณีจึงไม่ใช่กรณีที่ฝ่ายปกครองพึงใช้ดุลพินิจบอกเลิกสัญญา เพราะมีการดำเนินการเกือบครบถ้วนตามสัญญาแล้ว"
+            </p>
+        </blockquote>
+
+        <p><strong>สรุปง่ายๆ:</strong> ถ้างานเสร็จใน <strong>สาระสำคัญ (Substantial Performance)</strong> แล้ว
+            การเลิกสัญญาจะสร้างความเสียหายมากกว่าประโยชน์สาธารณะครับ</p>
+
+        <h2>2. เมื่อ "พลาด" เลิกสัญญา...ต้องจบอย่างไร?</h2>
+        <p>เมื่อหน่วยงานรัฐบอกเลิกสัญญาโดยมิชอบ และผู้รับจ้างหยุดงาน ศาลถือว่าทั้งสองฝ่าย
+            <strong>"ตกลงเลิกสัญญาโดยปริยาย" (Mutual Consent)</strong> ผลลัพธ์ทางการเงินจึงออกมาดังนี้:
+        </p>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="30%">รายการ</th>
+                        <th>ผลทางกฎหมาย</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ตัวอาคาร/เนื้องาน</strong></td>
+                        <td><strong style="color: var(--success-color);">รัฐต้องจ่ายเงิน:</strong> จะยึดงานที่เสร็จ 97%
+                            ไว้ฟรีๆ ไม่ได้ ต้องจ่ายค่าจ้างตามสัดส่วนงานที่ทำจริง (คืนสู่ฐานะเดิม) ในคดีนี้คือประมาณ 17
+                            ล้านบาท</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ค่าหาผู้รับจ้างใหม่</strong></td>
+                        <td><strong style="color: var(--warning-color);">รัฐจ่ายเอง:</strong>
+                            ส่วนต่างราคาค่าจ้างคนใหม่ที่แพงขึ้น หน่วยงานรับผิดชอบเอง
+                            เพราะเป็นฝ่ายเลือกเลิกสัญญาเองทั้งที่ไม่ควร</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ค่าปรับล่าช้า</strong></td>
+                        <td><strong>ยังเรียกได้:</strong> ค่าปรับที่เกิดขึ้นก่อนการบอกเลิกสัญญา
+                            รัฐยังสามารถเรียกเก็บได้ตามปกติ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>3. บทเรียนสำคัญสำหรับสายก่อสร้าง</h2>
+
+        <div class="lesson-grid">
+            <div class="lesson-card">
+                <div class="lesson-header" style="color: var(--primary-color);">
+                    🏛️ สำหรับหน่วยงานรัฐ (Owner)
+                </div>
+                <p style="font-size: 0.95em; margin:0;"><strong>เป้าหมายคือผลงาน:</strong>
+                    อย่าติดกับดักระเบียบจนลืมเป้าหมายหลัก หากงานใกล้จบ การเร่งรัดหรือบริหารสัญญาให้งานเสร็จ
+                    ย่อมดีกว่าการเลิกสัญญาแล้วเริ่มนับหนึ่งใหม่ ซึ่งเสียทั้งเวลาและงบประมาณแผ่นดิน</p>
+            </div>
+
+            <div class="lesson-card">
+                <div class="lesson-header" style="color: var(--accent-color);">
+                    👷 สำหรับผู้รับจ้าง (Contractor)
+                </div>
+                <p style="font-size: 0.95em; margin:0;"><strong>% งานคือเกราะกันภัย:</strong>
+                    พยายามดันเนื้องานให้ได้มากที่สุด (เกิน 90-95%) และที่สำคัญ <strong>"ห้ามทิ้งงานเด็ดขาด"</strong>
+                    ตัวเลขความสำเร็จนี้จะเป็นหลักฐานสำคัญที่คุ้มครองท่านจากการถูกเลิกสัญญาที่ไม่เป็นธรรม</p>
+            </div>
+        </div>
+
+        <div class="final-thought">
+            ข้อคิดทิ้งท้าย: สัญญาทางปกครองมีไว้เพื่อ "ประโยชน์สาธารณะ" <br>
+            การบอกเลิกสัญญาควรเป็น <strong>ทางออกสุดท้าย (Last Resort)</strong> เท่านั้นครับ!
+        </div>
+
+        <div class="footer-note">
+            <em>โดยนายมิ่งศักดิ์ แสงวิไลพร + Antigravity </em>
+            <em>อ้างอิงข้อมูล: คำพิพากษาศาลปกครองสูงสุดที่ อ. 774/2564</em>
+        </div>
+    </div>
+
+</body>
+
+</html>
