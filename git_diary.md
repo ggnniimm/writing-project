@@ -6277,3 +6277,14 @@
     -   ✨ สร้างใหม่: scripts/fix_thai_spacing.py
     -   📝 แก้ไข: scripts/verify_md_content.py
     -   ✨ สร้างใหม่: scripts/verify_numerals_strict.py
+
+**[2026-01-30 14:58] feat: Add Articles EP.161-162 & Ref 774/2564**
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep161_excessive_fine_reduction_97_percent_complete_o_774_2564.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep162_improper_termination_substantial_performance_o_774_2564.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep162v2_short_improper_termination_o_774_2564.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep162v3_medium_improper_termination_o_774_2564.md
+    -   ✨ สร้างใหม่: articles/learning_from_judgments/ep162v3_medium_improper_termination_o_779_2565.html
+    -   ✨ สร้างใหม่: raw_pdfs/01012-610607-1f-650922-0000728614.pdf
+    -   ✨ สร้างใหม่: raw_pdfs/law52_160854_1.pdf
+    -   ✨ สร้างใหม่: references/rulings_court/ref_sac_o_774_2564.md
+    -   ✨ สร้างใหม่: scripts/md_to_html.py

@@ -198,7 +198,7 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
             # --- STEP 3: GENERATE ---
             print("🧠 Generating content...")
             
-            model = genai.GenerativeModel('models/gemini-flash-latest')
+            model = genai.GenerativeModel('models/gemini-2.5-flash')
             
             prompt_text = """
             You are an expert OCR engine.
@@ -307,10 +307,12 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
     print(f"✅ Success! Extracted to: {output_path}")
 
     # 5. Agentic Auto-Renaming & Classification
-    final_filename, target_subfolder = determine_filename_and_path(final_combined_markdown)
+    _, target_subfolder = determine_filename_and_path(final_combined_markdown)
+    # Force filename to match original PDF
+    final_filename = os.path.splitext(os.path.basename(filepath))[0] + ".md"
     
     # Construct final path
-    project_root = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     final_dir = os.path.join(project_root, target_subfolder)
     
     if not os.path.exists(final_dir):
@@ -336,8 +338,9 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
         new_pdf_path = os.path.join(source_dir, new_pdf_filename)
 
         if abs_source_path != new_pdf_path:
-            os.rename(abs_source_path, new_pdf_path)
-            print(f"✨ Auto-Renamed Source PDF to: {new_pdf_filename}")
+            # os.rename(abs_source_path, new_pdf_path)
+            # print(f"✨ Auto-Renamed Source PDF to: {new_pdf_filename}")
+            print(f"✨ Skipped Auto-Renaming Source PDF (User Preference).")
         else:
             print(f"✨ Source PDF already correctly named.")
             
