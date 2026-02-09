@@ -230,6 +230,12 @@ def extract_and_name_with_gemini(filepath, explicit_output_path=None):
                     full_text += chunk.text
                     print(".", end="", flush=True) # Progress indicator
             
+            try:
+                if response.usage_metadata:
+                    print(f"\n   🎟️  Tokens: Prompt={response.usage_metadata.prompt_token_count}, Output={response.usage_metadata.candidates_token_count}")
+            except:
+                pass
+            
             print("\n✅ Generation Complete.")
             
             final_combined_markdown = full_text.strip()

@@ -11,8 +11,8 @@ echo "🤖 Starting Extraction Routine (eee)..."
 echo "---------------------------------------------------"
 
 # 1. Extract PDF
-echo "📄 1. Extracting Text from PDF..."
-python3 scripts/gemini_pdf_to_md.py "$1"
+echo "📄 1. Extracting Text from PDF (Agentic)..."
+python3 scripts/agentic_pdf_processor.py "$1"
 
 # 2. Agent Reminder (Auto-Integration)
 echo "---------------------------------------------------"
