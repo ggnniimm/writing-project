@@ -100,7 +100,7 @@ def extract_with_frontmatter(filepath, api_key, doc_type):
     schema_instructions = ""
     if doc_type == "Ruling_Committee":
         schema_instructions = """
-        - type: Ruling_Committee
+        - type: แนววินิจฉัย
         - date: "DD Month YYYY" (Thai date from header)
         - ref_number: "The alphanumeric reference number (e.g. กค ...)"
         - topic: "The full Subject line"
@@ -108,7 +108,7 @@ def extract_with_frontmatter(filepath, api_key, doc_type):
         """
     elif doc_type == "Circular":
         schema_instructions = """
-        - type: Circular
+        - type: หนังสือเวียน
         - date: "DD Month YYYY"
         - ref_number: "The Circular number (e.g. ว ...)"
         - topic: "Subject"
@@ -129,6 +129,11 @@ def extract_with_frontmatter(filepath, api_key, doc_type):
     1. **YAML Frontmatter** (Must be at the very top, between ---):
     Extract these fields:
     {schema_instructions}
+    - tags: List of English keywords (e.g., [fine, termination, amendment]).
+    - law_section: List of relevant legal sections in format 'pw_60_sXXX' (Procurement Act 2560) or 'ccc_sXXX' (Civil Code).
+
+    **IMPORTANT:** 
+    - For `type`, use Thai values: "แนววินิจฉัย" (for Ruling_Committee), "หนังสือเวียน" (for Circular).
     
     2. **Content**:
     Extract the full document text verbatim in Markdown format.
