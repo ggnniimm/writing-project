@@ -3,7 +3,6 @@ type: แนววินิจฉัย
 date: 2025-01-09
 ref_number: "กค (กวจ) ๐๔๐๕.๔/๖๗๔"
 topic: "ข้อหารือเกี่ยวกับโครงการก่อสร้างอาคารปฏิบัติการฯ (BOQ vs Drawings Discrepancy)"
-signer: "นางแพตริเซีย มงคลวนิช"
 tags:
   - construction
   - boq
